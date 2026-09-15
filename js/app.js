@@ -219,12 +219,38 @@ const App = {
 
     container.innerHTML = HELEVATE_DATA.team.map(t => `
       <div class="team-card reveal-on-scroll">
-        <img src="${t.photo}" alt="${t.name}" class="team-card-img" loading="lazy">
+        <div class="team-card-media">
+          <img src="${t.photo}" alt="${t.name}" class="team-card-img" loading="lazy">
+          <div class="team-card-scrim"></div>
+          <div class="team-card-badge-floating">${t.badge || "Faculty"}</div>
+          <div class="team-card-exp-tag">${t.experience || "Certified"}</div>
+        </div>
         <div class="team-card-body">
-          <h3>${t.name}</h3>
-          <div class="team-card-role">${t.role}</div>
-          <div class="team-card-cert">${t.certification}</div>
-          <p style="font-size: 0.86rem; color: var(--color-text-muted); margin-top: 14px; line-height: 1.55;">${t.specialty}</p>
+          <div class="team-card-header">
+            <h3 class="team-card-name">${t.name}</h3>
+            <div class="team-card-role-title">${t.role}</div>
+          </div>
+          
+          <div class="team-card-cert-box">
+            <span class="team-card-cert-icon">🎓</span>
+            <span class="team-card-cert-text">${t.certification}</span>
+          </div>
+
+          <div class="team-card-specialty-box">
+            <strong>Clinical Focus:</strong> ${t.specialty}
+          </div>
+
+          <p class="team-card-bio-text">${t.bio}</p>
+
+          <div class="team-card-capabilities-list">
+            ${(t.capabilities || []).map(cap => `
+              <span class="team-card-cap-pill">✓ ${cap}</span>
+            `).join("")}
+          </div>
+
+          <div class="team-card-footer">
+            <a href="#/booking" class="team-card-cta-link">Book Consultation →</a>
+          </div>
         </div>
       </div>
     `).join("");
@@ -400,9 +426,18 @@ const App = {
             <h2 style="font-size: 1.7rem; color: var(--color-primary-navy); margin-bottom: 4px;">Quarterly Health & Performance Report</h2>
             <div style="font-size: 0.85rem; color: var(--color-text-muted);">Client: ${r.clientName} &bull; Cycle: ${r.assessmentDate}</div>
           </div>
-          <div style="text-align: right;">
-            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-dim); letter-spacing: 0.05em;">Composite Score</div>
-            <div style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--color-primary-navy);">${r.overallScore} / 100</div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div class="circle-progress-container" style="width: 72px; height: 72px;">
+              <svg viewBox="0 0 60 60">
+                <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
+                <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="${r.overallScore}" />
+              </svg>
+              <div class="circle-progress-center" style="font-size: 1.05rem;">${r.overallScore}</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-dim); letter-spacing: 0.05em;">Composite Score</div>
+              <div style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.95rem;">Optimal Zone</div>
+            </div>
           </div>
         </div>
 
@@ -411,18 +446,27 @@ const App = {
         </p>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px;">
-          <div class="card-blue" style="padding: 18px 16px;">
-            <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy); margin-bottom: 4px;">1. Lean Mass & Strength</div>
+          <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">1. Lean Mass & Strength</div>
+              <div class="pulse-radar-dot"></div>
+            </div>
             <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.fitness.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.fitness.detail}</p>
           </div>
-          <div class="card-blue" style="padding: 18px 16px;">
-            <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy); margin-bottom: 4px;">2. Insulin & Blood Chemistry</div>
+          <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">2. Insulin & Blood Chemistry</div>
+              <div class="pulse-radar-dot"></div>
+            </div>
             <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.nutrition.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.nutrition.detail}</p>
           </div>
-          <div class="card-blue" style="padding: 18px 16px;">
-            <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy); margin-bottom: 4px;">3. Autonomic & Recovery</div>
+          <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">3. Autonomic & Recovery</div>
+              <div class="pulse-radar-dot"></div>
+            </div>
             <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.recovery.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.recovery.detail}</p>
           </div>
@@ -798,15 +842,9 @@ const App = {
   },
 
   initScrollObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
+    if (window.ScrollMotionEngine && window.ScrollMotionEngine.refresh) {
+      window.ScrollMotionEngine.refresh();
+    }
   }
 };
 

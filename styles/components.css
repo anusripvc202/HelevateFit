@@ -9,22 +9,24 @@
    1. HEADER & NAVIGATION (Glassmorphism & Micro-interactions)
    -------------------------------------------------------------------------- */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(14, 58, 93, 0.08);
-  z-index: 1000;
-  transition: all var(--transition-normal);
+  z-index: 10000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, height 0.3s ease;
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 8px 28px -4px rgba(14, 58, 93, 0.1);
-  border-bottom-color: rgba(14, 58, 93, 0.14);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 32px -4px rgba(14, 58, 93, 0.12), 0 2px 8px -2px rgba(14, 58, 93, 0.06);
+  border-bottom-color: rgba(14, 58, 93, 0.16);
 }
 
 .header-inner {
@@ -918,6 +920,7 @@
   align-items: center;
   position: relative;
   z-index: 2;
+  will-change: transform, opacity;
 }
 
 .timeline-step-row:hover,
@@ -929,19 +932,45 @@
 
 .timeline-step-num {
   font-family: var(--font-heading);
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-primary-navy);
   background: var(--color-primary-light-blue);
   width: 74px;
   height: 74px;
-  border-radius: var(--radius-lg);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(14, 58, 93, 0.08);
-  border: 1px solid rgba(14, 58, 93, 0.1);
+  box-shadow: 0 4px 16px rgba(14, 58, 93, 0.12);
+  border: 2px solid rgba(14, 58, 93, 0.15);
   flex-shrink: 0;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.timeline-step-num::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(14, 58, 93, 0.25);
+  animation: spinCircleDashed 30s linear infinite;
+  pointer-events: none;
+}
+
+.timeline-step-row.active .timeline-step-num,
+.timeline-step-row:hover .timeline-step-num {
+  background: var(--color-primary-navy);
+  color: #FFFFFF;
+  border-color: #DDF1EF;
+  box-shadow: 0 0 20px rgba(14, 58, 93, 0.35);
+}
+
+.timeline-step-row.active .timeline-step-num::before,
+.timeline-step-row:hover .timeline-step-num::before {
+  border-color: var(--color-primary-navy);
+  animation-duration: 12s;
 }
 
 .timeline-step-content h3 {
@@ -1299,12 +1328,92 @@
 }
 
 /* --------------------------------------------------------------------------
-   13. CAREERS & ABOUT TEAM CARDS
+   12B. WHO WE ARE SECTION STYLES (About Page)
+   -------------------------------------------------------------------------- */
+.who-we-are-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.who-we-are-card {
+  padding: 30px 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.who-we-are-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary-navy);
+}
+
+.who-we-are-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-primary-light-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  border: 1.5px solid rgba(14, 58, 93, 0.15);
+  box-shadow: 0 4px 12px rgba(14, 58, 93, 0.08);
+}
+
+.who-we-are-manifesto-box {
+  background: linear-gradient(135deg, var(--color-primary-navy-dark) 0%, var(--color-primary-navy) 100%);
+  border-radius: var(--radius-lg);
+  padding: 38px 32px;
+  box-shadow: var(--shadow-card-hover);
+  border: 1px solid rgba(221, 241, 239, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.who-we-are-manifesto-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.who-we-are-points-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .who-we-are-pillars {
+    grid-template-columns: 1fr;
+  }
+  .who-we-are-manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .who-we-are-points-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. CAREERS & ABOUT TEAM CARDS (Ultra-Luxury Faculty Grid)
    -------------------------------------------------------------------------- */
 .team-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .team-card {
@@ -1313,51 +1422,192 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: 0 18px 40px rgba(7, 34, 56, 0.12), 0 0 18px rgba(221, 241, 239, 0.5);
   border-color: var(--color-primary-navy);
+}
+
+.team-card-media {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary-navy-dark);
 }
 
 .team-card-img {
   width: 100%;
-  height: 230px;
+  height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .team-card:hover .team-card-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.team-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 34, 56, 0.1) 40%, rgba(7, 34, 56, 0.85) 100%);
+  pointer-events: none;
+}
+
+.team-card-badge-floating {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(7, 34, 56, 0.88);
+  color: #FFFFFF;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(221, 241, 239, 0.35);
+  padding: 4px 11px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.team-card-exp-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(221, 241, 239, 0.92);
+  color: var(--color-primary-navy);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(14, 58, 93, 0.15);
+  z-index: 2;
 }
 
 .team-card-body {
-  padding: 18px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.team-card-body h3 {
-  font-size: 1.25rem;
-  color: var(--color-primary-navy);
-  margin-bottom: 4px;
-}
-
-.team-card-role {
-  font-size: 0.885rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
+.team-card-header {
   margin-bottom: 10px;
 }
 
-.team-card-cert {
-  font-size: 0.8rem;
+.team-card-name {
+  font-size: 1.22rem;
   color: var(--color-primary-navy);
-  background: var(--color-primary-light-blue);
-  padding: 4px 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.team-card-role-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.team-card-cert-box {
+  background: var(--color-light-blue-soft);
+  border: 1px solid rgba(14, 58, 93, 0.1);
   border-radius: var(--radius-sm);
-  display: inline-block;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.team-card-cert-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.team-card-cert-text {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.35;
+}
+
+.team-card-specialty-box {
+  font-size: 0.82rem;
+  color: var(--color-text-main);
+  background: rgba(221, 241, 239, 0.35);
+  border-left: 3px solid var(--color-primary-navy);
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.team-card-bio-text {
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.team-card-capabilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+.team-card-cap-pill {
+  font-size: 0.72rem;
   font-weight: 600;
+  color: var(--color-primary-navy);
+  background: #FFFFFF;
+  border: 1px solid rgba(14, 58, 93, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.team-card-footer {
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.team-card-cta-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.team-card-cta-link:hover {
+  color: var(--color-primary-navy-hover);
+  gap: 8px;
+}
+
+@media (max-width: 1100px) {
+  .team-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid-4 {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1498,15 +1748,177 @@
 }
 
 .footer-bottom-bar {
-  padding-top: 20px;
-  border-top: 1px solid rgba(221, 241, 239, 0.12);
+  padding-top: 24px;
+  border-top: 1px solid rgba(221, 241, 239, 0.14);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.86rem;
-  color: rgba(221, 241, 239, 0.65);
+  color: rgba(221, 241, 239, 0.7);
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   BUBBLESMEDIA FOOTER CREDIT & BUBBLE EFFECT
+   ========================================================================== */
+.footer-credit-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(221, 241, 239, 0.85);
+}
+
+.bubbles-media-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: rgba(221, 241, 239, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(221, 241, 239, 0.35);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(7, 34, 56, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: visible;
+  cursor: pointer;
+}
+
+.bubbles-media-badge::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  right: 10px;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 100%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.bubbles-media-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(221, 241, 239, 0.2);
+  border-color: #DDF1EF;
+  box-shadow: 0 8px 24px rgba(7, 34, 56, 0.4), 0 0 20px rgba(221, 241, 239, 0.6);
+  color: #FFFFFF;
+}
+
+.bubbles-media-badge .bubble-icon {
+  display: inline-block;
+  font-size: 1.05rem;
+  animation: floatBubbleIcon 3s ease-in-out infinite;
+}
+
+.bubbles-name {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FFFFFF 0%, #DDF1EF 55%, #A8E6CF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.b-char {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bubbles-media-badge:hover .b-char {
+  animation: jellyPopChar 0.6s ease forwards;
+  animation-delay: var(--d, 0s);
+}
+
+.b-media {
+  margin-left: 3px;
+  font-weight: 800;
+  color: #DDF1EF;
+  -webkit-text-fill-color: #DDF1EF;
+}
+
+/* Floating Micro-Bubbles inside Badge */
+.micro-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85) 0%, rgba(221, 241, 239, 0.4) 60%, transparent 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 6px rgba(221, 241, 239, 0.6);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.micro-bubble.b1 {
+  width: 8px;
+  height: 8px;
+  left: 20%;
+  bottom: 0;
+  animation: riseBubble 2.4s ease-in-out infinite;
+}
+
+.micro-bubble.b2 {
+  width: 6px;
+  height: 6px;
+  left: 55%;
+  bottom: -2px;
+  animation: riseBubble 2.8s ease-in-out infinite 0.7s;
+}
+
+.micro-bubble.b3 {
+  width: 10px;
+  height: 10px;
+  left: 80%;
+  bottom: 0;
+  animation: riseBubble 3.1s ease-in-out infinite 1.3s;
+}
+
+@keyframes riseBubble {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.85;
+    transform: translateY(-22px) translateX(3px) scale(1);
+  }
+  100% {
+    transform: translateY(-36px) translateX(-2px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes floatBubbleIcon {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(8deg);
+  }
+}
+
+@keyframes jellyPopChar {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  30% {
+    transform: scale(1.3, 0.75) translateY(-5px);
+  }
+  60% {
+    transform: scale(0.85, 1.2) translateY(2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2540,31 +2952,79 @@
   inset: 0;
   background-size: 56px 56px;
   background-image: 
-    linear-gradient(to right, rgba(221, 241, 239, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(221, 241, 239, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(221, 241, 239, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(221, 241, 239, 0.05) 1px, transparent 1px);
   pointer-events: none;
 }
 
 .telemetry-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px dashed rgba(221, 241, 239, 0.2);
+  border: 1.5px dashed rgba(221, 241, 239, 0.28);
   pointer-events: none;
+  animation: spinCircleDashed 60s linear infinite;
+  transform-origin: center center;
+}
+
+.telemetry-ring.reverse {
+  animation: spinCircleReverse 48s linear infinite;
+  border-style: dotted;
+  border-color: rgba(221, 241, 239, 0.35);
+}
+
+.telemetry-ring.fast {
+  animation-duration: 25s;
+}
+
+.telemetry-ring.slow {
+  animation-duration: 90s;
 }
 
 .telemetry-ring-glow {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(221, 241, 239, 0.3);
-  box-shadow: 0 0 28px rgba(221, 241, 239, 0.12), inset 0 0 18px rgba(221, 241, 239, 0.08);
+  border: 1px solid rgba(221, 241, 239, 0.4);
+  box-shadow: 0 0 32px rgba(221, 241, 239, 0.18), inset 0 0 20px rgba(221, 241, 239, 0.12);
   pointer-events: none;
+  animation: pulseCircleGlow 5.5s ease-in-out infinite;
+}
+
+.telemetry-ring-radar {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(221, 241, 239, 0.2);
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(221, 241, 239, 0.15) 360deg);
+  animation: radarSweepCircle 7s linear infinite;
+  pointer-events: none;
+}
+
+/* Ambient Floating Glowing Circular Orbs */
+.ambient-circle-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  pointer-events: none;
+  opacity: 0.45;
+  animation: floatCircleOrb 22s ease-in-out infinite;
+}
+
+.ambient-circle-orb.orb-cyan {
+  background: radial-gradient(circle, rgba(221, 241, 239, 0.35) 0%, rgba(208, 235, 232, 0.12) 60%, transparent 80%);
+}
+
+.ambient-circle-orb.orb-navy {
+  background: radial-gradient(circle, rgba(14, 58, 93, 0.5) 0%, rgba(7, 34, 56, 0.2) 60%, transparent 80%);
+}
+
+.ambient-circle-orb.orb-mint-light {
+  background: radial-gradient(circle, rgba(221, 241, 239, 0.55) 0%, rgba(237, 248, 247, 0.2) 60%, transparent 80%);
 }
 
 .telemetry-crosshair {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  opacity: 0.35;
+  width: 16px;
+  height: 16px;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -2573,17 +3033,18 @@
   content: '';
   position: absolute;
   background: var(--color-primary-light-blue);
+  box-shadow: 0 0 4px var(--color-primary-light-blue);
 }
 
 .telemetry-crosshair::before {
-  top: 6px;
+  top: 7px;
   left: 0;
   right: 0;
   height: 1.5px;
 }
 
 .telemetry-crosshair::after {
-  left: 6px;
+  left: 7px;
   top: 0;
   bottom: 0;
   width: 1.5px;
@@ -2591,20 +3052,89 @@
 
 .pulse-node-float {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--color-primary-light-blue);
-  box-shadow: 0 0 12px var(--color-primary-light-blue);
-  animation: pulseGlow 3s infinite ease-in-out;
+  box-shadow: 0 0 14px var(--color-primary-light-blue);
+  animation: pulseGlow 2.8s infinite ease-in-out;
   pointer-events: none;
+}
+
+.pulse-node-float::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary-light-blue);
+  animation: ripplePulseCircle 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Circular Metric Progress Rings */
+.circle-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(14, 58, 93, 0.12);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.circle-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary-navy);
+}
+
+.circle-progress-container {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.circle-progress-container svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.circle-progress-bg {
+  stroke: rgba(14, 58, 93, 0.1);
+  fill: none;
+  stroke-width: 4;
+}
+
+.circle-progress-bar {
+  stroke: var(--color-primary-navy);
+  fill: none;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circle-progress-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
 }
 
 /* Seamless Section Transition Dividers */
 .section-divider-glow {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(221, 241, 239, 0.35) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(221, 241, 239, 0.45) 50%, transparent 100%);
   margin: 0;
   border: none;
 }
@@ -2869,5 +3399,94 @@
   }
 }
 
+/* ==========================================================================
+   22. CIRCULAR AVATARS, RADAR PINS & METRIC GLOWS
+   ========================================================================== */
+.avatar-circle-halo {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 6px;
+  flex-shrink: 0;
+}
 
+.avatar-circle-halo img {
+  border-radius: 50%;
+  display: block;
+}
 
+.avatar-circle-halo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(14, 58, 93, 0.35);
+  animation: spinCircleDashed 32s linear infinite;
+  pointer-events: none;
+}
+
+.avatar-circle-halo::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(221, 241, 239, 0.5);
+  animation: pulseCircleGlow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.pulse-radar-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #319795;
+  box-shadow: 0 0 10px #319795;
+  position: relative;
+  vertical-align: middle;
+}
+
+.pulse-radar-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #319795;
+  animation: ripplePulseCircle 2.2s ease-out infinite;
+}
+
+/* Luxury Scientific Circular Hero Visualizer Element */
+.circular-visual-dial {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(221, 241, 239, 0.15) 0%, rgba(7, 34, 56, 0.6) 100%);
+  border: 1px solid rgba(221, 241, 239, 0.3);
+  box-shadow: 0 0 24px rgba(221, 241, 239, 0.15);
+}
+
+.circular-visual-dial .dial-ring {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(221, 241, 239, 0.4);
+  animation: spinCircleDashed 20s linear infinite;
+}
+
+.circular-visual-dial .dial-ring.reverse {
+  inset: 14px;
+  border: 1px dotted rgba(221, 241, 239, 0.3);
+  animation: spinCircleReverse 14s linear infinite;
+}
+
+.circular-visual-dial .dial-center-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 2;
+}

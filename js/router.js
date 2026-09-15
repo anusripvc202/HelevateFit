@@ -11,6 +11,9 @@ const Router = {
   currentRoute: "",
 
   init() {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     window.addEventListener("hashchange", () => this.handleRoute());
     window.addEventListener("popstate", () => this.handleRoute());
     this.handleRoute();
@@ -25,6 +28,11 @@ const Router = {
   },
 
   handleRoute() {
+    // 1. Immediately force window scroll to top (0, 0) before any layout or view change
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+
     let rawHash = window.location.hash.slice(1) || "/";
     if (rawHash === "") rawHash = "/";
     if (!rawHash.startsWith("/")) rawHash = "/" + rawHash;
@@ -34,12 +42,12 @@ const Router = {
     const normalizedPath = pathOnly;
     this.currentRoute = normalizedPath;
 
-    // 1. Hide all views
+    // 2. Hide all views
     document.querySelectorAll(".app-view").forEach((view) => {
       view.classList.remove("active");
     });
 
-    // 2. Update navigation active state
+    // 3. Update navigation active state
     document.querySelectorAll(".nav-link").forEach((link) => {
       const target = link.getAttribute("href") || "";
       const targetClean = target.replace("#", "");
@@ -53,7 +61,7 @@ const Router = {
       }
     });
 
-    // 3. Route Matching
+    // 4. Route Matching & View Display
     if (normalizedPath === "/" || normalizedPath === "/home") {
       this.showView("view-home");
     } else if (normalizedPath === "/how-it-works") {
@@ -134,10 +142,12 @@ const Router = {
       this.showView("view-home");
     }
 
-    // Scroll to top smoothly
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // 5. Hard ensure top scroll on the newly displayed view
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
 
-    // Close mobile drawer if open
+    // 6. Close mobile drawer if open
     const drawer = document.getElementById("mobile-nav-drawer");
     const backdrop = document.getElementById("drawer-backdrop");
     if (drawer) drawer.classList.remove("active");
@@ -148,10 +158,10 @@ const Router = {
     const el = document.getElementById(viewId);
     if (el) {
       el.classList.add("active");
-      // Trigger scroll observer on newly revealed view
-      if (window.App && window.App.initScrollObserver) {
-        window.App.initScrollObserver();
-      }
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+
       // Trigger VideoEngine refresh to bind newly visible video elements
       if (window.VideoEngine && window.VideoEngine.refresh) {
         window.VideoEngine.refresh();
@@ -178,12 +188,12 @@ const Router = {
         <h1 style="font-size: clamp(2rem, 3.5vw, 2.7rem); margin-bottom: 14px; color: var(--color-primary-navy);">${assessment.title}</h1>
         <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--color-text-main);">${assessment.longDesc}</p>
 
-        <div style="width: 100%; height: 260px; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 28px; box-shadow: var(--shadow-card); position: relative;">
+        <div class="reveal-on-scroll" style="width: 100%; height: 260px; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 28px; box-shadow: var(--shadow-card); position: relative;">
           <img src="${assessment.image}" alt="${assessment.title}" style="width: 100%; height: 100%; object-fit: cover;">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(7,34,56,0.6) 100%);"></div>
         </div>
 
-        <div class="card-clean" style="margin-bottom: 24px; padding: 28px 24px;">
+        <div class="card-clean reveal-on-scroll" style="margin-bottom: 24px; padding: 28px 24px;">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
             <span style="font-size: 1.3rem;">🔬</span>
             <h3 style="font-size: 1.3rem; color: var(--color-primary-navy);">What Is Evaluated</h3>
@@ -198,7 +208,7 @@ const Router = {
           </ul>
         </div>
 
-        <div class="card-clean" style="margin-bottom: 28px; padding: 28px 24px;">
+        <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
             <span style="font-size: 1.3rem;">📋</span>
             <h3 style="font-size: 1.3rem; color: var(--color-primary-navy);">Step-by-Step Process</h3>
@@ -213,7 +223,7 @@ const Router = {
           </div>
         </div>
 
-        <div class="card-blue" style="text-align: center; margin-bottom: 36px; padding: 32px 24px;">
+        <div class="card-blue reveal-on-scroll" style="text-align: center; margin-bottom: 36px; padding: 32px 24px;">
           <h3 style="font-size: 1.5rem; color: var(--color-primary-navy); margin-bottom: 10px;">Ready to Book Your ${assessment.title}?</h3>
           <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 20px;">Turnaround Time: <strong>${assessment.timeframe}</strong> &bull; Doorstep Sample & Scan Delivery</p>
           <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation →</a>
@@ -230,18 +240,22 @@ const Router = {
     container.innerHTML = `
       <div style="max-width: 980px; margin: 0 auto;">
         <a href="#/communities" class="btn btn-secondary btn-sm" style="margin-bottom: 20px;">← Back to Communities</a>
-        <span class="badge badge-navy" style="margin-bottom: 10px;">${community.status}</span>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span class="badge badge-navy">${community.status}</span>
+          <div class="pulse-radar-dot"></div>
+        </div>
         <h1 style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 10px; color: var(--color-primary-navy);">Helevate is now available in ${community.name}</h1>
         <p style="font-size: 1.1rem; color: var(--color-primary-navy); margin-bottom: 24px; font-weight: 600;">
           📍 ${community.location} &bull; ⏰ ${community.availability}
         </p>
 
-        <div class="card-navy" style="margin-bottom: 28px; padding: 32px 28px;">
-          <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Doorstep Human Performance Inside Your Clubhouse</h3>
-          <p style="font-size: 1.02rem; line-height: 1.7; margin-bottom: 22px; color: var(--color-primary-light-blue);">
+        <div class="card-navy reveal-on-scroll" style="margin-bottom: 28px; padding: 32px 28px; position: relative; overflow: hidden;">
+          <div class="telemetry-ring parallax-layer-slow" style="width: 220px; height: 220px; top: -40px; right: -40px; opacity: 0.2;"></div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 10px; position: relative; z-index: 2;">Doorstep Human Performance Inside Your Clubhouse</h3>
+          <p style="font-size: 1.02rem; line-height: 1.7; margin-bottom: 22px; color: var(--color-primary-light-blue); position: relative; z-index: 2;">
             ${community.description} Zero commute, full privacy, and certified coaches conducting assessment-led training directly in your community.
           </p>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; position: relative; z-index: 2;">
             <div style="background: rgba(221, 241, 239, 0.15); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid rgba(221, 241, 239, 0.25);">
               <div style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-primary-light-blue); font-weight: 700;">Clubhouse Facility</div>
               <div style="font-size: 0.98rem; font-weight: 700; color: #FFFFFF; margin-top: 4px;">${community.facilities}</div>
@@ -253,7 +267,7 @@ const Router = {
           </div>
         </div>
 
-        <div class="card-clean" style="margin-bottom: 28px; padding: 32px 28px;">
+        <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 32px 28px;">
           <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 20px;">Available Programs for Residents</h3>
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
             <div style="background: var(--color-bg-subtle); padding: 18px 20px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
@@ -275,7 +289,7 @@ const Router = {
           </div>
         </div>
 
-        <div class="card-blue" style="text-align: center; margin-bottom: 36px; padding: 32px 24px;">
+        <div class="card-blue reveal-on-scroll" style="text-align: center; margin-bottom: 36px; padding: 32px 24px;">
           <h3 style="font-size: 1.5rem; color: var(--color-primary-navy); margin-bottom: 10px;">Start Your Journey at ${community.name}</h3>
           <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 20px;">Book a free introductory consultation with our Head Coach.</p>
           <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation →</a>

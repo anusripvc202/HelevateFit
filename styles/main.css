@@ -102,7 +102,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 16px);
   -webkit-text-size-adjust: 100%;
   width: 100%;
@@ -526,7 +525,8 @@ img, svg {
    ROUTER & APP VIEWS (Cinematic 450ms Page Transitions)
    ========================================================================== */
 #main-content {
-  min-height: auto;
+  padding-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
   position: relative;
 }
 
@@ -578,17 +578,233 @@ img, svg {
   }
 }
 
-/* Scroll Motion & Blur-to-Sharp Text Reveal */
+/* Scroll Motion & Continuous Bi-Directional Reveals */
 .reveal-text,
-.reveal-on-scroll {
+.reveal-on-scroll,
+.reveal-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(5px);
   will-change: transform, opacity, filter;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-on-scroll.is-revealed {
+.reveal-on-scroll.is-revealed,
+.reveal-on-scroll.revealed,
+.reveal-text.is-revealed,
+.reveal-text.revealed,
+.reveal-card.is-revealed,
+.reveal-card.revealed {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translateY(0) scale(1) !important;
   filter: blur(0) !important;
+}
+
+/* Staggered Child Reveal helpers across all grids */
+.assessments-grid-4 > .is-revealed:nth-child(1),
+.programs-grid-4 > .is-revealed:nth-child(1),
+.pricing-grid-3 > .is-revealed:nth-child(1),
+.testimonials-grid-3 > .is-revealed:nth-child(1),
+.team-grid-4 > .is-revealed:nth-child(1),
+.insights-grid-4 > .is-revealed:nth-child(1),
+.communities-grid > .is-revealed:nth-child(1),
+.trust-bar-grid > .is-revealed:nth-child(1),
+.stagger-container.is-revealed > *:nth-child(1) { transition-delay: 0.04s; }
+
+.assessments-grid-4 > .is-revealed:nth-child(2),
+.programs-grid-4 > .is-revealed:nth-child(2),
+.pricing-grid-3 > .is-revealed:nth-child(2),
+.testimonials-grid-3 > .is-revealed:nth-child(2),
+.team-grid-4 > .is-revealed:nth-child(2),
+.insights-grid-4 > .is-revealed:nth-child(2),
+.communities-grid > .is-revealed:nth-child(2),
+.trust-bar-grid > .is-revealed:nth-child(2),
+.stagger-container.is-revealed > *:nth-child(2) { transition-delay: 0.12s; }
+
+.assessments-grid-4 > .is-revealed:nth-child(3),
+.programs-grid-4 > .is-revealed:nth-child(3),
+.pricing-grid-3 > .is-revealed:nth-child(3),
+.testimonials-grid-3 > .is-revealed:nth-child(3),
+.team-grid-4 > .is-revealed:nth-child(3),
+.insights-grid-4 > .is-revealed:nth-child(3),
+.communities-grid > .is-revealed:nth-child(3),
+.trust-bar-grid > .is-revealed:nth-child(3),
+.stagger-container.is-revealed > *:nth-child(3) { transition-delay: 0.20s; }
+
+.assessments-grid-4 > .is-revealed:nth-child(4),
+.programs-grid-4 > .is-revealed:nth-child(4),
+.team-grid-4 > .is-revealed:nth-child(4),
+.insights-grid-4 > .is-revealed:nth-child(4),
+.communities-grid > .is-revealed:nth-child(4),
+.stagger-container.is-revealed > *:nth-child(4) { transition-delay: 0.28s; }
+
+/* Top Scroll Progress Line */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #0E3A5D 0%, #319795 50%, #DDF1EF 100%);
+  z-index: 99999;
+  pointer-events: none;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(221, 241, 239, 0.8);
+}
+
+/* Floating Circular Scroll Progress & Back-to-Top Widget */
+.floating-scroll-circle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(7, 34, 56, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(221, 241, 239, 0.35);
+  box-shadow: 0 8px 30px rgba(7, 34, 56, 0.4), 0 0 16px rgba(221, 241, 239, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.floating-scroll-circle.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.floating-scroll-circle:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: #DDF1EF;
+  box-shadow: 0 12px 36px rgba(7, 34, 56, 0.5), 0 0 24px rgba(221, 241, 239, 0.6);
+}
+
+.floating-scroll-circle svg.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.floating-scroll-circle .progress-ring-bg {
+  stroke: rgba(221, 241, 239, 0.15);
+  fill: none;
+  stroke-width: 3;
+}
+
+.floating-scroll-circle .progress-ring-fill {
+  stroke: #DDF1EF;
+  fill: none;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-dasharray: 157; /* 2 * PI * 25 */
+  stroke-dashoffset: 157;
+  transition: stroke-dashoffset 0.12s ease-out;
+  filter: drop-shadow(0 0 4px rgba(221, 241, 239, 0.8));
+}
+
+.floating-scroll-circle .scroll-arrow-icon {
+  color: #DDF1EF;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.25s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-scroll-circle:hover .scroll-arrow-icon {
+  transform: translateY(-2.5px);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   CIRCULAR KEYFRAME ANIMATIONS & SCIENTIFIC TELEMETRY
+   ========================================================================== */
+
+/* Continuous 360 Rotation for Dashed Scientific Circle Rings */
+@keyframes spinCircleDashed {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinCircleReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Breathing Glow for Telemetry Rings */
+@keyframes pulseCircleGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+    box-shadow: 0 0 24px rgba(221, 241, 239, 0.18), inset 0 0 16px rgba(221, 241, 239, 0.1);
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.9;
+    box-shadow: 0 0 44px rgba(221, 241, 239, 0.4), inset 0 0 28px rgba(221, 241, 239, 0.25);
+  }
+}
+
+/* Concentric Ripple Waves */
+@keyframes ripplePulseCircle {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Ambient Floating Background Orbs */
+@keyframes floatCircleOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(25px, -30px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Sweeping Circular Radar Beam */
+@keyframes radarSweepCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Pulse Animation for glowing scientific nodes */
@@ -598,8 +814,8 @@ img, svg {
     box-shadow: 0 0 12px rgba(221, 241, 239, 0.4);
   }
   50% {
-    transform: scale(1.04);
-    box-shadow: 0 0 24px rgba(221, 241, 239, 0.75);
+    transform: scale(1.15);
+    box-shadow: 0 0 28px rgba(221, 241, 239, 0.9);
   }
 }
 
@@ -610,10 +826,10 @@ img, svg {
     opacity: 0;
   }
   30% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
   70% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
   100% {
     transform: translateY(300%);
@@ -672,5 +888,7 @@ img, svg {
     opacity: 1 !important;
     transform: none !important;
   }
+  .telemetry-ring, .telemetry-ring-glow, .ambient-circle-orb {
+    animation: none !important;
+  }
 }
-

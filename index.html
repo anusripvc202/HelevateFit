@@ -218,7 +218,7 @@
       </section>
 
       <!-- TRUST BAR (Section 7) -->
-      <section class="trust-bar">
+      <section class="trust-bar reveal-on-scroll">
         <div class="container">
           <div class="trust-bar-grid">
             <div class="trust-bar-item">
@@ -233,6 +233,57 @@
               <div class="trust-bar-item-icon">🔬</div>
               <div>Assessment-led, not guesswork-led</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Circular Precision Performance Metrics -->
+      <section class="section reveal-on-scroll" style="padding: 28px 0 10px 0; position: relative;">
+        <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+            
+            <div class="circle-stat-card reveal-on-scroll">
+              <div class="circle-progress-container">
+                <svg viewBox="0 0 60 60">
+                  <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
+                  <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="96" />
+                </svg>
+                <div class="circle-progress-center">96%</div>
+              </div>
+              <div>
+                <div style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.96rem;">Protocol Adherence</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted);">Zero-commute gated clubhouse delivery</div>
+              </div>
+            </div>
+
+            <div class="circle-stat-card reveal-on-scroll">
+              <div class="circle-progress-container">
+                <svg viewBox="0 0 60 60">
+                  <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
+                  <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="88" />
+                </svg>
+                <div class="circle-progress-center">3.4x</div>
+              </div>
+              <div>
+                <div style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.96rem;">Biomarker Improvement</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted);">HOMA-IR & visceral fat mobilization</div>
+              </div>
+            </div>
+
+            <div class="circle-stat-card reveal-on-scroll">
+              <div class="circle-progress-container">
+                <svg viewBox="0 0 60 60">
+                  <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
+                  <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="100" />
+                </svg>
+                <div class="circle-progress-center">100%</div>
+              </div>
+              <div>
+                <div style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.96rem;">Diagnostic Precision</div>
+                <div style="font-size: 0.82rem; color: var(--color-text-muted);">DEXA + blood panel + microbiome</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -565,8 +616,18 @@
 
     <!-- 2. HOW IT WORKS VIEW (Section 14) -->
     <div class="app-view" id="view-how-it-works">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 240px; height: 240px; top: -30px; right: 5%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 10px; left: 8%;"></div>
+          <div class="telemetry-ring-radar parallax-layer-fast" style="width: 180px; height: 180px; top: 20%; left: 15%;"></div>
+          <div class="pulse-node-float" style="top: 25%; right: 18%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -50px; left: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">The 5-Step Continuous Loop</span>
           <h1 class="section-title">From Data to Transformation — A Clear, Trackable Process</h1>
           <p class="section-subtitle">
@@ -575,15 +636,23 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 15%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 160px; height: 160px; bottom: 20%; left: -30px;"></div>
+          <div class="ambient-circle-orb orb-mint-light" style="width: 250px; height: 250px; bottom: 10%; right: 10%;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           
           <!-- 5 Timeline Steps -->
           <div class="timeline-process-container" id="how-it-works-timeline-container">
             <!-- Populated dynamically by App.renderHowItWorks() -->
           </div>
 
-          <div class="central-loop-banner">
+          <div class="central-loop-banner reveal-on-scroll" style="position: relative; overflow: hidden;">
+            <div class="telemetry-ring parallax-layer-slow" style="width: 200px; height: 200px; top: -50px; right: -50px; opacity: 0.25;"></div>
             <h3 style="font-size: 1.4rem; margin-bottom: 8px;">The Central Feedback Loop</h3>
             <p style="font-size: 0.95rem; color: var(--color-primary-light-blue); margin-bottom: 12px;">Continuous refinement as your biomarkers and body composition adapt.</p>
             
@@ -605,7 +674,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -616,8 +685,17 @@
 
     <!-- 3. ABOUT & FOUNDER VIEW (Section 17) -->
     <div class="app-view" id="view-about">
-      <section class="section section-light-blue">
-        <div class="container container-narrow text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: -40px; left: 8%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 15px; right: 10%;"></div>
+          <div class="pulse-node-float" style="top: 35%; left: 20%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 300px; height: 300px; top: -60px; right: -60px;"></div>
+        </div>
+
+        <div class="container container-narrow text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Leadership & Philosophy</span>
           <h1 class="section-title">Not Ordinary: A Calm, Scientific Approach</h1>
           <p class="section-subtitle">
@@ -655,13 +733,131 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container container-narrow">
+      <!-- WHO WE ARE SECTION -->
+      <section class="section section-light-blue reveal-on-scroll" style="position: relative; overflow: hidden;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring parallax-layer-slow" style="width: 280px; height: 280px; top: -30px; right: -40px;"></div>
+          <div class="telemetry-crosshair parallax-layer-fast" style="top: 20%; left: 6%;"></div>
+        </div>
 
-          <!-- Founder Card -->
-          <div class="card-clean" style="margin-bottom: 28px; padding: 28px 24px;">
+        <div class="container" style="position: relative; z-index: 2;">
+          <div class="section-header text-center" style="max-width: 760px; margin: 0 auto 36px auto;">
+            <span class="badge badge-navy">Our Identity & Purpose</span>
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">
+              A multidisciplinary health and performance collective uniting clinical diagnosticians, certified strength coaches, functional nutritionists, and longevity specialists — delivered directly inside Hyderabad's premier gated communities.
+            </p>
+          </div>
+
+          <!-- 3 Pillar Cards -->
+          <div class="who-we-are-pillars">
+            <div class="who-we-are-card reveal-on-scroll">
+              <div class="who-we-are-icon-box">🔬</div>
+              <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">Diagnostic-First Collective</h3>
+              <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
+                We replace generic fitness guesswork with cellular baseline diagnostics. We evaluate your DEXA body composition, visceral fat, blood metabolic panels, and gut microbiome genomics before creating your personalized protocol.
+              </p>
+            </div>
+
+            <div class="who-we-are-card reveal-on-scroll">
+              <div class="who-we-are-icon-box">🏡</div>
+              <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">In-Community Specialists</h3>
+              <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
+                We bring certified elite coaching and clinical diagnostic oversight straight into your gated community clubhouse. Zero commute time, zero traffic friction, and complete privacy for you and your family.
+              </p>
+            </div>
+
+            <div class="who-we-are-card reveal-on-scroll">
+              <div class="who-we-are-icon-box">🧘</div>
+              <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">Calm Longevity Architects</h3>
+              <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
+                We firmly reject aggressive gym culture, loud shouting trainers, and unsustainable starvation diets. We engineer calm, restorative, progressive fitness and nutrition protocols designed for vitality across decades.
+              </p>
+            </div>
+          </div>
+
+          <!-- The Helevate Manifesto / DNA Box -->
+          <div class="who-we-are-manifesto-box reveal-on-scroll">
+            <div class="who-we-are-manifesto-grid">
+              <div>
+                <span class="badge" style="background: rgba(221,241,239,0.15); color: #FFFFFF; margin-bottom: 12px;">Our DNA & Core Values</span>
+                <h3 style="font-size: 1.75rem; color: #FFFFFF; margin-bottom: 14px;">The Standard We Live By</h3>
+                <p style="font-size: 0.96rem; color: var(--color-primary-light-blue); line-height: 1.7; margin-bottom: 22px;">
+                  Traditional fitness focuses on superficial aesthetics and template routines. At Helevate, our team operates at the intersection of preventive medicine and physical conditioning — prioritizing metabolic flexibility, visceral fat reduction, cardiovascular longevity, and daily mental clarity.
+                </p>
+                <div class="who-we-are-points-grid">
+                  <div style="display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="color: var(--color-primary-light-blue); font-weight: 700; font-size: 1.1rem;">✓</span>
+                    <div style="font-size: 0.9rem; color: #FFFFFF;"><strong>Zero Guesswork:</strong> Objective biomarker data drives all prescriptions.</div>
+                  </div>
+                  <div style="display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="color: var(--color-primary-light-blue); font-weight: 700; font-size: 1.1rem;">✓</span>
+                    <div style="font-size: 0.9rem; color: #FFFFFF;"><strong>Undivided Attention:</strong> Dedicated 1-on-1 certified coach support.</div>
+                  </div>
+                  <div style="display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="color: var(--color-primary-light-blue); font-weight: 700; font-size: 1.1rem;">✓</span>
+                    <div style="font-size: 0.9rem; color: #FFFFFF;"><strong>Complete Discretion:</strong> Private sessions in your gated clubhouse.</div>
+                  </div>
+                  <div style="display: flex; gap: 10px; align-items: flex-start;">
+                    <span style="color: var(--color-primary-light-blue); font-weight: 700; font-size: 1.1rem;">✓</span>
+                    <div style="font-size: 0.9rem; color: #FFFFFF;"><strong>Multi-Decade Vision:</strong> Sustainable habits engineered for long-term health.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Metric Box -->
+              <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(221,241,239,0.25); border-radius: var(--radius-md); padding: 26px 22px;">
+                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 18px; border-bottom: 1px solid rgba(221,241,239,0.15);">
+                  <div class="circle-progress-container" style="width: 60px; height: 60px;">
+                    <svg viewBox="0 0 60 60">
+                      <circle class="circle-progress-bg" cx="30" cy="30" r="25" style="stroke: rgba(221,241,239,0.2);" />
+                      <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="100" style="stroke: #DDF1EF;" />
+                    </svg>
+                    <div class="circle-progress-center" style="color: #FFFFFF; font-size: 0.88rem;">100%</div>
+                  </div>
+                  <div>
+                    <div style="font-weight: 700; color: #FFFFFF; font-size: 1.02rem;">Science-Backed Care</div>
+                    <div style="font-size: 0.82rem; color: var(--color-primary-light-blue);">No templates or generic routines</div>
+                  </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #FFFFFF;">
+                    <span>Communities Active</span>
+                    <span style="font-weight: 700; color: var(--color-primary-light-blue);">Top Hyderabad Societies</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #FFFFFF;">
+                    <span>Coach Certifications</span>
+                    <span style="font-weight: 700; color: var(--color-primary-light-blue);">ACE &bull; CSCS &bull; Clinical Nutrition</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: #FFFFFF;">
+                    <span>Diagnostic Partnerships</span>
+                    <span style="font-weight: 700; color: var(--color-primary-light-blue);">NABL & CAP-Accredited Labs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 280px; height: 280px; top: 20%; right: -40px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 30%; left: -20px;"></div>
+        </div>
+
+        <div class="container container-narrow" style="position: relative; z-index: 2;">
+
+          <!-- Founder Card with Circular Dashed Halo -->
+          <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
             <div style="display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80" alt="Harish P" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--color-primary-light-blue);">
+              <div class="avatar-circle-halo">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80" alt="Harish P" style="width: 128px; height: 128px; object-fit: cover;">
+              </div>
               <div>
                 <span class="badge badge-navy" style="margin-bottom: 6px;">Founder & Head Coach</span>
                 <h2 style="font-size: 1.6rem; margin-bottom: 6px; color: var(--color-primary-navy);">Harish P</h2>
@@ -674,7 +870,7 @@
           </div>
 
           <!-- Brand Philosophy -->
-          <div style="margin-bottom: 28px;">
+          <div class="reveal-on-scroll" style="margin-bottom: 10px;">
             <span class="badge">Brand Line</span>
             <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Why "Not Ordinary"?</h2>
             <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 14px;">
@@ -685,24 +881,37 @@
             </p>
           </div>
 
-          <!-- Team Cards (Section 17) -->
-          <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-            <span class="badge">Clinical Team</span>
-            <h3 style="font-size: 1.5rem; color: var(--color-primary-navy);">Human Performance Team</h3>
+        </div>
+      </section>
+
+      <!-- HUMAN PERFORMANCE FACULTY SECTION (Section 17) -->
+      <section class="section section-light-blue reveal-on-scroll" style="position: relative; overflow: hidden;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: 10%; right: -20px;"></div>
+          <div class="telemetry-crosshair parallax-layer-med" style="bottom: 15%; left: 8%;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+          <div class="section-header text-center" style="max-width: 720px; margin: 0 auto 36px auto;">
+            <span class="badge badge-navy">Multidisciplinary Faculty</span>
+            <h2 class="section-title">Human Performance Team</h2>
+            <p class="section-subtitle">
+              Certified performance coaches, clinical dietitians, and recovery specialists delivering 1-on-1 hospital-grade care in your community.
+            </p>
           </div>
 
-          <div class="team-grid-4" id="about-team-grid" style="margin-bottom: 32px;">
+          <div class="team-grid-4" id="about-team-grid" style="margin-bottom: 36px;">
             <!-- Populated dynamically -->
           </div>
 
           <div style="text-align: center;">
             <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation with Harish →</a>
           </div>
-
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -713,8 +922,17 @@
 
     <!-- 4. PROGRAMS VIEW (Section 12) -->
     <div class="app-view" id="view-programs">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 250px; height: 250px; top: -30px; right: 8%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 10px; left: 10%;"></div>
+          <div class="pulse-node-float" style="top: 30%; right: 20%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -40px; left: -40px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Ecosystem Disciplines</span>
           <h1 class="section-title">Programs & Protocols</h1>
           <p class="section-subtitle">
@@ -752,15 +970,21 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 10%; right: -60px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 170px; height: 170px; bottom: 15%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div id="programs-list-container">
             <!-- Populated dynamically -->
           </div>
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -771,8 +995,18 @@
 
     <!-- 5. ASSESSMENTS VIEW (Section 10) -->
     <div class="app-view" id="view-assessments">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 270px; height: 270px; top: -40px; right: 6%;"></div>
+          <div class="telemetry-ring-radar parallax-layer-fast" style="width: 190px; height: 190px; top: 15%; left: 12%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 10px; right: 25%;"></div>
+          <div class="pulse-node-float" style="top: 35%; right: 12%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 300px; height: 300px; top: -60px; left: -60px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Objective Diagnostics</span>
           <h1 class="section-title">Precision Health Assessments</h1>
           <p class="section-subtitle">
@@ -810,15 +1044,21 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 340px; height: 340px; top: 12%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 160px; height: 160px; bottom: 25%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div class="assessments-grid-4" id="assessments-overview-grid">
             <!-- Populated dynamically -->
           </div>
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -829,8 +1069,16 @@
 
     <!-- 6. ASSESSMENT DETAIL VIEW -->
     <div class="app-view" id="view-assessment-detail">
-      <section class="section">
-        <div class="container" id="assessment-detail-container">
+      <section class="section" style="position: relative; overflow: hidden;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 300px; height: 300px; top: -40px; right: -40px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 180px; height: 180px; bottom: 20%; left: -40px;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 260px; height: 260px; top: 20%; right: 10%;"></div>
+        </div>
+
+        <div class="container" id="assessment-detail-container" style="position: relative; z-index: 2;">
           <!-- Rendered dynamically by Router.renderAssessmentDetail(id) -->
         </div>
       </section>
@@ -838,8 +1086,17 @@
 
     <!-- 7. PRICING & MEMBERSHIPS VIEW (Section 22) -->
     <div class="app-view" id="view-pricing">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 250px; height: 250px; top: -30px; left: 6%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 10px; right: 12%;"></div>
+          <div class="pulse-node-float" style="top: 28%; left: 18%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -50px; right: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Transparent Architecture</span>
           <h1 class="section-title">Memberships & Pricing</h1>
           <p class="section-subtitle">
@@ -848,15 +1105,21 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 15%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 160px; height: 160px; bottom: 20%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div class="pricing-grid-3" id="pricing-page-grid">
             <!-- Populated dynamically -->
           </div>
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -867,8 +1130,17 @@
 
     <!-- 8. COMMUNITIES VIEW (Section 20) -->
     <div class="app-view" id="view-communities">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: -40px; right: 8%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 15px; left: 10%;"></div>
+          <div class="pulse-node-float" style="top: 35%; right: 16%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 300px; height: 300px; top: -60px; left: -60px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Hyderabad Gated Communities</span>
           <h1 class="section-title">Precision Health. Right Where You Live.</h1>
           <p class="section-subtitle">
@@ -877,15 +1149,22 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 10%; right: -40px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 35%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div class="communities-grid" id="communities-list-grid" style="margin-bottom: 32px;">
             <!-- Populated dynamically -->
           </div>
 
           <!-- Bring Helevate to Your Community (Section 20) -->
-          <div class="card-navy">
-            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
+          <div class="card-navy reveal-on-scroll" style="position: relative; overflow: hidden;">
+            <div class="telemetry-ring parallax-layer-slow" style="width: 220px; height: 220px; top: -50px; right: -50px; opacity: 0.2;"></div>
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; position: relative; z-index: 2;">
               <div>
                 <span class="badge badge-navy" style="background: rgba(221,241,239,0.2); color: #FFFFFF;">Community Expansion</span>
                 <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 12px;">Bring Helevate to Your Community</h2>
@@ -921,7 +1200,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -932,8 +1211,16 @@
 
     <!-- 9. DYNAMIC COMMUNITY LANDING PAGE (Section 21) -->
     <div class="app-view" id="view-community-detail">
-      <section class="section">
-        <div class="container" id="community-detail-container">
+      <section class="section" style="position: relative; overflow: hidden;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 280px; height: 280px; top: -40px; right: -40px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 160px; height: 160px; bottom: 20%; left: -30px;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 250px; height: 250px; top: 30%; right: 10%;"></div>
+        </div>
+
+        <div class="container" id="community-detail-container" style="position: relative; z-index: 2;">
           <!-- Rendered dynamically by Router.renderCommunityLandingPage(slug) -->
         </div>
       </section>
@@ -941,8 +1228,17 @@
 
     <!-- 10. CAREERS VIEW (Section 18) -->
     <div class="app-view" id="view-careers">
-      <section class="section section-light-blue">
-        <div class="container container-narrow text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 250px; height: 250px; top: -30px; left: 6%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 15px; right: 10%;"></div>
+          <div class="pulse-node-float" style="top: 30%; left: 16%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -50px; right: -50px;"></div>
+        </div>
+
+        <div class="container container-narrow text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Careers & Talent</span>
           <h1 class="section-title">Build the Future of Precision Fitness With Us</h1>
           <p class="section-subtitle">
@@ -951,11 +1247,17 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container container-narrow">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 15%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 20%; left: -30px;"></div>
+        </div>
+
+        <div class="container container-narrow" style="position: relative; z-index: 2;">
 
           <!-- Benefits -->
-          <div class="card-clean" style="margin-bottom: 28px; padding: 28px 24px;">
+          <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
             <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 16px;">Why Work at Helevate?</h3>
             <ul style="display: flex; flex-direction: column; gap: 12px;">
               <li style="display: flex; gap: 10px; font-size: 0.95rem; font-weight: 600; color: var(--color-text-main);">
@@ -978,7 +1280,7 @@
           </div>
 
           <!-- Open Roles -->
-          <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+          <div class="section-header reveal-on-scroll" style="text-align: left; margin-bottom: 24px;">
             <span class="badge">Open Roles</span>
             <h3 style="font-size: 1.6rem; color: var(--color-primary-navy);">Current Opportunities</h3>
           </div>
@@ -990,7 +1292,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1001,8 +1303,17 @@
 
     <!-- 11. CLINICAL INSIGHTS / BLOG VIEW (Section 23) -->
     <div class="app-view" id="view-insights">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: -30px; right: 8%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 15px; left: 10%;"></div>
+          <div class="pulse-node-float" style="top: 30%; right: 18%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 290px; height: 290px; top: -50px; left: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Evidence-Based Medicine</span>
           <h1 class="section-title">Clinical Insights & Research</h1>
           <p class="section-subtitle">
@@ -1011,15 +1322,21 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 15%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 25%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div class="insights-grid-4" id="insights-articles-grid">
             <!-- Populated dynamically -->
           </div>
         </div>
       </section>
 
-      <section class="global-cta-band">
+      <section class="global-cta-band reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1030,8 +1347,17 @@
 
     <!-- 12. DEDICATED BOOK CONSULTATION VIEW (Section 19) -->
     <div class="app-view" id="view-booking">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: -30px; left: 5%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 10px; right: 8%;"></div>
+          <div class="pulse-node-float" style="top: 30%; left: 16%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -50px; right: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Primary Conversion</span>
           <h1 class="section-title">Start With a Free Consultation</h1>
           <p class="section-subtitle">
@@ -1040,8 +1366,14 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 20%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 160px; height: 160px; bottom: 20%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           
           <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: start; max-width: 1060px; margin: 0 auto;">
             
@@ -1084,7 +1416,7 @@
             </div>
 
             <!-- Right: Exact Consultation Form Card -->
-            <div class="consultation-form-card" style="margin: 0; max-width: 100%;">
+            <div class="consultation-form-card reveal-on-scroll" style="margin: 0; max-width: 100%;">
               
               <div id="consultation-form-wrapper">
                 <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 6px;">Tell Us About Your Goals</h3>
@@ -1162,8 +1494,16 @@
 
     <!-- 13. REPORTS CONCEPT PROTOTYPE VIEW -->
     <div class="app-view" id="view-reports-concept">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 270px; height: 270px; top: -40px; right: 5%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 140px; height: 140px; bottom: 10px; left: 10%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 290px; height: 290px; top: -50px; left: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Interactive Prototype</span>
           <h1 class="section-title">Structured Results & Reporting Concept</h1>
           <p class="section-subtitle">
@@ -1172,8 +1512,14 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container" id="reports-concept-container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 15%; right: -50px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 20%; left: -30px;"></div>
+        </div>
+
+        <div class="container" id="reports-concept-container" style="position: relative; z-index: 2;">
           <!-- Populated dynamically -->
         </div>
       </section>
@@ -1181,19 +1527,33 @@
 
     <!-- 14. CONTACT VIEW -->
     <div class="app-view" id="view-contact">
-      <section class="section section-light-blue">
-        <div class="container text-center" style="text-align: center;">
+      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+        <!-- Floating Circular Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 250px; height: 250px; top: -30px; left: 6%;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 130px; height: 130px; bottom: 15px; right: 10%;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 280px; height: 280px; top: -50px; right: -50px;"></div>
+        </div>
+
+        <div class="container text-center" style="text-align: center; position: relative; z-index: 2;">
           <span class="badge badge-navy">Get In Touch</span>
           <h1 class="section-title">Contact Helevate.fit</h1>
           <p class="section-subtitle">Reach out to our leadership and clinical performance team in Hyderabad.</p>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section" style="position: relative;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 15%; right: -40px;"></div>
+          <div class="telemetry-ring-glow parallax-layer-med" style="width: 150px; height: 150px; bottom: 20%; left: -30px;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
           <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px;">
             
-            <div class="card-clean">
+            <div class="card-clean reveal-on-scroll">
               <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 16px;">Send a Direct Message</h3>
               <form id="contact-page-form">
                 <div class="form-row">
@@ -1218,7 +1578,7 @@
               </form>
             </div>
 
-            <div class="card-blue">
+            <div class="card-blue reveal-on-scroll">
               <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 20px;">Corporate Information</h3>
               <div style="margin-bottom: 16px;">
                 <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">Legal Entity</span>
@@ -1245,9 +1605,15 @@
 
     <!-- 15. AUTH & DASHBOARD PORTAL PROTOTYPE -->
     <div class="app-view" id="view-auth">
-      <section class="section">
-        <div class="container container-narrow">
-          <div class="card-clean" style="max-width: 480px; margin: 0 auto; text-align: center;">
+      <section class="section" style="position: relative; overflow: hidden;">
+        <div class="scientific-bg-layer">
+          <div class="telemetry-grid"></div>
+          <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: -30px; right: -30px;"></div>
+          <div class="ambient-circle-orb orb-cyan" style="width: 240px; height: 240px; bottom: -30px; left: -30px;"></div>
+        </div>
+
+        <div class="container container-narrow" style="position: relative; z-index: 2;">
+          <div class="card-clean reveal-on-scroll" style="max-width: 480px; margin: 0 auto; text-align: center;">
             <span class="badge badge-navy" style="margin-bottom: 8px;">Member Access</span>
             <h2 style="font-size: 1.6rem; color: var(--color-primary-navy); margin-bottom: 8px;">Client Portal</h2>
             <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 24px;">Access your personalized reports and training calendar.</p>
@@ -1315,6 +1681,20 @@
 
       <div class="footer-bottom-bar">
         <div>&copy; 2026 Helevate Fit Pvt Ltd. All rights reserved. Registered in Hyderabad, Telangana.</div>
+        
+        <div class="footer-credit-wrap">
+          <span>Designed by</span>
+          <a href="https://bubblesmedia.in" target="_blank" rel="noopener noreferrer" class="bubbles-media-badge" title="BubblesMedia — Digital Brand & Design Studio">
+            <span class="bubble-icon">🫧</span>
+            <span class="bubbles-name">
+              <span class="b-char" style="--d:0.04s">B</span><span class="b-char" style="--d:0.08s">u</span><span class="b-char" style="--d:0.12s">b</span><span class="b-char" style="--d:0.16s">b</span><span class="b-char" style="--d:0.20s">l</span><span class="b-char" style="--d:0.24s">e</span><span class="b-char" style="--d:0.28s">s</span><span class="b-media">Media</span>
+            </span>
+            <span class="micro-bubble b1"></span>
+            <span class="micro-bubble b2"></span>
+            <span class="micro-bubble b3"></span>
+          </a>
+        </div>
+
         <div>Simple &bull; Structured &bull; Personalised &bull; Achievable &bull; Not Ordinary</div>
       </div>
     </div>
