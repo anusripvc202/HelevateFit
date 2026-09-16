@@ -146,9 +146,11 @@
           <div class="hero-grid">
             
             <!-- Hero Left Copy -->
-            <div class="hero-copy-container">
-              <span class="badge badge-navy" style="margin-bottom: 16px;">
-                Elevating Human Performance & Lifestyle &bull; Hyderabad
+            <div class="hero-copy-container reveal-from-left">
+              <span class="badge badge-navy" style="margin-bottom: 16px; display: inline-flex; align-items: center; gap: 6px;">
+                <span>Elevating Human Performance &bull;</span>
+                <span class="text-morph-target" id="hero-tagline-morph">ASSESS</span>
+                <span>&bull; Hyderabad</span>
               </span>
               <h1 class="hero-title-dark">
                 <span class="title-word" style="animation-delay: 0.05s;">Your</span>
@@ -165,17 +167,17 @@
               </p>
               
               <div class="hero-actions">
-                <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation →</a>
-                <a href="#/how-it-works" class="btn btn-secondary-glass btn-lg">See How It Works</a>
+                <a href="#/booking" class="btn btn-primary btn-lg btn-magnetic">Book a Free Consultation →</a>
+                <a href="#/how-it-works" class="btn btn-secondary-glass btn-lg btn-magnetic">See How It Works</a>
               </div>
 
               <div class="hero-stats-band">
                 <div class="hero-stat-item">
-                  <div class="hero-stat-value">Zero</div>
+                  <div class="hero-stat-value count-up-number" data-count="0" data-prefix="" data-suffix="">Zero</div>
                   <div class="hero-stat-label">Commute Friction</div>
                 </div>
                 <div class="hero-stat-item hero-stat-sep">
-                  <div class="hero-stat-value">100%</div>
+                  <div class="hero-stat-value count-up-number" data-count="100" data-prefix="" data-suffix="%">100%</div>
                   <div class="hero-stat-label">Private & Discreet</div>
                 </div>
                 <div class="hero-stat-item hero-stat-sep">
@@ -185,13 +187,59 @@
               </div>
             </div>
 
-            <!-- Hero Right Cinematic Animated Visualizer (Section 5) -->
-            <div class="hero-visual-card">
-              <div class="hero-canvas-container">
+            <!-- Hero Right Cinematic Animated Visualizer (Concentric Rings & Orbit Ecosystem) -->
+            <div class="hero-visual-card spotlight-card reveal-from-right">
+              <div class="hero-canvas-container" id="hero-orbit-stage">
                 <canvas id="hero-particle-canvas" class="hero-canvas-art"></canvas>
                 
-                <!-- Human Silhouette Icon -->
-                <div class="hero-silhouette-wrap">
+                <!-- Concentric Rotating Biometric Rings (Scroll-Scrubbed Bi-Directional Engine) -->
+                <div class="hero-concentric-rings-stage">
+                  <svg class="hero-concentric-rings-svg" viewBox="0 0 500 500">
+                    <defs>
+                      <linearGradient id="ringGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#DDF1EF" stop-opacity="0.85" />
+                        <stop offset="50%" stop-color="#48CAE4" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="#0E3A5D" stop-opacity="0.1" />
+                      </linearGradient>
+                    </defs>
+
+                    <!-- Outer Ring: Calibrated Diagnostic Dial (Clockwise on Scroll Down) -->
+                    <g class="concentric-ring-outer" id="hero-outer-ring">
+                      <circle cx="250" cy="250" r="225" fill="none" stroke="rgba(221, 241, 239, 0.18)" stroke-width="1.5" stroke-dasharray="6 8" />
+                      <circle cx="250" cy="250" r="212" fill="none" stroke="url(#ringGlowGrad)" stroke-width="2" stroke-dasharray="60 30 15 30 80 40" />
+                      <!-- Calibration Tick Marks -->
+                      <line x1="250" y1="20" x2="250" y2="32" stroke="#DDF1EF" stroke-width="2" />
+                      <line x1="250" y1="468" x2="250" y2="480" stroke="#DDF1EF" stroke-width="2" />
+                      <line x1="20" y1="250" x2="32" y2="250" stroke="#DDF1EF" stroke-width="2" />
+                      <line x1="468" y1="250" x2="480" y2="250" stroke="#DDF1EF" stroke-width="2" />
+                      <!-- Orbiting Telemetry Particles -->
+                      <circle cx="250" cy="25" r="4" fill="#DDF1EF" filter="drop-shadow(0 0 4px #DDF1EF)" />
+                      <circle cx="475" cy="250" r="3" fill="#48CAE4" />
+                    </g>
+
+                    <!-- Middle Ring: Counter-Rotating Biometric Cadence (Counter-Clockwise on Scroll Down) -->
+                    <g class="concentric-ring-middle" id="hero-middle-ring">
+                      <circle cx="250" cy="250" r="165" fill="none" stroke="rgba(221, 241, 239, 0.28)" stroke-width="1.8" stroke-dasharray="4 6" />
+                      <circle cx="250" cy="250" r="150" fill="none" stroke="rgba(72, 202, 228, 0.45)" stroke-width="1.5" stroke-dasharray="40 20 80 30" />
+                      <circle cx="100" cy="250" r="3.5" fill="#DDF1EF" />
+                      <circle cx="400" cy="250" r="3.5" fill="#DDF1EF" />
+                    </g>
+
+                    <!-- Inner Ring: Pulse & Velocity Responder -->
+                    <g class="concentric-ring-inner" id="hero-inner-ring">
+                      <circle cx="250" cy="250" r="95" fill="none" stroke="rgba(221, 241, 239, 0.35)" stroke-width="2" stroke-dasharray="12 6" />
+                      <circle cx="250" cy="250" r="85" fill="rgba(14, 58, 93, 0.3)" stroke="rgba(221, 241, 239, 0.6)" stroke-width="1" />
+                    </g>
+                  </svg>
+                </div>
+
+                <!-- Dynamic SVG Connector Rays between Human Core & Orbiting Nodes -->
+                <svg class="orbital-connectors-svg" id="hero-orbital-connectors" viewBox="0 0 500 420" preserveAspectRatio="none">
+                  <!-- Generated and updated dynamically by OrbitalEngine -->
+                </svg>
+                
+                <!-- Central Human Performance Silhouette Icon -->
+                <div class="hero-silhouette-wrap" id="hero-core-silhouette">
                   <svg class="hero-human-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="12" cy="5" r="3" />
                     <path d="M6 22V12a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v10" />
@@ -200,16 +248,43 @@
                   </svg>
                 </div>
 
-                <!-- 5 Scientific Data Elements Around Person -->
-                <div class="hero-data-node node-composition">📊 Body Composition</div>
-                <div class="hero-data-node node-metabolic">🔬 Metabolic Health</div>
-                <div class="hero-data-node node-strength">🏋️ Strength</div>
-                <div class="hero-data-node node-nutrition">🥗 Nutrition</div>
-                <div class="hero-data-node node-recovery">🧘 Recovery</div>
+                <!-- 6 Orbital Telemetry Nodes (Revolving along Elliptical Path) -->
+                <div class="hero-orbit-ecosystem" id="hero-orbit-ecosystem">
+                  <div class="orbiting-node" data-index="0" data-label="Metabolic Health" data-metric="-36% VAT">
+                    <span class="node-icon">🔬</span>
+                    <span class="node-title">Metabolic</span>
+                    <span class="node-metric-badge">-36% VAT</span>
+                  </div>
+                  <div class="orbiting-node" data-index="1" data-label="DEXA Body Comp" data-metric="+3.8kg Lean">
+                    <span class="node-icon">📊</span>
+                    <span class="node-title">DEXA</span>
+                    <span class="node-metric-badge">+3.8kg</span>
+                  </div>
+                  <div class="orbiting-node" data-index="2" data-label="Strength Velocity" data-metric="+45% 1RM">
+                    <span class="node-icon">🏋️</span>
+                    <span class="node-title">Strength</span>
+                    <span class="node-metric-badge">+45%</span>
+                  </div>
+                  <div class="orbiting-node" data-index="3" data-label="Mobility & Alignment" data-metric="Full ROM">
+                    <span class="node-icon">🧘</span>
+                    <span class="node-title">Mobility</span>
+                    <span class="node-metric-badge">Full ROM</span>
+                  </div>
+                  <div class="orbiting-node" data-index="4" data-label="VO2 Max Cardio" data-metric="+22% Aerobic">
+                    <span class="node-icon">🫁</span>
+                    <span class="node-title">VO2 Max</span>
+                    <span class="node-metric-badge">+22%</span>
+                  </div>
+                  <div class="orbiting-node" data-index="5" data-label="Autonomic Recovery" data-metric="+48% HRV">
+                    <span class="node-icon">⚡</span>
+                    <span class="node-title">Recovery</span>
+                    <span class="node-metric-badge">+48% HRV</span>
+                  </div>
+                </div>
               </div>
 
               <div class="hero-flow-banner">
-                Human &rarr; Data &rarr; Understanding &rarr; Personalised Plan &rarr; Transformation
+                Diagnostic Testing &rarr; Cellular Biomarkers &rarr; Precision Coaching &rarr; Longevity Efficacy
               </div>
             </div>
 
@@ -218,18 +293,18 @@
       </section>
 
       <!-- TRUST BAR (Section 7) -->
-      <section class="trust-bar reveal-on-scroll">
+      <section class="trust-bar section-scale-panel reveal-on-scroll">
         <div class="container">
           <div class="trust-bar-grid">
-            <div class="trust-bar-item">
+            <div class="trust-bar-item stagger-1">
               <div class="trust-bar-item-icon">✓</div>
               <div>Certified Human Performance Coaches</div>
             </div>
-            <div class="trust-bar-item">
+            <div class="trust-bar-item stagger-2">
               <div class="trust-bar-item-icon">🏡</div>
               <div>Community-based delivery — no commute, no crowded gyms</div>
             </div>
-            <div class="trust-bar-item">
+            <div class="trust-bar-item stagger-3">
               <div class="trust-bar-item-icon">🔬</div>
               <div>Assessment-led, not guesswork-led</div>
             </div>
@@ -238,11 +313,11 @@
       </section>
 
       <!-- Circular Precision Performance Metrics -->
-      <section class="section reveal-on-scroll" style="padding: 28px 0 10px 0; position: relative;">
+      <section class="section section-scale-panel reveal-on-scroll" style="padding: 28px 0 10px 0; position: relative;">
         <div class="container">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
             
-            <div class="circle-stat-card reveal-on-scroll">
+            <div class="circle-stat-card card-composition-rotate reveal-scale-in stagger-1">
               <div class="circle-progress-container">
                 <svg viewBox="0 0 60 60">
                   <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
@@ -256,7 +331,7 @@
               </div>
             </div>
 
-            <div class="circle-stat-card reveal-on-scroll">
+            <div class="circle-stat-card card-composition-rotate reveal-scale-in stagger-2">
               <div class="circle-progress-container">
                 <svg viewBox="0 0 60 60">
                   <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
@@ -270,7 +345,7 @@
               </div>
             </div>
 
-            <div class="circle-stat-card reveal-on-scroll">
+            <div class="circle-stat-card card-composition-rotate reveal-scale-in stagger-3">
               <div class="circle-progress-container">
                 <svg viewBox="0 0 60 60">
                   <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
@@ -289,7 +364,7 @@
       </section>
 
       <!-- PROBLEM & HELEVATE SOLUTION (Section 8 & 9) -->
-      <section class="section reveal-on-scroll" style="position: relative;">
+      <section class="section section-perspective-panel reveal-on-scroll" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring parallax-layer-slow" style="width: 320px; height: 320px; top: -60px; right: -60px;"></div>
@@ -300,7 +375,7 @@
           <div class="split-problem-solution">
             
             <!-- Left: The Problem -->
-            <div class="problem-card">
+            <div class="problem-card reveal-from-left card-rot-left">
               <div>
                 <span class="badge" style="margin-bottom: 12px;">The Industry Flaw</span>
                 <h2 style="font-size: 2rem; color: var(--color-primary-navy); margin-bottom: 16px;">Most Fitness Programs Guess.</h2>
@@ -326,9 +401,9 @@
             </div>
 
             <!-- Right: The Helevate Solution -->
-            <div class="solution-card-main">
+            <div class="solution-card-main reveal-from-right card-rot-right">
               <div>
-                <span class="badge badge-navy" style="margin-bottom: 12px; background: rgba(221,241,239,0.15); color: #FFFFFF;">The Better Way</span>
+                <span class="badge badge-navy" style="background: rgba(221,241,239,0.15); color: #FFFFFF;">The Better Way</span>
                 <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 16px;">One Team. Every Layer of Your Health.</h2>
                 <p style="font-size: 1.02rem; color: var(--color-primary-light-blue); line-height: 1.7; margin-bottom: 20px;">
                   Helevate is the only fitness and wellness partner your community needs — from precision assessments that reveal what’s really going on, to expert-led training and nutrition that act on it. All delivered inside your community.
@@ -337,19 +412,19 @@
 
               <!-- 4 Solution Cards -->
               <div class="solution-grid-4">
-                <div class="solution-pill-card">
+                <div class="solution-pill-card stagger-1">
                   <h5>🏋️ Strength Coaching</h5>
                   <p>Personalised strength training with certified coaches.</p>
                 </div>
-                <div class="solution-pill-card">
+                <div class="solution-pill-card stagger-2">
                   <h5>🥗 Nutrition</h5>
                   <p>Personalised nutrition guidance.</p>
                 </div>
-                <div class="solution-pill-card">
+                <div class="solution-pill-card stagger-3">
                   <h5>👥 Group Fitness</h5>
                   <p>Community-based group training.</p>
                 </div>
-                <div class="solution-pill-card">
+                <div class="solution-pill-card stagger-4">
                   <h5>🧘 Recovery</h5>
                   <p>Recovery-focused support.</p>
                 </div>
@@ -361,7 +436,7 @@
       </section>
 
       <!-- ASSESSMENTS SECTION & ANIMATION (Section 10 & 11) -->
-      <section class="section section-light-blue reveal-on-scroll" style="position: relative;">
+      <section class="section section-light-blue section-scale-panel reveal-on-scroll" id="assessments-section" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring-glow parallax-layer-slow" style="width: 280px; height: 280px; bottom: -40px; left: -40px;"></div>
@@ -383,7 +458,7 @@
           </div>
 
           <!-- Assessment Storytelling Animation (Section 11) -->
-          <div class="assessment-anim-box">
+          <div class="assessment-anim-box spotlight-card reveal-scale-in">
             <span class="badge badge-navy" style="background: rgba(221,241,239,0.2); color: #FFFFFF;">Data Visualization</span>
             <h3 style="font-size: 1.8rem; color: #FFFFFF; margin-top: 8px; margin-bottom: 10px;">The Helevate Assessment Sequence</h3>
             <p style="font-size: 1rem; color: var(--color-primary-light-blue); max-width: 640px; margin: 0 auto 28px auto;">
@@ -391,22 +466,22 @@
             </p>
 
             <div class="assessment-anim-steps">
-              <div class="assessment-step-card active">
+              <div class="assessment-step-card active stagger-1">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🔬</div>
                 <h4>1. Metabolic</h4>
                 <p>Blood biomarkers & insulin</p>
               </div>
-              <div class="assessment-step-card active">
+              <div class="assessment-step-card active stagger-2">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">📊</div>
                 <h4>2. Body Composition</h4>
                 <p>DEXA scan & visceral fat</p>
               </div>
-              <div class="assessment-step-card active">
+              <div class="assessment-step-card active stagger-3">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🧬</div>
                 <h4>3. Gut Microbiome</h4>
                 <p>Bacterial sequencing</p>
               </div>
-              <div class="assessment-step-card active">
+              <div class="assessment-step-card active stagger-4">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🧬</div>
                 <h4>4. DNA Genetics</h4>
                 <p>80+ performance SNPs</p>
@@ -425,8 +500,60 @@
         </div>
       </section>
 
+      <!-- DATA → INSIGHT PIPELINE SECTION -->
+      <section class="section section-perspective-panel reveal-on-scroll" style="position: relative; overflow: hidden; padding-top: 10px;">
+        <div class="container">
+          
+          <div class="data-insight-pipeline spotlight-card reveal-scale-in">
+            <div style="text-align: center; max-width: 680px; margin: 0 auto 20px auto;">
+              <span class="badge badge-navy" style="background: rgba(221,241,239,0.18); color: #FFFFFF;">Data-To-Insight Engine</span>
+              <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.5rem); color: #FFFFFF; margin-top: 8px; margin-bottom: 8px;">
+                How Data Transforms Into Personalised Action
+              </h2>
+              <p style="font-size: 0.96rem; color: var(--color-primary-light-blue);">
+                From initial cellular biomarkers to structured weekly clubhouse workouts and progressive adaptation.
+              </p>
+            </div>
+
+            <div class="pipeline-steps-track">
+              <div class="pipeline-step-card active stagger-1">
+                <div class="pipeline-icon-circle">🔬</div>
+                <h4>1. Data Collection</h4>
+                <p>Lipid panels, DEXA scan, and biomechanical video gait capture.</p>
+              </div>
+
+              <div class="pipeline-step-card active stagger-2">
+                <div class="pipeline-icon-circle">🧬</div>
+                <h4>2. Assessment</h4>
+                <p>Identification of visceral fat, insulin curve, and posture imbalances.</p>
+              </div>
+
+              <div class="pipeline-step-card active stagger-3">
+                <div class="pipeline-icon-circle">📊</div>
+                <h4>3. Analysis</h4>
+                <p>Translating medical & diagnostic data into precise training variables.</p>
+              </div>
+
+              <div class="pipeline-step-card active stagger-4">
+                <div class="pipeline-icon-circle">🎯</div>
+                <h4>4. Actionable Insights</h4>
+                <p>Personalized macro splits, targeted strength phases, and recovery windows.</p>
+              </div>
+
+              <div class="pipeline-step-card active stagger-5">
+                <div class="pipeline-icon-circle">⚡</div>
+                <h4>5. Performance Shift</h4>
+                <p>Sustainable visceral fat loss, peak daily energy, and joint longevity.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       <!-- PROGRAMS SECTION & BREAK-APART ANIMATION (Section 12 & 13) -->
-      <section class="section reveal-on-scroll">
+      <section class="section section-scale-panel reveal-on-scroll">
         <div class="container">
           <div class="section-header">
             <span class="badge">Ecosystem Disciplines</span>
@@ -442,7 +569,7 @@
           </div>
 
           <!-- Program Break-Apart Animation Graphic (Section 13) -->
-          <div class="program-anim-container">
+          <div class="program-anim-container reveal-scale-in">
             <div style="text-align: center; max-width: 680px; margin: 0 auto 32px auto;">
               <span class="badge badge-navy">The Transformation Mechanism</span>
               <h3 style="font-size: 1.6rem; color: var(--color-primary-navy); margin-top: 6px; margin-bottom: 8px;">How Data Replaces Generic Templates</h3>
@@ -450,7 +577,7 @@
             </div>
 
             <div class="program-transformation-flow">
-              <div class="flow-step-box">
+              <div class="flow-step-box stagger-1">
                 <div style="font-size: 1.4rem; margin-bottom: 6px;">📄</div>
                 <h4 style="font-size: 1rem; color: var(--color-text-dim);">Generic Template</h4>
                 <p style="font-size: 0.8rem; color: var(--color-text-dim); margin: 0;">Arbitrary one-size-fits-all plan</p>
@@ -458,7 +585,7 @@
 
               <div class="flow-arrow">&rarr;</div>
 
-              <div class="flow-step-box" style="border: 2px dashed var(--color-primary-navy);">
+              <div class="flow-step-box stagger-2" style="border: 2px dashed var(--color-primary-navy);">
                 <div style="font-size: 1.4rem; margin-bottom: 6px;">⚡</div>
                 <h4 style="font-size: 1rem; color: var(--color-primary-navy);">Assessment Data</h4>
                 <p style="font-size: 0.8rem; color: var(--color-text-muted); margin: 0;">DEXA + Metabolic + Genetics</p>
@@ -466,7 +593,7 @@
 
               <div class="flow-arrow">&rarr;</div>
 
-              <div class="flow-step-box highlight">
+              <div class="flow-step-box highlight stagger-3">
                 <div style="font-size: 1.4rem; margin-bottom: 6px;">🎯</div>
                 <h4 style="font-size: 1.05rem;">Personalised Plan</h4>
                 <p style="font-size: 0.8rem; margin: 0;">Your Training + Nutrition + Progress</p>
@@ -478,7 +605,7 @@
       </section>
 
       <!-- TRANSFORMATION VIDEO SECTION (Section 15) -->
-      <section class="transformation-video-hero reveal-on-scroll">
+      <section class="transformation-video-hero section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <span class="badge badge-navy" style="background: rgba(221,241,239,0.2); color: #FFFFFF;">Cinematic Experience</span>
           <h2 style="font-size: clamp(2rem, 3.8vw, 3rem); color: #FFFFFF; margin-bottom: 12px;">Transformation Is More Than a Number on a Scale.</h2>
@@ -493,7 +620,7 @@
       </section>
 
       <!-- DEXA / BODY COMPOSITION VISUALIZER SECTION (Section 16) -->
-      <section class="section section-subtle reveal-on-scroll">
+      <section class="section section-subtle section-scale-panel reveal-on-scroll">
         <div class="container">
           <div class="section-header">
             <span class="badge">Objective Body Mapping</span>
@@ -503,7 +630,7 @@
             </p>
           </div>
 
-          <div class="dexa-visualizer-container">
+          <div class="dexa-visualizer-container spotlight-card reveal-scale-in">
             <div class="dexa-visualizer-grid">
               <div>
                 <span class="badge badge-navy" style="margin-bottom: 8px;">Interactive Metric Explorer</span>
@@ -524,19 +651,19 @@
 
               <!-- Stat Chain Visual -->
               <div class="dexa-stat-chain">
-                <div class="dexa-chain-item active">
+                <div class="dexa-chain-item active stagger-1">
                   <span class="dexa-chain-item-label">1. Total Fat Mass</span>
                   <span class="dexa-chain-item-val" id="dexa-fat-val">23.8 kg (28%)</span>
                 </div>
-                <div class="dexa-chain-item active">
+                <div class="dexa-chain-item active stagger-2">
                   <span class="dexa-chain-item-label">2. Lean Muscle Mass</span>
                   <span class="dexa-chain-item-val" id="dexa-lean-val">61.2 kg</span>
                 </div>
-                <div class="dexa-chain-item active">
+                <div class="dexa-chain-item active stagger-3">
                   <span class="dexa-chain-item-label">3. Visceral Fat (VAT)</span>
                   <span class="dexa-chain-item-val" id="dexa-vat-val">1.80 kg</span>
                 </div>
-                <div class="dexa-chain-item active">
+                <div class="dexa-chain-item active stagger-4">
                   <span class="dexa-chain-item-label">4. Biological Progress</span>
                   <span class="dexa-chain-item-val" style="color: var(--color-primary-navy);">Optimal Longevity</span>
                 </div>
@@ -546,8 +673,152 @@
         </div>
       </section>
 
+      <!-- INTERACTIVE HEALTH & PERFORMANCE DATA LAB -->
+      <section class="section section-perspective-panel reveal-on-scroll" id="health-data-lab-section" style="position: relative; padding-top: 10px;">
+        <!-- Floating Telemetry Layer -->
+        <div class="scientific-bg-layer">
+          <div class="telemetry-ring-glow parallax-layer-slow" style="width: 260px; height: 260px; top: 10%; right: -40px;"></div>
+          <div class="telemetry-crosshair parallax-layer-med" style="bottom: 12%; left: 6%;"></div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+          <div class="section-header">
+            <span class="badge badge-navy">Interactive Health Analytics</span>
+            <h2 class="section-title">Clinical & Biomechanical Intelligence Lab</h2>
+            <p class="section-subtitle">
+              Explore how continuous diagnostic tracking monitors your metabolic biomarkers, lean muscle velocity, and autonomic recovery in real time.
+            </p>
+          </div>
+
+          <div class="health-data-lab spotlight-card reveal-scale-in">
+            
+            <!-- Category Switcher Header -->
+            <div class="lab-nav-header">
+              <div class="lab-category-tabs" id="lab-category-tabs">
+                <button type="button" class="lab-tab-btn active" data-category="metabolic">
+                  <span>🔬</span>
+                  <span>Metabolic & DEXA</span>
+                </button>
+                <button type="button" class="lab-tab-btn" data-category="strength">
+                  <span>🏋️</span>
+                  <span>Strength & Velocity</span>
+                </button>
+                <button type="button" class="lab-tab-btn" data-category="recovery">
+                  <span>🧘</span>
+                  <span>Cardio & Recovery</span>
+                </button>
+              </div>
+
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-navy);">
+                Live Simulation • 90-Day Cohort Tracking
+              </div>
+            </div>
+
+            <!-- Grid Layout: Dynamic SVG Chart + KPI Gauges -->
+            <div class="lab-grid-layout">
+              
+              <!-- Left Chart Card -->
+              <div class="lab-chart-card">
+                <defs>
+                  <linearGradient id="labAreaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#48CAE4" stop-opacity="0.4" />
+                    <stop offset="100%" stop-color="#0E3A5D" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+
+                <div class="lab-chart-head">
+                  <div>
+                    <div class="lab-chart-title" id="lab-chart-title">Visceral Fat (VAT) Mobilization Curve</div>
+                    <div class="lab-chart-subtitle" id="lab-chart-subtitle">Objective 90-day progress timeline across quarterly DEXA scans</div>
+                  </div>
+                  <div class="lab-chart-kpi" id="lab-chart-kpi">-36.4%</div>
+                </div>
+
+                <!-- Animated SVG Spline Curve -->
+                <div class="lab-chart-svg-wrap">
+                  <svg id="lab-spline-svg" viewBox="0 0 500 180" preserveAspectRatio="none">
+                    <!-- Grid background lines -->
+                    <line x1="0" y1="45" x2="500" y2="45" stroke="rgba(221,241,239,0.12)" stroke-dasharray="3 3" />
+                    <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(221,241,239,0.12)" stroke-dasharray="3 3" />
+                    <line x1="0" y1="135" x2="500" y2="135" stroke="rgba(221,241,239,0.12)" stroke-dasharray="3 3" />
+                    
+                    <path class="lab-chart-fill" id="lab-chart-fill" d="M 0 140 Q 120 120, 250 80 T 500 35 L 500 180 L 0 180 Z" />
+                    <path class="lab-chart-path" id="lab-chart-path" d="M 0 140 Q 120 120, 250 80 T 500 35" />
+                    
+                    <g class="lab-chart-dots" id="lab-chart-dots">
+                      <circle cx="0" cy="140" r="5" />
+                      <circle cx="125" cy="115" r="5" />
+                      <circle cx="250" cy="80" r="5" />
+                      <circle cx="375" cy="55" r="5" />
+                      <circle cx="500" cy="35" r="5" />
+                    </g>
+                  </svg>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--color-primary-light-blue); font-weight: 700;">
+                  <span>Baseline (Day 0)</span>
+                  <span>Checkpoint 01 (Day 30)</span>
+                  <span>Checkpoint 02 (Day 60)</span>
+                  <span>Final DEXA (Day 90)</span>
+                </div>
+              </div>
+
+              <!-- Right Metrics Column with Interactive Donut Gauges -->
+              <div class="lab-metrics-column" id="lab-metrics-column">
+                
+                <div class="lab-metric-card">
+                  <div class="lab-metric-info">
+                    <h5 id="lab-metric-1-title">Visceral Adipose Tissue</h5>
+                    <p id="lab-metric-1-desc">Inflammatory organ fat reduction</p>
+                  </div>
+                  <div class="lab-gauge-wrap">
+                    <svg viewBox="0 0 50 50">
+                      <circle class="lab-gauge-bg" cx="25" cy="25" r="20" />
+                      <circle class="lab-gauge-bar" id="lab-gauge-1" cx="25" cy="25" r="20" stroke-dasharray="125.6" stroke-dashoffset="35" />
+                    </svg>
+                    <span class="lab-gauge-val" id="lab-gauge-1-val">-36%</span>
+                  </div>
+                </div>
+
+                <div class="lab-metric-card">
+                  <div class="lab-metric-info">
+                    <h5 id="lab-metric-2-title">HOMA-IR Insulin Index</h5>
+                    <p id="lab-metric-2-desc">Fasting insulin & glucose normalization</p>
+                  </div>
+                  <div class="lab-gauge-wrap">
+                    <svg viewBox="0 0 50 50">
+                      <circle class="lab-gauge-bg" cx="25" cy="25" r="20" />
+                      <circle class="lab-gauge-bar" id="lab-gauge-2" cx="25" cy="25" r="20" stroke-dasharray="125.6" stroke-dashoffset="22" />
+                    </svg>
+                    <span class="lab-gauge-val" id="lab-gauge-2-val">-48%</span>
+                  </div>
+                </div>
+
+                <div class="lab-metric-card">
+                  <div class="lab-metric-info">
+                    <h5 id="lab-metric-3-title">Lean Skeletal Mass</h5>
+                    <p id="lab-metric-3-desc">Pure functional muscle hypertrophy</p>
+                  </div>
+                  <div class="lab-gauge-wrap">
+                    <svg viewBox="0 0 50 50">
+                      <circle class="lab-gauge-bg" cx="25" cy="25" r="20" />
+                      <circle class="lab-gauge-bar" id="lab-gauge-3" cx="25" cy="25" r="20" stroke-dasharray="125.6" stroke-dashoffset="15" />
+                    </svg>
+                    <span class="lab-gauge-val" id="lab-gauge-3-val">+3.8kg</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       <!-- RESIDENT TESTIMONIALS & CLINICAL CASE STUDIES SECTION -->
-      <section class="section section-light-blue reveal-on-scroll" id="testimonials-section">
+      <section class="section section-light-blue section-scale-panel reveal-on-scroll" id="testimonials-section">
         <div class="container">
           <div class="section-header">
             <span class="badge badge-navy">Resident Proof & Clinical Outcomes</span>
@@ -562,8 +833,16 @@
             <!-- Populated dynamically -->
           </div>
 
+          <!-- Testimonials Toggle Button -->
+          <div class="testimonials-toggle-wrap">
+            <button type="button" class="btn-toggle-testimonials" id="toggle-testimonials-btn" onclick="App.toggleTestimonials()" aria-expanded="false">
+              <span>View All Stories (6)</span>
+              <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+          </div>
+
           <!-- Aggregate Metric Summary Strip -->
-          <div class="testimonial-summary-strip">
+          <div class="testimonial-summary-strip reveal-scale-in">
             <div class="summary-metric">
               <span class="summary-val">4.9 / 5.0</span>
               <span class="summary-lbl">★ Resident Satisfaction</span>
@@ -585,7 +864,7 @@
       </section>
 
       <!-- 3-TIER MEMBERSHIP SECTION (Section 22) -->
-      <section class="section reveal-on-scroll">
+      <section class="section section-scale-panel reveal-on-scroll">
         <div class="container">
           <div class="section-header">
             <span class="badge badge-navy">Transparent Membership Architecture</span>
@@ -601,14 +880,42 @@
         </div>
       </section>
 
-      <!-- GLOBAL CTA BAND (Section 29) -->
-      <section class="global-cta-band reveal-on-scroll">
-        <div class="container container-narrow">
+      <!-- GLOBAL CTA BAND (Performance Complete Convergence Stage) -->
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
+        <!-- Convergence Stage Concentric Rotating SVG Background -->
+        <div class="cta-convergence-stage">
+          <svg class="cta-convergence-svg" viewBox="0 0 600 600">
+            <defs>
+              <linearGradient id="ctaConvergenceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#DDF1EF" stop-opacity="0.8" />
+                <stop offset="50%" stop-color="#48CAE4" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#0E3A5D" stop-opacity="0.0" />
+              </linearGradient>
+            </defs>
+            <circle cx="300" cy="300" r="280" fill="none" stroke="rgba(221,241,239,0.15)" stroke-width="1.5" stroke-dasharray="6 8" />
+            <circle cx="300" cy="300" r="240" fill="none" stroke="url(#ctaConvergenceGrad)" stroke-width="2" stroke-dasharray="80 30 20 40" />
+            <circle cx="300" cy="300" r="180" fill="none" stroke="rgba(72,202,228,0.35)" stroke-width="1.5" stroke-dasharray="4 6" />
+            <circle cx="300" cy="300" r="120" fill="none" stroke="rgba(221,241,239,0.45)" stroke-width="2" stroke-dasharray="16 8" />
+            <circle cx="300" cy="300" r="60" fill="rgba(221,241,239,0.06)" stroke="rgba(221,241,239,0.7)" stroke-width="1.5" />
+            <circle cx="300" cy="20" r="4" fill="#DDF1EF" />
+            <circle cx="580" cy="300" r="3.5" fill="#48CAE4" />
+          </svg>
+          <svg class="cta-convergence-svg reverse" viewBox="0 0 600 600">
+            <circle cx="300" cy="300" r="210" fill="none" stroke="rgba(221,241,239,0.22)" stroke-width="1.2" stroke-dasharray="50 25 10 25" />
+            <circle cx="300" cy="300" r="150" fill="none" stroke="rgba(221,241,239,0.28)" stroke-width="1.8" stroke-dasharray="8 6" />
+          </svg>
+        </div>
+
+        <div class="container container-narrow" style="position: relative; z-index: 3;">
+          <div class="convergence-tagline-badge">
+            <span>✨</span>
+            <span>Your Health &bull; Your Performance &bull; Your Next Level</span>
+          </div>
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>
             Book an introductory consultation with our Head Coach. We’ll discuss your goals and recommend the right assessment and program for you.
           </p>
-          <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation →</a>
+          <a href="#/booking" class="btn btn-primary btn-lg btn-magnetic">Book a Free Consultation →</a>
         </div>
       </section>
 
@@ -616,7 +923,7 @@
 
     <!-- 2. HOW IT WORKS VIEW (Section 14) -->
     <div class="app-view" id="view-how-it-works">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -636,7 +943,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 15%; right: -50px;"></div>
@@ -651,9 +958,9 @@
             <!-- Populated dynamically by App.renderHowItWorks() -->
           </div>
 
-          <div class="central-loop-banner reveal-on-scroll" style="position: relative; overflow: hidden;">
+          <div class="central-loop-banner section-perspective-panel reveal-on-scroll" style="position: relative; overflow: hidden;">
             <div class="telemetry-ring parallax-layer-slow" style="width: 200px; height: 200px; top: -50px; right: -50px; opacity: 0.25;"></div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 8px;">The Central Feedback Loop</h3>
+            <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #FFFFFF;">The Central Feedback Loop</h3>
             <p style="font-size: 0.95rem; color: var(--color-primary-light-blue); margin-bottom: 12px;">Continuous refinement as your biomarkers and body composition adapt.</p>
             
             <div class="loop-pills-row">
@@ -674,7 +981,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -685,7 +992,7 @@
 
     <!-- 3. ABOUT & FOUNDER VIEW (Section 17) -->
     <div class="app-view" id="view-about">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -705,7 +1012,7 @@
       </section>
 
       <!-- Brand Story Full-Width Cinematic Video Showcase -->
-      <section class="section-video-showcase reveal-on-scroll">
+      <section class="section-video-showcase section-scale-panel reveal-on-scroll">
         <div class="video-showcase-container">
           <div class="premium-video-wrap">
             <video
@@ -734,7 +1041,7 @@
       </section>
 
       <!-- WHO WE ARE SECTION -->
-      <section class="section section-light-blue reveal-on-scroll" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-scale-panel reveal-on-scroll" style="position: relative; overflow: hidden;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring parallax-layer-slow" style="width: 280px; height: 280px; top: -30px; right: -40px;"></div>
@@ -752,7 +1059,7 @@
 
           <!-- 3 Pillar Cards -->
           <div class="who-we-are-pillars">
-            <div class="who-we-are-card reveal-on-scroll">
+            <div class="who-we-are-card reveal-from-left stagger-1 reveal-on-scroll">
               <div class="who-we-are-icon-box">🔬</div>
               <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">Diagnostic-First Collective</h3>
               <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
@@ -760,7 +1067,7 @@
               </p>
             </div>
 
-            <div class="who-we-are-card reveal-on-scroll">
+            <div class="who-we-are-card reveal-scale-in stagger-2 reveal-on-scroll">
               <div class="who-we-are-icon-box">🏡</div>
               <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">In-Community Specialists</h3>
               <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
@@ -768,7 +1075,7 @@
               </p>
             </div>
 
-            <div class="who-we-are-card reveal-on-scroll">
+            <div class="who-we-are-card reveal-from-right stagger-3 reveal-on-scroll">
               <div class="who-we-are-icon-box">🧘</div>
               <h3 style="font-size: 1.3rem; color: var(--color-primary-navy); margin-bottom: 10px;">Calm Longevity Architects</h3>
               <p style="font-size: 0.94rem; color: var(--color-text-muted); line-height: 1.65; margin: 0;">
@@ -778,7 +1085,7 @@
           </div>
 
           <!-- The Helevate Manifesto / DNA Box -->
-          <div class="who-we-are-manifesto-box reveal-on-scroll">
+          <div class="who-we-are-manifesto-box reveal-scale-in reveal-on-scroll">
             <div class="who-we-are-manifesto-grid">
               <div>
                 <span class="badge" style="background: rgba(221,241,239,0.15); color: #FFFFFF; margin-bottom: 12px;">Our DNA & Core Values</span>
@@ -843,7 +1150,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 280px; height: 280px; top: 20%; right: -40px;"></div>
@@ -853,7 +1160,7 @@
         <div class="container container-narrow" style="position: relative; z-index: 2;">
 
           <!-- Founder Card with Circular Dashed Halo -->
-          <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
+          <div class="card-clean reveal-from-left reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
             <div style="display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;">
               <div class="avatar-circle-halo">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80" alt="Harish P" style="width: 128px; height: 128px; object-fit: cover;">
@@ -885,7 +1192,7 @@
       </section>
 
       <!-- HUMAN PERFORMANCE FACULTY SECTION (Section 17) -->
-      <section class="section section-light-blue reveal-on-scroll" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel reveal-on-scroll" style="position: relative; overflow: hidden;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring parallax-layer-slow" style="width: 260px; height: 260px; top: 10%; right: -20px;"></div>
@@ -911,7 +1218,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -922,7 +1229,7 @@
 
     <!-- 4. PROGRAMS VIEW (Section 12) -->
     <div class="app-view" id="view-programs">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -942,7 +1249,7 @@
       </section>
 
       <!-- Programs Full-Width Cinematic Coaching Video Showcase -->
-      <section class="section-video-showcase reveal-on-scroll">
+      <section class="section-video-showcase section-scale-panel reveal-on-scroll">
         <div class="video-showcase-container">
           <div class="premium-video-wrap">
             <video
@@ -970,7 +1277,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-perspective-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 10%; right: -60px;"></div>
@@ -984,7 +1291,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -995,7 +1302,7 @@
 
     <!-- 5. ASSESSMENTS VIEW (Section 10) -->
     <div class="app-view" id="view-assessments">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1016,7 +1323,7 @@
       </section>
 
       <!-- Diagnostics Full-Width Cinematic Video Showcase -->
-      <section class="section-video-showcase reveal-on-scroll">
+      <section class="section-video-showcase section-scale-panel reveal-on-scroll">
         <div class="video-showcase-container">
           <div class="premium-video-wrap">
             <video
@@ -1044,7 +1351,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-perspective-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 340px; height: 340px; top: 12%; right: -50px;"></div>
@@ -1058,7 +1365,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1069,7 +1376,7 @@
 
     <!-- 6. ASSESSMENT DETAIL VIEW -->
     <div class="app-view" id="view-assessment-detail">
-      <section class="section" style="position: relative; overflow: hidden;">
+      <section class="section section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1086,7 +1393,7 @@
 
     <!-- 7. PRICING & MEMBERSHIPS VIEW (Section 22) -->
     <div class="app-view" id="view-pricing">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1105,7 +1412,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 15%; right: -50px;"></div>
@@ -1119,7 +1426,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1130,7 +1437,7 @@
 
     <!-- 8. COMMUNITIES VIEW (Section 20) -->
     <div class="app-view" id="view-communities">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1149,7 +1456,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 10%; right: -40px;"></div>
@@ -1162,7 +1469,7 @@
           </div>
 
           <!-- Bring Helevate to Your Community (Section 20) -->
-          <div class="card-navy reveal-on-scroll" style="position: relative; overflow: hidden;">
+          <div class="card-navy section-scale-panel reveal-on-scroll" style="position: relative; overflow: hidden;">
             <div class="telemetry-ring parallax-layer-slow" style="width: 220px; height: 220px; top: -50px; right: -50px; opacity: 0.2;"></div>
             <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; position: relative; z-index: 2;">
               <div>
@@ -1200,7 +1507,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1211,7 +1518,7 @@
 
     <!-- 9. DYNAMIC COMMUNITY LANDING PAGE (Section 21) -->
     <div class="app-view" id="view-community-detail">
-      <section class="section" style="position: relative; overflow: hidden;">
+      <section class="section section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1228,7 +1535,7 @@
 
     <!-- 10. CAREERS VIEW (Section 18) -->
     <div class="app-view" id="view-careers">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1247,7 +1554,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 300px; height: 300px; top: 15%; right: -50px;"></div>
@@ -1257,7 +1564,7 @@
         <div class="container container-narrow" style="position: relative; z-index: 2;">
 
           <!-- Benefits -->
-          <div class="card-clean reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
+          <div class="card-clean reveal-from-left reveal-on-scroll" style="margin-bottom: 28px; padding: 28px 24px;">
             <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 16px;">Why Work at Helevate?</h3>
             <ul style="display: flex; flex-direction: column; gap: 12px;">
               <li style="display: flex; gap: 10px; font-size: 0.95rem; font-weight: 600; color: var(--color-text-main);">
@@ -1292,7 +1599,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1303,7 +1610,7 @@
 
     <!-- 11. CLINICAL INSIGHTS / BLOG VIEW (Section 23) -->
     <div class="app-view" id="view-insights">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1322,7 +1629,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-perspective-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 15%; right: -50px;"></div>
@@ -1336,7 +1643,7 @@
         </div>
       </section>
 
-      <section class="global-cta-band reveal-on-scroll">
+      <section class="global-cta-band section-perspective-panel reveal-on-scroll">
         <div class="container container-narrow">
           <h2>Ready to know what’s really going on with your health?</h2>
           <p>Book a free discovery consultation with our Head Coach.</p>
@@ -1347,7 +1654,7 @@
 
     <!-- 12. DEDICATED BOOK CONSULTATION VIEW (Section 19) -->
     <div class="app-view" id="view-booking">
-      <section class="section section-light-blue" style="position: relative; overflow: hidden;">
+      <section class="section section-light-blue section-perspective-panel" style="position: relative; overflow: hidden;">
         <!-- Floating Circular Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-grid"></div>
@@ -1366,7 +1673,7 @@
         </div>
       </section>
 
-      <section class="section" style="position: relative;">
+      <section class="section section-scale-panel" style="position: relative;">
         <!-- Floating Telemetry Layer -->
         <div class="scientific-bg-layer">
           <div class="telemetry-ring reverse parallax-layer-slow" style="width: 320px; height: 320px; top: 20%; right: -50px;"></div>
@@ -1378,7 +1685,7 @@
           <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: start; max-width: 1060px; margin: 0 auto;">
             
             <!-- Left: Calm Consultation Discovery Video Showcase -->
-            <div class="reveal-on-scroll">
+            <div class="reveal-from-left reveal-on-scroll">
               <div class="premium-video-wrap booking-video-wrap">
                 <video
                   class="premium-video-element lazy-video"
@@ -1416,7 +1723,7 @@
             </div>
 
             <!-- Right: Exact Consultation Form Card -->
-            <div class="consultation-form-card reveal-on-scroll" style="margin: 0; max-width: 100%;">
+            <div class="consultation-form-card reveal-from-right reveal-on-scroll" style="margin: 0; max-width: 100%;">
               
               <div id="consultation-form-wrapper">
                 <h3 style="font-size: 1.4rem; color: var(--color-primary-navy); margin-bottom: 6px;">Tell Us About Your Goals</h3>
@@ -1684,10 +1991,10 @@
         
         <div class="footer-credit-wrap">
           <span>Designed by</span>
-          <a href="https://bubblesmedia.in" target="_blank" rel="noopener noreferrer" class="bubbles-media-badge" title="BubblesMedia — Digital Brand & Design Studio">
+          <a href="https://thebubblesmedia.com/" target="_blank" rel="noopener noreferrer" class="bubbles-media-badge" title="The Bubbles Media — Best Digital Marketing Agency in Hyderabad">
             <span class="bubble-icon">🫧</span>
             <span class="bubbles-name">
-              <span class="b-char" style="--d:0.04s">B</span><span class="b-char" style="--d:0.08s">u</span><span class="b-char" style="--d:0.12s">b</span><span class="b-char" style="--d:0.16s">b</span><span class="b-char" style="--d:0.20s">l</span><span class="b-char" style="--d:0.24s">e</span><span class="b-char" style="--d:0.28s">s</span><span class="b-media">Media</span>
+              <span class="b-char" style="--d:0.04s">T</span><span class="b-char" style="--d:0.08s">h</span><span class="b-char" style="--d:0.12s; margin-right: 4px;">e</span><span class="b-char" style="--d:0.16s">B</span><span class="b-char" style="--d:0.20s">u</span><span class="b-char" style="--d:0.24s">b</span><span class="b-char" style="--d:0.28s">b</span><span class="b-char" style="--d:0.32s">l</span><span class="b-char" style="--d:0.36s">e</span><span class="b-char" style="--d:0.40s">s</span><span class="b-media">Media</span>
             </span>
             <span class="micro-bubble b1"></span>
             <span class="micro-bubble b2"></span>

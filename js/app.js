@@ -60,54 +60,66 @@ const App = {
     // 1. Render Assessment Cards (Section 10)
     const assessmentsContainer = document.getElementById("home-assessments-grid");
     if (assessmentsContainer) {
-      assessmentsContainer.innerHTML = HELEVATE_DATA.assessments.map((a, idx) => `
-        <div class="assessment-card reveal-on-scroll">
-          <div class="assessment-card-img">
-            <div class="assessment-card-num">0${idx + 1}</div>
-            <img src="${a.image}" alt="${a.title}" loading="lazy">
-            <div class="assessment-card-img-scrim"></div>
-          </div>
-          <div class="assessment-card-body">
-            <div>
-              <span class="badge badge-navy" style="font-size: 0.72rem; padding: 4px 12px; margin-bottom: 10px;">${a.badge}</span>
-              <h3>${a.title}</h3>
-              <p>${a.shortDesc}</p>
+      assessmentsContainer.innerHTML = HELEVATE_DATA.assessments.map((a, idx) => {
+        const dirClass = idx === 0 ? 'reveal-from-left' : (idx === 3 ? 'reveal-from-right' : 'reveal-from-bottom');
+        const staggerClass = `stagger-${idx + 1}`;
+        return `
+          <div class="assessment-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
+            <div class="assessment-card-img image-reveal-clip">
+              <div class="assessment-card-num">0${idx + 1}</div>
+              <img src="${a.image}" alt="${a.title}" loading="lazy">
+              <div class="assessment-card-img-scrim"></div>
             </div>
-            <a href="#/assessments/${a.id}" class="assessment-card-link">Learn More →</a>
+            <div class="assessment-card-body">
+              <div>
+                <span class="badge badge-navy" style="font-size: 0.72rem; padding: 4px 12px; margin-bottom: 10px;">${a.badge}</span>
+                <h3>${a.title}</h3>
+                <p>${a.shortDesc}</p>
+              </div>
+              <a href="#/assessments/${a.id}" class="assessment-card-link">Learn More →</a>
+            </div>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
 
     // 2. Render Program Cards (Section 12)
     const programsContainer = document.getElementById("home-programs-grid");
     if (programsContainer) {
-      programsContainer.innerHTML = HELEVATE_DATA.programs.map((p, idx) => `
-        <div class="program-card reveal-on-scroll">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <span class="badge badge-navy">${p.badge}</span>
-              <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-dim);">PROTOCOL 0${idx + 1}</span>
+      programsContainer.innerHTML = HELEVATE_DATA.programs.map((p, idx) => {
+        const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+        const rotClass = idx % 2 === 0 ? 'card-rot-left' : 'card-rot-right';
+        const staggerClass = `stagger-${idx + 1}`;
+        return `
+          <div class="program-card spotlight-card ${dirClass} ${rotClass} ${staggerClass} card-composition-rotate">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <span class="badge badge-navy">${p.badge}</span>
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-dim);">PROTOCOL 0${idx + 1}</span>
+              </div>
+              <h3>${p.title}</h3>
+              <p>${p.shortDesc}</p>
+              <ul class="program-bullets">
+                ${p.bullets.map(b => `<li>${b}</li>`).join("")}
+              </ul>
             </div>
-            <h3>${p.title}</h3>
-            <p>${p.shortDesc}</p>
-            <ul class="program-bullets">
-              ${p.bullets.map(b => `<li>${b}</li>`).join("")}
-            </ul>
+            <div style="margin-top: 24px;">
+              <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic" style="width: 100%; text-align: center;">Find Your Program →</a>
+            </div>
           </div>
-          <div style="margin-top: 24px;">
-            <a href="#/booking" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">Find Your Program →</a>
-          </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
 
     // 3. Render 3-Tier Memberships (Section 22)
     const membershipsContainer = document.getElementById("home-memberships-grid");
     if (membershipsContainer) {
-      membershipsContainer.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => `
-        <div class="pricing-card ${idx === 1 ? 'featured' : ''} reveal-on-scroll">
-          <div>
+      membershipsContainer.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => {
+        const dirClass = idx === 0 ? 'reveal-from-left' : (idx === 1 ? 'featured reveal-scale-in' : 'reveal-from-right');
+        const staggerClass = `stagger-${idx + 1}`;
+        return `
+          <div class="pricing-card spotlight-card ${dirClass} ${staggerClass}">
+            ${idx === 1 ? `<div class="pricing-featured-badge">⭐ POPULAR CHOICE</div>` : ''}
             <div class="pricing-card-header">
               <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
               <h3>${m.name}</h3>
@@ -116,16 +128,19 @@ const App = {
             <div class="pricing-card-price-box">
               <div class="pricing-display-text">${m.pricingDisplay}</div>
             </div>
-            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 24px; line-height: 1.6;">${m.description}</p>
-            <ul class="pricing-features-list">
-              ${m.features.map(f => `<li>${f}</li>`).join("")}
-            </ul>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${m.description}</p>
+            <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
+              ${m.cta} →
+            </a>
+            <div class="pricing-features-wrap">
+              <div class="pricing-features-title">What's included in protocol:</div>
+              <ul class="pricing-features-list">
+                ${m.features.map(f => `<li>${f}</li>`).join("")}
+              </ul>
+            </div>
           </div>
-          <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-secondary'} btn-sm" style="width: 100%; text-align: center;">
-            ${m.cta} →
-          </a>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
   },
 
@@ -217,9 +232,12 @@ const App = {
     const container = document.getElementById("about-team-grid");
     if (!container) return;
 
-    container.innerHTML = HELEVATE_DATA.team.map(t => `
-      <div class="team-card reveal-on-scroll">
-        <div class="team-card-media">
+    container.innerHTML = HELEVATE_DATA.team.map((t, idx) => {
+      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+      const staggerClass = `stagger-${idx + 1}`;
+      return `
+      <div class="team-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
+        <div class="team-card-media image-reveal-clip">
           <img src="${t.photo}" alt="${t.name}" class="team-card-img" loading="lazy">
           <div class="team-card-scrim"></div>
           <div class="team-card-badge-floating">${t.badge || "Faculty"}</div>
@@ -249,11 +267,12 @@ const App = {
           </div>
 
           <div class="team-card-footer">
-            <a href="#/booking" class="team-card-cta-link">Book Consultation →</a>
+            <a href="#/booking" class="team-card-cta-link btn-magnetic">Book Consultation →</a>
           </div>
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
   },
 
   // --------------------------------------------------------------------------
@@ -263,27 +282,33 @@ const App = {
     const container = document.getElementById("pricing-page-grid");
     if (!container) return;
 
-    container.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => `
-      <div class="pricing-card ${idx === 1 ? 'featured' : ''} reveal-on-scroll">
-        <div>
-          <div class="pricing-card-header">
-            <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
-            <h3>${m.name}</h3>
-            <div class="pricing-card-tagline">${m.tagline}</div>
-          </div>
-          <div class="pricing-card-price-box">
-            <div class="pricing-display-text">${m.pricingDisplay}</div>
-          </div>
-          <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 24px; line-height: 1.6;">${m.description}</p>
+    container.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => {
+      const dirClass = idx === 0 ? 'reveal-from-left' : (idx === 1 ? 'featured reveal-scale-in' : 'reveal-from-right');
+      const staggerClass = `stagger-${idx + 1}`;
+      return `
+      <div class="pricing-card spotlight-card ${dirClass} ${staggerClass}">
+        ${idx === 1 ? `<div class="pricing-featured-badge">⭐ POPULAR CHOICE</div>` : ''}
+        <div class="pricing-card-header">
+          <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
+          <h3>${m.name}</h3>
+          <div class="pricing-card-tagline">${m.tagline}</div>
+        </div>
+        <div class="pricing-card-price-box">
+          <div class="pricing-display-text">${m.pricingDisplay}</div>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${m.description}</p>
+        <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
+          ${m.cta} →
+        </a>
+        <div class="pricing-features-wrap">
+          <div class="pricing-features-title">What's included in protocol:</div>
           <ul class="pricing-features-list">
             ${m.features.map(f => `<li>${f}</li>`).join("")}
           </ul>
         </div>
-        <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-secondary'} btn-sm" style="width: 100%; text-align: center;">
-          ${m.cta} →
-        </a>
       </div>
-    `).join("");
+    `;
+    }).join("");
   },
 
   // --------------------------------------------------------------------------
@@ -293,8 +318,11 @@ const App = {
     const container = document.getElementById("communities-list-grid");
     if (!container) return;
 
-    container.innerHTML = HELEVATE_DATA.communities.map(c => `
-      <div class="community-card reveal-on-scroll">
+    container.innerHTML = HELEVATE_DATA.communities.map((c, idx) => {
+      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+      const staggerClass = `stagger-${(idx % 3) + 1}`;
+      return `
+      <div class="community-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
         <div>
           <span class="community-status-badge">${c.status}</span>
           <h3>${c.name}</h3>
@@ -305,25 +333,35 @@ const App = {
           </div>
         </div>
         <div style="display: flex; gap: 10px;">
-          <a href="#/communities/${c.slug}" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center;">View Society →</a>
-          <a href="#/booking" class="btn btn-primary btn-sm">Book</a>
+          <a href="#/communities/${c.slug}" class="btn btn-secondary btn-sm btn-magnetic" style="flex: 1; text-align: center;">View Society →</a>
+          <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic">Book</a>
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
   },
 
   // --------------------------------------------------------------------------
-  // 7b. RENDER TESTIMONIALS & CLINICAL CASE STUDIES
+  // 7b. RENDER TESTIMONIALS & CLINICAL CASE STUDIES (Show 3 initially)
   // --------------------------------------------------------------------------
+  testimonialsExpanded: false,
+
   renderTestimonials() {
     const container = document.getElementById("testimonials-container");
     if (!container || !HELEVATE_DATA.testimonials) return;
 
-    container.innerHTML = HELEVATE_DATA.testimonials.map(t => `
-      <div class="testimonial-card reveal-on-scroll">
+    container.innerHTML = HELEVATE_DATA.testimonials.map((t, idx) => {
+      const isExtra = idx >= 3;
+      const hiddenClass = isExtra && !this.testimonialsExpanded ? "testimonial-hidden" : "";
+      const extraClass = isExtra ? "testimonial-card-extra" : "";
+      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+      const staggerClass = `stagger-${(idx % 3) + 1}`;
+
+      return `
+      <div class="testimonial-card spotlight-card ${dirClass} ${staggerClass} ${hiddenClass} ${extraClass} card-composition-rotate" data-testimonial-index="${idx}">
         <div>
           <div class="testimonial-header">
-            <div class="testimonial-avatar-wrap">
+            <div class="testimonial-avatar-wrap image-reveal-clip">
               <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar" loading="lazy">
               <span class="testimonial-verified-badge" title="Verified Gated Community Resident">✓</span>
             </div>
@@ -356,7 +394,59 @@ const App = {
           </div>
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
+
+    this.updateTestimonialsToggleButton();
+  },
+
+  toggleTestimonials() {
+    this.testimonialsExpanded = !this.testimonialsExpanded;
+    const extraCards = document.querySelectorAll(".testimonial-card-extra");
+
+    if (this.testimonialsExpanded) {
+      extraCards.forEach((card, i) => {
+        card.classList.remove("testimonial-hidden");
+        card.classList.add("is-revealed", "is-revealed-extra");
+        card.style.animationDelay = `${i * 0.12}s`;
+      });
+    } else {
+      extraCards.forEach(card => {
+        card.classList.add("testimonial-hidden");
+        card.classList.remove("is-revealed-extra");
+      });
+      const section = document.getElementById("testimonials-section");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < -100) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }
+
+    this.updateTestimonialsToggleButton();
+  },
+
+  updateTestimonialsToggleButton() {
+    const toggleBtn = document.getElementById("toggle-testimonials-btn");
+    if (!toggleBtn) return;
+
+    const totalCount = HELEVATE_DATA.testimonials ? HELEVATE_DATA.testimonials.length : 6;
+    toggleBtn.setAttribute("aria-expanded", this.testimonialsExpanded ? "true" : "false");
+
+    if (this.testimonialsExpanded) {
+      toggleBtn.classList.add("expanded");
+      toggleBtn.innerHTML = `
+        <span>Show Less Stories</span>
+        <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      `;
+    } else {
+      toggleBtn.classList.remove("expanded");
+      toggleBtn.innerHTML = `
+        <span>View All Stories (${totalCount})</span>
+        <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      `;
+    }
   },
 
   // --------------------------------------------------------------------------
@@ -366,15 +456,17 @@ const App = {
     const container = document.getElementById("careers-roles-container");
     if (!container) return;
 
-    container.innerHTML = HELEVATE_DATA.careers.roles.map(r => `
-      <div class="card-clean reveal-on-scroll" style="margin-bottom: 26px;">
+    container.innerHTML = HELEVATE_DATA.careers.roles.map((r, idx) => {
+      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+      return `
+      <div class="card-clean ${dirClass} reveal-on-scroll" style="margin-bottom: 26px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
           <div>
             <span class="badge badge-navy" style="margin-bottom: 8px;">${r.type}</span>
             <h3 style="font-size: 1.45rem; color: var(--color-primary-navy); margin-bottom: 6px;">${r.title}</h3>
             <div style="font-size: 0.88rem; font-weight: 700; color: var(--color-text-muted);">📍 ${r.location}</div>
           </div>
-          <button class="btn btn-primary btn-sm" onclick="App.openCareerModal('${r.id}', '${r.title}')">Apply for Position →</button>
+          <button class="btn btn-primary btn-sm btn-magnetic" onclick="App.openCareerModal('${r.id}', '${r.title}')">Apply for Position →</button>
         </div>
         <div style="margin-bottom: 14px; font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6;">
           <strong>Requirements:</strong> ${r.requirements}
@@ -383,7 +475,8 @@ const App = {
           <strong>Key Responsibilities:</strong> ${r.responsibilities}
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
   },
 
   // --------------------------------------------------------------------------
@@ -393,9 +486,14 @@ const App = {
     const container = document.getElementById("insights-articles-grid");
     if (!container) return;
 
-    container.innerHTML = HELEVATE_DATA.insights.map(i => `
-      <div class="insight-card reveal-on-scroll" onclick="App.openInsightModal('${i.id}')">
-        <img src="${i.image}" alt="${i.title}" class="insight-card-img" loading="lazy">
+    container.innerHTML = HELEVATE_DATA.insights.map((i, idx) => {
+      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
+      const staggerClass = `stagger-${(idx % 3) + 1}`;
+      return `
+      <div class="insight-card ${dirClass} ${staggerClass} reveal-on-scroll" onclick="App.openInsightModal('${i.id}')">
+        <div class="image-reveal-clip" style="width: 100%; height: 215px;">
+          <img src="${i.image}" alt="${i.title}" class="insight-card-img" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div class="insight-card-body">
           <div>
             <span class="badge badge-navy" style="margin-bottom: 10px;">${i.category} &bull; ${i.readTime}</span>
@@ -407,7 +505,8 @@ const App = {
           </div>
         </div>
       </div>
-    `).join("");
+    `;
+    }).join("");
   },
 
   // --------------------------------------------------------------------------

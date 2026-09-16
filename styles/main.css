@@ -85,11 +85,19 @@
   --gradient-navy-hero: linear-gradient(135deg, #072238 0%, #0E3A5D 55%, #15456E 100%);
   --gradient-navy-card: linear-gradient(145deg, #0E3A5D 0%, #072238 100%);
   --gradient-glass-card: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 251, 250, 0.9) 100%);
+  --gradient-pulse-glow: linear-gradient(90deg, #0E3A5D 0%, #DDF1EF 50%, #48CAE4 100%);
+
+  /* Spotlight & Telemetry Tokens */
+  --color-pulse-cyan: #DDF1EF;
+  --color-pulse-accent: #00B4D8;
+  --color-pulse-highlight: #90E0EF;
+  --spotlight-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(221, 241, 239, 0.18), transparent 40%);
 
   /* Transitions & Easing */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* ==========================================================================
@@ -872,6 +880,372 @@ img, svg {
   box-shadow: 0 8px 24px -4px rgba(14, 58, 93, 0.35), 0 0 20px rgba(221, 241, 239, 0.3);
 }
 
+/* ==========================================================================
+   DESKTOP CURSOR SPOTLIGHT & MAGNETIC SPRING UTILITIES
+   ========================================================================== */
+.cursor-spotlight-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle, rgba(221, 241, 239, 0.18) 0%, rgba(14, 58, 93, 0.04) 45%, transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: multiply;
+  will-change: transform, left, top;
+}
+
+body.cursor-active .cursor-spotlight-glow {
+  opacity: 1;
+}
+
+/* Magnetic Button Utility */
+.btn-magnetic, .btn-primary, .btn-secondary-glass {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.25s ease;
+}
+
+/* Text Morphing Tagline */
+.text-morph-target {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.text-morph-target.morph-out {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.95);
+  filter: blur(4px);
+}
+
+.text-morph-target.morph-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Blur-to-Sharp Text Stagger */
+.reveal-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(16px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-blur.is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Convergence Keyframes */
+@keyframes convergenceSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes convergenceSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes convergencePulseRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+/* ==========================================================================
+   MODULAR FULL-PAGE ANIMATION UTILITIES & SECTION TRANSITIONS
+   ========================================================================== */
+
+/* 1. Multi-Directional Scroll Reveals */
+.reveal-from-left {
+  opacity: 0;
+  transform: translate3d(-38px, 0, 0) scale(0.97);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-from-right {
+  opacity: 0;
+  transform: translate3d(38px, 0, 0) scale(0.97);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-from-top {
+  opacity: 0;
+  transform: translate3d(0, -32px, 0) scale(0.97);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-from-bottom {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0) scale(0.97);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale-in {
+  opacity: 0;
+  transform: scale(0.90) translate3d(0, 16px, 0);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale-down {
+  opacity: 0;
+  transform: scale(1.08) translate3d(0, 12px, 0);
+  filter: blur(5px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-from-left.is-revealed,
+.reveal-from-right.is-revealed,
+.reveal-from-top.is-revealed,
+.reveal-from-bottom.is-revealed,
+.reveal-scale-in.is-revealed,
+.reveal-scale-down.is-revealed {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+/* 2. Stagger Timing Helpers */
+.stagger-1 { transition-delay: 0.05s !important; }
+.stagger-2 { transition-delay: 0.12s !important; }
+.stagger-3 { transition-delay: 0.19s !important; }
+.stagger-4 { transition-delay: 0.26s !important; }
+.stagger-5 { transition-delay: 0.33s !important; }
+
+/* 3. Section Scale & Perspective Panels */
+.section-scale-panel {
+  will-change: transform, opacity;
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.section-perspective-panel {
+  perspective: 1200px;
+  perspective-origin: center top;
+  will-change: transform;
+}
+
+.section-perspective-panel > .container {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* 4. Multi-Axis Organic Floating Keyframes */
+@keyframes floatOrganic1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(14px, -18px, 0) rotate(3deg);
+  }
+  66% {
+    transform: translate3d(-12px, 12px, 0) rotate(-2deg);
+  }
+}
+
+@keyframes floatOrganic2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  40% {
+    transform: translate3d(-18px, -14px, 0) rotate(-3deg);
+  }
+  75% {
+    transform: translate3d(15px, 16px, 0) rotate(2deg);
+  }
+}
+
+@keyframes floatOrganic3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8px, -24px, 0) scale(1.06);
+  }
+}
+
+.float-organic-1 {
+  animation: floatOrganic1 7s ease-in-out infinite;
+}
+
+.float-organic-2 {
+  animation: floatOrganic2 8.5s ease-in-out infinite 1s;
+}
+
+.float-organic-3 {
+  animation: floatOrganic3 6s ease-in-out infinite 0.5s;
+}
+
+/* 5. Image Settle Zoom & Clip Reveals */
+.image-reveal-clip {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-reveal-clip img {
+  will-change: transform;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.08);
+}
+
+.image-reveal-clip.is-revealed img {
+  transform: scale(1.0);
+}
+
+/* ==========================================================================
+   29. SUNROOOF-INSPIRED LUXURY LIGHTING & FLUID MOTION AESTHETICS
+   ========================================================================== */
+
+/* Sunrooof Signature Fluid Easing Tokens */
+:root {
+  --ease-sun-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-sun-quad: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-sun-fade: cubic-bezier(0.16, 1, 0.3, 1);
+  --sun-glow-cyan: rgba(221, 241, 239, 0.45);
+  --sun-glow-warm: rgba(255, 255, 255, 0.6);
+  --sun-glow-accent: rgba(72, 202, 228, 0.3);
+}
+
+/* Ambient Natural Lighting Wash */
+.sun-glow-ambient {
+  position: absolute;
+  pointer-events: none;
+  border-radius: var(--radius-full);
+  filter: blur(60px);
+  background: radial-gradient(circle, var(--sun-glow-cyan) 0%, var(--sun-glow-accent) 45%, transparent 70%);
+  opacity: 0.45;
+  animation: sunAmbientPulse 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes sunAmbientPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08) translate3d(0, -8px, 0);
+  }
+}
+
+/* Luminous Card Sheen Sweep */
+.luminous-card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.luminous-card-sheen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(221, 241, 239, 0.35) 50%,
+    rgba(255, 255, 255, 0.15) 55%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.75s var(--ease-sun-cubic);
+  z-index: 3;
+}
+
+.luminous-card-sheen:hover::before {
+  left: 150%;
+}
+
+/* Light-Beam Shimmer on Pill Badges & Buttons */
+.light-beam-shimmer {
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    90deg,
+    rgba(221, 241, 239, 0.2) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(221, 241, 239, 0.2) 100%
+  );
+  animation: sunBeamSweep 4s linear infinite;
+}
+
+@keyframes sunBeamSweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Pill Glow Border Micro-Radiance */
+.pill-glow-border {
+  border: 1px solid rgba(221, 241, 239, 0.6) !important;
+  box-shadow: 0 0 14px rgba(221, 241, 239, 0.35), inset 0 0 10px rgba(221, 241, 239, 0.15);
+  transition: all 0.35s var(--ease-sun-cubic);
+}
+
+.pill-glow-border:hover {
+  border-color: #DDF1EF !important;
+  box-shadow: 0 0 22px rgba(221, 241, 239, 0.6), inset 0 0 14px rgba(221, 241, 239, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Image Reveal Sun Flare Accent */
+.image-reveal-clip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, transparent 40%, rgba(14, 58, 93, 0.3) 100%);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.5s var(--ease-sun-cubic);
+}
+
+.image-reveal-clip:hover::after {
+  opacity: 0.3;
+}
+
 /* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -883,12 +1257,19 @@ img, svg {
   video {
     animation: none !important;
   }
-  .reveal-text, .reveal-on-scroll {
+  .reveal-text, .reveal-on-scroll, .reveal-blur,
+  .reveal-from-left, .reveal-from-right, .reveal-from-top, .reveal-from-bottom,
+  .reveal-scale-in, .reveal-scale-down, .section-scale-panel,
+  .luminous-card-sheen::before {
     filter: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
-  .telemetry-ring, .telemetry-ring-glow, .ambient-circle-orb {
+  .telemetry-ring, .telemetry-ring-glow, .ambient-circle-orb, .cursor-spotlight-glow,
+  .float-organic-1, .float-organic-2, .float-organic-3, .sun-glow-ambient {
     animation: none !important;
+    display: none !important;
   }
 }
+
+
