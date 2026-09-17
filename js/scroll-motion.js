@@ -1249,7 +1249,202 @@
     },
 
     // ------------------------------------------------------------------------
-    // 24. REFRESH & ROUTE CHANGE LIFECYCLE
+    // 24. ASSESSMENT STORYTELLING SEQUENCE ENGINE & 3D INTERACTIVE CARDS
+    // ------------------------------------------------------------------------
+    initAssessmentScanningEffects() {
+      const stage = document.getElementById('assessment-sequence-stage');
+      if (!stage) return;
+
+      const cards = stage.querySelectorAll('.assessment-step-card');
+      if (!cards.length) return;
+
+      const activeBeam = document.getElementById('pipeline-active-beam');
+      const lightRunner = document.getElementById('pipeline-light-runner');
+      const statusLabel = stage.querySelector('#seq-status-text .seq-status-label');
+
+      const stepData = [
+        { label: "METABOLIC BIOMARKER SCAN", offset: 675, cx: 125 },
+        { label: "DEXA VISCERAL FAT MAPPING", offset: 450, cx: 375 },
+        { label: "GUT DYSBIOSIS SEQUENCING", offset: 225, cx: 625 },
+        { label: "DNA 80+ SNP PARSING", offset: 0, cx: 875 }
+      ];
+
+      let currentStep = 1;
+      let sequenceTimer = null;
+      let resumeTimer = null;
+      let isHovered = false;
+      let isVisible = false;
+
+      const activateStep = (stepNum, isManual = false) => {
+        currentStep = stepNum;
+        const info = stepData[stepNum - 1] || stepData[0];
+
+        // 1. Update active card classes
+        cards.forEach(c => {
+          const s = parseInt(c.getAttribute('data-step'), 10);
+          const isActive = (s === stepNum);
+          c.classList.toggle('is-active', isActive);
+          c.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // 2. Animate pipeline beam and traveling light runner
+        if (activeBeam) {
+          activeBeam.style.strokeDashoffset = info.offset;
+        }
+        if (lightRunner) {
+          lightRunner.setAttribute('cx', info.cx);
+        }
+
+        // 3. Update status label
+        if (statusLabel) {
+          statusLabel.textContent = isManual 
+            ? `INSPECTING: ${info.label}` 
+            : info.label;
+        }
+
+        // 4. If step 4 completes in auto loop, trigger full biological synthesis pulse
+        if (stepNum === 4 && !isManual) {
+          setTimeout(() => {
+            if (!isHovered && isVisible) {
+              stage.classList.add('all-stages-pulse');
+              if (statusLabel) {
+                statusLabel.textContent = "SYNTHESIZING COMPLETE BIOLOGICAL PLAN...";
+              }
+              setTimeout(() => {
+                stage.classList.remove('all-stages-pulse');
+              }, 1200);
+            }
+          }, 2400);
+        }
+      };
+
+      const startAutoCycle = () => {
+        stopAutoCycle();
+        if (this.reducedMotion) return;
+
+        sequenceTimer = setInterval(() => {
+          if (!isHovered && isVisible) {
+            let nextStep = currentStep + 1;
+            if (nextStep > 4) nextStep = 1;
+            activateStep(nextStep, false);
+          }
+        }, 3400);
+      };
+
+      const stopAutoCycle = () => {
+        if (sequenceTimer) {
+          clearInterval(sequenceTimer);
+          sequenceTimer = null;
+        }
+        if (resumeTimer) {
+          clearTimeout(resumeTimer);
+          resumeTimer = null;
+        }
+      };
+
+      // 3D Perspective Tilt & Specular Light Hover on each card
+      cards.forEach((card, idx) => {
+        const stepNum = idx + 1;
+
+        // Hover & Focus Interactions
+        card.addEventListener('mouseenter', () => {
+          isHovered = true;
+          stopAutoCycle();
+          activateStep(stepNum, true);
+        });
+
+        card.addEventListener('click', () => {
+          isHovered = true;
+          stopAutoCycle();
+          activateStep(stepNum, true);
+        });
+
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            isHovered = true;
+            stopAutoCycle();
+            activateStep(stepNum, true);
+          }
+        });
+
+        // 3D Perspective Tilt calculations
+        card.addEventListener('mousemove', (e) => {
+          if (this.reducedMotion) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+
+          const rotX = ((y / rect.height) - 0.5) * -12;
+          const rotY = ((x / rect.width) - 0.5) * 12;
+
+          card.style.transform = `perspective(800px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-10px) scale3d(1.03, 1.03, 1.03)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+
+      // Resume auto cycle when mouse leaves the section
+      stage.addEventListener('mouseleave', () => {
+        isHovered = false;
+        resumeTimer = setTimeout(() => {
+          if (!isHovered && isVisible) {
+            startAutoCycle();
+          }
+        }, 2200);
+      });
+
+      // IntersectionObserver for performance (only run when visible)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            activateStep(1, false);
+            startAutoCycle();
+          } else {
+            stopAutoCycle();
+          }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(stage);
+    },
+
+    // ------------------------------------------------------------------------
+    // 25. HOW IT WORKS PROGRESS TRACKER ENGINE
+    // ------------------------------------------------------------------------
+    initHowItWorksProgressTracker() {
+      const steps = document.querySelectorAll('.how-it-works-step, .process-step-item');
+      if (!steps.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active', 'revealed');
+          }
+        });
+      }, { threshold: 0.3 });
+      steps.forEach(s => observer.observe(s));
+    },
+
+    // ------------------------------------------------------------------------
+    // 26. MICRO-INTERACTIONS ENGINE
+    // ------------------------------------------------------------------------
+    initMicroInteractions() {
+      const interactiveElements = document.querySelectorAll('.btn-magnetic, .btn-luminous, .badge-navy');
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          el.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+      });
+    },
+
+    // ------------------------------------------------------------------------
+    // 27. REFRESH & ROUTE CHANGE LIFECYCLE
     // ------------------------------------------------------------------------
     refresh() {
       setTimeout(() => {

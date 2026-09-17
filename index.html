@@ -458,42 +458,316 @@
           </div>
 
           <!-- Assessment Storytelling Animation (Section 11) -->
-          <div class="assessment-anim-box spotlight-card reveal-scale-in">
-            <span class="badge badge-navy" style="background: rgba(221,241,239,0.2); color: #FFFFFF;">Data Visualization</span>
-            <h3 style="font-size: 1.8rem; color: #FFFFFF; margin-top: 8px; margin-bottom: 10px;">The Helevate Assessment Sequence</h3>
-            <p style="font-size: 1rem; color: var(--color-primary-light-blue); max-width: 640px; margin: 0 auto 28px auto;">
-              Layers of objective biological insight mapped sequentially around you:
-            </p>
-
-            <div class="assessment-anim-steps">
-              <div class="assessment-step-card active stagger-1">
-                <div style="font-size: 1.8rem; margin-bottom: 8px;">🔬</div>
-                <h4>1. Metabolic</h4>
-                <p>Blood biomarkers & insulin</p>
-              </div>
-              <div class="assessment-step-card active stagger-2">
-                <div style="font-size: 1.8rem; margin-bottom: 8px;">📊</div>
-                <h4>2. Body Composition</h4>
-                <p>DEXA scan & visceral fat</p>
-              </div>
-              <div class="assessment-step-card active stagger-3">
-                <div style="font-size: 1.8rem; margin-bottom: 8px;">🧬</div>
-                <h4>3. Gut Microbiome</h4>
-                <p>Bacterial sequencing</p>
-              </div>
-              <div class="assessment-step-card active stagger-4">
-                <div style="font-size: 1.8rem; margin-bottom: 8px;">🧬</div>
-                <h4>4. DNA Genetics</h4>
-                <p>80+ performance SNPs</p>
+          <div class="assessment-anim-box spotlight-card reveal-scale-in" id="assessment-sequence-stage">
+            <!-- Background Ambient Telemetry Grid & Radar Aura -->
+            <div class="assessment-ambient-bg" aria-hidden="true">
+              <div class="assessment-radar-concentric"></div>
+              <div class="assessment-grid-matrix"></div>
+              <div class="assessment-floating-motes">
+                <span class="mote m-1"></span>
+                <span class="mote m-2"></span>
+                <span class="mote m-3"></span>
+                <span class="mote m-4"></span>
               </div>
             </div>
 
-            <div class="assessment-anim-conclusion">
-              Understand your body. Build your plan.
+            <!-- Top Header & Live Telemetry Status Banner -->
+            <div class="assessment-header-wrap">
+              <div class="assessment-telemetry-badge-row">
+                <span class="badge badge-navy badge-glowing-cyan">
+                  <span class="pulse-beacon-cyan"></span> Data Visualization
+                </span>
+                <span class="seq-status-chip" id="seq-status-text">
+                  <span class="seq-status-led"></span>
+                  <span class="seq-status-label">SEQUENTIAL BIOLOGICAL MAPPING</span>
+                </span>
+              </div>
+              <h3 class="assessment-anim-title">The Helevate Assessment Sequence</h3>
+              <p class="assessment-anim-subtitle">
+                Layers of objective biological insight mapped sequentially around you:
+              </p>
             </div>
 
-            <div style="margin-top: 24px;">
-              <a href="#/booking" class="btn btn-primary btn-lg">Book Your Assessment Consultation →</a>
+            <!-- Connecting Pipeline Energy Beam Track -->
+            <div class="assessment-pipeline-beam-wrap" aria-hidden="true">
+              <svg class="assessment-pipeline-svg" viewBox="0 0 1000 40" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="seqBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(221, 241, 239, 0.15)" />
+                    <stop offset="50%" stop-color="rgba(72, 202, 228, 0.9)" />
+                    <stop offset="100%" stop-color="rgba(221, 241, 239, 0.2)" />
+                  </linearGradient>
+                  <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Base guide track -->
+                <path class="pipeline-track-base" d="M 50 20 L 950 20" />
+                <!-- Dynamic active energy laser line -->
+                <path class="pipeline-track-active" id="pipeline-active-beam" d="M 50 20 L 950 20" />
+                <!-- Traveling light pulse node -->
+                <circle class="pipeline-light-runner" id="pipeline-light-runner" cx="50" cy="20" r="5" filter="url(#glowFilter)" />
+              </svg>
+            </div>
+
+            <!-- 4 Interactive Dynamic Biological Sequence Cards -->
+            <div class="assessment-anim-steps" id="assessment-steps-grid">
+              
+              <!-- CARD 1: METABOLIC -->
+              <div class="assessment-step-card is-active" data-step="1" tabindex="0" role="button" aria-label="Step 1: Metabolic biomarkers">
+                <div class="card-hud-bracket top-left"></div>
+                <div class="card-hud-bracket bottom-right"></div>
+                <div class="card-laser-scanner"></div>
+                
+                <div class="card-step-badge">
+                  <span class="step-num-pill">STAGE 01</span>
+                  <span class="step-status-dot"></span>
+                </div>
+
+                <!-- Custom Animated Biometric SVG: Clinical Microscope -->
+                <div class="step-biometric-visual">
+                  <div class="icon-aura-glow"></div>
+                  <svg class="bio-svg bio-microscope" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Reticle Laser Target Pulse -->
+                    <circle class="laser-target-ring" cx="32" cy="32" r="28" stroke="rgba(221,241,239,0.3)" stroke-width="1.2" stroke-dasharray="3 3"/>
+                    <circle class="laser-target-core" cx="32" cy="32" r="14" stroke="rgba(72,202,228,0.5)" stroke-width="1.5"/>
+                    <line x1="32" y1="4" x2="32" y2="12" stroke="#DDF1EF" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="32" y1="52" x2="32" y2="60" stroke="#DDF1EF" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="4" y1="32" x2="12" y2="32" stroke="#DDF1EF" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="52" y1="32" x2="60" y2="32" stroke="#DDF1EF" stroke-width="1.5" stroke-linecap="round"/>
+                    
+                    <!-- Microscope Body -->
+                    <path d="M22 52H42M32 52V46M32 46C26 46 22 42 22 36C22 30 26 26 30 24V14H34V24C38 26 42 30 42 36" stroke="#DDF1EF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="28" y="10" width="8" height="6" rx="2" fill="#48CAE4" stroke="#DDF1EF" stroke-width="1.5"/>
+                    <rect x="25" y="32" width="14" height="4" rx="1.5" fill="rgba(221,241,239,0.8)"/>
+                    <circle class="bio-specimen-spark" cx="32" cy="34" r="2" fill="#00B4D8"/>
+                    
+                    <!-- Floating Biomarker Particles -->
+                    <circle class="floating-particle p-1" cx="16" cy="20" r="1.8" fill="#90E0EF"/>
+                    <circle class="floating-particle p-2" cx="48" cy="22" r="2.2" fill="#DDF1EF"/>
+                    <circle class="floating-particle p-3" cx="44" cy="46" r="1.5" fill="#48CAE4"/>
+                  </svg>
+                </div>
+
+                <div class="card-content-block">
+                  <h4>1. Metabolic</h4>
+                  <p>Blood biomarkers & insulin</p>
+                </div>
+
+                <!-- Live Diagnostic Telemetry Chip -->
+                <div class="card-telemetry-chip">
+                  <div class="telemetry-tags">
+                    <span class="tag-item">ApoB</span>
+                    <span class="tag-item">Fasting Insulin</span>
+                    <span class="tag-item">hs-CRP</span>
+                  </div>
+                  <div class="telemetry-sparkline">
+                    <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                      <path class="sparkline-path" d="M 0 10 Q 15 2, 28 14 T 48 5 T 68 15 T 88 4 L 100 10"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Step Progress Fill Meter -->
+                <div class="card-step-meter">
+                  <div class="meter-bar"></div>
+                </div>
+              </div>
+
+              <!-- CARD 2: BODY COMPOSITION -->
+              <div class="assessment-step-card" data-step="2" tabindex="0" role="button" aria-label="Step 2: Body Composition DEXA scan">
+                <div class="card-hud-bracket top-left"></div>
+                <div class="card-hud-bracket bottom-right"></div>
+                <div class="card-laser-scanner"></div>
+                
+                <div class="card-step-badge">
+                  <span class="step-num-pill">STAGE 02</span>
+                  <span class="step-status-dot"></span>
+                </div>
+
+                <!-- Custom Animated Biometric SVG: DEXA Body Density Scanner -->
+                <div class="step-biometric-visual">
+                  <div class="icon-aura-glow"></div>
+                  <svg class="bio-svg bio-dexa" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Scanner Base Outer Frame -->
+                    <rect x="8" y="8" width="48" height="48" rx="8" stroke="rgba(221,241,239,0.3)" stroke-width="1.5"/>
+                    <!-- Human Silhouette / Density Grid -->
+                    <circle cx="32" cy="18" r="4.5" stroke="#DDF1EF" stroke-width="2" fill="rgba(72,202,228,0.2)"/>
+                    <path d="M26 26C26 24 28 23 32 23C36 23 38 24 38 26V36C38 37 36 38 35 38V48M29 48V38C28 38 26 37 26 36V26Z" stroke="#DDF1EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- DEXA Moving Horizontal Laser Scan Line -->
+                    <line class="dexa-laser-sweep" x1="10" y1="20" x2="54" y2="20" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round"/>
+                    
+                    <!-- Density Equalizer Histogram -->
+                    <rect class="eq-bar bar-1" x="12" y="44" width="3" height="8" rx="1.5" fill="#48CAE4"/>
+                    <rect class="eq-bar bar-2" x="18" y="40" width="3" height="12" rx="1.5" fill="#90E0EF"/>
+                    <rect class="eq-bar bar-3" x="43" y="38" width="3" height="14" rx="1.5" fill="#90E0EF"/>
+                    <rect class="eq-bar bar-4" x="49" y="42" width="3" height="10" rx="1.5" fill="#48CAE4"/>
+                  </svg>
+                </div>
+
+                <div class="card-content-block">
+                  <h4>2. Body Composition</h4>
+                  <p>DEXA scan & visceral fat</p>
+                </div>
+
+                <!-- Live Diagnostic Telemetry Chip -->
+                <div class="card-telemetry-chip">
+                  <div class="telemetry-tags">
+                    <span class="tag-item">Visceral Fat (VAT)</span>
+                    <span class="tag-item">Lean Muscle</span>
+                  </div>
+                  <div class="telemetry-bar-split">
+                    <div class="split-segment seg-lean" style="width: 72%;"></div>
+                    <div class="split-segment seg-vat" style="width: 28%;"></div>
+                  </div>
+                </div>
+
+                <!-- Step Progress Fill Meter -->
+                <div class="card-step-meter">
+                  <div class="meter-bar"></div>
+                </div>
+              </div>
+
+              <!-- CARD 3: GUT MICROBIOME -->
+              <div class="assessment-step-card" data-step="3" tabindex="0" role="button" aria-label="Step 3: Gut Microbiome bacterial sequencing">
+                <div class="card-hud-bracket top-left"></div>
+                <div class="card-hud-bracket bottom-right"></div>
+                <div class="card-laser-scanner"></div>
+                
+                <div class="card-step-badge">
+                  <span class="step-num-pill">STAGE 03</span>
+                  <span class="step-status-dot"></span>
+                </div>
+
+                <!-- Custom Animated Biometric SVG: Microbiome Bio-Sphere Orbit -->
+                <div class="step-biometric-visual">
+                  <div class="icon-aura-glow"></div>
+                  <svg class="bio-svg bio-microbiome" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Concentric Orbit Ring -->
+                    <ellipse class="orbit-ellipse-1" cx="32" cy="32" rx="24" ry="12" stroke="rgba(221,241,239,0.3)" stroke-width="1.2" transform="rotate(-25 32 32)"/>
+                    <ellipse class="orbit-ellipse-2" cx="32" cy="32" rx="24" ry="12" stroke="rgba(72,202,228,0.3)" stroke-width="1.2" transform="rotate(35 32 32)"/>
+                    
+                    <!-- Core Microbiome Cluster -->
+                    <circle cx="32" cy="32" r="10" fill="rgba(14,58,93,0.8)" stroke="#DDF1EF" stroke-width="2"/>
+                    <circle cx="30" cy="30" r="3" fill="#48CAE4"/>
+                    <circle cx="35" cy="33" r="2.2" fill="#90E0EF"/>
+                    <circle cx="31" cy="35" r="1.8" fill="#FFFFFF"/>
+                    
+                    <!-- Orbiting Microbe Nodes -->
+                    <g class="orbit-group rot-1">
+                      <circle cx="52" cy="32" r="3.2" fill="#00B4D8" stroke="#FFFFFF" stroke-width="1"/>
+                      <circle cx="12" cy="32" r="2.5" fill="#90E0EF"/>
+                    </g>
+                    <g class="orbit-group rot-2">
+                      <circle cx="32" cy="12" r="2.8" fill="#DDF1EF"/>
+                      <circle cx="32" cy="52" r="3" fill="#48CAE4"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="card-content-block">
+                  <h4>3. Gut Microbiome</h4>
+                  <p>Bacterial sequencing</p>
+                </div>
+
+                <!-- Live Diagnostic Telemetry Chip -->
+                <div class="card-telemetry-chip">
+                  <div class="telemetry-tags">
+                    <span class="tag-item">Diversity Index</span>
+                    <span class="tag-item">Dysbiosis</span>
+                  </div>
+                  <div class="telemetry-sparkline">
+                    <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                      <path class="sparkline-path" d="M 0 14 C 20 4, 30 18, 50 8 C 70 0, 80 16, 100 6"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Step Progress Fill Meter -->
+                <div class="card-step-meter">
+                  <div class="meter-bar"></div>
+                </div>
+              </div>
+
+              <!-- CARD 4: DNA GENETICS -->
+              <div class="assessment-step-card" data-step="4" tabindex="0" role="button" aria-label="Step 4: DNA Genetics 80+ SNPs">
+                <div class="card-hud-bracket top-left"></div>
+                <div class="card-hud-bracket bottom-right"></div>
+                <div class="card-laser-scanner"></div>
+                
+                <div class="card-step-badge">
+                  <span class="step-num-pill">STAGE 04</span>
+                  <span class="step-status-dot"></span>
+                </div>
+
+                <!-- Custom Animated Biometric SVG: 3D DNA Double-Helix Strand -->
+                <div class="step-biometric-visual">
+                  <div class="icon-aura-glow"></div>
+                  <svg class="bio-svg bio-dna" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- DNA Strand Wave 1 & Wave 2 -->
+                    <path class="dna-strand strand-a" d="M 18 10 Q 32 22, 46 34 T 18 56" stroke="#DDF1EF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                    <path class="dna-strand strand-b" d="M 46 10 Q 32 22, 18 34 T 46 56" stroke="#48CAE4" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                    
+                    <!-- Shimmering Base Pairs / Rungs -->
+                    <line class="dna-rung rung-1" x1="22" y1="16" x2="42" y2="16" stroke="rgba(221,241,239,0.8)" stroke-width="1.8" stroke-dasharray="2 2"/>
+                    <line class="dna-rung rung-2" x1="28" y1="23" x2="36" y2="23" stroke="rgba(72,202,228,0.9)" stroke-width="2"/>
+                    <line class="dna-rung rung-3" x1="30" y1="34" x2="34" y2="34" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <line class="dna-rung rung-4" x1="26" y1="44" x2="38" y2="44" stroke="rgba(72,202,228,0.9)" stroke-width="2"/>
+                    <line class="dna-rung rung-5" x1="20" y1="50" x2="44" y2="50" stroke="rgba(221,241,239,0.8)" stroke-width="1.8" stroke-dasharray="2 2"/>
+                    
+                    <!-- Glowing SNP Marker Sparks -->
+                    <circle class="snp-spark spark-1" cx="46" cy="10" r="3" fill="#00B4D8"/>
+                    <circle class="snp-spark spark-2" cx="32" cy="34" r="3" fill="#FFFFFF"/>
+                    <circle class="snp-spark spark-3" cx="18" cy="56" r="3" fill="#90E0EF"/>
+                  </svg>
+                </div>
+
+                <div class="card-content-block">
+                  <h4>4. DNA Genetics</h4>
+                  <p>80+ performance SNPs</p>
+                </div>
+
+                <!-- Live Diagnostic Telemetry Chip -->
+                <div class="card-telemetry-chip">
+                  <div class="telemetry-tags">
+                    <span class="tag-item">80+ SNPs</span>
+                    <span class="tag-item">Epigenetic Age</span>
+                  </div>
+                  <div class="telemetry-codon-stream">
+                    <span class="codon-code">ACTG • VO2_SNP • COL5A1</span>
+                  </div>
+                </div>
+
+                <!-- Step Progress Fill Meter -->
+                <div class="card-step-meter">
+                  <div class="meter-bar"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Conclusion & Dynamic Synthesis Output -->
+            <div class="assessment-synthesis-conclusion" id="assessment-conclusion-box">
+              <div class="synthesis-wave-line" aria-hidden="true"></div>
+              <div class="assessment-anim-conclusion">
+                Understand your body. Build your plan.
+              </div>
+              <p class="synthesis-meta-caption">
+                All 4 diagnostic pillars synthesized into your bespoke clubhouse training & longevity roadmap.
+              </p>
+            </div>
+
+            <!-- Enhanced Action CTA -->
+            <div class="assessment-cta-wrap">
+              <a href="#/booking" class="btn btn-primary btn-lg btn-magnetic btn-luminous">
+                <span>Book Your Assessment Consultation</span>
+                <span class="btn-arrow-glow">→</span>
+              </a>
             </div>
           </div>
 
