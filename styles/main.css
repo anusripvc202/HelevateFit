@@ -18,7 +18,7 @@
      - Pure White: #FFFFFF
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
   /* Brand Performance Palette */
@@ -94,7 +94,7 @@
 }
 
 /* ==========================================================================
-   BASE RESETS & DEFAULTS
+   BASE RESETS & MOBILE-SAFE DEFAULTS
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -114,7 +114,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg-main);
   color: var(--color-text-main);
-  line-height: 1.65;
+  line-height: 1.62;
   font-size: 16px;
   font-weight: 400;
   width: 100%;
@@ -162,44 +162,46 @@ body {
   background: var(--color-primary-navy-dark);
 }
 
-/* Typography Elements */
+/* Fluid Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-primary-navy);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.022em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.4rem, 4.3vw, 3.4rem);
+  font-size: clamp(1.95rem, 5.5vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.14;
+  line-height: 1.15;
   letter-spacing: -0.028em;
 }
 
 h2 {
-  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-size: clamp(1.65rem, 3.8vw, 2.45rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.22;
   letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.015em;
 }
 
 h4 {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   font-weight: 600;
   line-height: 1.35;
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -207,9 +209,10 @@ h5 {
 p {
   font-family: var(--font-body);
   color: var(--color-text-muted);
-  font-size: 1.025rem;
-  line-height: 1.68;
+  font-size: clamp(0.95rem, 1.2vw, 1.025rem);
+  line-height: 1.65;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 a {
@@ -232,6 +235,7 @@ ul, ol {
 img, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* Tabular Figures for Metrics & Data Numbers */

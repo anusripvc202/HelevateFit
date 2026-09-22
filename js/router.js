@@ -33,6 +33,11 @@ const Router = {
   },
 
   handleRoute() {
+    // 0. Auto-close mobile drawer if open
+    if (window.App && window.App.closeMobileDrawer) {
+      window.App.closeMobileDrawer();
+    }
+
     // 1. Force top scroll on route changes
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
