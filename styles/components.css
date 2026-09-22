@@ -60,19 +60,19 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   flex-shrink: 0;
-  background: rgba(221, 241, 239, 0.3);
-  padding: 5px 8px;
+  background: rgba(221, 241, 239, 0.35);
+  padding: 4px 6px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(14, 58, 93, 0.06);
+  border: 1px solid rgba(14, 58, 93, 0.08);
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--color-text-main);
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: var(--radius-full);
   transition: all var(--transition-fast);
   white-space: nowrap;
@@ -95,7 +95,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -104,6 +104,11 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 18px;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
 }
 
 .mobile-menu-btn {
@@ -1029,7 +1034,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 310px;
+  min-height: 330px;
+}
+
+.assessment-step-card .card-content-block {
+  margin-bottom: 14px;
+}
+
+.assessment-step-card .card-content-block h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.assessment-step-card .card-content-block p {
+  font-size: 0.84rem;
+  color: var(--color-primary-light-blue);
+  line-height: 1.48;
+  margin: 0;
+  opacity: 0.9;
 }
 
 /* Card Specular Light Flare */
@@ -2304,6 +2330,65 @@
 /* --------------------------------------------------------------------------
    13. CAREERS & ABOUT TEAM CARDS (Ultra-Luxury Faculty Grid)
    -------------------------------------------------------------------------- */
+.coaching-standards-grid-3,
+.team-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.coaching-standard-card {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  height: 100%;
+}
+
+.coaching-standard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(14, 58, 93, 0.1), 0 0 16px rgba(221, 241, 239, 0.6);
+  border-color: var(--color-primary-navy);
+}
+
+.coaching-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(221, 241, 239, 0.4);
+  border: 1px solid rgba(14, 58, 93, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(14, 58, 93, 0.04);
+}
+
+.coaching-standard-card h3 {
+  font-size: 1.25rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.coaching-standard-card p {
+  font-size: 0.935rem;
+  color: var(--color-text-main);
+  line-height: 1.65;
+  margin: 0;
+  opacity: 0.9;
+}
+
 .team-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -3209,15 +3294,20 @@
 /* Large Tablets & Small Laptops (max-width: 1200px) */
 @media (max-width: 1200px) {
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
   .nav-links {
-    gap: 4px;
+    gap: 2px;
+    padding: 3px 5px;
   }
   .nav-link {
-    padding: 7px 12px;
-    font-size: 0.88rem;
+    padding: 6px 10px;
+    font-size: 0.83rem;
+  }
+  .header-cta-btn {
+    padding: 7px 14px;
+    font-size: 0.83rem;
   }
   .hero-grid {
     gap: 36px;
@@ -3594,9 +3684,12 @@
   .programs-grid-4,
   .insights-grid-4,
   .team-grid-4,
+  .team-grid-3,
+  .coaching-standards-grid-3,
   .pricing-grid-3,
   .communities-grid,
-  .testimonials-grid-3 {
+  .testimonials-grid-3,
+  .social-proof-grid-3 {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
@@ -3610,6 +3703,7 @@
   .community-card,
   .testimonial-card,
   .team-card,
+  .coaching-standard-card,
   .insight-card {
     width: 100% !important;
     max-width: 100% !important;
@@ -5409,3 +5503,158 @@
     padding: 20px 16px;
   }
 }
+
+/* ==========================================================================
+   "NOT ORDINARY" BRAND STORYTELLING & SOCIAL PROOF SECTIONS
+   ========================================================================== */
+.brand-story-panel {
+  background: linear-gradient(135deg, #072238 0%, #0E3A5D 55%, #124068 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(221, 241, 239, 0.25);
+  box-shadow: var(--shadow-card), 0 0 32px rgba(14, 58, 93, 0.4);
+  padding: clamp(36px, 5vw, 64px) clamp(24px, 4vw, 56px);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.brand-story-panel::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(221, 241, 239, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.brand-story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.brand-story-quote {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.45;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.brand-story-quote mark {
+  background: transparent;
+  color: var(--color-primary-light-blue);
+  text-decoration: underline;
+  text-decoration-color: rgba(221, 241, 239, 0.45);
+  text-underline-offset: 4px;
+}
+
+.brand-story-values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brand-story-val-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(221, 241, 239, 0.18);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-normal);
+}
+
+.brand-story-val-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(221, 241, 239, 0.4);
+  transform: translateY(-2px);
+}
+
+.brand-story-val-card h4 {
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-story-val-card p {
+  font-size: 0.88rem;
+  color: var(--color-primary-light-blue);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Social Proof Grid */
+.social-proof-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.social-proof-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(14, 58, 93, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-proof-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(14, 58, 93, 0.25);
+}
+
+.social-proof-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.social-proof-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.social-proof-badge-bottom {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  background: var(--color-bg-subtle);
+  border: 1px solid rgba(14, 58, 93, 0.08);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.pricing-precision-card {
+  border: 2px solid var(--color-primary-navy) !important;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .brand-story-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+

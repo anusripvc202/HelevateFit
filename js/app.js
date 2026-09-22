@@ -2,7 +2,6 @@
  * HELEVATE.FIT — MAIN APPLICATION CONTROLLER
  * Controls all dynamic renderers, interactive visualizers,
  * animations, consultation conversion engine, and client dashboard.
- * Design Inspiration: Tulah Life, Sunrooof, A Better Lou
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,7 +25,7 @@ const App = {
     this.renderAbout();
     this.renderMemberships();
     this.renderCommunities();
-    this.renderTestimonials();
+    this.renderSocialProof();
     this.renderCareers();
     this.renderInsights();
     this.renderReportsConcept();
@@ -38,6 +37,8 @@ const App = {
     this.bindInsightModal();
     this.bindContactForm();
     this.bindCinemaModal();
+    this.bindDexaExplorer();
+    this.bindAssessmentSequenceCards();
     this.initScrollObserver();
 
     if (window.ScrollMotionEngine && window.ScrollMotionEngine.init) {
@@ -57,7 +58,7 @@ const App = {
   // 1. RENDER HOME & KEY SECTIONS
   // --------------------------------------------------------------------------
   renderHome() {
-    // 1. Render Assessment Cards (Section 10)
+    // 1. Render Assessment Cards
     const assessmentsContainer = document.getElementById("home-assessments-grid");
     if (assessmentsContainer) {
       assessmentsContainer.innerHTML = HELEVATE_DATA.assessments.map((a, idx) => {
@@ -83,7 +84,7 @@ const App = {
       }).join("");
     }
 
-    // 2. Render Program Cards (Section 12)
+    // 2. Render Program Cards
     const programsContainer = document.getElementById("home-programs-grid");
     if (programsContainer) {
       programsContainer.innerHTML = HELEVATE_DATA.programs.map((p, idx) => {
@@ -95,7 +96,7 @@ const App = {
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <span class="badge badge-navy">${p.badge}</span>
-                <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-dim);">PROTOCOL 0${idx + 1}</span>
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-dim);">PROGRAM 0${idx + 1}</span>
               </div>
               <h3>${p.title}</h3>
               <p>${p.shortDesc}</p>
@@ -104,36 +105,38 @@ const App = {
               </ul>
             </div>
             <div style="margin-top: 24px;">
-              <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic" style="width: 100%; text-align: center;">Find Your Program →</a>
+              <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic" style="width: 100%; text-align: center;">Book a Free Consultation →</a>
             </div>
           </div>
         `;
       }).join("");
     }
 
-    // 3. Render 3-Tier Memberships (Section 22)
+    // 3. Render 3-Tier Memberships
     const membershipsContainer = document.getElementById("home-memberships-grid");
     if (membershipsContainer) {
       membershipsContainer.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => {
         const dirClass = idx === 0 ? 'reveal-from-left' : (idx === 1 ? 'featured reveal-scale-in' : 'reveal-from-right');
         const staggerClass = `stagger-${idx + 1}`;
+        const isPrecision = m.id === 'precision';
         return `
-          <div class="pricing-card spotlight-card ${dirClass} ${staggerClass}">
-            ${idx === 1 ? `<div class="pricing-featured-badge">⭐ POPULAR CHOICE</div>` : ''}
+          <div class="pricing-card spotlight-card ${dirClass} ${staggerClass} ${isPrecision ? 'pricing-precision-card' : ''}">
+            ${idx === 1 ? `<div class="pricing-featured-badge">⭐ FLAGSHIP PROTOCOL</div>` : ''}
+            ${isPrecision ? `<div class="pricing-featured-badge" style="background: var(--color-primary-navy); border-color: var(--color-primary-light-blue);">💎 COMPREHENSIVE SUITE</div>` : ''}
             <div class="pricing-card-header">
               <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
               <h3>${m.name}</h3>
               <div class="pricing-card-tagline">${m.tagline}</div>
             </div>
             <div class="pricing-card-price-box">
-              <div class="pricing-display-text">${m.pricingDisplay}</div>
+              <div class="pricing-display-text" style="font-size: 1.1rem; color: var(--color-primary-navy); font-weight: 700;">Custom Gated Delivery</div>
             </div>
             <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${m.description}</p>
-            <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
+            <a href="#/booking" class="btn ${idx === 1 || isPrecision ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
               ${m.cta} →
             </a>
             <div class="pricing-features-wrap">
-              <div class="pricing-features-title">What's included in protocol:</div>
+              <div class="pricing-features-title">What's included in tier:</div>
               <ul class="pricing-features-list">
                 ${m.features.map(f => `<li>${f}</li>`).join("")}
               </ul>
@@ -145,7 +148,7 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 2. RENDER PROGRAMS & PROTOCOLS VIEW
+  // 2. RENDER PROGRAMS VIEW
   // --------------------------------------------------------------------------
   renderPrograms() {
     const container = document.getElementById("programs-list-container");
@@ -156,7 +159,7 @@ const App = {
         <div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: center;">
           <div style="width: 100%; height: 230px; border-radius: var(--radius-md); overflow: hidden; position: relative; box-shadow: var(--shadow-card);">
             <div style="position: absolute; top: 12px; left: 12px; background: rgba(7, 34, 56, 0.85); color: #FFFFFF; padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 700; z-index: 2; border: 1px solid rgba(221,241,239,0.3);">
-              DISCIPLINE 0${idx + 1}
+              PROGRAM 0${idx + 1}
             </div>
             <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
@@ -167,7 +170,7 @@ const App = {
             <ul class="program-bullets" style="margin-bottom: 20px;">
               ${p.bullets.map(b => `<li>${b}</li>`).join("")}
             </ul>
-            <a href="#/booking" class="btn btn-primary">Find Your Program →</a>
+            <a href="#/booking" class="btn btn-primary">Book a Free Consultation →</a>
           </div>
         </div>
       </div>
@@ -195,8 +198,8 @@ const App = {
             <p>${a.shortDesc}</p>
           </div>
           <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
-            <a href="#/assessments/${a.id}" class="assessment-card-link">View Protocol →</a>
-            <a href="#/booking" class="btn btn-primary btn-sm">Book Scan</a>
+            <a href="#/assessments/${a.id}" class="assessment-card-link">Learn More →</a>
+            <a href="#/booking" class="btn btn-primary btn-sm">Book Consultation</a>
           </div>
         </div>
       </div>
@@ -226,53 +229,60 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 5. RENDER ABOUT & TEAM VIEW
+  // 5. RENDER ABOUT & FOUNDER VIEW
   // --------------------------------------------------------------------------
   renderAbout() {
-    const container = document.getElementById("about-team-grid");
-    if (!container) return;
-
-    container.innerHTML = HELEVATE_DATA.team.map((t, idx) => {
-      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
-      const staggerClass = `stagger-${idx + 1}`;
-      return `
-      <div class="team-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
-        <div class="team-card-media image-reveal-clip">
-          <img src="${t.photo}" alt="${t.name}" class="team-card-img" loading="lazy">
-          <div class="team-card-scrim"></div>
-          <div class="team-card-badge-floating">${t.badge || "Faculty"}</div>
-          <div class="team-card-exp-tag">${t.experience || "Certified"}</div>
-        </div>
-        <div class="team-card-body">
-          <div class="team-card-header">
-            <h3 class="team-card-name">${t.name}</h3>
-            <div class="team-card-role-title">${t.role}</div>
-          </div>
-          
-          <div class="team-card-cert-box">
-            <span class="team-card-cert-icon">🎓</span>
-            <span class="team-card-cert-text">${t.certification}</span>
-          </div>
-
-          <div class="team-card-specialty-box">
-            <strong>Clinical Focus:</strong> ${t.specialty}
-          </div>
-
-          <p class="team-card-bio-text">${t.bio}</p>
-
-          <div class="team-card-capabilities-list">
-            ${(t.capabilities || []).map(cap => `
-              <span class="team-card-cap-pill">✓ ${cap}</span>
-            `).join("")}
-          </div>
-
-          <div class="team-card-footer">
-            <a href="#/booking" class="team-card-cta-link btn-magnetic">Book Consultation →</a>
+    const founder = HELEVATE_DATA.team[0];
+    const founderBox = document.getElementById("about-founder-container");
+    if (founderBox && founder) {
+      founderBox.innerHTML = `
+        <div class="card-clean reveal-from-left reveal-on-scroll" style="margin-bottom: 28px; padding: 32px 28px;">
+          <div style="display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;">
+            <div class="avatar-circle-halo">
+              <img src="${founder.photo}" alt="${founder.name}" style="width: 128px; height: 128px; object-fit: cover; border-radius: var(--radius-full);">
+            </div>
+            <div>
+              <span class="badge badge-navy" style="margin-bottom: 6px;">${founder.role}</span>
+              <h2 style="font-size: 1.75rem; margin-bottom: 4px; color: var(--color-primary-navy);">${founder.name}</h2>
+              <div style="font-size: 0.9rem; font-weight: 700; color: var(--color-text-muted); margin-bottom: 12px;">${founder.certification}</div>
+              <p style="font-size: 0.96rem; color: var(--color-text-main); line-height: 1.65; margin-bottom: 16px;">
+                ${founder.bio}
+              </p>
+              <div class="card-blue" style="padding: 16px 20px; font-size: 0.95rem; color: var(--color-primary-navy); font-weight: 600; border-radius: var(--radius-sm);">
+                🎯 <strong>Mission:</strong> “${founder.mission}”
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-    }).join("");
+      `;
+    }
+
+    const collectiveContainer = document.getElementById("about-team-grid");
+    if (collectiveContainer) {
+      collectiveContainer.innerHTML = `
+        <div class="coaching-standard-card spotlight-card reveal-from-left stagger-1">
+          <div class="coaching-icon-wrap">🏋️</div>
+          <h3>Certified Strength Coaching</h3>
+          <p>
+            Certified coaches dedicated to joint-safe progressive resistance training, biomechanical screens, and movement mechanics inside your clubhouse.
+          </p>
+        </div>
+        <div class="coaching-standard-card spotlight-card reveal-scale-in stagger-2">
+          <div class="coaching-icon-wrap">🥗</div>
+          <h3>Personalised Nutrition Guidance</h3>
+          <p>
+            Translating fasting metabolic blood panels, DEXA body composition, and digestive patterns into sustainable, whole-food eating frameworks.
+          </p>
+        </div>
+        <div class="coaching-standard-card spotlight-card reveal-from-right stagger-3">
+          <div class="coaching-icon-wrap">🧘</div>
+          <h3>Restorative Recovery Protocols</h3>
+          <p>
+            Assisted mobility routines, joint decompression, and autonomic balancing engineered to prevent burnout and support multi-decade health.
+          </p>
+        </div>
+      `;
+    }
   },
 
   // --------------------------------------------------------------------------
@@ -285,29 +295,31 @@ const App = {
     container.innerHTML = HELEVATE_DATA.memberships.map((m, idx) => {
       const dirClass = idx === 0 ? 'reveal-from-left' : (idx === 1 ? 'featured reveal-scale-in' : 'reveal-from-right');
       const staggerClass = `stagger-${idx + 1}`;
+      const isPrecision = m.id === 'precision';
       return `
-      <div class="pricing-card spotlight-card ${dirClass} ${staggerClass}">
-        ${idx === 1 ? `<div class="pricing-featured-badge">⭐ POPULAR CHOICE</div>` : ''}
-        <div class="pricing-card-header">
-          <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
-          <h3>${m.name}</h3>
-          <div class="pricing-card-tagline">${m.tagline}</div>
+        <div class="pricing-card spotlight-card ${dirClass} ${staggerClass} ${isPrecision ? 'pricing-precision-card' : ''}">
+          ${idx === 1 ? `<div class="pricing-featured-badge">⭐ FLAGSHIP PROTOCOL</div>` : ''}
+          ${isPrecision ? `<div class="pricing-featured-badge" style="background: var(--color-primary-navy); border-color: var(--color-primary-light-blue);">💎 COMPREHENSIVE SUITE</div>` : ''}
+          <div class="pricing-card-header">
+            <span class="badge badge-navy" style="margin-bottom: 10px;">${m.badge}</span>
+            <h3>${m.name}</h3>
+            <div class="pricing-card-tagline">${m.tagline}</div>
+          </div>
+          <div class="pricing-card-price-box">
+            <div class="pricing-display-text" style="font-size: 1.1rem; color: var(--color-primary-navy); font-weight: 700;">Custom Gated Delivery</div>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${m.description}</p>
+          <a href="#/booking" class="btn ${idx === 1 || isPrecision ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
+            ${m.cta} →
+          </a>
+          <div class="pricing-features-wrap">
+            <div class="pricing-features-title">What's included in tier:</div>
+            <ul class="pricing-features-list">
+              ${m.features.map(f => `<li>${f}</li>`).join("")}
+            </ul>
+          </div>
         </div>
-        <div class="pricing-card-price-box">
-          <div class="pricing-display-text">${m.pricingDisplay}</div>
-        </div>
-        <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${m.description}</p>
-        <a href="#/booking" class="btn ${idx === 1 ? 'btn-primary' : 'btn-outline'} btn-sm pricing-card-cta btn-magnetic">
-          ${m.cta} →
-        </a>
-        <div class="pricing-features-wrap">
-          <div class="pricing-features-title">What's included in protocol:</div>
-          <ul class="pricing-features-list">
-            ${m.features.map(f => `<li>${f}</li>`).join("")}
-          </ul>
-        </div>
-      </div>
-    `;
+      `;
     }).join("");
   },
 
@@ -322,135 +334,65 @@ const App = {
       const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
       const staggerClass = `stagger-${(idx % 3) + 1}`;
       return `
-      <div class="community-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
-        <div>
-          <span class="community-status-badge">${c.status}</span>
-          <h3>${c.name}</h3>
-          <div class="community-card-loc">📍 ${c.location}</div>
-          <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${c.description}</p>
-          <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 22px; background: var(--color-bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm);">
-            ⏰ ${c.availability}
+        <div class="community-card spotlight-card ${dirClass} ${staggerClass} card-composition-rotate">
+          <div>
+            <span class="community-status-badge">${c.status}</span>
+            <h3>${c.name}</h3>
+            <div class="community-card-loc">📍 ${c.location}</div>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 18px; line-height: 1.6;">${c.description}</p>
+            <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 22px; background: var(--color-bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm);">
+              ⏰ ${c.availability}
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <a href="#/communities/${c.slug}" class="btn btn-secondary btn-sm btn-magnetic" style="flex: 1; text-align: center;">View Society →</a>
+            <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic">Book Consultation</a>
           </div>
         </div>
-        <div style="display: flex; gap: 10px;">
-          <a href="#/communities/${c.slug}" class="btn btn-secondary btn-sm btn-magnetic" style="flex: 1; text-align: center;">View Society →</a>
-          <a href="#/booking" class="btn btn-primary btn-sm btn-magnetic">Book</a>
-        </div>
-      </div>
-    `;
+      `;
     }).join("");
   },
 
   // --------------------------------------------------------------------------
-  // 7b. RENDER TESTIMONIALS & CLINICAL CASE STUDIES (Show 3 initially)
+  // 8. RENDER SOCIAL PROOF ("Real Progress. Measured Properly.")
   // --------------------------------------------------------------------------
-  testimonialsExpanded: false,
+  renderSocialProof() {
+    const container = document.getElementById("social-proof-container");
+    if (!container || !HELEVATE_DATA.socialProof) return;
 
-  renderTestimonials() {
-    const container = document.getElementById("testimonials-container");
-    if (!container || !HELEVATE_DATA.testimonials) return;
-
-    container.innerHTML = HELEVATE_DATA.testimonials.map((t, idx) => {
-      const isExtra = idx >= 3;
-      const hiddenClass = isExtra && !this.testimonialsExpanded ? "testimonial-hidden" : "";
-      const extraClass = isExtra ? "testimonial-card-extra" : "";
-      const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
-      const staggerClass = `stagger-${(idx % 3) + 1}`;
-
-      return `
-      <div class="testimonial-card spotlight-card ${dirClass} ${staggerClass} ${hiddenClass} ${extraClass} card-composition-rotate" data-testimonial-index="${idx}">
-        <div>
-          <div class="testimonial-header">
-            <div class="testimonial-avatar-wrap image-reveal-clip">
-              <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar" loading="lazy">
-              <span class="testimonial-verified-badge" title="Verified Gated Community Resident">✓</span>
-            </div>
-            <div class="testimonial-author-meta">
-              <h4 class="testimonial-name">${t.name}</h4>
-              <div class="testimonial-role">${t.role}</div>
-              <div class="testimonial-community">📍 ${t.community}</div>
-            </div>
-          </div>
-
-          <div class="testimonial-stars" aria-label="5 out of 5 stars">
-            ★★★★★
-          </div>
-
-          <p class="testimonial-quote">“${t.quote}”</p>
-        </div>
-
-        <div>
-          <div class="testimonial-program-tag">
-            🎯 ${t.program}
-          </div>
-
-          <div class="testimonial-metrics-row">
-            ${t.metrics.map(m => `
-              <div class="testimonial-metric-chip">
-                <span class="metric-chip-label">${m.label}</span>
-                <span class="metric-chip-val">${m.change}</span>
+    const sp = HELEVATE_DATA.socialProof;
+    container.innerHTML = `
+      <div class="social-proof-grid-3">
+        ${sp.cards.map((card, idx) => {
+          const staggerClass = `stagger-${idx + 1}`;
+          return `
+            <div class="social-proof-card spotlight-card reveal-on-scroll ${staggerClass}">
+              <div class="social-proof-card-head">
+                <span class="social-proof-icon">${card.icon}</span>
+                <span class="badge badge-navy" style="font-size: 0.72rem;">${card.category}</span>
               </div>
-            `).join("")}
-          </div>
-        </div>
+              <h3 style="font-size: 1.25rem; color: var(--color-primary-navy); margin: 12px 0 8px 0;">${card.title}</h3>
+              <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 16px;">
+                ${card.desc}
+              </p>
+              <div class="social-proof-badge-bottom">
+                <span class="pulse-radar-dot" style="display: inline-block; width: 8px; height: 8px; background: var(--color-primary-navy); border-radius: 50%; margin-right: 6px;"></span>
+                <span>${card.status}</span>
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+      <div class="social-proof-note-box reveal-scale-in" style="margin-top: 28px; text-align: center; background: var(--color-light-blue-soft); border: 1px solid var(--color-border-cyan); border-radius: var(--radius-md); padding: 18px 24px;">
+        <p style="font-size: 0.9rem; color: var(--color-primary-navy); margin: 0; font-weight: 600;">
+          🔒 Individual transformation stories, DEXA scan progress, and case reviews are maintained discreetly with resident consent.
+        </p>
       </div>
     `;
-    }).join("");
-
-    this.updateTestimonialsToggleButton();
-  },
-
-  toggleTestimonials() {
-    this.testimonialsExpanded = !this.testimonialsExpanded;
-    const extraCards = document.querySelectorAll(".testimonial-card-extra");
-
-    if (this.testimonialsExpanded) {
-      extraCards.forEach((card, i) => {
-        card.classList.remove("testimonial-hidden");
-        card.classList.add("is-revealed", "is-revealed-extra");
-        card.style.animationDelay = `${i * 0.12}s`;
-      });
-    } else {
-      extraCards.forEach(card => {
-        card.classList.add("testimonial-hidden");
-        card.classList.remove("is-revealed-extra");
-      });
-      const section = document.getElementById("testimonials-section");
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < -100) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    }
-
-    this.updateTestimonialsToggleButton();
-  },
-
-  updateTestimonialsToggleButton() {
-    const toggleBtn = document.getElementById("toggle-testimonials-btn");
-    if (!toggleBtn) return;
-
-    const totalCount = HELEVATE_DATA.testimonials ? HELEVATE_DATA.testimonials.length : 6;
-    toggleBtn.setAttribute("aria-expanded", this.testimonialsExpanded ? "true" : "false");
-
-    if (this.testimonialsExpanded) {
-      toggleBtn.classList.add("expanded");
-      toggleBtn.innerHTML = `
-        <span>Show Less Stories</span>
-        <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-      `;
-    } else {
-      toggleBtn.classList.remove("expanded");
-      toggleBtn.innerHTML = `
-        <span>View All Stories (${totalCount})</span>
-        <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-      `;
-    }
   },
 
   // --------------------------------------------------------------------------
-  // 8. RENDER CAREERS PAGE
+  // 9. RENDER CAREERS PAGE
   // --------------------------------------------------------------------------
   renderCareers() {
     const container = document.getElementById("careers-roles-container");
@@ -459,28 +401,28 @@ const App = {
     container.innerHTML = HELEVATE_DATA.careers.roles.map((r, idx) => {
       const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
       return `
-      <div class="card-clean ${dirClass} reveal-on-scroll" style="margin-bottom: 26px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
-          <div>
-            <span class="badge badge-navy" style="margin-bottom: 8px;">${r.type}</span>
-            <h3 style="font-size: 1.45rem; color: var(--color-primary-navy); margin-bottom: 6px;">${r.title}</h3>
-            <div style="font-size: 0.88rem; font-weight: 700; color: var(--color-text-muted);">📍 ${r.location}</div>
+        <div class="card-clean ${dirClass} reveal-on-scroll" style="margin-bottom: 26px; padding: 28px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+            <div>
+              <span class="badge badge-navy" style="margin-bottom: 8px;">${r.type}</span>
+              <h3 style="font-size: 1.45rem; color: var(--color-primary-navy); margin-bottom: 6px;">${r.title}</h3>
+              <div style="font-size: 0.88rem; font-weight: 700; color: var(--color-text-muted);">📍 ${r.location}</div>
+            </div>
+            <button class="btn btn-primary btn-sm btn-magnetic" onclick="App.openCareerModal('${r.id}', '${r.title}')">Apply for Position →</button>
           </div>
-          <button class="btn btn-primary btn-sm btn-magnetic" onclick="App.openCareerModal('${r.id}', '${r.title}')">Apply for Position →</button>
+          <div style="margin-bottom: 14px; font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6;">
+            <strong>Requirements:</strong> ${r.requirements}
+          </div>
+          <div style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
+            <strong>Key Responsibilities:</strong> ${r.responsibilities}
+          </div>
         </div>
-        <div style="margin-bottom: 14px; font-size: 0.92rem; color: var(--color-text-main); line-height: 1.6;">
-          <strong>Requirements:</strong> ${r.requirements}
-        </div>
-        <div style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
-          <strong>Key Responsibilities:</strong> ${r.responsibilities}
-        </div>
-      </div>
-    `;
+      `;
     }).join("");
   },
 
   // --------------------------------------------------------------------------
-  // 9. RENDER CLINICAL INSIGHTS BLOG
+  // 10. RENDER CLINICAL INSIGHTS BLOG
   // --------------------------------------------------------------------------
   renderInsights() {
     const container = document.getElementById("insights-articles-grid");
@@ -490,27 +432,27 @@ const App = {
       const dirClass = idx % 2 === 0 ? 'reveal-from-left' : 'reveal-from-right';
       const staggerClass = `stagger-${(idx % 3) + 1}`;
       return `
-      <div class="insight-card ${dirClass} ${staggerClass} reveal-on-scroll" onclick="App.openInsightModal('${i.id}')">
-        <div class="image-reveal-clip" style="width: 100%; height: 215px;">
-          <img src="${i.image}" alt="${i.title}" class="insight-card-img" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="insight-card-body">
-          <div>
-            <span class="badge badge-navy" style="margin-bottom: 10px;">${i.category} &bull; ${i.readTime}</span>
-            <h3>${i.title}</h3>
-            <p>${i.excerpt}</p>
+        <div class="insight-card ${dirClass} ${staggerClass} reveal-on-scroll" onclick="App.openInsightModal('${i.id}')">
+          <div class="image-reveal-clip" style="width: 100%; height: 215px;">
+            <img src="${i.image}" alt="${i.title}" class="insight-card-img" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
-          <div style="font-size: 0.885rem; font-weight: 700; color: var(--color-primary-navy); display: flex; align-items: center; gap: 8px;">
-            Read Clinical Analysis →
+          <div class="insight-card-body">
+            <div>
+              <span class="badge badge-navy" style="margin-bottom: 10px;">${i.category} &bull; ${i.readTime}</span>
+              <h3>${i.title}</h3>
+              <p>${i.excerpt}</p>
+            </div>
+            <div style="font-size: 0.885rem; font-weight: 700; color: var(--color-primary-navy); display: flex; align-items: center; gap: 8px;">
+              Read Article →
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
     }).join("");
   },
 
   // --------------------------------------------------------------------------
-  // 10. RENDER REPORTS CONCEPT
+  // 11. RENDER REPORTS CONCEPT
   // --------------------------------------------------------------------------
   renderReportsConcept() {
     const container = document.getElementById("reports-concept-container");
@@ -521,22 +463,12 @@ const App = {
       <div class="card-clean reveal-on-scroll" style="max-width: 980px; margin: 0 auto; padding: 28px 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); padding-bottom: 18px; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
           <div>
-            <span class="badge badge-navy" style="margin-bottom: 6px;">Clinical Synthesis Dashboard</span>
-            <h2 style="font-size: 1.7rem; color: var(--color-primary-navy); margin-bottom: 4px;">Quarterly Health & Performance Report</h2>
-            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Client: ${r.clientName} &bull; Cycle: ${r.assessmentDate}</div>
+            <span class="badge badge-navy" style="margin-bottom: 6px;">Precision Assessment Roadmap</span>
+            <h2 style="font-size: 1.7rem; color: var(--color-primary-navy); margin-bottom: 4px;">Health & Performance Diagnostics</h2>
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">${r.clientName} &bull; ${r.assessmentDate}</div>
           </div>
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div class="circle-progress-container" style="width: 72px; height: 72px;">
-              <svg viewBox="0 0 60 60">
-                <circle class="circle-progress-bg" cx="30" cy="30" r="25" />
-                <circle class="circle-progress-bar" cx="30" cy="30" r="25" data-percent="${r.overallScore}" />
-              </svg>
-              <div class="circle-progress-center" style="font-size: 1.05rem;">${r.overallScore}</div>
-            </div>
-            <div>
-              <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-dim); letter-spacing: 0.05em;">Composite Score</div>
-              <div style="font-weight: 700; color: var(--color-primary-navy); font-size: 0.95rem;">Optimal Zone</div>
-            </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="badge badge-navy" style="padding: 8px 16px; font-size: 0.85rem;">Assessment-Led Protocol</span>
           </div>
         </div>
 
@@ -547,39 +479,39 @@ const App = {
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px;">
           <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">1. Lean Mass & Strength</div>
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">1. Body Composition</div>
               <div class="pulse-radar-dot"></div>
             </div>
-            <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.fitness.stat}</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.fitness.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.fitness.detail}</p>
           </div>
           <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">2. Insulin & Blood Chemistry</div>
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">2. Biomarkers & Nutrition</div>
               <div class="pulse-radar-dot"></div>
             </div>
-            <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.nutrition.stat}</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.nutrition.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.nutrition.detail}</p>
           </div>
           <div class="card-blue reveal-on-scroll" style="padding: 18px 16px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">3. Autonomic & Recovery</div>
+              <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-navy);">3. Autonomic Recovery</div>
               <div class="pulse-radar-dot"></div>
             </div>
-            <div style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.recovery.stat}</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 6px;">${r.pillars.recovery.stat}</div>
             <p style="font-size: 0.825rem; color: var(--color-primary-navy); margin-bottom: 0; line-height: 1.45;">${r.pillars.recovery.detail}</p>
           </div>
         </div>
 
         <div style="text-align: center; margin-top: 14px;">
-          <a href="#/booking" class="btn btn-primary btn-lg">Book Your Starting Assessment →</a>
+          <a href="#/booking" class="btn btn-primary btn-lg">Book a Free Consultation →</a>
         </div>
       </div>
     `;
   },
 
   // --------------------------------------------------------------------------
-  // 11. INTERACTIVE HERO SILHOUETTE & PARTICLE CANVAS VISUALIZER
+  // 12. HERO SILHOUETTE & PARTICLE CANVAS VISUALIZER
   // --------------------------------------------------------------------------
   bindHeroVisualizer() {
     const canvas = document.getElementById("hero-particle-canvas");
@@ -590,16 +522,16 @@ const App = {
     let height = (canvas.height = canvas.parentElement.clientHeight || 380);
 
     const particles = [];
-    const particleCount = 32;
+    const particleCount = 28;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 2.2 + 1,
-        alpha: Math.random() * 0.55 + 0.25
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 2 + 1,
+        alpha: Math.random() * 0.45 + 0.2
       });
     }
 
@@ -607,14 +539,14 @@ const App = {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle connecting lines in mint cyan
-      ctx.strokeStyle = "rgba(221, 241, 239, 0.15)";
+      ctx.strokeStyle = "rgba(221, 241, 239, 0.12)";
       ctx.lineWidth = 1;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 95) {
+          if (dist < 90) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -650,7 +582,7 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 12. DEDICATED BOOK CONSULTATION FORM (Section 19)
+  // 13. DEDICATED BOOK CONSULTATION FORM
   // --------------------------------------------------------------------------
   initConsultationForm() {
     const goalBtns = document.querySelectorAll(".goal-option-btn");
@@ -744,7 +676,7 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 13. DEXA BODY COMPOSITION INTERACTIVE EXPLORER (Section 16)
+  // 14. DEXA BODY COMPOSITION INTERACTIVE EXPLORER
   // --------------------------------------------------------------------------
   bindDexaExplorer() {
     const slider = document.getElementById("dexa-weight-slider");
@@ -758,8 +690,7 @@ const App = {
         const w = parseFloat(e.target.value);
         if (weightVal) weightVal.textContent = `${w.toFixed(1)} kg`;
 
-        // Progressive transformation calculation: lean muscle preserved, visceral fat mobilized
-        const progress = (85 - w) / 10; // Normalized 0 to 1
+        const progress = (85 - w) / 10;
         const fatKg = (w * (0.28 - progress * 0.08)).toFixed(1);
         const leanKg = (w - parseFloat(fatKg)).toFixed(1);
         const vatKg = Math.max(0.4, (1.8 - progress * 1.3)).toFixed(2);
@@ -772,7 +703,7 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 14. MODALS & FORMS
+  // 15. MODALS & FORMS
   // --------------------------------------------------------------------------
   bindHeader() {
     const header = document.querySelector(".site-header");
@@ -809,6 +740,21 @@ const App = {
         });
       });
     }
+
+    // Logo click: always display home page and scroll to top
+    const logoLinks = document.querySelectorAll(".brand-logo, #site-brand-logo, .mobile-drawer-brand, .footer-brand a");
+    logoLinks.forEach(logo => {
+      logo.addEventListener("click", (e) => {
+        if (drawer && backdrop) {
+          drawer.classList.remove("active");
+          backdrop.classList.remove("active");
+        }
+        if (window.Router) {
+          window.Router.navigate("/");
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
   },
 
   bindNominateSocietyForm() {
@@ -872,13 +818,13 @@ const App = {
       <button style="position: absolute; top: 18px; right: 18px; background: none; border: none; font-size: 1.7rem; color: var(--color-primary-navy); cursor: pointer;" onclick="document.getElementById('article-reader-modal').classList.remove('active')">&times;</button>
       <span class="badge badge-navy" style="margin-bottom: 12px;">${article.category} &bull; ${article.readTime}</span>
       <h1 style="font-size: 1.85rem; color: var(--color-primary-navy); margin: 12px 0; line-height: 1.3;">${article.title}</h1>
-      <div style="font-size: 0.885rem; color: var(--color-text-muted); margin-bottom: 26px;">Published by ${article.author} &bull; Clinical Insights</div>
+      <div style="font-size: 0.885rem; color: var(--color-text-muted); margin-bottom: 26px;">Published by ${article.author} &bull; Insights</div>
       <div style="line-height: 1.8; font-size: 1.02rem; color: var(--color-text-main); margin-bottom: 36px;">
         ${article.fullContent}
       </div>
       <div class="card-blue" style="text-align: center; padding: 28px;">
-        <h4 style="font-size: 1.25rem; color: var(--color-primary-navy); margin-bottom: 8px;">Translate This Research into Action</h4>
-        <p style="font-size: 0.94rem; color: var(--color-text-muted); margin-bottom: 18px;">Book a free baseline consultation with our clinical coaching team.</p>
+        <h4 style="font-size: 1.25rem; color: var(--color-primary-navy); margin-bottom: 8px;">Translate Insights into Action</h4>
+        <p style="font-size: 0.94rem; color: var(--color-text-muted); margin-bottom: 18px;">Book a free baseline consultation with our coaching team.</p>
         <button class="btn btn-primary btn-sm" onclick="document.getElementById('article-reader-modal').classList.remove('active'); Router.navigate('/booking');">Book a Free Consultation →</button>
       </div>
     `;
@@ -938,6 +884,16 @@ const App = {
       toast.style.transition = "all 0.3s ease";
       setTimeout(() => toast.remove(), 300);
     }, 3500);
+  },
+
+  bindAssessmentSequenceCards() {
+    const cards = document.querySelectorAll("#assessment-steps-grid .assessment-step-card");
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("is-active"));
+        card.classList.add("is-active");
+      });
+    });
   },
 
   initScrollObserver() {
