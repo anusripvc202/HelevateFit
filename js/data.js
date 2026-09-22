@@ -28,12 +28,12 @@ const HELEVATE_DATA = {
     hours: "Monday – Saturday: 6:00 AM – 9:00 PM"
   },
 
-  // 4-Step Core Workflow Flow
+  // 4-Step Core Workflow Flow (Measure -> Understand -> Personalise -> Improve)
   workflowSteps: [
     {
       step: "01",
-      name: "ASSESS",
-      title: "Assess Current Health",
+      name: "MEASURE",
+      title: "Measure Biological Baseline",
       desc: "Understand your present health condition through comprehensive clinical and physical assessments.",
       keyDetail: "Objective baseline diagnostics including metabolic markers, body composition, and movement analysis.",
       icon: "🔬",
@@ -41,30 +41,29 @@ const HELEVATE_DATA = {
     },
     {
       step: "02",
-      name: "ANALYZE",
-      title: "Identify Requirements",
-      desc: "Understand your health requirements and identify specific areas that need personalized attention.",
+      name: "UNDERSTAND",
+      title: "Understand Health Priorities",
+      desc: "Analyze your health requirements and isolate key areas needing attention, from insulin sensitivity to recovery debt.",
       keyDetail: "Clinical interpretation to connect biomarkers with daily energy, recovery, and long-term health goals.",
       icon: "📊",
       badge: "In-Depth Analysis"
     },
     {
       step: "03",
-      name: "HELEVATE REPORT",
-      title: "Generate Personalized Report",
-      desc: "Create a personalized Helevate Report translating assessment insights into a clear, actionable direction.",
+      name: "PERSONALISE",
+      title: "The Helevate Report",
+      desc: "Synthesize assessment insights into your custom Helevate Report — a single actionable blueprint across health, lifestyle, diet, and fitness.",
       keyDetail: "Your central roadmap unifying health, lifestyle, nutrition, and fitness requirements in one place.",
       icon: "📋",
       badge: "Central Outcome"
     },
     {
       step: "04",
-      name: "SUPPORT",
-      title: "Personalized Support",
-      desc: "Provide ongoing guidance across health, lifestyle, diet, and fitness tailored to your report.",
+      name: "IMPROVE",
+      title: "Dedicated Continuous Support",
+      desc: "Deliver ongoing, coach-led guidance and 90-day re-assessments inside your society clubhouse to ensure lasting results.",
       keyDetail: "Dedicated coaches and specialists delivering care right inside your gated community.",
       icon: "🌿",
-      badge: "Ongoing Guidance"
     }
   ],
 
