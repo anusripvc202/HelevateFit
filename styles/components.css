@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border-subtle);
@@ -44,12 +44,12 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .nav-link {
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--color-navy-text);
   position: relative;
@@ -76,7 +76,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .mobile-menu-btn {
@@ -129,7 +129,7 @@
   font-family: var(--font-body);
   font-weight: 500;
   color: var(--color-primary-navy);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   padding: 6px 0;
   display: block;
 }
@@ -258,7 +258,7 @@
 }
 
 /* ==========================================================================
-   4. SECTION 1: HERO (HIGH-END PERFORMANCE HUB)
+   4. SECTION 1: HERO
    ========================================================================== */
 .hero-clean {
   padding: 44px 0 48px;
@@ -296,6 +296,28 @@
   line-height: 1.68;
   margin-bottom: 28px;
   font-weight: 400;
+}
+
+.hero-bullets-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.hero-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-navy-text);
+  font-weight: 500;
+}
+
+.hero-bullet-icon {
+  color: var(--color-primary-navy);
+  font-size: 0.95rem;
 }
 
 .hero-actions-clean {
@@ -337,7 +359,7 @@
   font-weight: 700;
 }
 
-/* Sophisticated Performance Data Hub Visual */
+/* Biometric Hub Visual */
 .hero-performance-hub {
   background: linear-gradient(145deg, #FFFFFF 0%, var(--color-bg-subtle) 100%);
   border: 1px solid var(--color-border);
@@ -384,24 +406,21 @@
   box-shadow: 0 0 8px var(--color-accent-teal);
 }
 
-/* Central Radar Dial Graphic */
 .hub-central-dial-card {
   background: linear-gradient(135deg, var(--color-primary-navy) 0%, var(--color-midnight-base) 100%);
   border-radius: var(--radius-lg);
-  padding: 24px 20px;
+  padding: 22px 20px;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   gap: 20px;
   margin-bottom: 16px;
   box-shadow: var(--shadow-navy-glow);
-  position: relative;
-  overflow: hidden;
 }
 
 .dial-gauge-wrap {
-  width: 76px;
-  height: 76px;
+  width: 74px;
+  height: 74px;
   flex-shrink: 0;
   position: relative;
   display: flex;
@@ -438,7 +457,6 @@
   font-weight: 400;
 }
 
-/* 4 Layered Telemetry Data Chips */
 .hub-data-chips-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -483,155 +501,159 @@
 }
 
 /* ==========================================================================
-   5. SECTION 2: WHAT IS HELEVATE? (SOPHISTICATED ASYMMETRIC CARD)
+   5. SECTION 2: 6-STEP OVERVIEW JOURNEY (ASSESS -> MEASURE -> ANALYSE -> REPORT -> PERSONALISE -> IMPROVE)
    ========================================================================== */
-.what-is-helevate-card {
-  background: linear-gradient(145deg, var(--color-light-blue-soft) 0%, #FFFFFF 100%);
-  border: 1px solid var(--color-border-cyan);
-  border-radius: var(--radius-lg);
-  padding: 28px 32px;
-  box-shadow: var(--shadow-subtle);
-}
-
-.what-is-grid {
+.overview-steps-track {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 24px;
 }
 
-.what-is-statement {
-  font-family: var(--font-heading);
-  font-size: clamp(1.22rem, 2vw, 1.45rem);
-  line-height: 1.55;
-  color: var(--color-primary-navy);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-
-.what-is-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.what-is-highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #FFFFFF;
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(14, 58, 93, 0.08);
-}
-
-.what-is-highlight-icon {
-  font-size: 1.1rem;
-  margin-top: 2px;
-}
-
-.what-is-highlight-item p {
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  color: var(--color-navy-text);
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.45;
-}
-
-.what-is-highlight-item p strong {
-  font-weight: 600;
-  color: var(--color-primary-navy);
-}
-
-/* ==========================================================================
-   6. SECTION 3: WORKFLOW (MEASURE ➔ UNDERSTAND ➔ PERSONALISE ➔ IMPROVE)
-   ========================================================================== */
-.process-flow-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  position: relative;
-  margin-top: 20px;
-}
-
-.process-card {
+.overview-step-card {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 24px 20px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--transition-normal);
+  transition: all var(--transition-fast);
   position: relative;
+  text-align: left;
 }
 
-.process-card:hover {
-  transform: translateY(-3px);
+.overview-step-card:hover {
   border-color: var(--color-primary-navy);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card);
 }
 
-.process-card-top {
-  margin-bottom: 18px;
-}
-
-.process-step-badge-row {
+.overview-step-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-.process-num {
+.overview-step-num {
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   color: var(--color-primary-navy);
   background: var(--color-badge-bg);
-  padding: 4px 10px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
 }
 
-.process-icon-clean {
-  font-size: 1.35rem;
+.overview-step-icon {
+  font-size: 1.25rem;
 }
 
-.process-card h3 {
+.overview-step-card h4 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   color: var(--color-primary-navy);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 700;
-  letter-spacing: -0.015em;
 }
 
-.process-card p {
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-  margin: 0;
-  font-weight: 400;
-}
-
-.process-card-footer {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-border-subtle);
+.overview-step-card p {
   font-family: var(--font-body);
   font-size: 0.82rem;
-  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.overview-step-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--color-primary-navy);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  margin-top: auto;
 }
 
 /* ==========================================================================
-   7. SECTION 4: THE HELEVATE REPORT INTERACTIVE SUITE
+   6. SECTION 3: PRESENT HEALTH MEASUREMENT
+   ========================================================================== */
+.health-dimension-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.health-dim-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.health-dim-card:hover {
+  border-color: var(--color-primary-navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.dim-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-light-blue-soft);
+  border: 1px solid var(--color-border-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+}
+
+.health-dim-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.health-dim-card p {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.dim-metrics-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.dim-chip {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--color-bg-subtle);
+  color: var(--color-navy-text);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+}
+
+/* ==========================================================================
+   7. SECTION 4: THE HELEVATE REPORT SHOWCASE
    ========================================================================== */
 .report-showcase-box {
   background: linear-gradient(180deg, #FFFFFF 0%, var(--color-bg-subtle) 100%);
@@ -688,7 +710,6 @@
   font-weight: 700;
 }
 
-/* Interactive Report Mockup Component */
 .report-mockup-wrapper {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
@@ -863,35 +884,35 @@
 }
 
 /* ==========================================================================
-   8. SECTION 5: 4 SUPPORT PILLARS
+   8. SECTION 5: PERSONALISED TREATMENT & GUIDANCE PATHWAY
    ========================================================================== */
-.pillar-grid {
+.care-pathway-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
   margin-top: 24px;
 }
 
-.pillar-card {
+.care-step-card {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 26px 22px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--transition-normal);
+  transition: all var(--transition-fast);
 }
 
-.pillar-card:hover {
-  transform: translateY(-3px);
+.care-step-card:hover {
   border-color: var(--color-primary-navy);
-  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
 }
 
-.pillar-icon-box {
-  width: 46px;
-  height: 46px;
+.care-step-icon-wrap {
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-md);
   background: var(--color-light-blue-soft);
   border: 1px solid var(--color-border-cyan);
@@ -902,92 +923,353 @@
   margin-bottom: 16px;
 }
 
-.pillar-card h3 {
+.care-step-card h4 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--color-primary-navy);
   margin-bottom: 8px;
   font-weight: 700;
-  letter-spacing: -0.015em;
 }
 
-.pillar-card p {
+.care-step-card p {
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  font-weight: 400;
-}
-
-.pillar-points-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid var(--color-border-subtle);
-}
-
-.pillar-point-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--color-navy-text);
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.pillar-point-item::before {
-  content: '•';
-  color: var(--color-primary-navy);
-  font-size: 1.1rem;
-  line-height: 1;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* ==========================================================================
-   9. STATISTIC / TRUST METRIC BAND
+   9. SECTION 6: PERSONALISED FOOD & DIET (NUTRITION)
    ========================================================================== */
-.stats-band {
+.nutrition-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.nutrition-module-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.nutrition-module-card:hover {
+  border-color: var(--color-primary-navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.nutrition-module-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.nutrition-module-card p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.nutrition-tag-badge {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #008774;
+  background: rgba(0, 210, 180, 0.12);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   10. SECTION 7: HOW IT WORKS (5 STEPS)
+   ========================================================================== */
+.how-it-works-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.how-step-pill-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.how-step-pill-card:hover {
+  border-color: var(--color-primary-navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.how-step-badge {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  background: var(--color-badge-bg);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.how-step-pill-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.how-step-pill-card p {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   11. SECTION 8: 6 CLICKABLE SERVICES
+   ========================================================================== */
+.services-rich-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-interactive-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.service-interactive-card:hover {
+  border-color: var(--color-primary-navy);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.service-card-top {
+  margin-bottom: 16px;
+}
+
+.service-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.service-icon-wrap {
+  font-size: 1.4rem;
+}
+
+.service-interactive-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.service-tagline-text {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-navy-text);
+  margin-bottom: 10px;
+}
+
+.service-interactive-card p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.service-card-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary-navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   12. SECTION 9 & 10: TESTIMONIALS & REVIEWS TRUST
+   ========================================================================== */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.testimonial-card-rich {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.testimonial-card-rich:hover {
+  border-color: var(--color-primary-navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.testimonial-stars-row {
+  color: #F59E0B;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.testimonial-quote-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  font-style: normal;
+}
+
+.testimonial-author-meta h5 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-primary-navy);
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+.testimonial-author-meta p {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Trust Rating Card */
+.trust-rating-card {
   background: var(--color-midnight-surface);
   color: #FFFFFF;
   border-radius: var(--radius-lg);
-  padding: 32px 36px;
-  margin: 40px 0;
+  padding: 28px 32px;
+  margin: 32px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: var(--shadow-navy-glow);
 }
 
-.stats-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-
-.stat-metric-card {
-  padding: 8px 12px;
-}
-
-.stat-value-large {
+.trust-rating-score {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
   color: var(--color-accent-teal);
   line-height: 1.1;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.stat-label-sub {
+.trust-rating-sub {
   font-family: var(--font-body);
   font-size: 0.88rem;
   color: var(--color-primary-light-blue);
-  font-weight: 500;
 }
 
 /* ==========================================================================
-   10. SECTION 6: FOCUSED PERFORMANCE CTA
+   13. SECTION 11: VISUAL HEALTH DASHBOARD PREVIEW
+   ========================================================================== */
+.dashboard-preview-card {
+  background: linear-gradient(145deg, var(--color-midnight-base) 0%, var(--color-midnight-surface) 100%);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-navy-glow);
+  margin-top: 24px;
+}
+
+.dashboard-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.dash-element-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.dash-element-box:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent-teal);
+}
+
+.dash-element-val {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-accent-teal);
+  margin-bottom: 4px;
+}
+
+.dash-element-box h5 {
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.dash-element-box p {
+  color: var(--color-primary-light-blue);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ==========================================================================
+   14. SECTION 12: FOCUSED PERFORMANCE CTA
    ========================================================================== */
 .focused-cta-banner {
   background: linear-gradient(135deg, var(--color-midnight-base) 0%, var(--color-primary-navy) 100%);
@@ -1041,7 +1323,7 @@
 }
 
 /* ==========================================================================
-   11. INTERACTIVE QUICK INTAKE ASSESSMENT MODAL
+   15. INTAKE MODAL
    ========================================================================== */
 .intake-modal-overlay {
   position: fixed;
@@ -1226,7 +1508,7 @@
 }
 
 /* ==========================================================================
-   12. SITE FOOTER
+   16. SITE FOOTER
    ========================================================================== */
 .site-footer-clean {
   background: var(--color-midnight-base);
@@ -1281,9 +1563,9 @@
 }
 
 /* ==========================================================================
-   13. SUBTLE FADE-IN ANIMATIONS
+   17. SUBTLE FADE-IN ANIMATIONS
    ========================================================================== */
-.reveal, .reveal-up, .process-card, .pillar-card, .what-is-helevate-card, .hero-performance-hub {
+.reveal, .reveal-up, .process-card, .pillar-card, .service-interactive-card, .hero-performance-hub {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.45s ease-out, transform 0.45s ease-out;
@@ -1294,7 +1576,6 @@
   transform: translateY(0) !important;
 }
 
-/* App View Containers */
 .app-view {
   display: none;
 }
@@ -1303,7 +1584,6 @@
   display: block;
 }
 
-/* Toast Shelf */
 .toast-shelf {
   position: fixed;
   bottom: 24px;
@@ -1332,28 +1612,42 @@
 }
 
 /* ==========================================================================
-   14. RESPONSIVE BREAKPOINTS
+   18. RESPONSIVE BREAKPOINTS
    ========================================================================== */
+@media (max-width: 1200px) {
+  .overview-steps-track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .health-dimension-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .how-it-works-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .dashboard-preview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-grid-clean {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .process-flow-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .pillar-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .report-showcase-grid {
     grid-template-columns: 1fr;
   }
-  .what-is-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .stats-grid-4 {
+  .care-pathway-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .nutrition-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-rich-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
   }
   .footer-top-grid {
     grid-template-columns: 1fr 1fr;
@@ -1367,16 +1661,33 @@
   .mobile-menu-btn {
     display: block;
   }
-  .process-flow-grid {
+  .overview-steps-track {
     grid-template-columns: 1fr;
   }
-  .pillar-grid {
+  .health-dimension-grid {
     grid-template-columns: 1fr;
+  }
+  .care-pathway-grid {
+    grid-template-columns: 1fr;
+  }
+  .nutrition-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .how-it-works-grid-5 {
+    grid-template-columns: 1fr;
+  }
+  .services-rich-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .trust-rating-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
   }
   .intake-options-grid {
-    grid-template-columns: 1fr;
-  }
-  .stats-grid-4 {
     grid-template-columns: 1fr;
   }
   .footer-top-grid {
@@ -1391,6 +1702,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+  .hero-bullets-list {
+    grid-template-columns: 1fr;
   }
   .focused-cta-banner {
     padding: 30px 20px;

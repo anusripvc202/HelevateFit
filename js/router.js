@@ -1,12 +1,15 @@
 /**
  * HELEVATE.FIT — CLIENT ROUTER
  * Handles clean client-side hash routing across:
- * - / (Home overview)
- * - /how-it-works (4-step process)
- * - /report (The Helevate Report)
- * - /services (Our 4 Unified Pillars)
- * - /about (Mission & Standards)
- * - /get-started & /booking (Quick intake modal)
+ * - / (Complete 12-section Homepage)
+ * - /assessments (Dedicated Assessments Page)
+ * - /reports (Sample Helevate Report Deep-Dive)
+ * - /care (Personalised Care & Treatment Pathways)
+ * - /nutrition (Personalised Food & Diet Guidance)
+ * - /how-it-works (5-Step Operational Roadmap)
+ * - /reviews (Community Testimonials & Trust)
+ * - /about (Mission, Science & Operations)
+ * - /get-started & /booking (Quick Intake Modal)
  */
 
 const Router = {
@@ -40,7 +43,7 @@ const Router = {
     if (!rawHash.startsWith("/")) rawHash = "/" + rawHash;
 
     const [pathOnly] = rawHash.split("?");
-    const normalizedPath = pathOnly;
+    const normalizedPath = pathOnly.toLowerCase();
     this.currentRoute = normalizedPath;
 
     // 2. Hide all views
@@ -48,39 +51,103 @@ const Router = {
       view.classList.remove("active");
     });
 
-    // 3. Update nav active links
-    document.querySelectorAll(".nav-link").forEach((link) => {
-      const target = link.getAttribute("href") || "";
-      const targetClean = target.replace("#", "");
-      if (
-        (normalizedPath === "/" && (targetClean === "/" || targetClean === "" || targetClean === "home")) ||
-        (normalizedPath !== "/" && targetClean.length > 1 && normalizedPath.startsWith(targetClean))
-      ) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
+    // 3. Update desktop and mobile nav active links
+    const updateNavLinks = (selector) => {
+      document.querySelectorAll(selector).forEach((link) => {
+        const target = link.getAttribute("href") || "";
+        const targetClean = target.replace("#", "").toLowerCase();
+        
+        const isHomeActive = (normalizedPath === "/" || normalizedPath === "/home") && 
+          (targetClean === "/" || targetClean === "" || targetClean === "home");
+        const isPageActive = targetClean.length > 1 && 
+          (normalizedPath === targetClean || normalizedPath.startsWith(targetClean + "/"));
+
+        if (isHomeActive || isPageActive) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    };
+
+    updateNavLinks(".nav-link");
+    updateNavLinks(".nav-link-mobile");
 
     // 4. Match route to view
-    if (normalizedPath === "/" || normalizedPath === "/home") {
-      this.showView("view-home");
-    } else if (normalizedPath === "/how-it-works") {
-      this.showView("view-how-it-works");
-    } else if (normalizedPath === "/report" || normalizedPath === "/helevate-report") {
-      this.showView("view-report");
-    } else if (normalizedPath === "/services" || normalizedPath === "/approach") {
-      this.showView("view-services");
-    } else if (normalizedPath === "/about") {
-      this.showView("view-about");
-    } else if (normalizedPath === "/get-started" || normalizedPath === "/booking") {
-      this.showView("view-home");
-      if (window.App && window.App.openIntakeModal) {
-        window.App.openIntakeModal();
-      }
-    } else {
-      // Default fallback to home
-      this.showView("view-home");
+    switch (normalizedPath) {
+      case "/":
+      case "/home":
+        this.showView("view-home");
+        break;
+
+      case "/assessments":
+      case "/assessment":
+        this.showView("view-assessments");
+        break;
+
+      case "/reports":
+      case "/report":
+      case "/helevate-report":
+        this.showView("view-reports");
+        break;
+
+      case "/care":
+      case "/treatment":
+      case "/guidance":
+      case "/care-pathways":
+        this.showView("view-care");
+        break;
+
+      case "/nutrition":
+      case "/diet":
+      case "/food":
+      case "/nutrition-guidance":
+        this.showView("view-nutrition");
+        break;
+
+      case "/how-it-works":
+      case "/process":
+      case "/roadmap":
+        this.showView("view-how-it-works");
+        break;
+
+      case "/reviews":
+      case "/testimonials":
+      case "/stories":
+      case "/results":
+        this.showView("view-reviews");
+        break;
+
+      case "/about":
+      case "/about-us":
+      case "/mission":
+        this.showView("view-about");
+        break;
+
+      case "/services":
+      case "/approach":
+        this.showView("view-home");
+        setTimeout(() => {
+          const servicesSection = document.getElementById("homepage-services");
+          if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+        break;
+
+      case "/get-started":
+      case "/booking":
+      case "/consultation":
+        this.showView("view-home");
+        if (window.App && window.App.openIntakeModal) {
+          window.App.openIntakeModal();
+        }
+        break;
+
+      default:
+        // Default fallback to home
+        this.showView("view-home");
+        break;
     }
 
     // Refresh Motion Engine observer
