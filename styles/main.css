@@ -20,51 +20,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap');
 
 :root {
-  /* Brand Performance Palette */
-  --color-midnight-deep: #051626;
-  --color-midnight-base: #071A2E;
-  --color-midnight-surface: #0B2540;
-  --color-primary-navy: #0E3A5D;
+  /* Brand Core Performance Palette (Strict Specification)
+     Navy background: #0E3A5D
+     Navy text: #153255
+     Pale mint/cyan: #DDF1EF
+  */
+  --color-primary-navy: #0E3A5D;           /* Navy background / primary */
   --color-primary-navy-dark: #072238;
   --color-primary-navy-hover: #12436B;
-  --color-navy-text: #153255;
-  
+  --color-navy-text: #153255;              /* Navy text */
+  --color-text-main: #153255;              /* Navy body & heading text */
+  --color-primary-light-blue: #DDF1EF;     /* Pale mint / cyan */
+  --color-light-blue-soft: #DDF1EF;        /* Pale mint / cyan */
+  --color-bg-subtle: #DDF1EF;              /* Pale mint / cyan subtle section surface */
+  --color-badge-bg: #DDF1EF;
+  --color-badge-text: #0E3A5D;
+
   /* Accent & Luminous Tokens */
   --color-accent-teal: #00D2B4;
-  --color-accent-teal-dark: #00B29A;
+  --color-accent-teal-dark: #00A68E;
   --color-accent-teal-hover: #1AF0D2;
-  --color-accent-teal-glow: rgba(0, 210, 180, 0.28);
-  --color-primary-light-blue: #DDF1EF;
-  --color-light-blue-soft: #EDF8F7;
-  --color-light-blue-tint: #D0EBE8;
-  --color-light-blue-deep: #BBE3DF;
+  --color-accent-teal-glow: rgba(221, 241, 239, 0.35);
+  --color-light-blue-tint: #DDF1EF;
+  --color-light-blue-deep: #C4EAE5;
 
   /* Surfaces & Canvas */
   --color-bg-main: #FFFFFF;
-  --color-bg-subtle: #F8FAFC;
   --color-bg-offwhite: #F8FCFC;
   --color-surface-card: #FFFFFF;
-  --color-surface-glass: rgba(255, 255, 255, 0.92);
-  --color-surface-glass-dark: rgba(7, 26, 46, 0.88);
+  --color-surface-glass: rgba(255, 255, 255, 0.94);
+  --color-surface-glass-dark: rgba(14, 58, 93, 0.95);
 
   /* Typography Colors */
-  --color-text-main: #153255;
-  --color-text-muted: #4A6B82;
-  --color-text-dim: #7997A8;
+  --color-text-muted: #2C4A63;
+  --color-text-dim: #50718A;
   --color-text-inverse: #FFFFFF;
-  --color-text-inverse-muted: #B4CCE0;
+  --color-text-inverse-muted: #DDF1EF;
 
   /* Borders & Dividers */
-  --color-border: rgba(14, 58, 93, 0.08);
-  --color-border-subtle: rgba(14, 58, 93, 0.05);
-  --color-border-hover: rgba(14, 58, 93, 0.22);
-  --color-border-focus: #00D2B4;
-  --color-border-cyan: rgba(0, 210, 180, 0.28);
-  --color-border-teal: rgba(0, 210, 180, 0.38);
-
-  /* Functional Accents */
-  --color-badge-bg: #EDF8F7;
-  --color-badge-text: #0E3A5D;
+  --color-border: rgba(14, 58, 93, 0.12);
+  --color-border-subtle: rgba(14, 58, 93, 0.08);
+  --color-border-hover: rgba(14, 58, 93, 0.28);
+  --color-border-focus: #0E3A5D;
+  --color-border-cyan: rgba(14, 58, 93, 0.2);
+  --color-border-teal: rgba(0, 210, 180, 0.35);
 
   /* Typography Font Families: Saira Condensed (High-Impact Display Italic), JetBrains Mono (Tech), Inter (Body) */
   --font-display: 'Saira Condensed', 'Barlow Condensed', sans-serif;
