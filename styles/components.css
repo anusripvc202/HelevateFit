@@ -3312,8 +3312,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 .simple-highlight-item {
-  background: rgba(221, 241, 239, 0.08);
-  border: 1px solid rgba(221, 241, 239, 0.18);
+  background: rgba(221, 241, 239, 0.12);
+  border: 1px solid rgba(221, 241, 239, 0.28);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: var(--radius-lg, 12px);
@@ -3323,8 +3323,8 @@ input:focus, select:focus, textarea:focus {
 
 .simple-highlight-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(221, 241, 239, 0.4);
-  background: rgba(221, 241, 239, 0.12);
+  border-color: rgba(221, 241, 239, 0.5);
+  background: rgba(221, 241, 239, 0.18);
 }
 
 .simple-highlight-icon {
@@ -3335,17 +3335,17 @@ input:focus, select:focus, textarea:focus {
 
 .simple-highlight-item strong {
   display: block;
-  font-size: 0.95rem;
-  color: #FFFFFF;
+  font-size: 1rem;
+  color: #FFFFFF !important;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 
 .simple-highlight-item p {
-  font-size: 0.82rem;
-  color: var(--color-cyan-pale, #DDF1EF);
+  font-size: 0.86rem;
+  color: #DDF1EF !important;
   margin: 0;
-  line-height: 1.4;
-  opacity: 0.9;
+  line-height: 1.45;
 }
 
 /* 2. Open Positions Grid */
@@ -3359,19 +3359,19 @@ input:focus, select:focus, textarea:focus {
 
 .simple-role-card {
   background: #FFFFFF;
-  border: 1px solid var(--color-border, #E2E8F0);
+  border: 1.5px solid #CBD5E1;
   border-radius: var(--radius-xl, 16px);
   padding: 26px 24px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px rgba(14, 58, 93, 0.04);
+  box-shadow: 0 4px 16px rgba(14, 58, 93, 0.05);
   transition: all var(--transition-normal, 0.3s ease);
 }
 
 .simple-role-card:hover {
   transform: translateY(-4px);
   border-color: #0E3A5D;
-  box-shadow: 0 10px 28px rgba(14, 58, 93, 0.1);
+  box-shadow: 0 10px 28px rgba(14, 58, 93, 0.12);
 }
 
 .simple-role-header {
@@ -3384,10 +3384,11 @@ input:focus, select:focus, textarea:focus {
 
 .simple-role-tag {
   display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
   color: #0E3A5D;
   background: #DDF1EF;
+  border: 1px solid rgba(14, 58, 93, 0.15);
   padding: 3px 8px;
   border-radius: 4px;
   margin-bottom: 6px;
@@ -3395,33 +3396,35 @@ input:focus, select:focus, textarea:focus {
 
 .simple-role-title {
   font-family: var(--font-heading);
-  font-size: 1.18rem;
-  color: var(--color-primary-navy, #0E3A5D);
-  font-weight: 700;
+  font-size: 1.25rem;
+  color: #0E3A5D !important;
+  font-weight: 800;
   margin: 0 0 4px 0;
   line-height: 1.3;
 }
 
 .simple-role-loc {
-  font-size: 0.82rem;
-  color: var(--color-text-muted, #64748B);
+  font-size: 0.84rem;
+  color: #153255 !important;
+  font-weight: 500;
 }
 
 .simple-role-comp {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-primary-navy, #0E3A5D);
-  background: rgba(14, 58, 93, 0.05);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #0E3A5D !important;
+  background: #DDF1EF;
+  border: 1px solid rgba(14, 58, 93, 0.2);
   padding: 6px 10px;
   border-radius: 6px;
   white-space: nowrap;
 }
 
 .simple-role-desc {
-  font-size: 0.88rem;
-  color: var(--color-text-main, #334155);
-  line-height: 1.5;
+  font-size: 0.92rem;
+  color: #153255 !important;
+  line-height: 1.55;
   margin-bottom: 20px;
   flex-grow: 1;
 }
@@ -3432,16 +3435,29 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
   gap: 12px;
   padding-top: 14px;
-  border-top: 1px solid var(--color-border, #E2E8F0);
+  border-top: 1px solid #E2E8F0;
 }
 
 /* 3. Simple Application Form Card */
 .simple-apply-card {
   background: #FFFFFF;
-  border: 1px solid var(--color-border, #E2E8F0);
+  border: 1.5px solid #CBD5E1;
   border-radius: var(--radius-xl, 16px);
   padding: 36px 32px;
-  box-shadow: 0 8px 28px rgba(14, 58, 93, 0.07);
+  box-shadow: 0 8px 28px rgba(14, 58, 93, 0.08);
+}
+
+.simple-apply-card .form-control {
+  color: #0E3A5D !important;
+  background-color: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.simple-apply-card .form-control:focus {
+  border-color: #0E3A5D !important;
+  box-shadow: 0 0 0 3px rgba(14, 58, 93, 0.15) !important;
 }
 
 /* Responsive Adjustments */
