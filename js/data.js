@@ -343,7 +343,166 @@ const HELEVATE_DATA = {
     "Narsingi",
     "Kondapur",
     "Madhapur"
-  ]
+  ],
+
+  // 11. SEO & Editorial Insights (Blog starter topics)
+  insights: [
+    {
+      id: "bloodwork-risk-patterns",
+      title: "Why Your Bloodwork Can Look Normal While Your Risk Is Rising",
+      tagline: "The gap between standard check-ups and precision preventive diagnostics.",
+      category: "Metabolic Health",
+      readTime: "5 min read",
+      author: "Helevate Science Team",
+      date: "September 2026",
+      image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Standard annual health checks focus on late-stage disease thresholds like fasting glucose. Learn how early subclinical markers like fasting insulin and ApoB reveal true cardiovascular risk years in advance.",
+      content: `
+        <p>Most executive health check-ups follow a reactive diagnostic model designed to flag active pathology rather than early physiological decline. A fasting blood glucose level of 96 mg/dL is marked 'normal' on lab reference ranges, even when the pancreas is producing 3x the normal amount of insulin to keep it there.</p>
+        <h4>The Hyperinsulinemic Compensation Phase</h4>
+        <p>Before fasting glucose climbs into pre-diabetic or diabetic territory, fasting insulin often rises silently for 5 to 10 years. This hyperinsulinemic state promotes visceral fat accumulation, elevates blood pressure, and accelerates arterial plaque buildup — all while standard annual bloodwork reports 'all clear.'</p>
+        <h4>The Role of ApoB vs. Total Cholesterol</h4>
+        <p>Standard lipid panels measure total cholesterol and LDL-C, which quantify the mass of cholesterol inside particles. However, modern preventive cardiology looks at Apolipoprotein B (ApoB) — which counts the actual number of atherogenic particles circulating in your bloodstream. Particle count is the true driver of vascular plaque penetration.</p>
+        <div class="insight-highlight-box">
+          <strong>Key Takeaway:</strong> Baseline testing should look beyond standard reference ranges. Assessing fasting insulin, HOMA-IR, ApoB, and hs-CRP allows proactive lifestyle intervention before metabolic strain turns into a clinical diagnosis.
+        </div>
+      `
+    },
+    {
+      id: "dexa-vs-weighing-scale",
+      title: "DEXA vs. the Weighing Scale: What Actually Changed",
+      tagline: "Understanding visceral fat, regional lean mass, and true body recomposition.",
+      category: "Body Composition",
+      readTime: "4 min read",
+      author: "Harish P, Head Coach",
+      date: "September 2026",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+      excerpt: "A standard bathroom scale measures total body weight, but fails to distinguish between lean muscle, subcutaneous fat, and dangerous visceral adipose tissue surrounding vital organs.",
+      content: `
+        <p>When you start a structured strength and nutrition protocol, the bathroom scale can often be misleading. It is common to drop 2 kg of body fat while gaining 1.5 kg of lean contractile muscle, resulting in a net scale shift of only 0.5 kg. Without objective scanning, many become discouraged despite making monumental health progress.</p>
+        <h4>The Danger of Visceral Fat (VAT)</h4>
+        <p>Unlike subcutaneous fat (the soft fat beneath the skin), visceral fat accumulates inside the abdominal cavity around the liver, pancreas, and intestines. Visceral fat is metabolically active, secreting inflammatory cytokines and free fatty acids directly into the portal vein. DEXA imaging quantifies visceral adipose tissue in exact grams and square centimeters.</p>
+        <h4>Skeletal Muscle Index and Metabolic Longevity</h4>
+        <p>Muscle mass is our primary metabolic sink for glucose disposal. DEXA tracks regional lean mass across your arms, legs, and trunk — ensuring you preserve or build muscle while losing fat, protecting your basal metabolic rate and long-term joint health.</p>
+        <div class="insight-highlight-box">
+          <strong>Key Takeaway:</strong> Track your transformation with gold-standard DEXA body composition scans rather than bathroom scales to verify real visceral fat reduction and muscle retention.
+        </div>
+      `
+    },
+    {
+      id: "apob-and-cardiology",
+      title: "What Is ApoB and Why Cardiologists Are Starting to Care",
+      tagline: "The single best biomarker for atherogenic particle burden.",
+      category: "Cardiovascular Longevity",
+      readTime: "6 min read",
+      author: "Clinical Advisory Board",
+      date: "August 2026",
+      image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Why the global cardiology consensus is shifting towards ApoB testing as the most accurate predictor of cardiovascular risk and plaque progression.",
+      content: `
+        <p>For decades, standard medical practice has relied on LDL-C (LDL cholesterol) to assess cardiovascular risk. While useful, LDL-C only estimates the total mass of cholesterol within your LDL particles — not how many particles exist.</p>
+        <h4>Why Particle Count Matters</h4>
+        <p>Imagine cargo ships carrying containers into a harbor. LDL-C is the amount of cargo; ApoB is the number of ships. Each particle of LDL, VLDL, and IDL carries exactly one ApoB protein molecule. If you have many small, dense LDL particles, your total cholesterol might appear moderate, but your ApoB particle count is dangerously high — exponentially increasing the probability that particles will penetrate the arterial endothelial wall.</p>
+        <h4>Optimizing ApoB Through Lifestyle & Training</h4>
+        <p>Zone-2 cardiovascular training, reduction of refined seed oils and sugars, optimization of saturated vs. polyunsaturated fat ratios, and resistance training work together to enhance LDL receptor clearance and reduce hepatic ApoB secretion.</p>
+        <div class="insight-highlight-box">
+          <strong>Key Takeaway:</strong> Knowing your ApoB baseline gives you an objective metric to track heart health progression alongside your coach and clinical team.
+        </div>
+      `
+    },
+    {
+      id: "insulin-resistance-stubborn-weight",
+      title: "Insulin Resistance: The Silent Driver Behind Stubborn Weight",
+      tagline: "Why caloric restriction alone fails when hormones block fat oxidation.",
+      category: "Metabolic Nutrition",
+      readTime: "5 min read",
+      author: "Dr. S. Ananya, Clinical Nutrition Lead",
+      date: "August 2026",
+      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Understand how chronic hyperinsulinemia locks fat stores, why afternoon energy crashes occur, and how glycemic pacing unlocks sustainable metabolic flexibility.",
+      content: `
+        <p>If you have ever felt like you're eating less and working out more without seeing fat loss, elevated insulin is frequently the physiological roadblock. Insulin is a storage hormone. When circulating levels remain chronically elevated throughout the day, the enzyme hormone-sensitive lipase (HSL) is inhibited, preventing fat cells from releasing stored triglycerides for energy.</p>
+        <h4>The Afternoon Fatigue Cycle</h4>
+        <p>High-glycemic meals trigger rapid glucose spikes followed by excessive insulin surges. As insulin pulls glucose into cells, blood sugar drops sharply, triggering brain fog, carbohydrate cravings, and afternoon lethargy. You're not lazy — your metabolism is stuck on a glucose rollercoaster.</p>
+        <h4>The Helevate Approach: Glycemic Pacing & Strength</h4>
+        <p>Instead of starvation diets, we implement bio-individual protein pacing (1.4–1.8g/kg lean mass), fiber prioritization, post-meal walking, and progressive resistance training. Muscle contraction stimulates GLUT4 glucose transporters independent of insulin, directly reversing insulin resistance.</p>
+        <div class="insight-highlight-box">
+          <strong>Key Takeaway:</strong> Restore metabolic flexibility first through data-led nutrition and progressive strength training, and fat loss becomes the natural outcome.
+        </div>
+      `
+    }
+  ],
+
+  // 12. Careers & Open Positions
+  careers: {
+    headline: "Build the Future of Precision Fitness With Us",
+    subheadline: "We’re looking for coaches and specialists who want to practice real, data-led health — not just run generic sessions.",
+    benefits: [
+      {
+        icon: "🔬",
+        title: "Work with Real Assessment Data",
+        desc: "Formulate training and nutrition plans based on metabolic panels, DEXA body scans, and biometric telemetry."
+      },
+      {
+        icon: "📈",
+        title: "Structured Career Path",
+        desc: "Clear growth trajectory from on-site coach to Master Performance Lead with ongoing clinical education."
+      },
+      {
+        icon: "🎓",
+        title: "Training & Certification Support",
+        desc: "Access proprietary Helevate diagnostic interpretation protocols and continuing human performance education."
+      },
+      {
+        icon: "🏡",
+        title: "Community-Based Work",
+        desc: "Deliver high-touch coaching inside premium gated communities in Hyderabad with dedicated clubhouse facilities."
+      },
+      {
+        icon: "✨",
+        title: "A New Wellness Model",
+        desc: "Be part of an anti-hustle, science-first health movement transforming preventive longevity."
+      }
+    ],
+    roles: [
+      {
+        id: "strength-performance-coach",
+        title: "Strength & Performance Coach",
+        type: "Full-Time • On-Site",
+        location: "Hyderabad (Gated Communities)",
+        desc: "Lead 1-on-1 and small group strength protocols in society clubhouses. Interpret DEXA and movement baselines to guide residents with precision.",
+        requirements: [
+          "CSCS, ACE, NSCA, or equivalent recognized certification",
+          "Deep understanding of biomechanics, progressive resistance, and posture screening",
+          "Strong communication skills and passion for working with adult professionals"
+        ]
+      },
+      {
+        id: "nutrition-coach",
+        title: "Clinical & Sports Nutrition Coach",
+        type: "Full-Time / Hybrid",
+        location: "Hyderabad (Jubilee Hills / On-Site)",
+        desc: "Translate metabolic blood panels, lipid markers, and gut microbiome data into bio-individual nutrition frameworks tailored to real Indian family meal structures.",
+        requirements: [
+          "Degree in Clinical Nutrition / Dietetics (RD preferred) or certified Precision Nutrition coach",
+          "Experience with metabolic markers (fasting insulin, ApoB, lipid subfractions)",
+          "Empathetic, habit-first coaching approach without fad diet dogmatism"
+        ]
+      },
+      {
+        id: "community-growth-associate",
+        title: "Community Growth & Partnership Associate",
+        type: "Full-Time",
+        location: "Hyderabad",
+        desc: "Engage with RWA committees, resident associations, and clubhouse leadership to expand Helevate's on-site wellness ecosystem across Hyderabad societies.",
+        requirements: [
+          "2+ years experience in community engagement, premium wellness partnerships, or hospitality",
+          "Outstanding presentation, interpersonal, and organizational abilities",
+          "Familiarity with Hyderabad premium residential societies"
+        ]
+      }
+    ]
+  }
 };
 
 if (typeof window !== 'undefined') {

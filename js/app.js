@@ -173,6 +173,95 @@ const App = {
         referralForm.reset();
       });
     }
+
+    // Careers Application Form
+    const careerForm = document.getElementById('career-apply-form');
+    if (careerForm) {
+      careerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const applicantName = document.getElementById('career-name')?.value || "there";
+        const role = document.getElementById('career-role')?.value || "the role";
+        this.showToast(`Thank you, ${applicantName}! Your application for ${role} has been received. Our leadership will review your profile.`);
+        careerForm.reset();
+      });
+    }
+
+    // Article Reader Modal triggers
+    document.addEventListener('click', (e) => {
+      const readBtn = e.target.closest('.read-article-btn, [data-article-id]');
+      if (readBtn) {
+        e.preventDefault();
+        const articleId = readBtn.getAttribute('data-article-id');
+        this.openArticleModal(articleId);
+      }
+      
+      const closeArticleBtn = e.target.closest('#close-article-modal-btn');
+      if (closeArticleBtn) {
+        this.closeArticleModal();
+      }
+
+      // Community Switcher Pill Clicks
+      const commPill = e.target.closest('.community-selector-pill');
+      if (commPill) {
+        const commName = commPill.getAttribute('data-community');
+        document.querySelectorAll('.community-selector-pill').forEach(p => p.classList.remove('is-active'));
+        commPill.classList.add('is-active');
+        this.updateCommunityView(commName);
+      }
+    });
+
+    const articleModal = document.getElementById('article-reader-modal');
+    if (articleModal) {
+      articleModal.addEventListener('click', (e) => {
+        if (e.target === articleModal) {
+          this.closeArticleModal();
+        }
+      });
+    }
+  },
+
+  openArticleModal(articleId) {
+    if (!window.HELEVATE_DATA || !window.HELEVATE_DATA.insights) return;
+    const article = window.HELEVATE_DATA.insights.find(a => a.id === articleId) || window.HELEVATE_DATA.insights[0];
+    if (!article) return;
+
+    const modal = document.getElementById('article-reader-modal');
+    const titleEl = document.getElementById('article-modal-title');
+    const metaEl = document.getElementById('article-modal-meta');
+    const bodyEl = document.getElementById('article-modal-body');
+    const imgEl = document.getElementById('article-modal-img');
+
+    if (titleEl) titleEl.textContent = article.title;
+    if (metaEl) metaEl.textContent = `${article.category} • ${article.readTime} • By ${article.author}`;
+    if (bodyEl) bodyEl.innerHTML = article.content;
+    if (imgEl) {
+      imgEl.src = article.image;
+      imgEl.alt = article.title;
+    }
+
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+  },
+
+  closeArticleModal() {
+    const modal = document.getElementById('article-reader-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  updateCommunityView(communityName) {
+    const nameEls = document.querySelectorAll('.dynamic-community-name');
+    nameEls.forEach(el => {
+      el.textContent = communityName;
+    });
+    const subEls = document.querySelectorAll('.dynamic-community-sub');
+    subEls.forEach(el => {
+      el.textContent = `On-site precision diagnostics, DEXA imaging, and coaching available now at ${communityName}, Hyderabad.`;
+    });
   },
 
   goToStep(stepNumber) {

@@ -112,8 +112,31 @@ const Router = {
         this.showView("view-about");
         break;
 
-      case "/contact":
+      case "/careers":
+      case "/jobs":
+      case "/hiring":
+        this.showView("view-careers");
+        break;
+
+      case "/insights":
+      case "/blog":
+      case "/articles":
+        this.showView("view-insights");
+        break;
+
+      case "/community":
       case "/communities":
+      case "/society":
+        this.showView("view-community");
+        break;
+
+      case "/h75":
+      case "/transformation":
+      case "/fat-loss":
+        this.showView("view-h75");
+        break;
+
+      case "/contact":
       case "/refer":
       case "/location":
         this.showView("view-contact");
