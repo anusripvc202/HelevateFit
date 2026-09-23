@@ -198,74 +198,30 @@
       });
     },
 
-    // 7. Ultrahuman-Inspired Fixed Visual + Scroll Storytelling Controller
+    // 7. Ultrahuman-Inspired Sticky Background + Floating Cards Controller
     storytellingInitialized: false,
 
     initStorytellingScroll() {
       const section = document.getElementById('homepage-story-scroll');
       if (!section) return;
 
-      const visualLayers = section.querySelectorAll('.story-visual-layer');
-      const textSteps = section.querySelectorAll('.story-step-content');
-      const trackerPips = section.querySelectorAll('.story-tracker-pip');
-      const baseImg = section.querySelector('.story-base-image');
+      const bgImg = section.querySelector('.sticky-showcase-bg-img');
 
-      if (!textSteps.length) return;
-
-      let currentStep = -1;
       let ticking = false;
 
       const updateScrollStory = () => {
-        if (window.innerWidth <= 900) {
-          return;
-        }
-
         const rect = section.getBoundingClientRect();
         const totalScroll = section.offsetHeight - window.innerHeight;
         if (totalScroll <= 0) return;
 
         const progress = -rect.top / totalScroll;
-        const clampedProgress = Math.max(0, Math.min(0.9999, progress));
+        const clampedProgress = Math.max(0, Math.min(1, progress));
 
-        // 5 steps: 0..4
-        const stepIndex = Math.floor(clampedProgress * 5);
-
-        if (stepIndex !== currentStep) {
-          currentStep = stepIndex;
-
-          // Update text steps
-          textSteps.forEach((step, idx) => {
-            if (idx === currentStep) {
-              step.classList.add('is-active');
-            } else {
-              step.classList.remove('is-active');
-            }
-          });
-
-          // Update visual overlay layers
-          visualLayers.forEach((layer, idx) => {
-            if (idx === currentStep) {
-              layer.classList.add('is-active');
-            } else {
-              layer.classList.remove('is-active');
-            }
-          });
-
-          // Update progress pips
-          trackerPips.forEach((pip, idx) => {
-            if (idx === currentStep) {
-              pip.classList.add('is-active');
-            } else {
-              pip.classList.remove('is-active');
-            }
-          });
-        }
-
-        // Continuous subtle zoom on base visual
-        if (baseImg) {
-          const scale = 1 + clampedProgress * 0.08;
-          const translateY = clampedProgress * -16;
-          baseImg.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+        // Subtle parallax scale & shift on background visual
+        if (bgImg) {
+          const scale = 1.02 + clampedProgress * 0.08;
+          const translateY = clampedProgress * -20;
+          bgImg.style.transform = `scale(${scale}) translateY(${translateY}px)`;
         }
       };
 
@@ -283,20 +239,6 @@
         window.addEventListener('resize', () => {
           updateScrollStory();
         }, { passive: true });
-
-        // Add click events to tracker pips for direct step jumping
-        trackerPips.forEach((pip, idx) => {
-          pip.style.cursor = 'pointer';
-          pip.setAttribute('title', `Jump to step ${idx + 1}`);
-          pip.addEventListener('click', () => {
-            const totalScroll = section.offsetHeight - window.innerHeight;
-            const targetOffset = section.offsetTop + (idx / 4.2) * totalScroll;
-            window.scrollTo({
-              top: targetOffset,
-              behavior: 'smooth'
-            });
-          });
-        });
 
         this.storytellingInitialized = true;
       }
