@@ -66,8 +66,10 @@
   --color-badge-bg: #EDF8F7;
   --color-badge-text: #0E3A5D;
 
-  /* Typography Font Families: Outfit (Headings) & Inter (Body Content) */
-  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Typography Font Families: Saira Condensed (High-Impact Display Italic), JetBrains Mono (Tech), Inter (Body) */
+  --font-display: 'Saira Condensed', 'Barlow Condensed', sans-serif;
+  --font-heading: 'Saira Condensed', 'Barlow Condensed', 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-family: var(--font-body);
 
@@ -226,55 +228,56 @@ body {
   background: var(--color-primary-navy);
 }
 
-/* Fluid Typography */
+/* Fluid Typography (Ultrahuman Bio-Performance Styling) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   color: var(--color-primary-navy);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.024em;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.15rem, 5.2vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.032em;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.72rem, 3.6vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.015em;
 }
 
 h3 {
-  font-size: clamp(1.22rem, 2.3vw, 1.58rem);
-  font-weight: 700;
-  line-height: 1.28;
-  letter-spacing: -0.018em;
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1.08;
 }
 
 h4 {
-  font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+  font-size: clamp(1.12rem, 1.8vw, 1.4rem);
   font-weight: 700;
-  line-height: 1.34;
-  letter-spacing: -0.014em;
+  line-height: 1.15;
 }
 
 h5 {
-  font-size: 0.98rem;
-  font-weight: 600;
-  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 p {
   font-family: var(--font-body);
+  font-style: normal;
   color: var(--color-text-muted);
-  font-size: clamp(0.94rem, 1.15vw, 1.02rem);
+  font-size: clamp(0.95rem, 1.15vw, 1.04rem);
   line-height: 1.65;
   font-weight: 400;
   word-wrap: break-word;
@@ -305,38 +308,51 @@ img, svg {
 
 /* ==========================================================================
    GLOBAL TYPOGRAPHY FONT ENFORCEMENT
-   Heading Font: 'Outfit' (Luxury Bio-Performance Display)
-   Content Font: 'Inter' (Medical-Grade Technical Precision)
+   Display Font: 'Saira Condensed' (High-Impact Italic Bio-Performance)
+   Technical Font: 'JetBrains Mono' (Precision Eyebrows & Action Pills)
+   Content Font: 'Inter' (Medical-Grade Technical Body Copy)
    ========================================================================== */
 h1, h2, h3, h4, h5, h6,
+.hero-display-title,
+.hero-stat-val,
+.section-title,
+.sticky-showcase-title,
+.story-pane-heading,
+.recommendation-inner h4,
+.assessment-card-header h3,
+.pricing-card h3,
+.story-score-dial,
+.story-score-ring,
+.stat-val {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.hero-location-eyebrow,
+.btn-hero-pill,
+.telemetry-hud-tag,
+.story-sync-tag,
+.story-pane-eyebrow,
+.story-visual-hud-tag,
+.story-sync-counter,
+.badge,
+.assessment-marker-pill,
+.detailed-step-badge,
+.step-num,
+.stat-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 .brand-logo,
 .nav-link,
 .btn,
-.hero-display-title,
-.hero-location-eyebrow,
-.hero-stat-val,
 .trust-bar-title,
-.section-title,
-.sticky-showcase-title,
-.sticky-showcase-eyebrow,
-.sticky-showcase-main-heading,
-.sticky-card-title,
-.sticky-card-eyebrow,
-.sticky-card-badge,
-.story-metric-row strong,
-.story-score-dial,
-.story-action-chip h5,
-.recommendation-inner h4,
-.assessment-card-header h3,
-.assessment-marker-pill,
-.team-member-name,
-.pricing-card h3,
-.badge,
-.stat-val,
-.stat-num,
-.telemetry-hud-tag,
-.detailed-step-badge,
-.step-num {
+.team-member-name {
   font-family: var(--font-heading);
 }
 
@@ -352,16 +368,16 @@ label,
 .hero-stat-lbl,
 .trust-bar-sub,
 .section-subtitle,
-.sticky-showcase-main-desc,
-.sticky-card-desc,
-.story-metric-row span,
-.story-action-chip p,
+.story-pane-desc,
+.story-pane-telemetry-row span,
+.story-pillar-chip p,
 .recommendation-inner p,
 .assessment-card-inner p,
 .team-member-bio,
 .pricing-feature-list li,
 .text-muted {
   font-family: var(--font-body);
+  font-style: normal;
 }
 
 /* Tabular Figures for Metrics & Data Numbers */

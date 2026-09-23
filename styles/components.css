@@ -445,12 +445,12 @@
 }
 
 .hero-location-eyebrow {
-  font-family: var(--font-heading);
-  font-size: 0.86rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #D1E5F5;
+  color: #FFFFFF;
   margin-bottom: 14px;
   display: inline-flex;
   align-items: center;
@@ -458,24 +458,25 @@
 }
 
 .hero-display-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
-  font-weight: 800;
-  line-height: 1.04;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.92;
   color: #FFFFFF;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
-  margin: 0 0 14px 0;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  margin: 0 0 16px 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
 .hero-supporting-text {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-  color: #B4CCE0;
-  line-height: 1.55;
+  font-size: clamp(1.08rem, 1.35vw, 1.25rem);
+  color: #FFFFFF;
+  line-height: 1.5;
   max-width: 600px;
-  margin: 0 0 26px 0;
+  margin: 0 0 28px 0;
   font-weight: 400;
 }
 
@@ -489,35 +490,35 @@
 
 .btn-hero-pill {
   background: #FFFFFF;
-  color: #071A2E;
+  color: #04101D;
   border: none;
   border-radius: var(--radius-full);
-  padding: 13px 28px;
-  font-family: var(--font-heading);
+  padding: 14px 34px;
+  font-family: var(--font-mono);
   font-weight: 700;
   font-size: 0.88rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .btn-hero-pill:hover {
   background: #00D2B4;
   color: #04101D;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0, 210, 180, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 210, 180, 0.5);
 }
 
 /* Bottom Stats Row with Vertical Dividers */
 .hero-stats-row {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   margin-top: 40px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   flex-wrap: wrap;
 }
 
@@ -528,18 +529,23 @@
 }
 
 .hero-stat-val {
-  font-family: var(--font-heading);
-  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 800;
+  font-style: italic;
   color: #FFFFFF;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
   text-transform: uppercase;
 }
 
 .hero-stat-lbl {
-  font-size: 0.82rem;
-  color: #94AEC6;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.90rem;
+  color: #FFFFFF;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 .hero-stat-divider {
