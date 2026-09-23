@@ -373,7 +373,7 @@
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(1.9rem, 3.2vw, 2.5rem);
-  color: var(--color-primary-navy);
+  color: #FFFFFF;
   margin-top: 12px;
   margin-bottom: 12px;
   font-weight: 700;
@@ -384,9 +384,18 @@
 .section-subtitle {
   font-family: var(--font-body);
   font-size: 1.05rem;
-  color: var(--color-text-muted);
+  color: #DDF1EF;
   line-height: 1.65;
   font-weight: 400;
+  opacity: 0.95;
+}
+
+.section-light-blue .section-title {
+  color: #0E3A5D;
+}
+
+.section-light-blue .section-subtitle {
+  color: #153255;
 }
 
 /* ==========================================================================

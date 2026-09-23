@@ -230,7 +230,7 @@ body {
 /* Fluid Typography (Ultrahuman Bio-Performance Styling) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--color-primary-navy);
+  color: #FFFFFF;
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
@@ -275,7 +275,7 @@ h5 {
 p {
   font-family: var(--font-body);
   font-style: normal;
-  color: var(--color-text-muted);
+  color: #DDF1EF;
   font-size: clamp(0.95rem, 1.15vw, 1.04rem);
   line-height: 1.65;
   font-weight: 400;
