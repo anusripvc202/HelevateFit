@@ -4884,5 +4884,296 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
+/* ==========================================================================
+   HOMEPAGE STREAMLINED FLOW (10-SECTION ARCHITECTURE)
+   ========================================================================== */
+
+/* 2. How Helevate Works 5-Step Visual Flow */
+.how-it-works-flow-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+  position: relative;
+}
+
+.flow-step-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.flow-step-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 210, 180, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card-hover);
+}
+
+.flow-step-num-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #EDF8F7;
+  color: #008774;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  border: 1px solid rgba(0, 210, 180, 0.25);
+  margin-bottom: 14px;
+}
+
+.flow-step-icon {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.flow-step-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 0 0 6px 0;
+}
+
+.flow-step-card p {
+  font-size: 0.84rem;
+  color: var(--color-text-main);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 4. Personalised Report Showcase Layout */
+.report-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.report-card-mockup {
+  background: linear-gradient(145deg, #071A2E 0%, #0E3A5D 100%);
+  border: 1px solid rgba(0, 210, 180, 0.35);
+  border-radius: var(--radius-2xl);
+  padding: 34px 30px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 48px rgba(7, 26, 46, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.report-card-mockup::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 210, 180, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.report-score-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 20px;
+}
+
+.report-score-dial {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00D2B4 0%, #008774 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #071A2E;
+  box-shadow: 0 0 24px rgba(0, 210, 180, 0.45);
+  flex-shrink: 0;
+}
+
+.report-score-meta h4 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+}
+
+.report-score-meta p {
+  font-size: 0.85rem;
+  color: #DDF1EF;
+  margin: 0;
+}
+
+.report-telemetry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-telemetry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+}
+
+.report-telemetry-item span {
+  color: #DDF1EF;
+}
+
+.report-telemetry-item strong {
+  color: #00D2B4;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.report-rec-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.report-rec-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 20px 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.report-rec-card:hover {
+  border-color: rgba(0, 210, 180, 0.4);
+  transform: translateX(4px);
+}
+
+.report-rec-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.report-rec-icon {
+  font-size: 1.25rem;
+}
+
+.report-rec-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 0;
+}
+
+.report-rec-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 5. Unified Services Grid */
+.services-unified-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+/* 6. Why Helevate 4-Pillar Grid */
+.why-helevate-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.why-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 210, 180, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card-hover);
+}
+
+.why-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.why-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 0 0 8px 0;
+}
+
+.why-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .how-it-works-flow-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .report-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-unified-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why-helevate-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .how-it-works-flow-5 {
+    grid-template-columns: 1fr;
+  }
+  .services-unified-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-helevate-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 
