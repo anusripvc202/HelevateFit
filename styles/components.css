@@ -528,6 +528,62 @@
   overflow: hidden;
 }
 
+.journey-stage-card.with-media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.journey-stage-media {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  background: #071A2E;
+}
+
+.journey-stage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+}
+
+.journey-stage-card:hover .journey-stage-img {
+  transform: scale(1.08);
+}
+
+.journey-stage-media-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 26, 46, 0.15) 0%, rgba(7, 26, 46, 0.72) 100%);
+  pointer-events: none;
+}
+
+.journey-stage-media-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(7, 26, 46, 0.82);
+  border: 1px solid rgba(0, 210, 180, 0.4);
+  color: #00D2B4;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.journey-stage-inner {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .journey-stage-card::before {
   content: '';
   position: absolute;
@@ -538,6 +594,7 @@
   background: linear-gradient(90deg, #00D2B4 0%, #0E3A5D 100%);
   opacity: 0;
   transition: opacity var(--transition-normal);
+  z-index: 3;
 }
 
 .journey-stage-card:hover {
@@ -561,22 +618,54 @@
   border-radius: var(--radius-full);
   display: inline-block;
   width: fit-content;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .journey-stage-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: var(--color-primary-navy);
   margin-bottom: 8px;
 }
 
 .journey-stage-card p {
-  font-size: 0.92rem;
+  font-size: 0.90rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.58;
   margin-bottom: 0;
+}
+
+/* 3D Tilt & Ultrahuman Telemetry Frame Effects */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.telemetry-frame {
+  position: relative;
+}
+
+.telemetry-hud-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #00D2B4;
+}
+
+.telemetry-hud-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00D2B4;
+  box-shadow: 0 0 8px #00D2B4;
+  animation: pulseDot 2s infinite ease-in-out;
 }
 
 /* ==========================================================================
@@ -734,6 +823,64 @@
   flex-direction: column;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-card.with-media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.recommendation-media {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  background: #071A2E;
+}
+
+.recommendation-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.recommendation-card:hover .recommendation-img {
+  transform: scale(1.08);
+}
+
+.recommendation-media-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 26, 46, 0.15) 0%, rgba(7, 26, 46, 0.7) 100%);
+  pointer-events: none;
+}
+
+.recommendation-badge-pill {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: rgba(7, 26, 46, 0.82);
+  border: 1px solid rgba(0, 210, 180, 0.4);
+  color: #00D2B4;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.recommendation-inner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .recommendation-card:hover {
