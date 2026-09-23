@@ -186,29 +186,69 @@ const App = {
       });
     }
 
-    // Article Reader Modal triggers
-    document.addEventListener('click', (e) => {
-      const readBtn = e.target.closest('.read-article-btn, [data-article-id]');
-      if (readBtn) {
+      // Video Testimonial Modal triggers
+      const videoCard = e.target.closest('[data-video-id]');
+      if (videoCard) {
         e.preventDefault();
-        const articleId = readBtn.getAttribute('data-article-id');
-        this.openArticleModal(articleId);
-      }
-      
-      const closeArticleBtn = e.target.closest('#close-article-modal-btn');
-      if (closeArticleBtn) {
-        this.closeArticleModal();
+        const vidId = videoCard.getAttribute('data-video-id');
+        this.openVideoModal(vidId);
       }
 
-      // Community Switcher Pill Clicks
-      const commPill = e.target.closest('.community-selector-pill');
-      if (commPill) {
-        const commName = commPill.getAttribute('data-community');
-        document.querySelectorAll('.community-selector-pill').forEach(p => p.classList.remove('is-active'));
-        commPill.classList.add('is-active');
-        this.updateCommunityView(commName);
+      const closeVideoBtn = e.target.closest('#close-video-modal-btn');
+      if (closeVideoBtn) {
+        this.closeVideoModal();
+      }
+
+      // Find Us Filter Pills
+      const findusPill = e.target.closest('.findus-pill-btn');
+      if (findusPill) {
+        e.preventDefault();
+        const area = findusPill.getAttribute('data-area');
+        document.querySelectorAll('.findus-pill-btn').forEach(p => p.classList.remove('is-active'));
+        findusPill.classList.add('is-active');
+        this.filterFindUsSocieties("", area);
+      }
+
+      // Community Reviews Filter Pills
+      const reviewPill = e.target.closest('.community-filter-btn');
+      if (reviewPill) {
+        e.preventDefault();
+        const commName = reviewPill.getAttribute('data-filter-community');
+        document.querySelectorAll('.community-filter-btn').forEach(p => p.classList.remove('is-active'));
+        reviewPill.classList.add('is-active');
+        this.filterCommunityReviews(commName);
+      }
+
+      // Society Quick Consultation Trigger
+      const societyBookBtn = e.target.closest('.book-society-trigger');
+      if (societyBookBtn) {
+        e.preventDefault();
+        const socName = societyBookBtn.getAttribute('data-society-name');
+        const commInput = document.getElementById('intake-community');
+        const contactCommInput = document.getElementById('contact-community');
+        if (commInput && socName) commInput.value = socName;
+        if (contactCommInput && socName) contactCommInput.value = socName;
+        this.openIntakeModal();
       }
     });
+
+    // Find Us Search Input live filtering
+    const searchInput = document.getElementById('findus-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        this.filterFindUsSocieties(query, "all");
+      });
+    }
+
+    const videoModal = document.getElementById('video-testimonial-modal');
+    if (videoModal) {
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          this.closeVideoModal();
+        }
+      });
+    }
 
     const articleModal = document.getElementById('article-reader-modal');
     if (articleModal) {
@@ -218,6 +258,83 @@ const App = {
         }
       });
     }
+  },
+
+  openVideoModal(videoId) {
+    if (!window.HELEVATE_DATA || !window.HELEVATE_DATA.testimonials) return;
+    const testm = window.HELEVATE_DATA.testimonials.find(t => t.id === videoId) || window.HELEVATE_DATA.testimonials[0];
+    if (!testm) return;
+
+    const modal = document.getElementById('video-testimonial-modal');
+    const videoEl = document.getElementById('video-modal-player');
+    const nameEl = document.getElementById('video-modal-name');
+    const roleEl = document.getElementById('video-modal-role');
+    const commEl = document.getElementById('video-modal-community');
+    const quoteEl = document.getElementById('video-modal-quote');
+    const storyEl = document.getElementById('video-modal-story');
+    const metricEl = document.getElementById('video-modal-metric');
+
+    if (nameEl) nameEl.textContent = testm.name;
+    if (roleEl) roleEl.textContent = testm.role;
+    if (commEl) commEl.textContent = testm.community;
+    if (quoteEl) quoteEl.textContent = `“${testm.quote}”`;
+    if (storyEl) storyEl.textContent = testm.fullStory || testm.quote;
+    if (metricEl) metricEl.textContent = testm.metricBadge || "";
+
+    if (videoEl) {
+      videoEl.src = testm.videoSrc || "assets/video-performance.webm";
+      videoEl.poster = testm.poster || "";
+      videoEl.load();
+      videoEl.play().catch(() => {});
+    }
+
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+  },
+
+  closeVideoModal() {
+    const modal = document.getElementById('video-testimonial-modal');
+    const videoEl = document.getElementById('video-modal-player');
+    if (videoEl) {
+      videoEl.pause();
+      videoEl.src = "";
+    }
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  filterFindUsSocieties(searchQuery = "", areaFilter = "all") {
+    const cards = document.querySelectorAll('.findus-society-card');
+    cards.forEach(card => {
+      const name = (card.getAttribute('data-society-name') || "").toLowerCase();
+      const area = (card.getAttribute('data-area') || "").toLowerCase();
+      const services = (card.innerText || "").toLowerCase();
+
+      const matchesSearch = !searchQuery || name.includes(searchQuery) || area.includes(searchQuery) || services.includes(searchQuery);
+      const matchesArea = areaFilter === "all" || area.includes(areaFilter.toLowerCase());
+
+      if (matchesSearch && matchesArea) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  },
+
+  filterCommunityReviews(communityFilter = "all") {
+    const sections = document.querySelectorAll('.community-section-block');
+    sections.forEach(sec => {
+      const secCommunity = (sec.getAttribute('data-community-group') || "").toLowerCase();
+      if (communityFilter === "all" || secCommunity === communityFilter.toLowerCase()) {
+        sec.style.display = "block";
+      } else {
+        sec.style.display = "none";
+      }
+    });
   },
 
   openArticleModal(articleId) {

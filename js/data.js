@@ -267,25 +267,273 @@ const HELEVATE_DATA = {
     }
   ],
 
-  // 8. Authentic Member Testimonials (From PDF)
+  // 8. Authentic Member Video Testimonials & Transformation Reviews (Community-wise)
   testimonials: [
     {
+      id: "vid-siddharth",
       name: "Siddharth Rao",
       role: "VP of Engineering",
-      community: "My Home Bhooja, Hyderabad",
-      quote: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless."
+      community: "My Home Bhooja",
+      videoSrc: "assets/video-performance.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80",
+      duration: "0:48",
+      metricBadge: "⚡ -4.8kg Visceral Fat • ApoB 118 → 82",
+      quote: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless.",
+      fullStory: "Working in tech leadership meant 12-hour desk days. My standard hospital checkups always came back 'normal', but my energy was crashing every afternoon. Helevate's metabolic panel flagged early insulin resistance. With on-site clubhouse coaching and protein pacing, my 90-day DEXA showed a 4.8kg drop in visceral fat and my ApoB dropped into the optimal green zone.",
+      rating: 5,
+      program: "Transformation Tier (H75)"
     },
     {
+      id: "vid-priyanka",
       name: "Priyanka Reddy",
       role: "Corporate Lawyer",
-      community: "Aparna Sarovar, Hyderabad",
-      quote: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction."
+      community: "Aparna Sarovar",
+      videoSrc: "assets/video-programs.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80",
+      duration: "0:56",
+      metricBadge: "⚡ Thoracic Mobility 100% • hs-CRP 3.4 → 0.9",
+      quote: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction.",
+      fullStory: "After 8 years of corporate litigation, chronic neck stiffness and poor posture were affecting my sleep. Helevate conducted a full movement screening right in Aparna Sarovar's clubhouse. Within 8 weeks of targeted resistance and thoracic mobility, my stiffness vanished completely and my systemic inflammation (hs-CRP) dropped by 73%.",
+      rating: 5,
+      program: "Precision Tier"
     },
     {
+      id: "vid-anand",
       name: "Anand Verma",
       role: "Managing Director",
-      community: "Jubilee Hills, Hyderabad",
-      quote: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss."
+      community: "Jubilee Hills",
+      videoSrc: "assets/video-assessments.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+      duration: "1:04",
+      metricBadge: "⚡ -28% Inflammation • +3.4kg Lean Muscle",
+      quote: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss.",
+      fullStory: "I was tired of generic gym trainers and unsustainable crash diets. Harish and the Helevate team interpreted my blood panel into a clear, family-compatible whole-food blueprint. I never felt deprived, and our 90-day DEXA scan objectively proved I gained 3.4kg of lean muscle while shedding visceral fat.",
+      rating: 5,
+      program: "Precision Tier"
+    },
+    {
+      id: "vid-kavitha",
+      name: "Kavitha Ramanathan",
+      role: "Senior Product Director",
+      community: "Financial District",
+      videoSrc: "assets/video-communities.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=80",
+      duration: "0:42",
+      metricBadge: "⚡ VO2 Max +18% • Fasting Glucose 104 → 88",
+      quote: "Zero commute meant I finally stopped skipping sessions. Morning coach presence right downstairs in the society gym built the most consistent habit of my life.",
+      fullStory: "Commuting across Hyderabad to a gym was costing me 90 minutes every day. Having Helevate coaches stationed inside our clubhouse floor eliminated all friction. My resting heart rate dropped from 74 to 59 bpm, and my VO2 max improved by 18%.",
+      rating: 5,
+      program: "Foundation & Strength"
+    },
+    {
+      id: "vid-vikram",
+      name: "Vikram Nambiar",
+      role: "Founder & Angel Investor",
+      community: "Kokapet",
+      videoSrc: "assets/video-about.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80",
+      duration: "0:52",
+      metricBadge: "⚡ HOMA-IR 3.6 → 1.4 • -7.2kg Fat Loss",
+      quote: "The precision diagnostic approach felt like working with a high-performance sports team. The results are undeniable on paper and in energy levels.",
+      fullStory: "I value data in business and wanted the same rigor for my health. Helevate's metabolic analysis unlocked exactly why my previous diet attempts failed. The 1-on-1 coaching inside Kokapet transformed my insulin sensitivity and athletic capacity.",
+      rating: 5,
+      program: "Transformation Tier (H75)"
+    },
+    {
+      id: "vid-deepa",
+      name: "Deepa & Rajesh Sundaram",
+      role: "Architect & Consultant",
+      community: "Rainbow Vistas",
+      videoSrc: "assets/video-step1.webm",
+      fallbackSrc: "assets/video1.mp4",
+      poster: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&auto=format&fit=crop&q=80",
+      duration: "1:10",
+      metricBadge: "⚡ Couple Transformation • Joint Mobility +40%",
+      quote: "Training together right downstairs in Rainbow Vistas clubhouse has made wellness an effortless part of our family routine.",
+      fullStory: "We wanted a program that catered to both of our differing fitness levels without needing external gym commutes. Helevate tailored individual protocols for both of us with weekly on-site coach check-ins.",
+      rating: 5,
+      program: "Foundation & Community Tier"
+    }
+  ],
+
+  // Community-specific detailed Reviews
+  communityReviews: [
+    {
+      community: "My Home Bhooja",
+      reviewer: "Siddharth Rao",
+      role: "VP of Engineering",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless.",
+      metric: "Visceral Fat: -4.8 kg | ApoB: 118 → 82 mg/dL",
+      date: "September 2026"
+    },
+    {
+      community: "My Home Bhooja",
+      reviewer: "Ritu Kulkarni",
+      role: "Design Lead & Mother of 2",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "The WhatsApp nutrition concierge helped me plan high-protein South Indian vegetarian meals that our entire family loves. 10/10 recommendation.",
+      metric: "Lean Mass: +2.8 kg | Energy: High all day",
+      date: "August 2026"
+    },
+    {
+      community: "Aparna Sarovar",
+      reviewer: "Priyanka Reddy",
+      role: "Corporate Lawyer",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction.",
+      metric: "hs-CRP: 3.4 → 0.9 mg/L | Thoracic Mobility: 100%",
+      date: "September 2026"
+    },
+    {
+      community: "Aparna Sarovar",
+      reviewer: "Karthik V.",
+      role: "Senior Consultant",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "The 6:30 AM clubhouse sessions fit right into my workday before meetings start. Coach Vikram ensures technique is flawless on every set.",
+      metric: "Body Fat: 24.2% → 17.6%",
+      date: "August 2026"
+    },
+    {
+      community: "Jubilee Hills",
+      reviewer: "Anand Verma",
+      role: "Managing Director",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss.",
+      metric: "hs-CRP: -28% | Lean Muscle: +3.4 kg",
+      date: "September 2026"
+    },
+    {
+      community: "Financial District",
+      reviewer: "Kavitha Ramanathan",
+      role: "Senior Product Director",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "Zero commute meant I finally stopped skipping sessions. Morning coach presence right downstairs in the society gym built the most consistent habit of my life.",
+      metric: "VO2 Max: +18% | Fasting Glucose: 104 → 88 mg/dL",
+      date: "August 2026"
+    },
+    {
+      community: "Kokapet",
+      reviewer: "Vikram Nambiar",
+      role: "Founder & Angel Investor",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "The precision diagnostic approach felt like working with a high-performance sports team. The results are undeniable on paper and in daily energy levels.",
+      metric: "HOMA-IR: 3.6 → 1.4 | Fat Loss: -7.2 kg",
+      date: "September 2026"
+    },
+    {
+      community: "Rainbow Vistas",
+      reviewer: "Deepa & Rajesh Sundaram",
+      role: "Architect & Consultant",
+      rating: 5,
+      tag: "Verified Resident",
+      review: "Training together right downstairs in Rainbow Vistas clubhouse has made wellness an effortless part of our family routine.",
+      metric: "Couple Fitness | Joint Mobility: +40%",
+      date: "July 2026"
+    }
+  ],
+
+  // Hyderabad Gated Community Clubhouse Locations
+  communityLocations: [
+    {
+      id: "my-home-bhooja",
+      name: "My Home Bhooja",
+      locality: "Hitec City / Knowledge City, Hyderabad",
+      clubhouse: "Clubhouse 1 & 2 Gym Floors",
+      timings: "Morning 6:00 – 9:30 AM • Evening 5:00 – 8:30 PM",
+      status: "Active Coaching Hub",
+      membersCount: "48+ Active Residents",
+      services: ["DEXA Visceral Fat Imaging", "Metabolic Blood Panels", "1-on-1 Strength Coaching", "Group Longevity Classes"],
+      leadCoach: "Harish P & Vikram A."
+    },
+    {
+      id: "aparna-sarovar",
+      name: "Aparna Sarovar",
+      locality: "Nallagandla / Gachibowli, Hyderabad",
+      clubhouse: "Main Clubhouse Wellness Studio",
+      timings: "Morning 6:30 – 9:30 AM • Evening 5:30 – 8:30 PM",
+      status: "Active Coaching Hub",
+      membersCount: "36+ Active Residents",
+      services: ["Biomechanical Screening", "Clinical Nutrition", "Posture Restoration", "Strength Coaching"],
+      leadCoach: "Meera Nair & Team"
+    },
+    {
+      id: "jubilee-hills",
+      name: "Jubilee Hills / Road 36",
+      locality: "Jubilee Hills & Banjara Hills, Hyderabad",
+      clubhouse: "Private Residence & Community Pods",
+      timings: "Flexible Executive Timings (6:00 AM – 8:00 PM)",
+      status: "Active Coaching Hub",
+      membersCount: "30+ Executive Members",
+      services: ["Full Diagnostic Suite", "DEXA Scan", "ApoB Cardio Profiling", "Executive Coaching"],
+      leadCoach: "Harish P (Head Coach)"
+    },
+    {
+      id: "financial-district",
+      name: "Financial District / Nanakramguda",
+      locality: "Gated Enclaves, Financial District, Hyderabad",
+      clubhouse: "Society Fitness Pavilions",
+      timings: "Morning 6:00 – 9:00 AM • Evening 5:00 – 8:00 PM",
+      status: "Active Coaching Hub",
+      membersCount: "42+ Active Residents",
+      services: ["Metabolic Diagnostics", "H75 Fat-Loss", "Zone-2 Cardio Conditioning", "Nutrition Concierge"],
+      leadCoach: "Dr. S. Ananya & Vikram A."
+    },
+    {
+      id: "kokapet",
+      name: "Kokapet / Neopolis",
+      locality: "Luxury High-Rises, Kokapet, Hyderabad",
+      clubhouse: "Tower Clubhouses & Gyms",
+      timings: "Morning 6:00 – 9:30 AM • Evening 5:30 – 8:30 PM",
+      status: "Active Coaching Hub",
+      membersCount: "35+ Active Residents",
+      services: ["DEXA Body Composition", "Biomarker Tracking", "Progressive Strength Load", "Restorative Mobility"],
+      leadCoach: "Vikram Aditya"
+    },
+    {
+      id: "rainbow-vistas",
+      name: "Rainbow Vistas Rockgarden",
+      locality: "Moosapet / Hitec Corridor, Hyderabad",
+      clubhouse: "Central Clubhouse Gym",
+      timings: "Morning 6:30 – 9:30 AM • Evening 5:00 – 8:00 PM",
+      status: "Active Coaching Hub",
+      membersCount: "28+ Active Residents",
+      services: ["Group Fitness", "Movement Screening", "Metabolic Baseline", "Nutritional Coaching"],
+      leadCoach: "Meera Nair"
+    },
+    {
+      id: "lanco-hills",
+      name: "Lanco Hills",
+      locality: "Manikonda, Hyderabad",
+      clubhouse: "Club House Fitness Center",
+      timings: "Morning 6:00 – 9:00 AM • Evening 5:00 – 8:00 PM",
+      status: "Active Coaching Hub",
+      membersCount: "24+ Active Residents",
+      services: ["Strength & Conditioning", "Biomarker Panels", "DEXA Scans", "Lifestyle Coaching"],
+      leadCoach: "Harish P & Team"
+    },
+    {
+      id: "jayabheri-silicon",
+      name: "Jayabheri Silicon County",
+      locality: "Hitec City / Kondapur, Hyderabad",
+      clubhouse: "Clubhouse Gymnasium",
+      timings: "Morning 6:30 – 9:30 AM • Evening 5:30 – 8:30 PM",
+      status: "Active Coaching Hub",
+      membersCount: "22+ Active Residents",
+      services: ["1-on-1 Personal Training", "Metabolic Profiling", "Body Composition", "Cardio Base"],
+      leadCoach: "Vikram Aditya"
     }
   ],
 

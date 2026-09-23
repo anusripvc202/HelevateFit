@@ -124,10 +124,13 @@ const Router = {
         this.showView("view-insights");
         break;
 
+      case "/reviews":
+      case "/review":
+      case "/testimonials":
       case "/community":
       case "/communities":
       case "/society":
-        this.showView("view-community");
+        this.showView("view-reviews");
         break;
 
       case "/h75":
