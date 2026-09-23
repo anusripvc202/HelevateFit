@@ -22,6 +22,7 @@
       this.init3DTilt();
       this.initNumberCounters();
       this.initParallaxImages();
+      this.initStorytellingScroll();
     },
 
     // 1. Sticky Header Glassmorphic State
@@ -197,10 +198,104 @@
       });
     },
 
+    // 7. Ultrahuman-Inspired Fixed Visual + Scroll Storytelling Controller
+    storytellingInitialized: false,
+
+    initStorytellingScroll() {
+      const section = document.getElementById('homepage-story-scroll');
+      if (!section) return;
+
+      const visualLayers = section.querySelectorAll('.story-visual-layer');
+      const textSteps = section.querySelectorAll('.story-step-content');
+      const trackerPips = section.querySelectorAll('.story-tracker-pip');
+      const baseImg = section.querySelector('.story-base-image');
+
+      if (!textSteps.length) return;
+
+      let currentStep = -1;
+      let ticking = false;
+
+      const updateScrollStory = () => {
+        if (window.innerWidth <= 900) {
+          return;
+        }
+
+        const rect = section.getBoundingClientRect();
+        const totalScroll = section.offsetHeight - window.innerHeight;
+        if (totalScroll <= 0) return;
+
+        const progress = -rect.top / totalScroll;
+        const clampedProgress = Math.max(0, Math.min(0.9999, progress));
+
+        // 5 steps: 0..4
+        const stepIndex = Math.floor(clampedProgress * 5);
+
+        if (stepIndex !== currentStep) {
+          currentStep = stepIndex;
+
+          // Update text steps
+          textSteps.forEach((step, idx) => {
+            if (idx === currentStep) {
+              step.classList.add('is-active');
+            } else {
+              step.classList.remove('is-active');
+            }
+          });
+
+          // Update visual overlay layers
+          visualLayers.forEach((layer, idx) => {
+            if (idx === currentStep) {
+              layer.classList.add('is-active');
+            } else {
+              layer.classList.remove('is-active');
+            }
+          });
+
+          // Update progress pips
+          trackerPips.forEach((pip, idx) => {
+            if (idx === currentStep) {
+              pip.classList.add('is-active');
+            } else {
+              pip.classList.remove('is-active');
+            }
+          });
+        }
+
+        // Continuous subtle zoom on base visual
+        if (baseImg) {
+          const scale = 1 + clampedProgress * 0.08;
+          const translateY = clampedProgress * -16;
+          baseImg.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+        }
+      };
+
+      if (!this.storytellingInitialized) {
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              updateScrollStory();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+          updateScrollStory();
+        }, { passive: true });
+
+        this.storytellingInitialized = true;
+      }
+
+      // Initial check
+      updateScrollStory();
+    },
+
     refresh() {
       setTimeout(() => {
         this.observeElements();
         this.init3DTilt();
+        this.initStorytellingScroll();
       }, 40);
     }
   };
