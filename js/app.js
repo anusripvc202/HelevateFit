@@ -235,6 +235,15 @@ const App = {
         return;
       }
 
+      // Find Us View All / Show Less Toggle
+      const findusToggleBtn = e.target.closest('#findus-toggle-btn');
+      if (findusToggleBtn) {
+        e.preventDefault();
+        const isExpanded = findusToggleBtn.getAttribute('data-expanded') === 'true';
+        this.toggleFindUsExpanded(!isExpanded);
+        return;
+      }
+
       // Community Reviews Filter Pills
       const reviewPill = e.target.closest('.community-filter-btn');
       if (reviewPill) {
@@ -335,18 +344,48 @@ const App = {
     }
   },
 
+  findUsExpanded: false,
+
+  toggleFindUsExpanded(expand) {
+    this.findUsExpanded = expand;
+    const toggleBtn = document.getElementById('findus-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('data-expanded', expand ? 'true' : 'false');
+      toggleBtn.innerHTML = expand 
+        ? `<span>Show Less</span> <span class="findus-toggle-icon">↑</span>`
+        : `<span>View All 6 Communities</span> <span class="findus-toggle-icon">↓</span>`;
+    }
+    
+    const searchInput = document.getElementById('findus-search-input');
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+    const activePill = document.querySelector('.findus-pill-btn.is-active');
+    const area = activePill ? activePill.getAttribute('data-area') : "all";
+    this.filterFindUsSocieties(query, area);
+  },
+
   filterFindUsSocieties(searchQuery = "", areaFilter = "all") {
     const cards = document.querySelectorAll('.findus-society-card');
-    cards.forEach(card => {
+    const toggleWrap = document.querySelector('.findus-toggle-wrap');
+    const isFiltered = Boolean(searchQuery) || (areaFilter && areaFilter !== "all");
+
+    if (toggleWrap) {
+      toggleWrap.style.display = isFiltered ? "none" : "block";
+    }
+
+    cards.forEach((card, index) => {
       const name = (card.getAttribute('data-society-name') || "").toLowerCase();
       const area = (card.getAttribute('data-area') || "").toLowerCase();
       const services = (card.innerText || "").toLowerCase();
 
       const matchesSearch = !searchQuery || name.includes(searchQuery) || area.includes(searchQuery) || services.includes(searchQuery);
-      const matchesArea = areaFilter === "all" || area.includes(areaFilter.toLowerCase());
+      const matchesArea = !areaFilter || areaFilter === "all" || area.includes(areaFilter.toLowerCase());
 
       if (matchesSearch && matchesArea) {
-        card.style.display = "flex";
+        if (!isFiltered && !this.findUsExpanded && index >= 3) {
+          card.style.display = "none";
+        } else {
+          card.style.display = "flex";
+        }
       } else {
         card.style.display = "none";
       }
