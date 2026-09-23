@@ -138,6 +138,11 @@ const Router = {
     if (window.MotionEngine && window.MotionEngine.refresh) {
       window.MotionEngine.refresh();
     }
+
+    // Refresh Video Engine observers and controllers
+    if (window.VideoEngine && window.VideoEngine.refresh) {
+      window.VideoEngine.refresh();
+    }
   },
 
   showView(viewId) {

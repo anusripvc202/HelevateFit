@@ -175,7 +175,7 @@ const VideoEngine = {
     document.querySelectorAll(".video-sound-toggle-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        const wrap = btn.closest(".premium-video-wrap, .hero-block, .video-showcase-container, .hero-video-bg-wrap");
+        const wrap = btn.closest(".editorial-video-wrap, .premium-video-wrap, .hero-block, .video-showcase-container, .hero-video-bg-wrap");
         if (!wrap) return;
         const video = wrap.querySelector("video");
         if (!video) return;
@@ -214,19 +214,18 @@ const VideoEngine = {
   },
 
   bindHowItWorksScrollStorytelling() {
-    const stageContainer = document.getElementById("how-it-works-video-stage");
     const videoElement = document.getElementById("how-it-works-active-video");
     const titleElement = document.getElementById("how-it-works-video-title");
     const descElement = document.getElementById("how-it-works-video-desc");
     const badgeElement = document.getElementById("how-it-works-video-badge");
-    const stepRows = document.querySelectorAll(".timeline-step-row");
+    const stepRows = document.querySelectorAll(".detailed-step-row, .timeline-step-row");
 
-    if (!stageContainer || !videoElement || stepRows.length === 0) return;
+    if (!videoElement || stepRows.length === 0) return;
 
     let currentStepIndex = 0;
 
     const setStepVideo = (index) => {
-      if (index === currentStepIndex && videoElement.src) return;
+      if (index === currentStepIndex && videoElement.src && !videoElement.paused) return;
       currentStepIndex = index;
       const data = this.howItWorksStepVideos[index] || this.howItWorksStepVideos[0];
 
@@ -245,40 +244,25 @@ const VideoEngine = {
       if (badgeElement) badgeElement.textContent = data.name;
 
       // Smooth video transition
-      videoElement.style.opacity = "0.35";
+      videoElement.style.opacity = "0.4";
       setTimeout(() => {
         videoElement.poster = data.poster;
         videoElement.src = data.videoSrc;
-        videoElement.dataset.fallback = data.fallbackSrc || "assets/video1.mp4";
         videoElement.load();
         videoElement.play().catch(() => {
-          // Fallback to local asset if external CDN is blocked
           videoElement.src = "assets/video1.mp4";
           videoElement.play().catch(() => {});
         });
         videoElement.style.opacity = "1";
-      }, 160);
+      }, 140);
     };
 
-    // Initialize with Step 1
-    setStepVideo(0);
+    // Set initial active state
+    if (stepRows[0]) stepRows[0].classList.add("active");
 
-    // Scroll Observer for timeline rows
-    const stepObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stepIndex = parseInt(entry.target.getAttribute("data-step-index") || "0", 10);
-          setStepVideo(stepIndex);
-        }
-      });
-    }, {
-      rootMargin: "-15% 0px -35% 0px",
-      threshold: 0.2
-    });
-
+    // Click on step row switches video
     stepRows.forEach((row, idx) => {
       row.setAttribute("data-step-index", idx);
-      stepObserver.observe(row);
       row.addEventListener("click", () => setStepVideo(idx));
     });
   },

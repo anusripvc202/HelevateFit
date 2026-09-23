@@ -457,16 +457,24 @@
           <!-- Editorial Video Showcase -->
           <div class="editorial-split-grid reveal-up" style="margin-bottom: 48px;">
             <div class="editorial-video-wrap">
-              <video class="editorial-video-element" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&auto=format&fit=crop&q=80">
+              <div class="video-telemetry-hud">
+                <span class="hud-pulse-dot"></span>
+                <span class="hud-label">01–05 CLINICAL ROADMAP • LIVE</span>
+              </div>
+              <video class="editorial-video-element" id="how-it-works-active-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&auto=format&fit=crop&q=80">
                 <source src="assets/video-step1.webm" type="video/webm">
                 <source src="assets/video1.mp4" type="video/mp4">
               </video>
               <div class="video-scrim-overlay"></div>
               <div class="video-caption-overlay">
-                <span class="badge badge-teal" style="margin-bottom: 6px;">Continuous Optimization</span>
-                <h4 class="video-caption-title">The Helevate Method In Motion</h4>
-                <p class="video-caption-sub">On-site phlebotomy, DEXA imaging & personalized coaching loop.</p>
+                <span class="badge badge-teal" style="margin-bottom: 6px;" id="how-it-works-video-badge">Continuous Optimization</span>
+                <h4 class="video-caption-title" id="how-it-works-video-title">The Helevate Method In Motion</h4>
+                <p class="video-caption-sub" id="how-it-works-video-desc">On-site phlebotomy, DEXA imaging & personalized coaching loop.</p>
               </div>
+              <button class="video-sound-toggle-btn" aria-label="Toggle video audio">
+                <span class="sound-icon-muted">🔇</span>
+                <span class="sound-icon-unmuted" style="display:none;">🔊</span>
+              </button>
             </div>
             <div>
               <span class="badge badge-teal">End-to-End Care</span>
@@ -614,6 +622,10 @@
           <!-- Editorial Lab Video Showcase -->
           <div class="editorial-split-grid reverse reveal-up" style="margin-bottom: 48px;">
             <div class="editorial-video-wrap">
+              <div class="video-telemetry-hud">
+                <span class="hud-pulse-dot"></span>
+                <span class="hud-label">NABL LAB TELEMETRY • LIVE</span>
+              </div>
               <video class="editorial-video-element" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1200&auto=format&fit=crop&q=80">
                 <source src="assets/video-lab.webm" type="video/webm">
                 <source src="assets/video-assessments.webm" type="video/webm">
@@ -625,6 +637,10 @@
                 <h4 class="video-caption-title">Clinical Diagnostics at Your Doorstep</h4>
                 <p class="video-caption-sub">Gold-standard biomarkers & DEXA visceral fat imaging in your society.</p>
               </div>
+              <button class="video-sound-toggle-btn" aria-label="Toggle video audio">
+                <span class="sound-icon-muted">🔇</span>
+                <span class="sound-icon-unmuted" style="display:none;">🔊</span>
+              </button>
             </div>
             <div>
               <span class="badge badge-teal">Biological Accuracy</span>
@@ -790,6 +806,10 @@
               </p>
             </div>
             <div class="editorial-video-wrap">
+              <div class="video-telemetry-hud">
+                <span class="hud-pulse-dot"></span>
+                <span class="hud-label">HUMAN PERFORMANCE • COACHING</span>
+              </div>
               <video class="editorial-video-element" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&auto=format&fit=crop&q=80">
                 <source src="assets/video-performance.webm" type="video/webm">
                 <source src="assets/video-programs.webm" type="video/webm">
@@ -801,6 +821,10 @@
                 <h4 class="video-caption-title">Integrated Human Performance</h4>
                 <p class="video-caption-sub">Strength, metabolic pacing, and biomarker adaptation.</p>
               </div>
+              <button class="video-sound-toggle-btn" aria-label="Toggle video audio">
+                <span class="sound-icon-muted">🔇</span>
+                <span class="sound-icon-unmuted" style="display:none;">🔊</span>
+              </button>
             </div>
           </div>
 
@@ -941,6 +965,10 @@
           <!-- Editorial Clubhouse Culture Video Showcase -->
           <div class="editorial-split-grid reverse reveal-up" style="margin-top: 48px;">
             <div class="editorial-video-wrap">
+              <div class="video-telemetry-hud">
+                <span class="hud-pulse-dot"></span>
+                <span class="hud-label">HYDERABAD SOCIETY NETWORK</span>
+              </div>
               <video class="editorial-video-element" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&auto=format&fit=crop&q=80">
                 <source src="assets/video-communities.webm" type="video/webm">
                 <source src="assets/video-about.webm" type="video/webm">
@@ -952,6 +980,10 @@
                 <h4 class="video-caption-title">High Performance in Everyday Living</h4>
                 <p class="video-caption-sub">Hyderabad's leading residential wellness architecture.</p>
               </div>
+              <button class="video-sound-toggle-btn" aria-label="Toggle video audio">
+                <span class="sound-icon-muted">🔇</span>
+                <span class="sound-icon-unmuted" style="display:none;">🔊</span>
+              </button>
             </div>
             <div>
               <span class="badge badge-navy">Community Impact</span>

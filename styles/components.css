@@ -575,6 +575,67 @@
   transform: scale(1.08);
 }
 
+/* Ultrahuman / Tulah Inspired Biomarker Telemetry HUD */
+.video-telemetry-hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(7, 26, 46, 0.78);
+  border: 1px solid rgba(0, 210, 180, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.video-telemetry-hud .hud-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00D2B4;
+  box-shadow: 0 0 10px #00D2B4;
+  animation: hudLivePulse 2s infinite ease-in-out;
+}
+
+@keyframes hudLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+.video-telemetry-hud .hud-label {
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #DDF1EF;
+}
+
+.detailed-step-row {
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.detailed-step-row.active {
+  border-color: rgba(0, 210, 180, 0.5);
+  background: linear-gradient(135deg, rgba(221, 241, 239, 0.4) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 8px 28px rgba(0, 210, 180, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateX(6px);
+}
+
+.detailed-step-row.active .detailed-step-badge {
+  background: var(--color-primary-navy);
+  color: #00D2B4;
+  box-shadow: 0 0 12px rgba(0, 210, 180, 0.3);
+}
+
+
 /* Assessment Selection Banner */
 .assessment-notice-banner {
   background: linear-gradient(135deg, rgba(221, 241, 239, 0.6) 0%, rgba(237, 248, 247, 0.9) 100%);
