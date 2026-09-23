@@ -66,10 +66,10 @@
   --color-badge-bg: #EDF8F7;
   --color-badge-text: #0E3A5D;
 
-  /* Typography Font Families */
-  --font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Typography Font Families: Outfit (Headings) & Inter (Body Content) */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family: var(--font-body);
 
   /* Layout & Spacing */
   --container-max: 1220px;
@@ -257,6 +257,67 @@ img, svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY FONT ENFORCEMENT
+   Heading Font: 'Outfit' (Luxury Bio-Performance Display)
+   Content Font: 'Inter' (Medical-Grade Technical Precision)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.brand-logo,
+.nav-link,
+.btn,
+.hero-display-title,
+.hero-location-eyebrow,
+.hero-stat-val,
+.trust-bar-title,
+.section-title,
+.sticky-showcase-title,
+.sticky-showcase-eyebrow,
+.sticky-showcase-main-heading,
+.sticky-card-title,
+.sticky-card-eyebrow,
+.sticky-card-badge,
+.story-metric-row strong,
+.story-score-dial,
+.story-action-chip h5,
+.recommendation-inner h4,
+.assessment-card-header h3,
+.assessment-marker-pill,
+.team-member-name,
+.pricing-card h3,
+.badge,
+.stat-val,
+.stat-num,
+.telemetry-hud-tag,
+.detailed-step-badge,
+.step-num {
+  font-family: var(--font-heading);
+}
+
+body,
+p,
+span,
+li,
+input,
+select,
+textarea,
+label,
+.hero-supporting-text,
+.hero-stat-lbl,
+.trust-bar-sub,
+.section-subtitle,
+.sticky-showcase-main-desc,
+.sticky-card-desc,
+.story-metric-row span,
+.story-action-chip p,
+.recommendation-inner p,
+.assessment-card-inner p,
+.team-member-bio,
+.pricing-feature-list li,
+.text-muted {
+  font-family: var(--font-body);
 }
 
 /* Tabular Figures for Metrics & Data Numbers */

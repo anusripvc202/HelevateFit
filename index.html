@@ -13,6 +13,11 @@
   <meta property="og:description" content="Metabolic health panels, DEXA scans, personalised nutrition & strength coaching — delivered inside your gated community.">
   <meta property="og:type" content="website">
   
+  <!-- Google Fonts: Outfit (Display Headings) & Inter (Precision Content) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Design System Stylesheets -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/components.css">
@@ -218,12 +223,20 @@
         
         <!-- Sticky Background Canvas (Pins for the duration of the section) -->
         <div class="sticky-showcase-backdrop">
-          <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1800&auto=format&fit=crop&q=80" alt="Helevate Human Performance Lab" class="sticky-showcase-bg-img">
+          <img src="assets/dexa-scan-body.jpg" alt="Helevate Bio-Scan DEXA Framework" class="sticky-showcase-bg-img">
           <div class="sticky-showcase-scrim"></div>
           
           <div class="sticky-showcase-bottom-caption">
-            <span class="sticky-showcase-eyebrow">HYDERABAD GATED COMMUNITIES</span>
-            <h3 class="sticky-showcase-title">A New Standard for Precision Health.</h3>
+            <div class="telemetry-hud-tag" style="margin-bottom: 8px;">
+              <span class="telemetry-hud-dot"></span>
+              THE FRAMEWORK • PRECISION DIAGNOSTICS
+            </div>
+            <h3 class="sticky-showcase-title" style="letter-spacing: -0.01em;">
+              ULTRA BIO-AGE™
+            </h3>
+            <p style="font-family: var(--font-body); font-size: 0.95rem; color: #C6DEEF; line-height: 1.6; max-width: 580px; margin-bottom: 18px;">
+              Derives system-level biological age estimates from objective biomarkers — cardiovascular, pulmonary, skeletal, muscular, and metabolic panels — then integrates them into a single personalised precision protocol.
+            </p>
             <button class="btn btn-teal btn-sm open-intake-trigger">Book a Free Consultation →</button>
           </div>
         </div>
@@ -242,7 +255,7 @@
             <!-- Stage 01 Card -->
             <div class="sticky-card-item reveal-up" data-tilt>
               <div class="sticky-card-media">
-                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" alt="Current Health Baseline" class="sticky-card-img" loading="lazy">
+                <img src="assets/dexa-scan-body.jpg" alt="Current Health Baseline" class="sticky-card-img" loading="lazy">
                 <span class="sticky-card-badge">Step 01 • Baseline</span>
               </div>
               <div class="sticky-card-content">
@@ -260,7 +273,7 @@
             <!-- Stage 02 Card -->
             <div class="sticky-card-item reveal-up" data-tilt>
               <div class="sticky-card-media">
-                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&auto=format&fit=crop&q=80" alt="Clinical Diagnostics" class="sticky-card-img" loading="lazy">
+                <img src="assets/metabolic-panel.jpg" alt="Clinical Diagnostics" class="sticky-card-img" loading="lazy">
                 <span class="sticky-card-badge">Step 02 • Diagnostics</span>
               </div>
               <div class="sticky-card-content">
@@ -278,7 +291,7 @@
             <!-- Stage 03 Card -->
             <div class="sticky-card-item reveal-up" data-tilt>
               <div class="sticky-card-media">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Personalised Health Report" class="sticky-card-img" loading="lazy">
+                <img src="assets/vo2-cardio.jpg" alt="Personalised Health Report & VO2 Analysis" class="sticky-card-img" loading="lazy">
                 <span class="sticky-card-badge">Step 03 • Health Score</span>
               </div>
               <div class="sticky-card-content">
@@ -417,7 +430,7 @@
             <!-- 1. Metabolic Panel -->
             <div class="assessment-card with-media reveal-up" data-tilt>
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=700&auto=format&fit=crop&q=80" alt="Metabolic Health Panel" class="assessment-card-img" loading="lazy">
+                <img src="assets/metabolic-panel.jpg" alt="Metabolic Health Panel" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Card 01 • Biomarkers</span>
               </div>
@@ -439,7 +452,7 @@
             <!-- 2. DEXA Scan -->
             <div class="assessment-card with-media reveal-up" data-tilt>
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&auto=format&fit=crop&q=80" alt="DEXA Body Composition Scan" class="assessment-card-img" loading="lazy">
+                <img src="assets/dexa-scan-body.jpg" alt="DEXA Body Composition Scan" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Card 02 • Body Composition</span>
               </div>
@@ -480,22 +493,22 @@
               </div>
             </div>
 
-            <!-- 4. DNA Testing -->
+            <!-- 4. VO2 Max & DNA Testing -->
             <div class="assessment-card with-media reveal-up" data-tilt>
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&auto=format&fit=crop&q=80" alt="DNA and Gene Testing" class="assessment-card-img" loading="lazy">
+                <img src="assets/vo2-cardio.jpg" alt="VO2 Max & DNA Testing" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
-                <span class="assessment-card-badge">Card 04 • Genetics</span>
+                <span class="assessment-card-badge">Card 04 • Cardio & DNA</span>
               </div>
               <div class="assessment-card-inner">
                 <div class="assessment-card-header">
                   <div class="assessment-card-icon">🧬</div>
                   <div>
-                    <h3>DNA / Gene Testing</h3>
-                    <div class="tagline">Genetic insights into metabolism.</div>
+                    <h3>VO2 Max & DNA Testing</h3>
+                    <div class="tagline">Cardiovascular & genetic metabolic insights.</div>
                   </div>
                 </div>
-                <p>Genetic insights into metabolism, nutrient needs, and injury risk, built into your training plan.</p>
+                <p>Genetic insights into metabolism, nutrient needs, and aerobic capacity to optimize training zones.</p>
                 <div style="margin-top: auto; padding-top: 14px;">
                   <a href="#/assessments" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-left: 0; font-weight: 700;">Learn More →</a>
                 </div>
@@ -914,7 +927,7 @@
             <!-- 1. Metabolic Panel -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=700&auto=format&fit=crop&q=80" alt="Metabolic Health Lab Diagnostics" class="assessment-card-img" loading="lazy">
+                <img src="assets/metabolic-panel.jpg" alt="Metabolic Health Lab Diagnostics" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Panel 01 • Biomarkers</span>
               </div>
@@ -944,7 +957,7 @@
             <!-- 2. DEXA Scan -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&auto=format&fit=crop&q=80" alt="DEXA Body Composition Scan" class="assessment-card-img" loading="lazy">
+                <img src="assets/dexa-scan-body.jpg" alt="DEXA Body Composition Scan" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Panel 02 • Body Composition</span>
               </div>
@@ -999,29 +1012,29 @@
               </div>
             </div>
 
-            <!-- 4. DNA Testing -->
+            <!-- 4. VO2 Max & DNA Testing -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&auto=format&fit=crop&q=80" alt="DNA and Gene Testing" class="assessment-card-img" loading="lazy">
+                <img src="assets/vo2-cardio.jpg" alt="VO2 Max & DNA Testing" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
-                <span class="assessment-card-badge">Panel 04 • Genetics</span>
+                <span class="assessment-card-badge">Panel 04 • Cardio & DNA</span>
               </div>
               <div class="assessment-card-inner">
                 <div>
                   <div class="assessment-card-header">
                     <div class="assessment-card-icon">🧬</div>
                     <div>
-                      <h3>DNA / Gene Testing</h3>
-                      <div class="tagline">Genetic insights into metabolism.</div>
+                      <h3>VO2 Max & DNA Testing</h3>
+                      <div class="tagline">Cardiovascular & genetic metabolic insights.</div>
                     </div>
                   </div>
-                  <p>Reveals genetic responses to carbohydrates, fats, workout styles, and recovery demands to build a tailored longevity blueprint.</p>
+                  <p>Reveals genetic responses to carbohydrates, fats, workout styles, and aerobic capacity to build a tailored longevity blueprint.</p>
                   <div style="background: var(--color-light-blue-soft); padding: 10px 12px; border-radius: var(--radius-sm); font-size: 0.84rem; color: var(--color-primary-navy); margin-bottom: 14px;">
                     <strong>Best for:</strong> Anyone seeking a lifetime, precision-built lifestyle and athletic plan.
                   </div>
                 </div>
                 <div class="assessment-markers-list">
-                  <span class="assessment-marker-pill">Carb & Fat Sensitivity</span>
+                  <span class="assessment-marker-pill">Cardiorespiratory VO2 Max</span>
                   <span class="assessment-marker-pill">Recovery Latency Profile</span>
                   <span class="assessment-marker-pill">Nutrient Utilization</span>
                 </div>
@@ -1081,7 +1094,7 @@
             <!-- 2. Fat Loss H75 -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=700&auto=format&fit=crop&q=80" alt="Fat-Loss Transformation H75" class="assessment-card-img" loading="lazy">
+                <img src="assets/dexa-scan-body.jpg" alt="Fat-Loss Transformation H75 DEXA" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Program 02 • 12-Week H75</span>
               </div>
@@ -1133,7 +1146,7 @@
             <!-- 4. Nutrition Guides -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&auto=format&fit=crop&q=80" alt="Personalised Nutrition Guides" class="assessment-card-img" loading="lazy">
+                <img src="assets/metabolic-panel.jpg" alt="Personalised Nutrition Guides" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
                 <span class="assessment-card-badge">Program 04 • Nutrition</span>
               </div>
