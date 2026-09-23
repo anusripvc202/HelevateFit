@@ -3455,8 +3455,8 @@ input:focus, select:focus, textarea:focus {
 .storytelling-scroll-section {
   position: relative;
   background: var(--color-bg-main);
-  /* 380vh creates generous, calm scroll space for 5 states */
-  height: 380vh;
+  /* 260vh creates smooth, concise scroll storytelling space */
+  height: 260vh;
 }
 
 .storytelling-sticky-wrapper {

@@ -111,7 +111,7 @@ html {
   -webkit-text-size-adjust: 100%;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
@@ -125,7 +125,7 @@ body {
   font-weight: 400;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden !important;
+  overflow-x: clip;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

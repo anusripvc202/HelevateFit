@@ -284,6 +284,20 @@
           updateScrollStory();
         }, { passive: true });
 
+        // Add click events to tracker pips for direct step jumping
+        trackerPips.forEach((pip, idx) => {
+          pip.style.cursor = 'pointer';
+          pip.setAttribute('title', `Jump to step ${idx + 1}`);
+          pip.addEventListener('click', () => {
+            const totalScroll = section.offsetHeight - window.innerHeight;
+            const targetOffset = section.offsetTop + (idx / 4.2) * totalScroll;
+            window.scrollTo({
+              top: targetOffset,
+              behavior: 'smooth'
+            });
+          });
+        });
+
         this.storytellingInitialized = true;
       }
 
