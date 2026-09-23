@@ -392,9 +392,9 @@
    4. HERO SECTION (ULTRAHUMAN / TULAH CALM PRECISION)
    ========================================================================== */
 .hero-performance {
-  padding: 58px 0 54px;
-  background: radial-gradient(circle at 50% 25%, rgba(0, 210, 180, 0.16) 0%, transparent 60%),
-              radial-gradient(circle at 12% 70%, rgba(14, 58, 93, 0.45) 0%, transparent 45%),
+  padding: 68px 0 64px;
+  background: radial-gradient(circle at 82% 28%, rgba(0, 210, 180, 0.18) 0%, transparent 48%),
+              radial-gradient(circle at 12% 70%, rgba(14, 58, 93, 0.48) 0%, transparent 45%),
               linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
   position: relative;
   overflow: hidden;
