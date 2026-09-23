@@ -24,8 +24,14 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
-</head>
 <body>
+
+  <!-- Global Sticky Background Canvas (Active across every page) -->
+  <div class="global-sticky-backdrop" aria-hidden="true">
+    <div class="global-sticky-mesh"></div>
+    <img src="assets/dexa-scan-body.jpg" alt="" class="global-sticky-bg-img" id="global-sticky-bg">
+    <div class="global-sticky-scrim"></div>
+  </div>
 
   <!-- ========================================================================
        1. STICKY SITE HEADER & NAVIGATION
@@ -175,43 +181,6 @@
               <div>
                 <div class="trust-bar-title">Assessment-Led, Not Guesswork-Led</div>
                 <div class="trust-bar-sub">Targeted plans built around verified biomarkers</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. THE PROBLEM ("MOST FITNESS PROGRAMS GUESS") -->
-      <section class="section" id="homepage-problem">
-        <div class="container">
-          <div class="problem-card-box reveal-up" data-tilt>
-            <span class="badge badge-teal">The Flaw in Conventional Fitness</span>
-            <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin: 12px 0 16px; color: #FFFFFF;">
-              Most Fitness Programs Guess.
-            </h2>
-            <p style="font-size: 1.08rem; color: #B4CCE0; max-width: 820px; line-height: 1.65; margin-bottom: 0;">
-              Generic workouts, generic diets, and generic advice don't account for what is actually happening inside an individual's body. By the time a routine check-up flags a concern, subclinical inflammation, visceral fat accumulation, and insulin resistance have often been building quietly for years.
-            </p>
-
-            <div class="problem-contrast-grid">
-              <div class="problem-side-card conventional">
-                <div class="problem-side-title" style="color: #FF8F8F;">⚠️ The Conventional Guesswork</div>
-                <ul style="color: #B4CCE0; font-size: 0.92rem; line-height: 1.7; padding-left: 18px; margin: 0;">
-                  <li>Generic workout plans with zero baseline diagnostic data</li>
-                  <li>Bathroom scale fixation that ignores visceral fat vs. lean muscle</li>
-                  <li>Copy-paste diet sheets causing blood glucose swings and burnout</li>
-                  <li>Exhausting commercial gym commute and crowded floors</li>
-                </ul>
-              </div>
-
-              <div class="problem-side-card helevate-way">
-                <div class="problem-side-title" style="color: #00D2B4;">✨ The Helevate Precision Method</div>
-                <ul style="color: #FFFFFF; font-size: 0.92rem; line-height: 1.7; padding-left: 18px; margin: 0;">
-                  <li>Baseline biological diagnostics (Metabolic Panel, DEXA, Microbiome)</li>
-                  <li>Bio-individual nutrition and glycemic pacing for sustained energy</li>
-                  <li>Certified human performance coaching inside your society clubhouse</li>
-                  <li>Quarterly 90-day reassessments proving objective transformation</li>
-                </ul>
               </div>
             </div>
           </div>
