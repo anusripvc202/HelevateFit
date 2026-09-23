@@ -15,6 +15,7 @@ const App = {
     this.initReportTabs();
     this.initIntakeModal();
     this.initMobileDrawer();
+    this.initGlobalDelegatedClicks();
     
     // Initialize Router
     if (window.Router) {
@@ -55,18 +56,8 @@ const App = {
   // --------------------------------------------------------------------------
   initIntakeModal() {
     const modal = document.getElementById('intake-modal');
-    const openBtns = document.querySelectorAll('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
     const closeBtn = document.getElementById('close-intake-modal-btn');
     const successCloseBtn = document.getElementById('intake-success-close-btn');
-
-    // Open triggers (Delegated for 100% reliability across dynamic view updates)
-    document.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
-      if (trigger) {
-        e.preventDefault();
-        this.openIntakeModal();
-      }
-    });
 
     // Close triggers
     if (closeBtn) {
@@ -152,6 +143,7 @@ const App = {
         this.showToast(`Thank you, ${name}! Your consultation request has been received.`);
       });
     }
+
     // Contact form submission
     const contactForm = document.getElementById('main-contact-form');
     if (contactForm) {
@@ -185,6 +177,20 @@ const App = {
         careerForm.reset();
       });
     }
+  },
+
+  // --------------------------------------------------------------------------
+  // 3. GLOBAL DELEGATED CLICKS & MODAL TRIGGERS
+  // --------------------------------------------------------------------------
+  initGlobalDelegatedClicks() {
+    document.addEventListener('click', (e) => {
+      // Intake modal triggers
+      const intakeTrigger = e.target.closest('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
+      if (intakeTrigger) {
+        e.preventDefault();
+        this.openIntakeModal();
+        return;
+      }
 
       // Video Testimonial Modal triggers
       const videoCard = e.target.closest('[data-video-id]');
@@ -192,11 +198,30 @@ const App = {
         e.preventDefault();
         const vidId = videoCard.getAttribute('data-video-id');
         this.openVideoModal(vidId);
+        return;
       }
 
       const closeVideoBtn = e.target.closest('#close-video-modal-btn');
       if (closeVideoBtn) {
+        e.preventDefault();
         this.closeVideoModal();
+        return;
+      }
+
+      // Article Reader Modal triggers
+      const articleCard = e.target.closest('[data-article-id]');
+      if (articleCard) {
+        e.preventDefault();
+        const artId = articleCard.getAttribute('data-article-id');
+        this.openArticleModal(artId);
+        return;
+      }
+
+      const closeArticleBtn = e.target.closest('#close-article-modal-btn');
+      if (closeArticleBtn) {
+        e.preventDefault();
+        this.closeArticleModal();
+        return;
       }
 
       // Find Us Filter Pills
@@ -207,6 +232,7 @@ const App = {
         document.querySelectorAll('.findus-pill-btn').forEach(p => p.classList.remove('is-active'));
         findusPill.classList.add('is-active');
         this.filterFindUsSocieties("", area);
+        return;
       }
 
       // Community Reviews Filter Pills
@@ -217,6 +243,7 @@ const App = {
         document.querySelectorAll('.community-filter-btn').forEach(p => p.classList.remove('is-active'));
         reviewPill.classList.add('is-active');
         this.filterCommunityReviews(commName);
+        return;
       }
 
       // Society Quick Consultation Trigger
@@ -229,6 +256,7 @@ const App = {
         if (commInput && socName) commInput.value = socName;
         if (contactCommInput && socName) contactCommInput.value = socName;
         this.openIntakeModal();
+        return;
       }
     });
 
