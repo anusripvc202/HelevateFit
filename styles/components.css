@@ -4593,5 +4593,296 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 12px;
 }
 
+/* ==========================================================================
+   MINDS BEHIND HELEVATE — FOUNDER STORY & CLINICAL ADVISORY
+   ========================================================================== */
+.founder-minds-wrapper {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+  margin-top: 36px;
+}
+
+.founder-spotlight-card {
+  background: linear-gradient(145deg, #071A2E 0%, #0E3A5D 100%);
+  border: 1px solid rgba(0, 210, 180, 0.35);
+  border-radius: var(--radius-2xl);
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 48px rgba(7, 26, 46, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.founder-spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(0, 210, 180, 0.18) 0%, rgba(0, 210, 180, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.founder-header-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.founder-avatar-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D2B4 0%, #0E3A5D 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 210, 180, 0.35);
+  flex-shrink: 0;
+}
+
+.founder-info h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 3px 0;
+  letter-spacing: -0.01em;
+}
+
+.founder-role-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #00D2B4;
+  margin-bottom: 5px;
+}
+
+.founder-cred-pill {
+  display: inline-block;
+  background: rgba(0, 210, 180, 0.12);
+  border: 1px solid rgba(0, 210, 180, 0.35);
+  color: #DDF1EF;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.founder-quote-box {
+  margin: 18px 0 20px;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #00D2B4;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1;
+}
+
+.founder-quote-text {
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: #F0F6FC;
+  font-style: italic;
+  margin: 0;
+}
+
+.founder-impact-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  z-index: 1;
+}
+
+.founder-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.founder-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #00D2B4;
+  line-height: 1.1;
+}
+
+.founder-stat-lbl {
+  font-size: 0.75rem;
+  color: #DDF1EF;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.founder-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Clinical & Performance Team Grid */
+.clinical-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.clinical-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+}
+
+.clinical-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 210, 180, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card-hover);
+}
+
+.clinical-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.clinical-avatar-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0E3A5D 0%, #154D7A 100%);
+  color: #00D2B4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(7, 26, 46, 0.12);
+}
+
+.clinical-meta h4 {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 0 0 2px 0;
+}
+
+.clinical-meta-role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  line-height: 1.25;
+}
+
+.clinical-cred-tag {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #EDF8F7;
+  color: #008774;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 210, 180, 0.25);
+}
+
+.clinical-bio {
+  font-size: 0.82rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+.clinical-specialty-pill {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  background: #F0F4F8;
+  padding: 5px 9px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Step timeline date badges */
+.detailed-step-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.detailed-step-day-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0E3A5D;
+  background: #DDF1EF;
+  border: 1px solid rgba(14, 58, 93, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .founder-minds-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .clinical-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .clinical-team-grid {
+    grid-template-columns: 1fr;
+  }
+  .founder-impact-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .founder-spotlight-card {
+    padding: 28px 20px;
+  }
+}
+
 
 
