@@ -392,7 +392,7 @@
    4. HERO SECTION (ULTRAHUMAN / TULAH CALM PRECISION)
    ========================================================================== */
 .hero-performance {
-  padding: 68px 0 64px;
+  padding: 42px 0 38px;
   background: radial-gradient(circle at 82% 28%, rgba(0, 210, 180, 0.18) 0%, transparent 48%),
               radial-gradient(circle at 12% 70%, rgba(14, 58, 93, 0.48) 0%, transparent 45%),
               linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
@@ -417,42 +417,34 @@
 .hero-video-scrim {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(5, 22, 38, 0.45) 0%, rgba(5, 22, 38, 0.92) 80%),
-              linear-gradient(180deg, rgba(5, 22, 38, 0.25) 0%, rgba(5, 22, 38, 0.95) 100%);
+  background: radial-gradient(circle at 70% 30%, rgba(5, 22, 38, 0.5) 0%, rgba(5, 22, 38, 0.92) 80%),
+              linear-gradient(180deg, rgba(5, 22, 38, 0.3) 0%, rgba(5, 22, 38, 0.95) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
-.hero-content-center {
-  max-width: 820px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
 .hero-copy {
-  max-width: 580px;
+  max-width: 540px;
 }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.35rem, 4.4vw, 3.45rem);
-  line-height: 1.14;
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  line-height: 1.15;
   color: #FFFFFF;
-  margin-top: 16px;
-  margin-bottom: 18px;
+  margin-top: 10px;
+  margin-bottom: 12px;
   font-weight: 800;
-  letter-spacing: -0.032em;
+  letter-spacing: -0.03em;
 }
 
 .hero-title span.text-teal {
@@ -463,34 +455,27 @@
 
 .hero-subtext {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 0.96rem;
   color: #B4CCE0;
-  line-height: 1.65;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 680px;
-  margin-bottom: 30px;
+  line-height: 1.55;
+  margin-bottom: 20px;
   font-weight: 400;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-}
-
-.hero-actions.justify-center {
-  justify-content: center;
 }
 
 /* Hero Telemetry & Report Preview Hub */
 .hero-telemetry-hub {
   background: rgba(11, 37, 64, 0.78);
   border: 1px solid rgba(0, 210, 180, 0.28);
-  border-radius: var(--radius-xl);
-  padding: 26px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 52px rgba(0, 0, 0, 0.45), 0 0 32px rgba(0, 210, 180, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 210, 180, 0.1);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -684,14 +669,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hub-title {
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: #DDF1EF;
   letter-spacing: 0.05em;
@@ -701,18 +686,18 @@
 .hub-score-card {
   background: linear-gradient(135deg, rgba(7, 26, 46, 0.95) 0%, rgba(14, 58, 93, 0.82) 100%);
   border: 1px solid rgba(0, 210, 180, 0.28);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 14px;
+  gap: 14px;
+  margin-bottom: 10px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .hub-dial-wrap {
-  width: 68px;
-  height: 68px;
+  width: 52px;
+  height: 52px;
   position: relative;
   display: flex;
   align-items: center;
@@ -729,39 +714,39 @@
 .hub-dial-num {
   position: absolute;
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 800;
   color: #FFFFFF;
 }
 
 .hub-score-info h4 {
   color: #FFFFFF;
-  font-size: 1rem;
-  margin-bottom: 3px;
+  font-size: 0.90rem;
+  margin-bottom: 2px;
   font-weight: 700;
 }
 
 .hub-score-info p {
   color: #B4CCE0;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .hub-metrics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hub-metric-chip {
   background: rgba(7, 26, 46, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   transition: all var(--transition-fast);
 }
 
@@ -773,20 +758,20 @@
 }
 
 .hub-chip-icon {
-  font-size: 1.15rem;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
 .hub-chip-meta h6 {
   font-family: var(--font-heading);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: #FFFFFF;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   font-weight: 600;
 }
 
 .hub-chip-meta span {
-  font-size: 0.74rem;
+  font-size: 0.70rem;
   color: #94AEC2;
   display: block;
 }
