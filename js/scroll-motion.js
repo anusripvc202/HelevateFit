@@ -65,9 +65,15 @@
 
     observeElements() {
       if (!this.observer) return;
-      const elements = document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .process-card, .pillar-card, .report-card-mockup');
+      const elements = document.querySelectorAll('.app-view.active .reveal, .app-view.active .reveal-up, .app-view.active .reveal-fade, .reveal, .reveal-up, .reveal-fade');
       elements.forEach(el => {
-        this.observer.observe(el);
+        // If element is already in viewport, reveal immediately
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-revealed');
+        } else {
+          this.observer.observe(el);
+        }
       });
     },
 
@@ -75,13 +81,13 @@
     refresh() {
       setTimeout(() => {
         this.observeElements();
-      }, 50);
+      }, 30);
     },
 
     // 3. Smooth Scroll to In-Page Anchors
     initSmoothScrollLinks() {
       document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="#section-"]');
+        const link = e.target.closest('a[href^="#section-"], a[href^="#homepage-"]');
         if (!link) return;
         const targetId = link.getAttribute('href').replace('#', '');
         const targetEl = document.getElementById(targetId);

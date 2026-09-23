@@ -59,12 +59,13 @@ const App = {
     const closeBtn = document.getElementById('close-intake-modal-btn');
     const successCloseBtn = document.getElementById('intake-success-close-btn');
 
-    // Open triggers
-    openBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    // Open triggers (Delegated for 100% reliability across dynamic view updates)
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
+      if (trigger) {
         e.preventDefault();
         this.openIntakeModal();
-      });
+      }
     });
 
     // Close triggers
@@ -151,6 +152,27 @@ const App = {
         this.showToast(`Thank you, ${name}! Your consultation request has been received.`);
       });
     }
+    // Contact form submission
+    const contactForm = document.getElementById('main-contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contact-name')?.value || "there";
+        this.showToast(`Thank you, ${name}! Your consultation request has been received. We will contact you shortly.`);
+        contactForm.reset();
+      });
+    }
+
+    // Community Referral RWA Form
+    const referralForm = document.getElementById('community-referral-form');
+    if (referralForm) {
+      referralForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const society = document.getElementById('ref-community')?.value || "your society";
+        this.showToast(`Thank you! We have received your inquiry for ${society}. Our team will connect with your management committee.`);
+        referralForm.reset();
+      });
+    }
   },
 
   goToStep(stepNumber) {
@@ -227,11 +249,16 @@ const App = {
   // 4. TOAST NOTIFICATIONS
   // --------------------------------------------------------------------------
   showToast(message) {
-    const shelf = document.getElementById('toast-shelf');
-    if (!shelf) return;
+    let shelf = document.getElementById('toast-shelf');
+    if (!shelf) {
+      shelf = document.createElement('div');
+      shelf.id = 'toast-shelf';
+      shelf.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;';
+      document.body.appendChild(shelf);
+    }
 
     const toast = document.createElement('div');
-    toast.className = 'toast-msg';
+    toast.style.cssText = 'background:#071A2E;color:#FFFFFF;border:1px solid #00D2B4;padding:14px 20px;border-radius:12px;font-size:0.92rem;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.3);max-width:380px;pointer-events:auto;transition:all 0.3s ease;';
     toast.textContent = message;
 
     shelf.appendChild(toast);
@@ -239,7 +266,6 @@ const App = {
     setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transform = 'translateY(10px)';
-      toast.style.transition = 'all 0.3s ease';
       setTimeout(() => toast.remove(), 300);
     }, 4500);
   }
@@ -250,3 +276,4 @@ window.App = App;
 document.addEventListener('DOMContentLoaded', () => {
   App.init();
 });
+

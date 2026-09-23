@@ -1,37 +1,42 @@
 /* ==========================================================================
-   HELEVATE.FIT — HIGH-END HEALTH & PERFORMANCE TECHNOLOGY DESIGN SYSTEM
-   Brand: Helevate.fit ("Precision Health & Human Performance")
+   HELEVATE.FIT — PREMIER HEALTH & HUMAN PERFORMANCE TECHNOLOGY DESIGN SYSTEM
+   Aesthetic Benchmarks: Ultrahuman Performance Lab, Tulah Life, Sunrooof
    
    Typography System:
      - Headings & High-Impact Numbers: Plus Jakarta Sans (Google Fonts)
      - Body, Navigation, Buttons & Form UI: Inter (Google Fonts)
    
    Strict Luxury Palette:
-     - Midnight Deep Base: #071A2E
+     - Midnight Deep Base: #051626
+     - Midnight Dark: #071A2E
      - Midnight Card / Surfaces: #0B2540
      - Primary Navy: #0E3A5D
      - High-Performance Navy Text: #153255
      - Luminous Teal / Cyan Accent: #00D2B4
+     - Radiant Neon Teal: #1AF0D2
      - Soft Cyan Tint: #DDF1EF
      - Soft Mint Surface: #EDF8F7
-     - Off-White Background: #F6FBFA
+     - Off-White Canvas: #F8FAFC
      - Pure White: #FFFFFF
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap');
 
 :root {
   /* Brand Performance Palette */
+  --color-midnight-deep: #051626;
   --color-midnight-base: #071A2E;
   --color-midnight-surface: #0B2540;
   --color-primary-navy: #0E3A5D;
   --color-primary-navy-dark: #072238;
-  --color-primary-navy-hover: #144973;
+  --color-primary-navy-hover: #12436B;
   --color-navy-text: #153255;
   
   /* Accent & Luminous Tokens */
   --color-accent-teal: #00D2B4;
-  --color-accent-teal-glow: rgba(0, 210, 180, 0.25);
+  --color-accent-teal-dark: #00B29A;
+  --color-accent-teal-hover: #1AF0D2;
+  --color-accent-teal-glow: rgba(0, 210, 180, 0.28);
   --color-primary-light-blue: #DDF1EF;
   --color-light-blue-soft: #EDF8F7;
   --color-light-blue-tint: #D0EBE8;
@@ -39,29 +44,29 @@
 
   /* Surfaces & Canvas */
   --color-bg-main: #FFFFFF;
-  --color-bg-subtle: #F6FBFA;
-  --color-bg-offwhite: #F8FCFB;
+  --color-bg-subtle: #F8FAFC;
+  --color-bg-offwhite: #F8FCFC;
   --color-surface-card: #FFFFFF;
-  --color-surface-glass: rgba(255, 255, 255, 0.94);
-  --color-surface-glass-dark: rgba(7, 26, 46, 0.85);
+  --color-surface-glass: rgba(255, 255, 255, 0.92);
+  --color-surface-glass-dark: rgba(7, 26, 46, 0.88);
 
   /* Typography Colors */
   --color-text-main: #153255;
-  --color-text-muted: #537187;
+  --color-text-muted: #4A6B82;
   --color-text-dim: #7997A8;
   --color-text-inverse: #FFFFFF;
-  --color-text-inverse-muted: #DDF1EF;
+  --color-text-inverse-muted: #B4CCE0;
 
   /* Borders & Dividers */
-  --color-border: rgba(14, 58, 93, 0.1);
-  --color-border-subtle: rgba(14, 58, 93, 0.06);
+  --color-border: rgba(14, 58, 93, 0.08);
+  --color-border-subtle: rgba(14, 58, 93, 0.05);
   --color-border-hover: rgba(14, 58, 93, 0.22);
-  --color-border-focus: #0E3A5D;
-  --color-border-cyan: rgba(221, 241, 239, 0.55);
-  --color-border-teal: rgba(0, 210, 180, 0.35);
+  --color-border-focus: #00D2B4;
+  --color-border-cyan: rgba(0, 210, 180, 0.28);
+  --color-border-teal: rgba(0, 210, 180, 0.38);
 
   /* Functional Accents */
-  --color-badge-bg: #DDF1EF;
+  --color-badge-bg: #EDF8F7;
   --color-badge-text: #0E3A5D;
 
   /* Typography Font Families */
@@ -70,27 +75,29 @@
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Layout & Spacing */
-  --container-max: 1240px;
-  --container-narrow: 880px;
+  --container-max: 1220px;
+  --container-narrow: 860px;
   --header-height: 72px;
   --radius-xs: 6px;
   --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-xl: 26px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-2xl: 30px;
   --radius-full: 9999px;
 
-  /* Diffuse Luxury Shadows */
-  --shadow-subtle: 0 2px 8px rgba(7, 26, 46, 0.04);
-  --shadow-card: 0 6px 20px -3px rgba(7, 26, 46, 0.07), 0 2px 6px -1px rgba(7, 26, 46, 0.03);
-  --shadow-card-hover: 0 16px 36px -4px rgba(7, 26, 46, 0.12), 0 4px 12px -2px rgba(7, 26, 46, 0.05);
-  --shadow-dropdown: 0 24px 48px -8px rgba(7, 26, 46, 0.22), 0 8px 18px -4px rgba(7, 26, 46, 0.08);
-  --shadow-navy-glow: 0 12px 36px rgba(7, 26, 46, 0.28);
-  --shadow-teal-glow: 0 0 24px rgba(0, 210, 180, 0.25);
+  /* Diffuse Luxury Shadows & Inset Highlights */
+  --shadow-subtle: 0 2px 10px rgba(7, 26, 46, 0.03), 0 1px 3px rgba(7, 26, 46, 0.02);
+  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 30px -6px rgba(7, 26, 46, 0.07), 0 3px 10px -2px rgba(7, 26, 46, 0.03);
+  --shadow-card-hover: inset 0 1px 0 rgba(255, 255, 255, 1), 0 22px 48px -10px rgba(7, 26, 46, 0.12), 0 0 24px rgba(0, 210, 180, 0.08);
+  --shadow-dropdown: 0 24px 52px -8px rgba(7, 26, 46, 0.18), 0 8px 20px -4px rgba(7, 26, 46, 0.06);
+  --shadow-navy-glow: 0 16px 44px rgba(7, 26, 46, 0.25);
+  --shadow-teal-glow: 0 0 32px rgba(0, 210, 180, 0.35);
 
   /* Transitions */
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
@@ -108,6 +115,8 @@ html {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -130,10 +139,24 @@ body {
 .section,
 .site-header,
 .site-footer,
-.hero-clean {
+.hero-performance {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+.app-view {
+  display: none;
+}
+
+.app-view.active {
+  display: block;
+  animation: appViewFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes appViewFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Selection Highlight */
@@ -155,11 +178,11 @@ body {
   background: var(--color-bg-subtle);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-navy);
+  background: #B4CCE0;
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-navy-dark);
+  background: var(--color-primary-navy);
 }
 
 /* Fluid Typography */
@@ -168,36 +191,37 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary-navy);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.024em;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(1.95rem, 5.5vw, 3.25rem);
+  font-size: clamp(2.15rem, 5.2vw, 3.4rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.028em;
+  line-height: 1.14;
+  letter-spacing: -0.032em;
 }
 
 h2 {
-  font-size: clamp(1.65rem, 3.8vw, 2.45rem);
+  font-size: clamp(1.72rem, 3.6vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-size: clamp(1.22rem, 2.3vw, 1.58rem);
   font-weight: 700;
   line-height: 1.28;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.018em;
 }
 
 h4 {
-  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-  font-weight: 600;
-  line-height: 1.35;
+  font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+  font-weight: 700;
+  line-height: 1.34;
+  letter-spacing: -0.014em;
 }
 
 h5 {
@@ -209,7 +233,7 @@ h5 {
 p {
   font-family: var(--font-body);
   color: var(--color-text-muted);
-  font-size: clamp(0.95rem, 1.2vw, 1.025rem);
+  font-size: clamp(0.94rem, 1.15vw, 1.02rem);
   line-height: 1.65;
   font-weight: 400;
   word-wrap: break-word;
@@ -218,7 +242,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 button, input, select, textarea {
@@ -263,17 +287,18 @@ img, svg {
 }
 
 .section {
-  padding: 48px 0;
+  padding: 76px 0;
   position: relative;
-  overflow: hidden;
 }
 
 .section-sm {
-  padding: 32px 0;
+  padding: 48px 0;
 }
 
 .section-light-blue {
-  background-color: var(--color-primary-light-blue);
-  background-image: radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.85) 0%, transparent 60%),
-                    radial-gradient(circle at 15% 85%, rgba(237, 248, 247, 0.9) 0%, transparent 50%);
+  background-color: var(--color-bg-subtle);
+  background-image: radial-gradient(circle at 50% 0%, rgba(0, 210, 180, 0.035) 0%, transparent 60%);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
+

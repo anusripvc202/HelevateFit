@@ -1,366 +1,349 @@
 /**
  * HELEVATE.FIT — STRUCTURED DATA & CONTENT REPOSITORY
- * Source of truth for:
- * - Brand positioning: Precision Health & Human Performance Platform
- * - 6-Step Overview Journey: Assess -> Measure -> Analyse -> Report -> Personalise -> Improve
- * - 5-Step Detailed How It Works Roadmap
- * - Multi-dimensional Health Measurement Parameters
- * - Interactive Helevate Report Data
- * - Personalised Care & Treatment Pathways
- * - Personalised Food & Diet (Nutrition) Guidance
- * - 6 Service Categories with Dedicated Page Links
- * - Authentic Member Testimonials & Trust Statistics
+ * Source of truth based on Client Handoff Document & Core Objective:
+ * Assess -> Understand -> Report -> Personalised Guidance -> Better Health
  */
 
 const HELEVATE_DATA = {
   brand: {
     name: "Helevate.fit",
     legalName: "Helevate Fit Pvt Ltd",
-    tagline: "Understand Your Present Health. Get Personalised Guidance. Improve Your Wellbeing.",
-    positioning: "Precision Health & Human Performance Platform for Gated Communities",
-    mission: "Helevate Fit helps users understand and measure their current health, receive detailed custom reports, identify areas needing attention, and get dedicated treatment, nutrition, and fitness guidance inside their community.",
-    definition: "Helevate Fit is a personalized health and performance platform designed to measure where you are today and provide continuous, data-driven support to elevate your wellbeing.",
+    tagline: "Elevating Human Performance & Lifestyle",
+    brandLine: "Not Ordinary",
+    positioning: "Precision Health & Human Performance for Gated Communities",
+    mission: "Helevate Fit helps users understand and measure their current health through precision assessments, generate a customized Helevate Report, and provide ongoing treatment support, nutrition, and lifestyle guidance delivered directly inside gated communities in Hyderabad.",
     founder: "Harish P",
     founderRole: "Founder & Head Coach",
-    founderCert: "Certified Human Performance Specialist",
+    founderCert: "Certified Human Performance Coach",
     email: "helevatefit@gmail.com",
     phone: "+91 99639 60259",
     phoneAlt: "+91 94403 09596",
-    address: "4th Floor, JK Business Centre, Road No. 36, Jubilee Hills, Hyderabad – 500033",
+    address: "4th Floor, JK Business Centre, Road No. 36, Jubilee Hills, Hyderabad – 500033, Telangana",
     city: "Hyderabad",
-    website: "https://helevate.fit",
-    hours: "Monday – Saturday: 6:00 AM – 9:00 PM"
+    website: "https://helevate.fit"
   },
 
-  // 1. 6-Step Overview Journey (Assess -> Measure -> Analyse -> Report -> Personalise -> Improve)
-  overviewSteps: [
+  // 1. Core Value Proposition (4 Simple Points)
+  coreValuePoints: [
     {
       step: "01",
-      name: "ASSESS",
-      title: "Comprehensive Intake",
-      desc: "Complete your initial clinical lifestyle and medical history intake.",
-      icon: "📋",
-      link: "#/assessments"
+      name: "Assess",
+      title: "Assess",
+      desc: "Understand your current health through precision biological diagnostics."
     },
     {
       step: "02",
-      name: "MEASURE",
-      title: "Biological Diagnostics",
-      desc: "Establish objective baselines with blood panels, DEXA scans & mobility checks.",
-      icon: "🔬",
-      link: "#/assessments"
+      name: "Analyse",
+      title: "Analyse",
+      desc: "Identify your specific health requirements and underlying metabolic patterns."
     },
     {
       step: "03",
-      name: "ANALYSE",
-      title: "Clinical Interpretation",
-      desc: "Identify underlying risks, insulin sensitivity, and recovery gaps.",
-      icon: "📊",
-      link: "#/reports"
+      name: "Personalise",
+      title: "Personalise",
+      desc: "Receive clear, structured guidance tailored to your biological results."
     },
     {
       step: "04",
-      name: "REPORT",
-      title: "Helevate Report",
-      desc: "Receive your custom roadmap translating data into clear daily priorities.",
-      icon: "📑",
-      link: "#/reports"
-    },
-    {
-      step: "05",
-      name: "PERSONALISE",
-      title: "Custom Protocols",
-      desc: "Get individualized care, nutrition fueling, and strength coaching.",
-      icon: "🥗",
-      link: "#/nutrition"
-    },
-    {
-      step: "06",
-      name: "IMPROVE",
-      title: "Community Coaching",
-      desc: "Follow your plan with clubhouse coaches and 90-day progress re-testing.",
-      icon: "🌿",
-      link: "#/care"
+      name: "Improve",
+      title: "Improve",
+      desc: "Build better health habits with dedicated coaching in your community."
     }
   ],
 
-  // 2. Present Health Measurement Dimensions
-  healthDimensions: [
+  // 2. 4-Step Homepage Journey Flow
+  homepageFlow: [
     {
-      id: "overall-health",
-      title: "Overall Health & Biomarkers",
-      icon: "🩺",
-      desc: "Clinical blood chemistry evaluating ApoB lipid subfractions, fasting insulin sensitivity, hs-CRP vascular inflammation, and liver/kidney vitality.",
-      metrics: ["ApoB Particle Count", "HOMA-IR Insulin Score", "hs-CRP Inflammation", "HbA1c Glycemic Baseline"]
+      num: "01",
+      title: "Assess",
+      desc: "Complete your health assessment to establish an accurate, objective baseline of where you are today."
     },
     {
-      id: "fitness-performance",
-      title: "Fitness & Biomechanics",
-      icon: "🏋️",
-      desc: "DEXA body composition mapping (visceral fat vs lean mass), functional movement screening, and joint stability assessment.",
-      metrics: ["Visceral Adipose Index", "Lean Muscle Distribution", "Thoracic Spine Mobility", "Functional Movement Screen"]
+      num: "02",
+      title: "Understand",
+      desc: "Your health information and biomarkers are analysed to understand your current physiological condition."
     },
     {
-      id: "nutrition-metabolism",
-      title: "Nutrition & Metabolic Fueling",
-      icon: "🥗",
-      desc: "Assessment of glycemic response patterns, daily protein distribution, prebiotic fiber adequacy, and digestive microbiome health.",
-      metrics: ["Glycemic Stability Index", "Protein Adequacy (g/kg)", "Prebiotic Fiber Intake", "Hydration Rhythm"]
+      num: "03",
+      title: "Receive Your Report",
+      desc: "Get a clear, personalised health report highlighting key observations, scores, and areas needing attention."
     },
     {
-      id: "lifestyle-sleep",
-      title: "Lifestyle & Circadian Health",
-      icon: "🌙",
-      desc: "Sleep architecture evaluation (deep & REM sleep depth), evening screen exposure impact, and daily sedentary desk duration.",
-      metrics: ["Deep Sleep Restoration", "Daily Step Average", "Screen Wind-Down Latency", "Circadian Rhythm Score"]
-    },
-    {
-      id: "recovery-stress",
-      title: "Recovery & Autonomic Balance",
-      icon: "⚡",
-      desc: "Heart Rate Variability (HRV) baseline tracking, stress recovery latency post-work, and parasympathetic nervous system response.",
-      metrics: ["HRV Recovery Baseline", "Resting Heart Rate", "Autonomic Balance", "Post-Workout Recovery Rate"]
+      num: "04",
+      title: "Get Personalised Guidance",
+      desc: "Receive relevant treatment support, lifestyle, nutrition, and strength guidance based on your results."
     }
   ],
 
-  // 3. Sample Helevate Report Interactive Data
+  // 3. 4 Diagnostic Health Assessments (From PDF)
+  assessments: [
+    {
+      id: "metabolic-panel",
+      name: "Metabolic Health Panel",
+      tagline: "Beyond routine bloodwork.",
+      shortDesc: "Uncover inflammation, insulin resistance, and cardiovascular risk patterns before they become diagnoses.",
+      fullDesc: "Routine labs can look 'normal' while risk builds underneath. Our precision panel adds markers most routine check-ups skip — ApoB, Lp(a), fasting insulin/HOMA-IR, hs-CRP, and more — to reveal particle burden, insulin resistance, and inflammatory patterns early, while there's still time to change direction.",
+      bestFor: "Anyone 35+, anyone with a family history of heart disease/diabetes, anyone whose weight isn't responding to normal effort.",
+      markers: ["Apolipoprotein B (ApoB)", "Fasting Insulin & HOMA-IR", "hs-CRP Vascular Inflammation", "Lipoprotein(a) [Lp(a)]", "HbA1c Glycemic Dynamic"],
+      icon: "🔬"
+    },
+    {
+      id: "dexa-scan",
+      name: "DEXA Body Composition Scan",
+      tagline: "The real number behind the scale.",
+      shortDesc: "Precise fat mass, lean muscle mass, and visceral fat data — the real metrics behind your health.",
+      fullDesc: "A single scan measures your actual fat mass, lean muscle mass, bone density, and visceral fat — the fat around your organs linked to metabolic risk. It is the gold standard way to track real body transformation, not just weight on a scale.",
+      bestFor: "Anyone starting a fat-loss or strength program, anyone who wants to track progress accurately.",
+      markers: ["Visceral Adipose Tissue (VAT)", "Regional Lean Muscle Mass", "Total Body Fat %", "Bone Mineral Density", "Symmetry Baseline"],
+      icon: "📊"
+    },
+    {
+      id: "gut-microbiome",
+      name: "Gut Microbiome Testing",
+      tagline: "Nutrition built around your biology.",
+      shortDesc: "Understand your gut bacteria to build a nutrition plan that works with your unique biology.",
+      fullDesc: "Your gut bacteria influence digestion, inflammation, weight, and even mood. This test maps your gut microbiome so your nutrition plan works with your biology instead of against it.",
+      bestFor: "Anyone with digestive issues, unexplained fatigue, or stalled progress despite a 'clean' diet.",
+      markers: ["Microbiome Diversity Index", "Inflammatory Flora Ratios", "Short-Chain Fatty Acid Yield", "Digestive Efficiency"],
+      icon: "🥗"
+    },
+    {
+      id: "dna-testing",
+      name: "DNA / Gene Testing",
+      tagline: "Genetic insights into metabolism.",
+      shortDesc: "Reveals how your body responds to exercise, macronutrients, and recovery demands.",
+      fullDesc: "Genetic testing reveals how your body responds to different types of exercise, carbohydrates, fats, and recovery demands — turning your training and nutrition plan into something built specifically for you.",
+      bestFor: "Anyone who wants a long-term, precision-built lifestyle plan.",
+      markers: ["Carb & Fat Sensitivity", "Recovery Latency Profile", "Micronutrient Utilization", "Cardiovascular Tendencies"],
+      icon: "🧬"
+    }
+  ],
+
+  // 4. Sample Helevate Report Interactive Showcase
   sampleReport: {
     userName: "Sample Member Profile (Executive, Age 42)",
-    status: "Baseline Active • Quarter 1",
-    score: 78,
+    status: "Baseline Assessment • Q1 Report",
+    overallScore: 78,
+    summary: "Your assessment results are organised into a personalised report designed to help you understand your health and identify areas that may need attention.",
     categories: {
       health: {
-        title: "Health & Metabolic Status",
+        title: "Metabolic & Biomarker Health",
         badge: "Attention Needed",
-        summary: "Fasting insulin and hs-CRP are elevated despite normal fasting blood sugar, indicating subclinical insulin resistance.",
+        summary: "Fasting insulin (14.2 µIU/mL) and hs-CRP (2.4 mg/L) indicate subclinical insulin resistance despite standard blood sugar appearing normal.",
         items: [
           { name: "Fasting Insulin & HOMA-IR", val: "14.2 µIU/mL", status: "Attention Needed", target: "< 6.0 µIU/mL" },
           { name: "Apolipoprotein B (ApoB)", val: "108 mg/dL", status: "Moderate", target: "< 80 mg/dL" },
           { name: "hs-CRP Vascular Inflammation", val: "2.4 mg/L", status: "Attention Needed", target: "< 1.0 mg/L" }
         ],
-        recommendation: "Prioritize low-glycemic meal sequencing and progressive resistance training to enhance cellular insulin sensitivity."
+        action: "Prioritize glycemic meal sequencing and progressive strength training to restore insulin sensitivity."
       },
       lifestyle: {
-        title: "Lifestyle & Recovery Architecture",
+        title: "Lifestyle & Sleep Architecture",
         badge: "Score: 68/100",
-        summary: "Fragmented deep sleep (average 48 mins/night) and prolonged sedentary desk hours are driving evening fatigue.",
+        summary: "Restricted deep sleep duration (48 mins/night) and long sedentary desk stretches are contributing to afternoon fatigue.",
         items: [
           { name: "Deep Sleep Duration", val: "48 mins/night", status: "Needs Improvement", target: "80+ mins/night" },
           { name: "Daily Step Baseline", val: "4,200 steps", status: "Low Baseline", target: "8,500+ steps" },
-          { name: "Evening Screen Latency", val: "12 mins pre-sleep", status: "Restricted", target: "45 mins dark buffer" }
+          { name: "Circadian Wind-down Latency", val: "12 mins pre-sleep", status: "Restricted", target: "45 mins buffer" }
         ],
-        recommendation: "Implement 20-minute digital wind-down protocol and scheduled daytime posture mobility breaks."
+        action: "Establish a 20-minute digital wind-down buffer and scheduled midday posture mobility breaks."
       },
       nutrition: {
-        title: "Diet & Nutrition Guidance",
+        title: "Nutrition & Diet Pacing",
         badge: "Protein Deficit",
-        summary: "Dietary pattern causes afternoon glycemic crashes. Increasing protein distribution and prebiotic fiber stabilizes energy.",
+        summary: "Current dietary structure causes glucose spikes. Increasing bio-individual protein distribution stabilizes energy.",
         items: [
-          { name: "Protein Distribution", val: "0.85 g/kg", status: "Target: 1.4 g/kg", target: "110g daily total" },
+          { name: "Protein Distribution", val: "0.85 g/kg", status: "Target: 1.4–1.8 g/kg", target: "115g daily total" },
           { name: "Prebiotic Fiber Intake", val: "14 g/day", status: "Low Intake", target: "30+ g/day" },
-          { name: "Glycemic Stability", val: "Frequent Swings", status: "Needs Optimization", target: "Stable Post-Meal" }
+          { name: "Glycemic Stability", val: "Frequent Swings", status: "Needs Optimization", target: "Stable Curve" }
         ],
-        recommendation: "Structure whole-food meals with protein prioritization and complex prebiotic fiber to eliminate glucose spikes."
+        action: "Structure whole-food meals with protein prioritization and complex prebiotic fibers."
       },
       fitness: {
-        title: "Movement & Strength Blueprint",
+        title: "Strength & Biomechanics",
         badge: "Mobility Focus",
-        summary: "Desk sitting has restricted thoracic spine rotation, while posterior chain muscular endurance remains ready for training.",
+        summary: "Desk hours have restricted thoracic spine rotation, while posterior chain muscular endurance remains ready for progressive load.",
         items: [
           { name: "Thoracic Spine Mobility", val: "32° Rotation", status: "Restricted", target: "45°+ Full Range" },
-          { name: "Posterior Chain Strength", val: "Baseline Preserved", status: "Ready to Train", target: "Progressive Load" },
-          { name: "Zone 2 Aerobic Base", val: "Deficit", status: "Build Base", target: "120 mins/week" }
+          { name: "Visceral Fat Index (DEXA)", val: "112 cm²", status: "Moderate", target: "< 100 cm²" },
+          { name: "Posterior Chain Strength", val: "Baseline Preserved", status: "Ready to Train", target: "Progressive Load" }
         ],
-        recommendation: "3x weekly coach-led clubhouse strength sessions targeting thoracic mobilization and posterior chain activation."
+        action: "3x weekly coach-led clubhouse strength sessions targeting thoracic mobilization and posterior chain activation."
       }
     }
   },
 
-  // 4. Personalised Treatment & Care Journey
-  carePathway: [
+  // 5. 4 Core Services / Personalised Guidance Disciplines (From PDF)
+  services: [
+    {
+      id: "strength-coaching",
+      name: "Strength Coaching",
+      tagline: "Personalised strength training with certified coaches.",
+      desc: "One-on-one and small-group strength training led by certified Human Performance Coaches, delivered inside your community. Programs are built around your assessment data and adjusted as you progress.",
+      icon: "🏋️",
+      link: "#/services"
+    },
+    {
+      id: "fat-loss-h75",
+      name: "Fat-Loss Transformation (e.g. H75)",
+      tagline: "Structured, multi-phase transformation journey.",
+      desc: "A structured, multi-phase program designed for adults who want to reclaim their health and functional fitness — combining assessments (metabolic panel, DEXA), personalised training, and nutrition coaching into one clear 12-week (or longer) journey with measurable checkpoints.",
+      icon: "🔥",
+      link: "#/services"
+    },
+    {
+      id: "group-fitness",
+      name: "Group Fitness Classes",
+      tagline: "Community-based training that builds consistency.",
+      desc: "Community-based group sessions that build consistency, accountability, and connection — without needing to leave your community or commute to a gym.",
+      icon: "👥",
+      link: "#/services"
+    },
+    {
+      id: "nutrition-guides",
+      name: "Personalised Nutrition Guides",
+      tagline: "Nutrition built from your actual biology.",
+      desc: "Nutrition plans built from your actual biomarkers, body composition, and (optionally) gut and genetic data — not a generic calorie sheet copy-pasted across clients.",
+      icon: "🥗",
+      link: "#/services"
+    }
+  ],
+
+  // 6. 5-Step Detailed How It Works Roadmap (From PDF)
+  detailedHowItWorks: [
     {
       step: "01",
-      title: "Your Health Data",
-      desc: "Clinical biomarkers, DEXA scans, and movement assessments form your objective biological baseline.",
-      icon: "🩸"
+      name: "Assess",
+      title: "Baseline Your Biology",
+      desc: "Complete comprehensive baseline diagnostics: metabolic health panel, DEXA body composition, and optionally gut/DNA testing."
     },
     {
       step: "02",
-      title: "Diagnostic Insights",
-      desc: "Our performance specialists translate data into clear priorities across metabolic, joint, and recovery health.",
-      icon: "💡"
+      name: "Personalise",
+      title: "Build Around Your Data",
+      desc: "Your certified coach interprets your Helevate Report and formulates a training and nutrition plan around what your data actually shows."
     },
     {
       step: "03",
-      title: "Action Recommendations",
-      desc: "Custom exercise prescriptions, dietary adjustments, and sleep protocols built for your body.",
-      icon: "📋"
+      name: "Train & Act",
+      title: "Execute In Your Community",
+      desc: "Strength coaching, group fitness, and nutrition guidance delivered consistently inside your society clubhouse."
     },
     {
       step: "04",
-      title: "Personalised Care & Coaching",
-      desc: "Dedicated coaches deliver hands-on guidance in your clubhouse with physician-friendly progress tracking.",
-      icon: "🩺"
+      name: "Reassess",
+      title: "90-Day Objective Checkpoints",
+      desc: "Repeat key markers and scans to objectively measure what has changed — not just how you feel."
+    },
+    {
+      step: "05",
+      name: "Evolve",
+      title: "Continuous Adaptation",
+      desc: "Your plan adjusts as your body changes. Escalate to medical referral or higher performance protocols as needed."
     }
   ],
 
-  // 5. Personalised Food & Diet (Nutrition) Elements
-  nutritionModules: [
+  // 7. Why Helevate Fit (Trust & Model Pillars)
+  whyHelevatePoints: [
     {
-      id: "glycemic",
-      title: "Glycemic Pacing & Glucose Balance",
-      desc: "Tailored food combinations designed to eliminate post-meal energy crashes and improve cellular insulin sensitivity.",
-      icon: "📉",
-      highlight: "Stable All-Day Energy"
+      title: "Assessment-Led, Not Guesswork-Led",
+      desc: "Every program starts with clinical blood panels and DEXA scans, so your plan is built for your biology, not a generic template.",
+      icon: "🔬"
     },
     {
-      id: "protein",
-      title: "Bio-Individual Protein Distribution",
-      desc: "Calculated protein requirements (1.4–1.8g/kg) distributed across meals to support muscle retention and satiety.",
-      icon: "🥩",
-      highlight: "Muscle & Tissue Recovery"
+      title: "Community-Based Delivery",
+      desc: "Delivered inside your gated community clubhouse in Hyderabad — zero commute friction, no traffic, and seamless consistency.",
+      icon: "🏡"
     },
     {
-      id: "gut",
-      title: "Prebiotic Fiber & Gut Nourishment",
-      desc: "Diverse plant-based prebiotic fibers supporting microbiome diversity, lipid clearance, and digestive ease.",
-      icon: "🥗",
-      highlight: "Microbiome & Lipid Health"
+      title: "Certified Human Performance Coaches",
+      desc: "Work with certified coaches who understand biomechanics, metabolic health, and real human longevity.",
+      icon: "🏅"
     },
     {
-      id: "lifestyle-meals",
-      title: "Real-World Meal Structuring",
-      desc: "Practical frameworks for home cooking, family meals, and dining out in Hyderabad without restrictive crash diets.",
-      icon: "🍲",
-      highlight: "Sustainable Consistency"
+      title: "90-Day Measurable Proof",
+      desc: "We track transformation with objective quarterly re-tests and DEXA scans to validate real internal progress.",
+      icon: "📈"
     }
   ],
 
-  // 6. 5-Step Detailed How It Works Roadmap
-  howItWorksSteps: [
-    {
-      num: "01",
-      title: "Start Your Assessment",
-      desc: "Complete your health intake and understand what baseline information is needed for your profile.",
-      badge: "Step 01"
-    },
-    {
-      num: "02",
-      title: "Measure Your Present Health",
-      desc: "Assess metabolic chemistry, body composition, joint mobility, and recovery metrics inside your community.",
-      badge: "Step 02"
-    },
-    {
-      num: "03",
-      title: "Receive Your Report",
-      desc: "Get your comprehensive Helevate Report detailing key observations, scores, and areas requiring attention.",
-      badge: "Step 03"
-    },
-    {
-      num: "04",
-      title: "Get Personalised Recommendations",
-      desc: "Receive individualized treatment, nutrition, and exercise guidance built around your report.",
-      badge: "Step 04"
-    },
-    {
-      num: "05",
-      title: "Follow Your Plan in Your Community",
-      desc: "Work with dedicated certified coaches in your clubhouse with 90-day progress re-testing.",
-      badge: "Step 05"
-    }
-  ],
-
-  // 7. 6 Clickable Service Categories (Connected to Pages)
-  services: [
-    {
-      id: "assessments",
-      name: "Health Assessments",
-      tagline: "Diagnostic blood panels, DEXA body scans & mobility screening.",
-      desc: "Comprehensive baseline diagnostics establishing your metabolic, cardiovascular, and physical parameters before any program begins.",
-      icon: "🔬",
-      link: "#/assessments",
-      badge: "Diagnostic Baseline"
-    },
-    {
-      id: "reports",
-      name: "Health Reports",
-      tagline: "Actionable health intelligence unifying all diagnostic data.",
-      desc: "Your custom Helevate Report translating complex clinical numbers into a plain-English, prioritized action plan for your daily routine.",
-      icon: "📊",
-      link: "#/reports",
-      badge: "Central Outcome"
-    },
-    {
-      id: "care",
-      name: "Personalised Treatment / Care",
-      tagline: "Structured guidance, coaching protocols & medical escalation.",
-      desc: "Evidence-based health guidance addressing metabolic risk factors, joint rehabilitation, and preventive cardiovascular care.",
-      icon: "🩺",
-      link: "#/care",
-      badge: "Targeted Health"
-    },
-    {
-      id: "nutrition",
-      name: "Nutrition & Diet",
-      tagline: "Bio-individual food recommendations and glycemic pacing.",
-      desc: "Personalised meal frameworks built around your blood chemistry, body composition targets, and sustainable everyday eating.",
-      icon: "🥗",
-      link: "#/nutrition",
-      badge: "Metabolic Fueling"
-    },
-    {
-      id: "fitness",
-      name: "Fitness & Performance",
-      tagline: "Coach-led strength training inside your society clubhouse.",
-      desc: "Progressive resistance training, postural alignment, and cardiovascular conditioning delivered directly in your community.",
-      icon: "🏋️",
-      link: "#/care",
-      badge: "In-Community"
-    },
-    {
-      id: "lifestyle",
-      name: "Lifestyle & Wellness",
-      tagline: "Sleep optimization, stress recovery & sustainable habits.",
-      desc: "Daily habit coaching designed to improve sleep depth, regulate circadian rhythm, and sustain high executive energy levels.",
-      icon: "🌙",
-      link: "#/care",
-      badge: "Habit Stacking"
-    }
-  ],
-
-  // 8. Authentic Member Testimonials (Hyderabad Gated Communities)
+  // 8. Authentic Member Testimonials (From PDF)
   testimonials: [
     {
       name: "Siddharth Rao",
-      role: "VP of Engineering • My Home Bhooja",
-      category: "Metabolic Health & Strength",
-      rating: 5,
-      review: "The blood panel and DEXA scan caught insulin resistance that regular executive checkups missed. Having Harish and the team coach me right in my society clubhouse made consistency effortless."
+      role: "VP of Engineering",
+      community: "My Home Bhooja, Hyderabad",
+      quote: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless."
     },
     {
       name: "Priyanka Reddy",
-      role: "Corporate Lawyer • Aparna Sarovar",
-      category: "Posture & Joint Mobility",
-      rating: 5,
-      review: "Years of desk work caused severe upper spine stiffness. The biomechanical assessment and tailored mobility plan restored my posture within 8 weeks. No commute friction is a game changer."
+      role: "Corporate Lawyer",
+      community: "Aparna Sarovar, Hyderabad",
+      quote: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction."
     },
     {
       name: "Anand Verma",
-      role: "Managing Director • Jubilee Hills",
-      category: "Nutrition & Biomarker Transformation",
-      rating: 5,
-      review: "The Helevate Report gave me a clear, scientific dietary framework without crazy crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss."
+      role: "Managing Director",
+      community: "Jubilee Hills, Hyderabad",
+      quote: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss."
     }
   ],
 
-  // 9. Trust Indicators & Statistics
-  trustMetrics: {
-    rating: "4.9 / 5.0",
-    reviewCount: "180+",
-    membersServed: "Gated Community Members in Hyderabad",
-    reassessmentRate: "94% 90-Day Retention",
-    verifiedBadges: ["Certified Human Performance Specialists", "Clinical Diagnostic Standards", "In-Community Clubhouse Delivery"]
-  }
+  // 9. Membership / Tier Structure (From PDF)
+  pricingTiers: [
+    {
+      id: "foundation",
+      name: "Foundation Tier",
+      badge: "Community Entry",
+      desc: "Group fitness and community coaching for consistent habit building.",
+      features: [
+        "Community group fitness sessions",
+        "Basic movement screening",
+        "Clubhouse coach support",
+        "Lifestyle habit guidance"
+      ]
+    },
+    {
+      id: "transformation",
+      name: "Transformation Tier",
+      badge: "Most Popular",
+      desc: "Personal strength coaching, nutrition planning, and DEXA body scans (e.g. H75).",
+      features: [
+        "1-on-1 Personal Strength Coaching",
+        "DEXA Body Composition Scan",
+        "Personalised Nutrition Blueprint",
+        "Continuous coach accountability",
+        "Quarterly 90-day re-testing"
+      ]
+    },
+    {
+      id: "precision",
+      name: "Precision Tier",
+      badge: "Complete Diagnostic",
+      desc: "Comprehensive diagnostics + Metabolic Panel + Gut Microbiome + DNA testing.",
+      features: [
+        "Full Metabolic Health Panel (ApoB, Insulin, hs-CRP)",
+        "DEXA Scan + Gut Microbiome & DNA Testing",
+        "The Comprehensive Helevate Report",
+        "Dedicated Human Performance Coach",
+        "Full medical-grade reassessment loop"
+      ]
+    }
+  ],
+
+  // 10. Hyderabad Gated Communities List
+  communities: [
+    "My Home Bhooja",
+    "Aparna Sarovar",
+    "Jubilee Hills",
+    "Gachibowli",
+    "Financial District",
+    "Hitec City",
+    "Kokapet",
+    "Narsingi",
+    "Kondapur",
+    "Madhapur"
+  ]
 };
 
 if (typeof window !== 'undefined') {

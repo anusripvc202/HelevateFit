@@ -1,15 +1,13 @@
 /**
  * HELEVATE.FIT — CLIENT ROUTER
  * Handles clean client-side hash routing across:
- * - / (Complete 12-section Homepage)
- * - /assessments (Dedicated Assessments Page)
- * - /reports (Sample Helevate Report Deep-Dive)
- * - /care (Personalised Care & Treatment Pathways)
- * - /nutrition (Personalised Food & Diet Guidance)
+ * - / (Concise Homepage with conversion flow)
  * - /how-it-works (5-Step Operational Roadmap)
- * - /reviews (Community Testimonials & Trust)
- * - /about (Mission, Science & Operations)
- * - /get-started & /booking (Quick Intake Modal)
+ * - /assessments (Comprehensive Diagnostic Panels)
+ * - /services (Strength, Fat-Loss H75, Nutrition & Group Coaching)
+ * - /about (Mission, Story, Team & Standards)
+ * - /contact (Consultation Booking & RWA Community Referral)
+ * - /privacy & /terms (Legal views)
  */
 
 const Router = {
@@ -85,59 +83,40 @@ const Router = {
         this.showView("view-home");
         break;
 
-      case "/assessments":
-      case "/assessment":
-        this.showView("view-assessments");
-        break;
-
-      case "/reports":
-      case "/report":
-      case "/helevate-report":
-        this.showView("view-reports");
-        break;
-
-      case "/care":
-      case "/treatment":
-      case "/guidance":
-      case "/care-pathways":
-        this.showView("view-care");
-        break;
-
-      case "/nutrition":
-      case "/diet":
-      case "/food":
-      case "/nutrition-guidance":
-        this.showView("view-nutrition");
-        break;
-
       case "/how-it-works":
       case "/process":
       case "/roadmap":
+      case "/methodology":
         this.showView("view-how-it-works");
         break;
 
-      case "/reviews":
-      case "/testimonials":
-      case "/stories":
-      case "/results":
-        this.showView("view-reviews");
+      case "/assessments":
+      case "/assessment":
+      case "/diagnostics":
+      case "/panels":
+        this.showView("view-assessments");
+        break;
+
+      case "/services":
+      case "/programs":
+      case "/care":
+      case "/guidance":
+      case "/nutrition":
+        this.showView("view-services");
         break;
 
       case "/about":
       case "/about-us":
       case "/mission":
+      case "/team":
         this.showView("view-about");
         break;
 
-      case "/services":
-      case "/approach":
-        this.showView("view-home");
-        setTimeout(() => {
-          const servicesSection = document.getElementById("homepage-services");
-          if (servicesSection) {
-            servicesSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
+      case "/contact":
+      case "/communities":
+      case "/refer":
+      case "/location":
+        this.showView("view-contact");
         break;
 
       case "/get-started":
@@ -172,3 +151,4 @@ const Router = {
 if (typeof window !== 'undefined') {
   window.Router = Router;
 }
+
