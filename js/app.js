@@ -267,6 +267,26 @@ const App = {
         this.openIntakeModal();
         return;
       }
+
+      // Career Apply Role Trigger
+      const applyRoleBtn = e.target.closest('.apply-role-trigger');
+      if (applyRoleBtn) {
+        e.preventDefault();
+        const roleName = applyRoleBtn.getAttribute('data-role');
+        const roleSelect = document.getElementById('career-role');
+        if (roleSelect && roleName) {
+          roleSelect.value = roleName;
+        }
+        const formContainer = document.getElementById('career-form-container') || document.getElementById('career-apply-form');
+        if (formContainer) {
+          formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const nameInput = document.getElementById('career-name');
+          if (nameInput) {
+            setTimeout(() => nameInput.focus(), 400);
+          }
+        }
+        return;
+      }
     });
 
     // Find Us Search Input live filtering
