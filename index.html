@@ -1457,126 +1457,235 @@
          VIEW 5: ABOUT PAGE
          ====================================================================== -->
     <div class="app-view" id="view-about">
-      <section class="subview-hero">
+      <!-- 1. Hero Banner -->
+      <section class="subview-hero" style="padding: 60px 0 52px; text-align: center;">
         <div class="container">
-          <span class="badge badge-navy">About Us</span>
-          <h1>About Helevate Fit</h1>
-          <p>Bring precision health — normally reserved for elite athletes and expensive clinics — to everyday people, delivered where they live.</p>
+          <div>
+            <span class="badge badge-teal" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2); margin-bottom: 14px;">About Helevate Fit</span>
+            <h1 style="color: #FFFFFF; font-size: clamp(2.2rem, 4vw, 3rem); max-width: 780px; margin: 0 auto 14px; line-height: 1.2; font-weight: 800;">
+              Precision Health. Delivered Where You Live.
+            </h1>
+            <p style="color: #DDF1EF; font-size: clamp(1rem, 1.3vw, 1.15rem); max-width: 680px; margin: 0 auto; line-height: 1.65; font-weight: 400;">
+              We bring clinical biomarker diagnostics and certified on-site human performance coaching directly inside Hyderabad's premier gated communities.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="section">
+      <!-- 2. The Helevate Story & Founder Vision -->
+      <section class="section" style="background: #FFFFFF;">
         <div class="container">
-          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center;" class="reveal-up">
+          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: stretch;" class="reveal-up">
             <div>
-              <span class="badge badge-teal">Our Purpose</span>
-              <h2 class="section-title">The Helevate Story: "Not Ordinary"</h2>
-              <p style="font-size: 1.05rem; color: var(--color-text-main); line-height: 1.7; margin-bottom: 16px;">
-                Most fitness programs guess. Generic workouts, generic diets, generic advice — regardless of what’s actually happening inside your body. By the time a routine check-up flags something, the underlying pattern has often been building for years.
+              <span class="badge badge-teal" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2); margin-bottom: 12px;">Our Purpose</span>
+              <h2 class="section-title" style="color: #0E3A5D; font-weight: 800; font-size: clamp(1.8rem, 2.5vw, 2.3rem); margin-bottom: 20px;">
+                The Helevate Story: "Not Ordinary"
+              </h2>
+              <p style="font-size: 1.05rem; color: #153255; line-height: 1.75; margin-bottom: 16px;">
+                Most fitness programs guess. Generic workouts, generic diets, generic advice — regardless of what’s actually happening inside your body. By the time a routine check-up flags something, the underlying cardiometabolic pattern has often been building unnoticed for years.
               </p>
-              <p style="font-size: 1.05rem; color: var(--color-text-main); line-height: 1.7; margin-bottom: 16px;">
-                <strong>Helevate is different.</strong> We combine precision diagnostics (metabolic panels, DEXA scans, microbiome testing) with personalized coaching that acts on the data, delivered directly inside gated communities in Hyderabad.
+              <p style="font-size: 1.05rem; color: #153255; line-height: 1.75; margin-bottom: 16px;">
+                <strong style="color: #0E3A5D;">Helevate was founded to bridge this gap.</strong> We combine precision diagnostics (metabolic blood panels, DEXA visceral scans, microbiome testing) with certified coaching that immediately acts on the data, delivered directly inside gated community clubhouses.
               </p>
-              <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+              <p style="font-size: 1rem; color: #2C4A63; line-height: 1.7;">
                 Our tone is calm, scientific, and anti-hustle-culture. We believe real human performance and health longevity come from data-led consistency, not exhausting bootcamps.
               </p>
             </div>
 
-            <!-- Founder Box -->
-            <div style="background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-subtle);">
-              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px;">
-                <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary-navy) 0%, #154D7A 100%); color: #00D2B4; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); box-shadow: 0 4px 14px rgba(7, 26, 46, 0.15);">HP</div>
-                <div>
-                  <h4 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-primary-navy); margin: 0;">Harish P</h4>
-                  <div style="font-size: 0.88rem; color: var(--color-text-muted);">Founder & Head Coach</div>
-                  <span class="badge badge-teal" style="margin-top: 4px;">Certified Human Performance Coach</span>
+            <!-- Founder Spotlight Box -->
+            <div class="founder-spotlight-card" style="padding: 34px 28px; box-shadow: 0 16px 40px rgba(7, 26, 46, 0.2);">
+              <div>
+                <div class="founder-header-row">
+                  <div class="founder-avatar-badge">HP</div>
+                  <div class="founder-info">
+                    <h3 style="color: #FFFFFF; font-size: 1.35rem;">Harish P</h3>
+                    <div class="founder-role-text">Founder & Head of Human Performance</div>
+                    <span class="founder-cred-pill">Certified Human Performance Coach • Gated Community Pioneer</span>
+                  </div>
+                </div>
+
+                <div class="founder-quote-box" style="margin: 16px 0;">
+                  <blockquote class="founder-quote-text" style="font-size: 0.95rem; line-height: 1.65; color: #F0F6FC;">
+                    “Diagnose AND act, in the same relationship, in the same building. We give residents an objective starting point and on-site coaching to elevate their everyday vitality.”
+                  </blockquote>
+                </div>
+
+                <div class="founder-impact-stats" style="margin: 14px 0 0; padding-top: 14px;">
+                  <div class="founder-stat-item">
+                    <span class="founder-stat-num">500+</span>
+                    <span class="founder-stat-lbl">Residents Coached</span>
+                  </div>
+                  <div class="founder-stat-item">
+                    <span class="founder-stat-num">12+</span>
+                    <span class="founder-stat-lbl">Societies Active</span>
+                  </div>
+                  <div class="founder-stat-item">
+                    <span class="founder-stat-num">94%</span>
+                    <span class="founder-stat-lbl">Adherence Rate</span>
+                  </div>
                 </div>
               </div>
-              <blockquote style="font-style: italic; color: var(--color-text-main); line-height: 1.65; margin: 0 0 16px; font-size: 0.95rem;">
-                “Diagnose AND act, in the same relationship, in the same building. We give residents an objective starting point and on-site coaching to elevate their everyday vitality.”
-              </blockquote>
-              <div style="font-size: 0.84rem; color: var(--color-text-muted); border-top: 1px solid var(--color-border-subtle); padding-top: 12px;">
-                📍 Registered HQ: 4th Floor, JK Business Centre, Road No. 36, Jubilee Hills, Hyderabad – 500033, Telangana
+
+              <div style="font-size: 0.82rem; color: #DDF1EF; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 14px; margin-top: 14px; opacity: 0.9;">
+                📍 Registered HQ: 4th Floor, JK Business Centre, Road No. 36, Jubilee Hills, Hyderabad – 500033
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Team Section -->
-      <section class="section" style="background: var(--color-bg-subtle); border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle);">
+      <!-- 3. Our 4 Core Operating Pillars -->
+      <section class="section" style="background: #F8FAFC; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-navy">Multidisciplinary Expertise</span>
-            <h2 class="section-title">Our Performance & Clinical Team</h2>
-            <p class="section-subtitle">
+            <span class="badge badge-navy" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2);">The Helevate Standard</span>
+            <h2 class="section-title" style="color: #0E3A5D; font-weight: 800;">Four Pillars of Precision Longevity</h2>
+            <p class="section-subtitle" style="color: #2C4A63; font-size: 1.05rem;">
+              How our integrated clinical model differs fundamentally from traditional commercial fitness.
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 36px;" class="reveal-up">
+            <!-- Pillar 1 -->
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 20px; box-shadow: var(--shadow-subtle);">
+              <div style="font-size: 2rem; margin-bottom: 12px;">🔬</div>
+              <h4 style="color: #0E3A5D; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">01. Doorstep Diagnostics</h4>
+              <p style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 0;">Comprehensive NABL metabolic panels and DEXA scans scheduled right at your community doorstep with zero travel friction.</p>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 20px; box-shadow: var(--shadow-subtle);">
+              <div style="font-size: 2rem; margin-bottom: 12px;">🥗</div>
+              <h4 style="color: #0E3A5D; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">02. Clinical Nutrition</h4>
+              <p style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 0;">Registered Dietitians construct whole-food glycemic frameworks calibrated to your actual fasting insulin and ApoB lipid numbers.</p>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 20px; box-shadow: var(--shadow-subtle);">
+              <div style="font-size: 2rem; margin-bottom: 12px;">🏋️</div>
+              <h4 style="color: #0E3A5D; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">03. Clubhouse Coaching</h4>
+              <p style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 0;">Certified CSCS coaches lead 1-on-1 and small group strength protocols directly inside your residential clubhouse gym.</p>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 20px; box-shadow: var(--shadow-subtle);">
+              <div style="font-size: 2rem; margin-bottom: 12px;">🔄</div>
+              <h4 style="color: #0E3A5D; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">04. Day 90 Audit</h4>
+              <p style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 0;">Follow-up blood panels and DEXA imaging objectively quantify visceral fat reduction, muscle retention, and cardiometabolic improvements.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Performance & Clinical Advisory Team -->
+      <section class="section" style="background: #FFFFFF;">
+        <div class="container">
+          <div class="section-header text-center reveal-up">
+            <span class="badge badge-navy" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2);">Multidisciplinary Expertise</span>
+            <h2 class="section-title" style="color: #0E3A5D; font-weight: 800;">Our Performance & Clinical Team</h2>
+            <p class="section-subtitle" style="color: #2C4A63; font-size: 1.05rem;">
               Every member of our team is certified and rigorously trained to interpret biomarker data and coach with precision.
             </p>
           </div>
 
-          <div class="team-grid-4">
-            <div class="team-member-card reveal-up">
+          <div class="team-grid-4 reveal-up">
+            <!-- Member 1: Harish P -->
+            <div class="team-member-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 22px; box-shadow: 0 4px 18px rgba(7, 26, 46, 0.05);">
               <div>
                 <div class="team-card-header">
                   <div class="team-avatar-box"><span class="team-avatar-initials">HP</span></div>
                   <div class="team-header-meta">
-                    <h3 class="team-member-name">Harish P</h3>
-                    <div class="team-member-title">Founder & Head Coach</div>
-                    <span class="badge badge-teal team-cred-badge">Certified Human Performance Coach</span>
+                    <h3 class="team-member-name" style="color: #0E3A5D; font-size: 1.15rem; font-weight: 800;">Harish P</h3>
+                    <div class="team-member-title" style="color: #2C4A63; font-size: 0.84rem; font-weight: 600;">Founder & Head Coach</div>
+                    <span class="badge badge-teal team-cred-badge" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(0, 210, 180, 0.35);">Certified Performance Coach</span>
                   </div>
                 </div>
-                <p class="team-member-bio">
+                <p class="team-member-bio" style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 12px 0 16px;">
                   Pioneered Helevate's diagnostic-first on-site coaching model. Specializes in biomechanical optimization, cardiovascular base building, and sustainable longevity architectures.
                 </p>
               </div>
+              <div style="background: #F0F4F8; color: #0E3A5D; font-size: 0.76rem; font-weight: 700; padding: 6px 10px; border-radius: var(--radius-md); border: 1px solid #E2E8F0; display: flex; align-items: center; gap: 6px; margin-top: auto;">
+                <span>🏋️</span> Biomechanics & Longevity Architecture
+              </div>
             </div>
 
-            <div class="team-member-card reveal-up">
+            <!-- Member 2: Dr. S. Ananya -->
+            <div class="team-member-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 22px; box-shadow: 0 4px 18px rgba(7, 26, 46, 0.05);">
               <div>
                 <div class="team-card-header">
                   <div class="team-avatar-box"><span class="team-avatar-initials">SA</span></div>
                   <div class="team-header-meta">
-                    <h3 class="team-member-name">Dr. S. Ananya</h3>
-                    <div class="team-member-title">Clinical Nutrition Lead</div>
-                    <span class="badge badge-navy team-cred-badge">Registered Clinical Dietitian (RD)</span>
+                    <h3 class="team-member-name" style="color: #0E3A5D; font-size: 1.15rem; font-weight: 800;">Dr. S. Ananya</h3>
+                    <div class="team-member-title" style="color: #2C4A63; font-size: 0.84rem; font-weight: 600;">Clinical Nutrition Lead</div>
+                    <span class="badge badge-teal team-cred-badge" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(0, 210, 180, 0.35);">Registered Dietitian (RD)</span>
                   </div>
                 </div>
-                <p class="team-member-bio">
+                <p class="team-member-bio" style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 12px 0 16px;">
                   Translates comprehensive metabolic blood panels and lipid subfractions into actionable whole-food nutrition frameworks tailored to real Indian family meal structures.
                 </p>
               </div>
+              <div style="background: #F0F4F8; color: #0E3A5D; font-size: 0.76rem; font-weight: 700; padding: 6px 10px; border-radius: var(--radius-md); border: 1px solid #E2E8F0; display: flex; align-items: center; gap: 6px; margin-top: auto;">
+                <span>🥗</span> Glycemic Pacing & Indian Diets
+              </div>
             </div>
 
-            <div class="team-member-card reveal-up">
+            <!-- Member 3: Vikram Aditya -->
+            <div class="team-member-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 22px; box-shadow: 0 4px 18px rgba(7, 26, 46, 0.05);">
               <div>
                 <div class="team-card-header">
                   <div class="team-avatar-box"><span class="team-avatar-initials">VA</span></div>
                   <div class="team-header-meta">
-                    <h3 class="team-member-name">Vikram Aditya</h3>
-                    <div class="team-member-title">Strength & Conditioning Coach</div>
-                    <span class="badge badge-teal team-cred-badge">CSCS Certified Strength Coach</span>
+                    <h3 class="team-member-name" style="color: #0E3A5D; font-size: 1.15rem; font-weight: 800;">Vikram Aditya</h3>
+                    <div class="team-member-title" style="color: #2C4A63; font-size: 0.84rem; font-weight: 600;">Head of Strength & Conditioning</div>
+                    <span class="badge badge-teal team-cred-badge" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(0, 210, 180, 0.35);">CSCS Certified Coach</span>
                   </div>
                 </div>
-                <p class="team-member-bio">
+                <p class="team-member-bio" style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 12px 0 16px;">
                   Leads society clubhouse strength training and individual coaching. Focuses on safe progressive overload, postural restoration, and building lean muscle mass.
                 </p>
               </div>
+              <div style="background: #F0F4F8; color: #0E3A5D; font-size: 0.76rem; font-weight: 700; padding: 6px 10px; border-radius: var(--radius-md); border: 1px solid #E2E8F0; display: flex; align-items: center; gap: 6px; margin-top: auto;">
+                <span>🏋️</span> Progressive Overload & Hypertrophy
+              </div>
             </div>
 
-            <div class="team-member-card reveal-up">
+            <!-- Member 4: Meera Nair -->
+            <div class="team-member-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 22px; box-shadow: 0 4px 18px rgba(7, 26, 46, 0.05);">
               <div>
                 <div class="team-card-header">
                   <div class="team-avatar-box"><span class="team-avatar-initials">MN</span></div>
                   <div class="team-header-meta">
-                    <h3 class="team-member-name">Meera Nair</h3>
-                    <div class="team-member-title">Mobility & Recovery Lead</div>
-                    <span class="badge badge-navy team-cred-badge">FMS Certified Movement Specialist</span>
+                    <h3 class="team-member-name" style="color: #0E3A5D; font-size: 1.15rem; font-weight: 800;">Meera Nair</h3>
+                    <div class="team-member-title" style="color: #2C4A63; font-size: 0.84rem; font-weight: 600;">Mobility & Recovery Lead</div>
+                    <span class="badge badge-teal team-cred-badge" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(0, 210, 180, 0.35);">FMS Level 2 Specialist</span>
                   </div>
                 </div>
-                <p class="team-member-bio">
+                <p class="team-member-bio" style="color: #153255; font-size: 0.88rem; line-height: 1.6; margin: 12px 0 16px;">
                   Integrates Functional Movement Systems (FMS), restorative breathwork, and circadian sleep optimization to reduce systemic inflammation.
                 </p>
               </div>
+              <div style="background: #F0F4F8; color: #0E3A5D; font-size: 0.76rem; font-weight: 700; padding: 6px 10px; border-radius: var(--radius-md); border: 1px solid #E2E8F0; display: flex; align-items: center; gap: 6px; margin-top: auto;">
+                <span>🌙</span> Mobility, Sleep & Autonomic Recovery
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Call To Action Banner -->
+      <section class="section" style="background: linear-gradient(145deg, #072238 0%, #0E3A5D 100%); color: #FFFFFF; padding: 56px 0; text-align: center;">
+        <div class="container">
+          <div class="reveal-up" style="max-width: 700px; margin: 0 auto;">
+            <span class="badge badge-teal" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2); margin-bottom: 14px;">Begin Your Journey</span>
+            <h2 style="color: #FFFFFF; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 800; margin-bottom: 14px; line-height: 1.25;">
+              Ready to Experience Precision Health in Your Community?
+            </h2>
+            <p style="color: #DDF1EF; font-size: 1.05rem; line-height: 1.65; margin-bottom: 28px;">
+              Book an initial diagnostic consultation or inquire about bringing Helevate to your gated community clubhouse.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <button class="btn btn-teal btn-lg open-intake-trigger">Book a Free Baseline Consultation →</button>
+              <button class="btn btn-outline-white btn-lg book-society-trigger">Partner With Your Society</button>
             </div>
           </div>
         </div>
