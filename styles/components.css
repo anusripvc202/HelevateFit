@@ -389,16 +389,21 @@
 }
 
 /* ==========================================================================
-   4. HERO SECTION (ULTRAHUMAN / TULAH CALM PRECISION)
+   4. HERO SECTION (ULTRAHUMAN PERFORMANCE LAB INFLUENCE • EDITORIAL CINEMATIC)
    ========================================================================== */
-.hero-performance {
-  padding: 42px 0 38px;
-  background: radial-gradient(circle at 82% 28%, rgba(0, 210, 180, 0.18) 0%, transparent 48%),
-              radial-gradient(circle at 12% 70%, rgba(14, 58, 93, 0.48) 0%, transparent 45%),
-              linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
+.hero-cinematic {
+  min-height: calc(88vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 0 64px;
   position: relative;
   overflow: hidden;
+  background: radial-gradient(circle at 50% 10%, rgba(0, 210, 180, 0.22) 0%, transparent 58%),
+              radial-gradient(circle at 85% 75%, rgba(14, 58, 93, 0.48) 0%, transparent 52%),
+              linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
 }
 
 .hero-ambient-video {
@@ -417,67 +422,504 @@
 .hero-video-scrim {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(5, 22, 38, 0.5) 0%, rgba(5, 22, 38, 0.92) 80%),
+  background: radial-gradient(circle at 50% 30%, rgba(5, 22, 38, 0.45) 0%, rgba(5, 22, 38, 0.92) 80%),
               linear-gradient(180deg, rgba(5, 22, 38, 0.3) 0%, rgba(5, 22, 38, 0.95) 100%);
   pointer-events: none;
   z-index: 1;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 28px;
-  align-items: center;
+.hero-cinematic-inner {
+  max-width: 860px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero-copy {
-  max-width: 540px;
-}
-
-.hero-title {
+.hero-display-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
-  line-height: 1.15;
-  color: #FFFFFF;
-  margin-top: 10px;
-  margin-bottom: 12px;
+  font-size: clamp(2.3rem, 5.2vw, 4.1rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #FFFFFF;
+  letter-spacing: -0.035em;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
-.hero-title span.text-teal {
-  background: linear-gradient(135deg, #00D2B4 0%, #76EDDF 100%);
+.hero-accent-text {
+  background: linear-gradient(135deg, #00D2B4 0%, #1AF0D2 50%, #76EDDF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.hero-subtext {
+.hero-supporting-text {
   font-family: var(--font-body);
-  font-size: 0.96rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
   color: #B4CCE0;
-  line-height: 1.55;
-  margin-bottom: 20px;
+  line-height: 1.65;
+  max-width: 680px;
+  margin: 0 auto 30px;
   font-weight: 400;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-/* Hero Telemetry & Report Preview Hub */
-.hero-telemetry-hub {
-  background: rgba(11, 37, 64, 0.78);
+.hero-pill-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.hero-pill {
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(0, 210, 180, 0.28);
+  border-radius: var(--radius-full);
+  padding: 7px 16px;
+  color: #D1E5F5;
+  font-size: 0.84rem;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.hero-pill:hover {
+  background: rgba(0, 210, 180, 0.14);
+  border-color: rgba(0, 210, 180, 0.6);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4B. HEALTH JOURNEY 4-STAGE PIPELINE (MEASURE, ANALYSE, PERSONALISE, GUIDE)
+   ========================================================================== */
+.journey-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.journey-stage-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-stage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00D2B4 0%, #0E3A5D 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.journey-stage-card:hover {
+  border-color: rgba(0, 210, 180, 0.45);
+  transform: translateY(-4px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card-hover);
+}
+
+.journey-stage-card:hover::before {
+  opacity: 1;
+}
+
+.journey-stage-badge {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #008774;
+  background: #EDF8F7;
+  border: 1px solid rgba(0, 210, 180, 0.25);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+
+.journey-stage-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.journey-stage-card p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4C. CURRENT HEALTH → PERSONAL PLAN PIPELINE VISUAL
+   ========================================================================== */
+.pipeline-flow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 36px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.pipeline-node-card {
+  flex: 1;
+  min-width: 170px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.pipeline-node-card:hover {
+  border-color: rgba(0, 210, 180, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 210, 180, 0.12);
+}
+
+.pipeline-node-step {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #008774;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.pipeline-node-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.3;
+}
+
+.pipeline-connector-arrow {
+  color: #00D2B4;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   4D. FLOATING ASSESSMENT TELEMETRY DASHBOARD
+   ========================================================================== */
+.assessment-floating-dashboard {
+  background: linear-gradient(145deg, #051626 0%, #071A2E 55%, #0B2540 100%);
+  border: 1px solid rgba(0, 210, 180, 0.3);
+  border-radius: var(--radius-2xl);
+  padding: 36px 32px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 60px rgba(5, 22, 38, 0.28), 0 0 36px rgba(0, 210, 180, 0.12);
+  color: #FFFFFF;
+  margin-top: 32px;
+}
+
+.dashboard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.dashboard-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.dashboard-dial-panel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.dashboard-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.dashboard-metric-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
   padding: 16px 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 210, 180, 0.1);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  transition: all var(--transition-fast);
+}
+
+.dashboard-metric-box:hover {
+  background: rgba(0, 210, 180, 0.08);
+  border-color: rgba(0, 210, 180, 0.35);
+  transform: translateY(-2px);
+}
+
+.dashboard-metric-label {
+  font-size: 0.78rem;
+  color: #B4CCE0;
+  margin-bottom: 4px;
+}
+
+.dashboard-metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.dashboard-metric-status {
+  font-size: 0.72rem;
+  color: #00D2B4;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   4E. PERSONALISED REPORT RECOMMENDATION CARDS
+   ========================================================================== */
+.recommendation-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.recommendation-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-normal);
+}
+
+.recommendation-card:hover {
+  border-color: rgba(0, 210, 180, 0.45);
+  transform: translateY(-4px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card-hover);
+}
+
+.recommendation-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.recommendation-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.recommendation-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4F. FOOD + WELLNESS EDITORIAL SECTION
+   ========================================================================== */
+.food-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.food-editorial-media {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(7, 26, 46, 0.12);
+  height: 440px;
+}
+
+.food-editorial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.food-editorial-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(7, 26, 46, 0.82);
+  border: 1px solid rgba(0, 210, 180, 0.4);
+  color: #00D2B4;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+}
+
+.food-benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.food-benefit-item {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.food-benefit-item:hover {
+  border-color: rgba(0, 210, 180, 0.35);
+  transform: translateX(4px);
+}
+
+.food-benefit-item h5 {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 4px;
+}
+
+.food-benefit-item p {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4G. MINIMALIST MILESTONE STATISTICS
+   ========================================================================== */
+.milestone-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.milestone-stat-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.milestone-stat-card:hover {
+  border-color: rgba(0, 210, 180, 0.45);
+  transform: translateY(-4px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), var(--shadow-card);
+}
+
+.milestone-stat-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #00D2B4;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.milestone-stat-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.milestone-stat-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4H. FINAL CINEMATIC CLOSING CTA
+   ========================================================================== */
+.final-cinematic-cta-box {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 210, 180, 0.22) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(14, 58, 93, 0.5) 0%, transparent 50%),
+              linear-gradient(145deg, #051626 0%, #071A2E 55%, #0B2540 100%);
+  border: 1px solid rgba(0, 210, 180, 0.3);
+  border-radius: var(--radius-2xl);
+  padding: 70px 40px;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 24px 60px rgba(5, 22, 38, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cinematic-cta-box h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+
+.final-cinematic-cta-box p {
+  font-size: 1.1rem;
+  color: #B4CCE0;
+  max-width: 600px;
+  margin: 0 auto 28px;
 }
 
 /* ==========================================================================
@@ -2175,6 +2617,35 @@
     gap: 36px;
   }
 
+  .journey-stages-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .recommendation-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .food-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .food-editorial-media {
+    height: 320px;
+  }
+
+  .milestone-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .dashboard-grid-main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .timeline-grid-4 {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
@@ -2246,6 +2717,44 @@
     padding: 52px 0;
   }
 
+  .hero-cinematic {
+    padding: 54px 0 48px;
+    min-height: auto;
+  }
+
+  .journey-stages-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pipeline-flow-wrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pipeline-connector-arrow {
+    transform: rotate(90deg);
+  }
+
+  .dashboard-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .recommendation-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .food-editorial-media {
+    height: 240px;
+  }
+
+  .milestone-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
   .assessments-compact-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -2277,7 +2786,8 @@
     gap: 24px;
   }
 
-  .final-cta-box {
+  .final-cta-box,
+  .final-cinematic-cta-box {
     padding: 36px 22px;
   }
 

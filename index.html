@@ -28,16 +28,17 @@
 
       <!-- Desktop Navigation Links -->
       <nav class="nav-links" id="desktop-nav" aria-label="Main Navigation">
+        <a href="#/" class="nav-link active">Home</a>
         <a href="#/how-it-works" class="nav-link">How It Works</a>
         <a href="#/assessments" class="nav-link">Assessments</a>
-        <a href="#/services" class="nav-link">Services</a>
+        <a href="#/services" class="nav-link">Personalised Wellness</a>
         <a href="#/about" class="nav-link">About</a>
         <a href="#/contact" class="nav-link">Contact</a>
       </nav>
 
       <!-- Header Action CTA -->
       <div class="header-actions">
-        <button class="btn btn-primary btn-sm open-intake-trigger" id="header-get-started-btn">Start Assessment</button>
+        <button class="btn btn-primary btn-sm open-intake-trigger" id="header-get-started-btn">Get Started</button>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -60,15 +61,16 @@
         <button id="close-drawer-btn" style="background: none; border: none; font-size: 1.5rem; color: var(--color-text-muted); cursor: pointer;">&times;</button>
       </div>
       <nav style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#/" class="nav-link-mobile active">Home</a>
         <a href="#/how-it-works" class="nav-link-mobile">How It Works</a>
         <a href="#/assessments" class="nav-link-mobile">Assessments</a>
-        <a href="#/services" class="nav-link-mobile">Services</a>
+        <a href="#/services" class="nav-link-mobile">Personalised Wellness</a>
         <a href="#/about" class="nav-link-mobile">About</a>
         <a href="#/contact" class="nav-link-mobile">Contact</a>
       </nav>
     </div>
     <div style="padding-top: 20px; border-top: 1px solid var(--color-border-subtle);">
-      <button class="btn btn-primary open-intake-trigger" id="mobile-get-started-btn" style="width: 100%;">Start Assessment</button>
+      <button class="btn btn-primary open-intake-trigger" id="mobile-get-started-btn" style="width: 100%;">Get Started</button>
     </div>
   </div>
 
@@ -78,12 +80,12 @@
   <main id="main-content">
 
     <!-- ======================================================================
-         VIEW 1: HOMEPAGE (CONCISE OVERVIEW & CONVERSION)
+         VIEW 1: HOMEPAGE (PREMIER HEALTH-PERFORMANCE EXPERIENCE)
          ====================================================================== -->
     <div class="app-view active" id="view-home">
 
-      <!-- 1. HERO SECTION -->
-      <section class="hero-performance">
+      <!-- 1. HERO SECTION — HIGH IMPACT & CINEMATIC -->
+      <section class="hero-cinematic" id="homepage-hero">
         <!-- Ambient Cinematic Video Background -->
         <video class="hero-ambient-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1600&auto=format&fit=crop&q=80">
           <source src="assets/video-performance.webm" type="video/webm">
@@ -92,283 +94,300 @@
         <div class="hero-video-scrim"></div>
 
         <div class="container">
-          <div class="hero-grid">
-            <!-- Hero Copy -->
-            <div class="hero-copy reveal-up">
-              <span class="badge badge-teal"><span class="live-pulse-dot"></span> Precision Health & Personalised Wellness</span>
-              <h1 class="hero-title">
-                Understand Your Health. <br>
-                <span class="text-teal">Know What Your Body Needs.</span>
-              </h1>
-              <p class="hero-subtext">
-                Assess your current health, understand your results, and receive personalised guidance for treatment, lifestyle, and nutrition — delivered directly inside your gated community.
-              </p>
-              <div class="hero-actions">
-                <button class="btn btn-teal btn-lg open-intake-trigger">Start Your Assessment →</button>
-                <a href="#/how-it-works" class="btn btn-ghost-dark btn-lg">How It Works</a>
-              </div>
+          <div class="hero-cinematic-inner reveal-up">
+            <span class="badge badge-teal"><span class="live-pulse-dot"></span> Precision Health & Personalised Wellness</span>
+            <h1 class="hero-display-title">
+              Understand Your Health.<br>
+              <span class="hero-accent-text">Personalise Your Wellness.</span>
+            </h1>
+            <p class="hero-supporting-text">
+              Measure your current health, understand what your body needs, and get personalised guidance based on your results.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-teal btn-lg open-intake-trigger">Discover Your Health →</button>
+              <a href="#homepage-journey" class="btn btn-ghost-dark btn-lg">Explore Helevate Fit ↓</a>
+            </div>
+            
+            <div class="hero-pill-strip">
+              <span class="hero-pill">🔬 NABL Clinical Diagnostics</span>
+              <span class="hero-pill">📊 DEXA Body Composition</span>
+              <span class="hero-pill">🏡 Gated Community Delivery</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. HEALTH JOURNEY SECTION (4-STAGE VISUAL STORYTELLING) -->
+      <section class="section" id="homepage-journey">
+        <div class="container">
+          <div class="section-header text-center reveal-up">
+            <span class="badge badge-navy">The Health Journey</span>
+            <h2 class="section-title">Understand, Interpret & Guide</h2>
+            <p class="section-subtitle">
+              A clear, continuous four-stage methodology turning objective biological data into daily lifestyle vitality.
+            </p>
+          </div>
+
+          <div class="journey-stages-grid">
+            <div class="journey-stage-card reveal-up">
+              <span class="journey-stage-badge">01 — MEASURE</span>
+              <h3>Measure</h3>
+              <p>Understand your current health with comprehensive clinical blood panels, metabolic markers, and DEXA scans.</p>
             </div>
 
-            <!-- Hero Telemetry & Report Preview Hub -->
-            <div class="hero-telemetry-hub reveal-up">
-              <div class="hub-top-bar">
-                <span class="hub-title">Helevate Report • Baseline Intelligence</span>
-                <span class="badge badge-teal" style="font-size: 0.72rem;">Hyderabad Community</span>
-              </div>
+            <div class="journey-stage-card reveal-up">
+              <span class="journey-stage-badge">02 — ANALYSE</span>
+              <h3>Analyse</h3>
+              <p>Interpret your health assessment results across cardiovascular risk, insulin sensitivity, and visceral fat.</p>
+            </div>
 
-              <!-- Central Score Dial -->
-              <div class="hub-score-card">
-                <div class="hub-dial-wrap">
-                  <svg class="hub-dial-svg" viewBox="0 0 36 36">
+            <div class="journey-stage-card reveal-up">
+              <span class="journey-stage-badge">03 — PERSONALISE</span>
+              <h3>Personalise</h3>
+              <p>Identify what your body needs to optimize daily energy, build lean muscle, and support long-term longevity.</p>
+            </div>
+
+            <div class="journey-stage-card reveal-up">
+              <span class="journey-stage-badge">04 — GUIDE</span>
+              <h3>Guide</h3>
+              <p>Receive personalised wellness recommendations with certified coaching delivered inside your community.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CURRENT HEALTH → PERSONAL PLAN (PIPELINE FLOW GRAPHIC) -->
+      <section class="section section-light-blue" id="homepage-pipeline">
+        <div class="container">
+          <div class="section-header text-center reveal-up">
+            <span class="badge badge-teal">The Flow</span>
+            <h2 class="section-title">Your Current Health → Personal Plan</h2>
+            <p class="section-subtitle">
+              How objective baseline measurements directly translate into targeted daily guidance.
+            </p>
+          </div>
+
+          <div class="pipeline-flow-wrap reveal-up">
+            <div class="pipeline-node-card">
+              <div class="pipeline-node-step">Start</div>
+              <div class="pipeline-node-title">Your Current Health</div>
+            </div>
+            <div class="pipeline-connector-arrow">→</div>
+            <div class="pipeline-node-card">
+              <div class="pipeline-node-step">Baseline</div>
+              <div class="pipeline-node-title">Health Assessments</div>
+            </div>
+            <div class="pipeline-connector-arrow">→</div>
+            <div class="pipeline-node-card">
+              <div class="pipeline-node-step">Insights</div>
+              <div class="pipeline-node-title">Your Health Report</div>
+            </div>
+            <div class="pipeline-connector-arrow">→</div>
+            <div class="pipeline-node-card">
+              <div class="pipeline-node-step">Strategy</div>
+              <div class="pipeline-node-title">Personalised Plan</div>
+            </div>
+            <div class="pipeline-connector-arrow">→</div>
+            <div class="pipeline-node-card" style="border-color: rgba(0, 210, 180, 0.5); background: #EDF8F7;">
+              <div class="pipeline-node-step" style="color: #0E3A5D;">Action</div>
+              <div class="pipeline-node-title" style="color: #0E3A5D;">Food + Lifestyle + Wellness Guidance</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. ASSESSMENT VISUAL (EXPLAINED ONCE, CLEARLY) -->
+      <section class="section" id="homepage-assessment-visual">
+        <div class="container">
+          <div class="section-header text-center reveal-up">
+            <span class="badge badge-teal">Diagnostic Precision</span>
+            <h2 class="section-title">Precision Health Assessments</h2>
+            <p class="section-subtitle">
+              We establish objective biological baselines so your plan is built on verified clinical data, not guesswork.
+            </p>
+          </div>
+
+          <!-- Floating Dashboard Visual -->
+          <div class="assessment-floating-dashboard reveal-up">
+            <div class="dashboard-header-row">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="live-pulse-dot"></span>
+                <span style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Helevate Report • Telemetry Hub</span>
+              </div>
+              <span class="badge badge-teal" style="font-size: 0.72rem;">Hyderabad Community</span>
+            </div>
+
+            <div class="dashboard-grid-main">
+              <!-- Dial Card -->
+              <div class="dashboard-dial-panel">
+                <div class="hub-dial-wrap" style="width: 80px; height: 80px; position: relative;">
+                  <svg class="hub-dial-svg" viewBox="0 0 36 36" style="width: 100%; height: 100%;">
                     <path stroke="rgba(255,255,255,0.12)" stroke-width="3.5" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                     <path stroke="#00D2B4" stroke-width="3.5" stroke-dasharray="78, 100" stroke-linecap="round" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                   </svg>
-                  <span class="hub-dial-num">78</span>
+                  <span class="hub-dial-num" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: #FFFFFF;">78</span>
                 </div>
-                <div class="hub-score-info">
-                  <h4>Overall Health Baseline</h4>
-                  <p>Metabolic, DEXA body composition & recovery parameters measured with zero guesswork.</p>
+                <div>
+                  <h4 style="color: #FFFFFF; font-size: 1.12rem; margin-bottom: 4px;">Baseline Health Score</h4>
+                  <p style="color: #B4CCE0; font-size: 0.86rem; line-height: 1.4; margin-bottom: 0;">Comprehensive metabolic, DEXA body composition & recovery markers.</p>
                 </div>
               </div>
 
-              <!-- 4 Telemetry Data Chips -->
-              <div class="hub-metrics-grid">
-                <div class="hub-metric-chip">
-                  <span class="hub-chip-icon">🩸</span>
-                  <div class="hub-chip-meta">
-                    <h6>Metabolic Panel</h6>
-                    <span>ApoB & Fasting Insulin</span>
-                  </div>
+              <!-- 4 Telemetry Metrics Grid -->
+              <div class="dashboard-metrics-grid">
+                <div class="dashboard-metric-box">
+                  <div class="dashboard-metric-label">Metabolic Health</div>
+                  <div class="dashboard-metric-val">ApoB & Fasting Insulin</div>
+                  <div class="dashboard-metric-status">Optimal Sensitivity • Low Risk</div>
                 </div>
-                <div class="hub-metric-chip">
-                  <span class="hub-chip-icon">📊</span>
-                  <div class="hub-chip-meta">
-                    <h6>DEXA Scan</h6>
-                    <span>Visceral Fat vs Lean Mass</span>
-                  </div>
+                <div class="dashboard-metric-box">
+                  <div class="dashboard-metric-label">DEXA Composition</div>
+                  <div class="dashboard-metric-val">Visceral Fat vs Lean Mass</div>
+                  <div class="dashboard-metric-status">0.42 kg VAT • Upper Quartile SMI</div>
                 </div>
-                <div class="hub-metric-chip">
-                  <span class="hub-chip-icon">🥗</span>
-                  <div class="hub-chip-meta">
-                    <h6>Diet Pacing</h6>
-                    <span>Bio-Individual Protein</span>
-                  </div>
+                <div class="dashboard-metric-box">
+                  <div class="dashboard-metric-label">Gut Microbiome</div>
+                  <div class="dashboard-metric-val">Bacterial Diversity</div>
+                  <div class="dashboard-metric-status">Targeted Anti-Inflammatory Flora</div>
                 </div>
-                <div class="hub-metric-chip">
-                  <span class="hub-chip-icon">🏡</span>
-                  <div class="hub-chip-meta">
-                    <h6>Clubhouse Coaching</h6>
-                    <span>Certified Performance Team</span>
-                  </div>
+                <div class="dashboard-metric-box">
+                  <div class="dashboard-metric-label">DNA & Genetics</div>
+                  <div class="dashboard-metric-val">Metabolic Profile</div>
+                  <div class="dashboard-metric-status">Carb Sensitivity & Recovery Latency</div>
                 </div>
               </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+              <a href="#/assessments" class="btn btn-teal btn-md">Explore Complete Diagnostic Panels & Testing Details →</a>
             </div>
           </div>
         </div>
       </section>
 
-
-
-      <!-- 3. HOW IT WORKS (ONE CLEAN 4-STEP TIMELINE) -->
-      <section class="section section-light-blue" id="homepage-how-it-works">
+      <!-- 5. PERSONALISED REPORT SECTION (DATA → INSIGHTS → RECOMMENDATIONS) -->
+      <section class="section section-light-blue" id="homepage-report">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-navy">The Process</span>
-            <h2 class="section-title">How It Works</h2>
+            <span class="badge badge-navy">From Data to Daily Action</span>
+            <h2 class="section-title">Your Data → Your Insights → Your Recommendations</h2>
             <p class="section-subtitle">
-              A structured, personalised health journey communicating exactly what happens from your first baseline to ongoing progress.
+              Your assessment scores translate directly into actionable guidance across four core areas of personal vitality.
             </p>
           </div>
 
-          <div class="timeline-grid-4">
-            <div class="timeline-step-card reveal-up">
-              <div class="timeline-badge-row">
-                <span class="timeline-step-badge">Step 01</span>
-                <span style="font-size: 1.3rem;">📋</span>
-              </div>
-              <h3>01 — Assess</h3>
-              <p>Complete your initial health assessment to establish an accurate, objective baseline of where you are today.</p>
+          <div class="recommendation-cards-grid">
+            <div class="recommendation-card reveal-up">
+              <div class="recommendation-icon">🥗</div>
+              <h4>Nutrition</h4>
+              <p>Bio-individual macronutrient frameworks, glycemic pacing, and daily protein targets matched to your biology.</p>
             </div>
 
-            <div class="timeline-step-card reveal-up">
-              <div class="timeline-badge-row">
-                <span class="timeline-step-badge">Step 02</span>
-                <span style="font-size: 1.3rem;">🔬</span>
-              </div>
-              <h3>02 — Understand</h3>
-              <p>Your health information and biomarkers are analysed to understand your current physiological condition.</p>
+            <div class="recommendation-card reveal-up">
+              <div class="recommendation-icon">🏋️</div>
+              <h4>Movement</h4>
+              <p>Progressive resistance protocols, joint mobility screening, and zone-2 cardio inside your society clubhouse gym.</p>
             </div>
 
-            <div class="timeline-step-card reveal-up">
-              <div class="timeline-badge-row">
-                <span class="timeline-step-badge">Step 03</span>
-                <span style="font-size: 1.3rem;">📑</span>
-              </div>
-              <h3>03 — Receive Report</h3>
-              <p>Get a personalised report highlighting your key observations, scores, and areas that may need attention.</p>
+            <div class="recommendation-card reveal-up">
+              <div class="recommendation-icon">🌙</div>
+              <h4>Recovery</h4>
+              <p>Circadian rhythm alignment, deep sleep optimization, and structured parasympathetic stress mitigation.</p>
             </div>
 
-            <div class="timeline-step-card reveal-up">
-              <div class="timeline-badge-row">
-                <span class="timeline-step-badge">Step 04</span>
-                <span style="font-size: 1.3rem;">🎯</span>
-              </div>
-              <h3>04 — Guidance</h3>
-              <p>Receive relevant treatment support, lifestyle, nutrition, and strength guidance based on your results.</p>
+            <div class="recommendation-card reveal-up">
+              <div class="recommendation-icon">🩺</div>
+              <h4>Lifestyle</h4>
+              <p>Doctor-reviewed health observations, family routine adjustments, and 90-day progress reassessments.</p>
             </div>
           </div>
 
           <div style="text-align: center; margin-top: 36px;">
-            <a href="#/how-it-works" class="btn btn-secondary btn-md">Explore Full Roadmap & Methodology →</a>
+            <a href="#/services" class="btn btn-secondary btn-md">Explore All Personalised Programs & Coaching →</a>
           </div>
         </div>
       </section>
 
-      <!-- 4. HEALTH ASSESSMENTS SECTION (CONCISE OVERVIEW) -->
-      <section class="section" id="homepage-assessments">
+      <!-- 6. FOOD + WELLNESS SECTION (EDITORIAL NUTRITION SHOWCASE) -->
+      <section class="section" id="homepage-food-wellness">
+        <div class="container">
+          <div class="food-editorial-grid reveal-up">
+            <!-- Left Editorial Media -->
+            <div class="food-editorial-media">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&auto=format&fit=crop&q=80" alt="Fresh wholesome bio-individual nutrition" class="food-editorial-img" loading="lazy">
+              <span class="food-editorial-badge">✦ Bio-Individual Nutrition</span>
+            </div>
+
+            <!-- Right Editorial Content -->
+            <div>
+              <span class="badge badge-teal">Nourishment With Purpose</span>
+              <h2 class="section-title" style="margin-top: 10px; margin-bottom: 12px;">Food that fits your body.</h2>
+              <p style="font-size: 1.05rem; color: var(--color-primary-navy); font-weight: 600; margin-bottom: 16px;">
+                Guidance built around your health insights.
+              </p>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.65; margin-bottom: 20px;">
+                No fad diets or generic restrictions. We engineer practical nutrition frameworks based on your real lipid subfractions, fasting insulin, and DEXA lean mass.
+              </p>
+
+              <div class="food-benefit-list">
+                <div class="food-benefit-item">
+                  <h5>Glycemic Stability</h5>
+                  <p>Sustained all-day physical and cognitive energy without afternoon blood glucose crashes.</p>
+                </div>
+                <div class="food-benefit-item">
+                  <h5>Metabolic Pacing</h5>
+                  <p>Optimal protein distribution (1.4–1.8g/kg) calculated from your actual skeletal muscle mass.</p>
+                </div>
+                <div class="food-benefit-item">
+                  <h5>Practical Home Living</h5>
+                  <p>Flexible frameworks designed to seamlessly integrate with Indian family meals and dining out.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. MINIMALIST MILESTONE STATISTICS -->
+      <section class="section section-light-blue" id="homepage-stats">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-teal">Diagnostic Baseline</span>
-            <h2 class="section-title">Health Assessments</h2>
+            <span class="badge badge-navy">The Helevate Architecture</span>
+            <h2 class="section-title">Precision at Every Milestone</h2>
             <p class="section-subtitle">
-              We establish objective biological baselines so your plan is built on data, not guesswork.
+              A proven framework combining clinical diagnostics with on-site community execution.
             </p>
           </div>
 
-
-          <div class="assessments-compact-grid">
-            <!-- 1. Metabolic Health Panel -->
-            <a href="#/assessments" class="assessment-compact-card reveal-up">
-              <div class="assessment-compact-icon">🔬</div>
-              <h4>Metabolic Health Panel</h4>
-              <p>Measures insulin sensitivity, inflammatory markers, and advanced cardiovascular lipid subfractions.</p>
-              <span class="card-link-action">Explore Biomarkers →</span>
-            </a>
-
-            <!-- 2. DEXA Body Composition Scan -->
-            <a href="#/assessments" class="assessment-compact-card reveal-up">
-              <div class="assessment-compact-icon">📊</div>
-              <h4>DEXA Body Composition</h4>
-              <p>Gold-standard measurement of visceral fat, skeletal muscle distribution, and bone mineral density.</p>
-              <span class="card-link-action">Explore Scans →</span>
-            </a>
-
-            <!-- 3. Gut Microbiome Testing -->
-            <a href="#/assessments" class="assessment-compact-card reveal-up">
-              <div class="assessment-compact-icon">🥗</div>
-              <h4>Gut Microbiome Testing</h4>
-              <p>Deep sequencing of gut flora to identify digestion triggers and craft bio-individual nutritional pacing.</p>
-              <span class="card-link-action">Explore Microbiome →</span>
-            </a>
-
-            <!-- 4. DNA / Gene Testing -->
-            <a href="#/assessments" class="assessment-compact-card reveal-up">
-              <div class="assessment-compact-icon">🧬</div>
-              <h4>DNA / Gene Testing</h4>
-              <p>Genetic insights into macronutrient metabolism, recovery latency, and exercise adaptation profiles.</p>
-              <span class="card-link-action">Explore Genetics →</span>
-            </a>
-          </div>
-
-          <div style="text-align: center; margin-top: 36px;">
-            <a href="#/assessments" class="btn btn-secondary btn-md">View Complete Diagnostic Panels & Testing Details →</a>
-          </div>
-        </div>
-      </section>
-
-
-
-      <!-- 6. PERSONALISED GUIDANCE / WHAT USERS RECEIVE -->
-      <section class="section" id="homepage-guidance">
-        <div class="container">
-          <div class="section-header text-center reveal-up">
-            <span class="badge badge-teal">Post-Report Guidance</span>
-            <h2 class="section-title">Personalised Guidance Built for Your Results</h2>
-            <p class="section-subtitle">
-              Based on your Helevate Report, receive structured guidance across four essential pillars of daily vitality.
-            </p>
-          </div>
-
-          <div class="guidance-grid-4">
-            <div class="guidance-card reveal-up">
-              <div>
-                <div class="guidance-icon">🩺</div>
-                <h3>Treatment Support</h3>
-                <p>Relevant health guidance and physician-friendly clinical documentation based on assessment outcomes.</p>
-              </div>
+          <div class="milestone-stats-grid">
+            <div class="milestone-stat-card reveal-up">
+              <div class="milestone-stat-num">01</div>
+              <h4>Health Assessment</h4>
+              <p>NABL-accredited diagnostic blood panels and DEXA body scans conducted at your clubhouse.</p>
             </div>
 
-            <div class="guidance-card reveal-up">
-              <div>
-                <div class="guidance-icon">🌙</div>
-                <h3>Lifestyle</h3>
-                <p>Practical recommendations to support healthier sleep architecture, stress recovery, and daily routine.</p>
-              </div>
+            <div class="milestone-stat-card reveal-up">
+              <div class="milestone-stat-num">02</div>
+              <h4>Personalised Insights</h4>
+              <p>Objective biomarker analysis revealing insulin sensitivity, visceral fat, and inflammation.</p>
             </div>
 
-            <div class="guidance-card reveal-up">
-              <div>
-                <div class="guidance-icon">🥗</div>
-                <h3>Nutrition & Diet</h3>
-                <p>Personalised dietary and nutrition guidance based on your biomarkers, glycemic pacing, and family meals.</p>
-              </div>
+            <div class="milestone-stat-card reveal-up">
+              <div class="milestone-stat-num">03</div>
+              <h4>Wellness Guidance</h4>
+              <p>Certified performance coaching, customized nutrition, and daily routine optimization.</p>
             </div>
 
-            <div class="guidance-card reveal-up">
-              <div>
-                <div class="guidance-icon">🏋️</div>
-                <h3>Ongoing Wellness</h3>
-                <p>Coach-led strength training and habit support delivered directly inside your gated community clubhouse.</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 36px;">
-            <a href="#/services" class="btn btn-secondary btn-md">Explore All Guidance & Programs →</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7. WHY HELEVATE FIT & TRUST PILLARS -->
-      <section class="section section-light-blue" id="homepage-why">
-        <div class="container">
-          <div class="section-header text-center reveal-up">
-            <span class="badge badge-navy">Our Service Model</span>
-            <h2 class="section-title">Why Gated Communities Choose Helevate</h2>
-            <p class="section-subtitle">
-              We combine precision diagnostics with on-site community coaching to make consistency effortless.
-            </p>
-          </div>
-
-          <div class="why-helevate-grid">
-            <div class="why-card reveal-up">
-              <div class="why-icon-box">🔬</div>
-              <h4>Assessment-Led</h4>
-              <p>Every plan begins with objective blood chemistry and DEXA scans, eliminating generic guesswork.</p>
-            </div>
-
-            <div class="why-card reveal-up">
-              <div class="why-icon-box">🏡</div>
-              <h4>Community Delivery</h4>
-              <p>Delivered inside your society clubhouse in Hyderabad — zero commute friction and no traffic.</p>
-            </div>
-
-            <div class="why-card reveal-up">
-              <div class="why-icon-box">🏅</div>
-              <h4>Certified Coaches</h4>
-              <p>Work with certified human performance coaches trained in biomechanics and metabolic health.</p>
-            </div>
-
-            <div class="why-card reveal-up">
-              <div class="why-icon-box">📈</div>
-              <h4>90-Day Validation</h4>
-              <p>Quarterly re-assessments objectively measure real internal improvements and adapt your plan.</p>
+            <div class="milestone-stat-card reveal-up">
+              <div class="milestone-stat-num">04</div>
+              <h4>90-Day Checkpoints</h4>
+              <p>Quarterly re-assessments objectively tracking measurable physical and biological improvements.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 8. AUTHENTIC COMMUNITY TESTIMONIALS -->
+      <!-- 8. CONCISE TESTIMONIALS -->
       <section class="section" id="homepage-testimonials">
         <div class="container">
           <div class="section-header text-center reveal-up">
@@ -416,16 +435,16 @@
         </div>
       </section>
 
-      <!-- 9. FINAL CTA SECTION -->
+      <!-- 9. FINAL CINEMATIC CLOSING CTA -->
       <section class="section">
         <div class="container">
-          <div class="final-cta-box reveal-up">
-            <span class="badge badge-teal">Start Your Journey</span>
-            <h2>Start Understanding Your Health</h2>
+          <div class="final-cinematic-cta-box reveal-up" id="homepage-final-cta">
+            <span class="badge badge-teal">Start Your Transformation</span>
+            <h2>Know Your Health.<br><span class="text-teal">Shape Your Future.</span></h2>
             <p>
-              Take the first step toward understanding your current health and discovering what your body needs.
+              Your journey to optimal wellness starts inside your gated community. Measure your baseline, understand what your body needs, and experience personalized coaching.
             </p>
-            <button class="btn btn-teal btn-lg open-intake-trigger">Start Your Assessment With Helevate →</button>
+            <button class="btn btn-teal btn-lg open-intake-trigger">Start Your Health Journey →</button>
           </div>
         </div>
       </section>
