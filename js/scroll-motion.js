@@ -198,14 +198,62 @@
       });
     },
 
-    // 7. Ultrahuman-Inspired Sticky Background + Floating Cards Controller
+    // 7. Ultrahuman-Inspired Synchronized Sticky Visual + Single-Pane Content Controller
     storytellingInitialized: false,
 
     initStorytellingScroll() {
       const section = document.getElementById('homepage-story-scroll');
       if (!section) return;
 
-      const bgImg = section.querySelector('.sticky-showcase-bg-img');
+      const visualItems = section.querySelectorAll('.story-visual-item');
+      const textPanes = section.querySelectorAll('.story-text-pane');
+      const indicatorDots = section.querySelectorAll('.story-indicator-dot');
+      const stepCounter = section.querySelector('#story-step-counter .current-step-num');
+      const totalSteps = visualItems.length; // 5
+
+      if (!totalSteps) return;
+
+      let currentActiveIndex = -1;
+
+      const setActiveStep = (index) => {
+        if (index === currentActiveIndex || index < 0 || index >= totalSteps) return;
+        currentActiveIndex = index;
+
+        // Update Visuals
+        visualItems.forEach((item, i) => {
+          item.classList.toggle('is-active', i === index);
+        });
+
+        // Update Texts
+        textPanes.forEach((pane, i) => {
+          pane.classList.toggle('is-active', i === index);
+        });
+
+        // Update Indicators
+        indicatorDots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+        });
+
+        // Update Step Counter
+        if (stepCounter) {
+          stepCounter.textContent = `0${index + 1}`;
+        }
+      };
+
+      // Click to navigate directly to step
+      indicatorDots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          const rect = section.getBoundingClientRect();
+          const sectionTop = window.pageYOffset + rect.top;
+          const scrollDistance = section.offsetHeight - window.innerHeight;
+          const targetScroll = sectionTop + (index / (totalSteps - 1)) * scrollDistance;
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
+        });
+      });
 
       let ticking = false;
 
@@ -215,14 +263,11 @@
         if (totalScroll <= 0) return;
 
         const progress = -rect.top / totalScroll;
-        const clampedProgress = Math.max(0, Math.min(1, progress));
+        const clampedProgress = Math.max(0, Math.min(0.999, progress));
 
-        // Subtle parallax scale & shift on background visual
-        if (bgImg) {
-          const scale = 1.02 + clampedProgress * 0.08;
-          const translateY = clampedProgress * -20;
-          bgImg.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-        }
+        // Determine active step (0 to totalSteps - 1)
+        const step = Math.min(totalSteps - 1, Math.floor(clampedProgress * totalSteps));
+        setActiveStep(step);
       };
 
       if (!this.storytellingInitialized) {
@@ -244,6 +289,7 @@
       }
 
       // Initial check
+      setActiveStep(0);
       updateScrollStory();
     },
 

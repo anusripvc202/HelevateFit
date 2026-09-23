@@ -218,124 +218,159 @@
         </div>
       </section>
 
-      <!-- 4. FULL-PAGE STICKY BACKGROUND + SCROLLING CARDS STORYTELLING ENGINE -->
-      <section class="sticky-story-showcase" id="homepage-story-scroll">
+      <!-- 4. ULTRAHUMAN-STYLE SYNCHRONIZED SCROLL STORYTELLING ENGINE -->
+      <section class="story-sync-section" id="homepage-story-scroll">
         
-        <!-- Sticky Background Canvas (Pins for the duration of the section) -->
-        <div class="sticky-showcase-backdrop">
-          <img src="assets/dexa-scan-body.jpg" alt="Helevate Bio-Scan DEXA Framework" class="sticky-showcase-bg-img">
-          <div class="sticky-showcase-scrim"></div>
-        </div>
-
-        <!-- Foreground Scrolling Stream of Floating Cards -->
-        <div class="container sticky-showcase-fg">
-          
-          <div class="sticky-showcase-intro reveal-up">
-            <span class="badge badge-teal">The Helevate Experience</span>
-            <h2 class="sticky-showcase-main-heading">From Biological Data to Daily Transformation</h2>
-            <p class="sticky-showcase-main-desc">One continuous precision loop delivered inside your residential clubhouse.</p>
-          </div>
-
-          <div class="sticky-cards-grid">
+        <!-- Pinned Sticky Viewport (Anchored across scroll travel) -->
+        <div class="story-sync-viewport">
+          <div class="container story-sync-container">
             
-            <!-- Stage 01 Card -->
-            <div class="sticky-card-item reveal-up" data-tilt>
-              <div class="sticky-card-media">
-                <img src="assets/dexa-scan-body.jpg" alt="Current Health Baseline" class="sticky-card-img" loading="lazy">
-                <span class="sticky-card-badge">Step 01 • Baseline</span>
+            <!-- Top Progress & Section Header -->
+            <div class="story-sync-header">
+              <div class="story-sync-tag">
+                <span class="story-sync-tag-dot"></span>
+                <span>THE HELEVATE PRECISION METHOD</span>
               </div>
-              <div class="sticky-card-content">
-                <div class="sticky-card-eyebrow">01 — Baseline Biology</div>
-                <h4 class="sticky-card-title">Understand Your Current Health</h4>
-                <p class="sticky-card-desc">Every health journey begins with an objective look at where your body is today — uncovering subclinical markers that standard checkups miss.</p>
-                <div class="story-telemetry-box" style="margin-top: 14px; width: 100%;">
-                  <div class="story-metric-row"><span>Resting Heart Rate</span><strong style="color: #00D2B4;">58 bpm • Optimal</strong></div>
-                  <div class="story-metric-row"><span>Heart Rate Variability</span><strong style="color: #00D2B4;">72 ms • High</strong></div>
-                  <div class="story-metric-row"><span>VO2 Max Estimate</span><strong style="color: #00D2B4;">46.2 ml/kg/min</strong></div>
-                </div>
+              <div class="story-sync-indicators" id="story-step-indicators" aria-label="Story Progression">
+                <button class="story-indicator-dot is-active" data-step="0" aria-label="Step 1: Baseline Biology"></button>
+                <button class="story-indicator-dot" data-step="1" aria-label="Step 2: Clinical Diagnostics"></button>
+                <button class="story-indicator-dot" data-step="2" aria-label="Step 3: Actionable Health Score"></button>
+                <button class="story-indicator-dot" data-step="3" aria-label="Step 4: Bio-Individual Blueprint"></button>
+                <button class="story-indicator-dot" data-step="4" aria-label="Step 5: Continuous Ownership"></button>
               </div>
-            </div>
-
-            <!-- Stage 02 Card -->
-            <div class="sticky-card-item reveal-up" data-tilt>
-              <div class="sticky-card-media">
-                <img src="assets/metabolic-panel.jpg" alt="Clinical Diagnostics" class="sticky-card-img" loading="lazy">
-                <span class="sticky-card-badge">Step 02 • Diagnostics</span>
-              </div>
-              <div class="sticky-card-content">
-                <div class="sticky-card-eyebrow">02 — Clinical Precision</div>
-                <h4 class="sticky-card-title">Measure Through Assessments</h4>
-                <p class="sticky-card-desc">Comprehensive NABL metabolic panels, DEXA visceral fat imaging, and gut testing scheduled right inside your gated community clubhouse.</p>
-                <div class="story-telemetry-box" style="margin-top: 14px; width: 100%;">
-                  <div class="story-metric-row"><span>ApoB Particle Count</span><strong style="color: #00D2B4;">82 mg/dL • Low Risk</strong></div>
-                  <div class="story-metric-row"><span>Fasting Insulin (HOMA-IR)</span><strong style="color: #00D2B4;">4.8 µIU/mL • Sensitive</strong></div>
-                  <div class="story-metric-row"><span>DEXA Visceral Fat</span><strong style="color: #00D2B4;">0.35 kg • Optimal</strong></div>
-                </div>
+              <div class="story-sync-counter" id="story-step-counter">
+                STEP <span class="current-step-num">01</span> / 05
               </div>
             </div>
 
-            <!-- Stage 03 Card -->
-            <div class="sticky-card-item reveal-up" data-tilt>
-              <div class="sticky-card-media">
-                <img src="assets/vo2-cardio.jpg" alt="Personalised Health Report & VO2 Analysis" class="sticky-card-img" loading="lazy">
-                <span class="sticky-card-badge">Step 03 • Health Score</span>
+            <!-- Split Canvas: Sticky Visual on Left, Synchronized Content on Right -->
+            <div class="story-sync-grid">
+              
+              <!-- LEFT: Sticky Dynamic Visual Stage (Crossfading Images) -->
+              <div class="story-visual-stage">
+                <div class="story-visual-frame">
+                  
+                  <!-- Visual 01: Baseline Bio-Scan Body -->
+                  <div class="story-visual-item is-active" data-step-visual="0">
+                    <img src="assets/dexa-scan-body.jpg" alt="Baseline Bio-Scan DEXA Telemetry" class="story-visual-asset">
+                    <div class="story-visual-overlay"></div>
+                    <span class="story-visual-hud-tag">01 • BASELINE BIO-SCAN</span>
+                  </div>
+
+                  <!-- Visual 02: Clinical Metabolic Panel -->
+                  <div class="story-visual-item" data-step-visual="1">
+                    <img src="assets/metabolic-panel.jpg" alt="Clinical Metabolic Lab Diagnostics" class="story-visual-asset">
+                    <div class="story-visual-overlay"></div>
+                    <span class="story-visual-hud-tag">02 • METABOLIC PROFILING</span>
+                  </div>
+
+                  <!-- Visual 03: Actionable Health Score & VO2 -->
+                  <div class="story-visual-item" data-step-visual="2">
+                    <img src="assets/vo2-cardio.jpg" alt="Actionable Helevate Health Report & VO2" class="story-visual-asset">
+                    <div class="story-visual-overlay"></div>
+                    <span class="story-visual-hud-tag">03 • HEALTH SCORE REPORT</span>
+                  </div>
+
+                  <!-- Visual 04: Bio-Individual Blueprint -->
+                  <div class="story-visual-item" data-step-visual="3">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&auto=format&fit=crop&q=80" alt="Personalised Nutrition and Movement Blueprint" class="story-visual-asset">
+                    <div class="story-visual-overlay"></div>
+                    <span class="story-visual-hud-tag">04 • TARGETED ACTION</span>
+                  </div>
+
+                  <!-- Visual 05: Continuous Ownership & Coaching -->
+                  <div class="story-visual-item" data-step-visual="4">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&auto=format&fit=crop&q=80" alt="Clubhouse Coaching & 90-Day Reassessments" class="story-visual-asset">
+                    <div class="story-visual-overlay"></div>
+                    <span class="story-visual-hud-tag">05 • CONTINUOUS EVOLUTION</span>
+                  </div>
+
+                </div>
               </div>
-              <div class="sticky-card-content">
-                <div class="sticky-card-eyebrow">03 — Actionable Roadmap</div>
-                <h4 class="sticky-card-title">Get Your Personalised Report</h4>
-                <p class="sticky-card-desc">Receive a clear, actionable Helevate Report translating complex biomarker numbers into meaningful, priority daily lifestyle steps.</p>
-                <div class="story-score-hud" style="margin-top: 14px; width: 100%;">
-                  <div class="story-score-dial">86</div>
-                  <div>
-                    <h5 style="color: #FFFFFF; margin: 0 0 2px; font-size: 1.05rem;">Helevate Health Score</h5>
-                    <p style="color: #00D2B4; font-size: 0.8rem; font-weight: 600; margin: 0;">Cardiometabolic 94 • Lean Mass 82</p>
+
+              <!-- RIGHT: Synchronized Content Stage (Only ONE visible at a time) -->
+              <div class="story-content-stage">
+                
+                <!-- Content 01 -->
+                <div class="story-text-pane is-active" data-step-content="0">
+                  <div class="story-pane-eyebrow">01 — BASELINE BIOLOGY</div>
+                  <h3 class="story-pane-heading">Understand Your Current Health</h3>
+                  <p class="story-pane-desc">
+                    Every health journey begins with an objective look at where your body is today — uncovering subclinical biomarkers and cellular metabolic patterns that standard checkups miss.
+                  </p>
+                  <div class="story-pane-telemetry">
+                    <div class="story-pane-telemetry-row"><span>Resting Heart Rate</span><strong style="color: #00D2B4;">58 bpm • Optimal</strong></div>
+                    <div class="story-pane-telemetry-row"><span>Heart Rate Variability</span><strong style="color: #00D2B4;">72 ms • High</strong></div>
+                    <div class="story-pane-telemetry-row"><span>VO2 Max Estimate</span><strong style="color: #00D2B4;">46.2 ml/kg/min</strong></div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Stage 04 Card -->
-            <div class="sticky-card-item reveal-up" data-tilt>
-              <div class="sticky-card-media">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80" alt="Personalised Nutrition and Movement" class="sticky-card-img" loading="lazy">
-                <span class="sticky-card-badge">Step 04 • Blueprint</span>
-              </div>
-              <div class="sticky-card-content">
-                <div class="sticky-card-eyebrow">04 — Targeted Action</div>
-                <h4 class="sticky-card-title">Know What Your Body Needs</h4>
-                <p class="sticky-card-desc">No generic templates. Your certified coach formulates whole-food nutrition and strength training tailored directly to your data.</p>
-                <div class="story-chips-grid" style="margin-top: 14px; width: 100%;">
-                  <div class="story-action-chip">
-                    <h5>🥗 Glycemic Pacing</h5>
-                    <p>1.6g/kg protein & fiber timing for steady all-day energy.</p>
-                  </div>
-                  <div class="story-action-chip">
-                    <h5>🏋️ Progressive Load</h5>
-                    <p>Thoracic mobility & resistance inside your society gym.</p>
+                <!-- Content 02 -->
+                <div class="story-text-pane" data-step-content="1">
+                  <div class="story-pane-eyebrow">02 — CLINICAL PRECISION</div>
+                  <h3 class="story-pane-heading">Measure Through Assessments</h3>
+                  <p class="story-pane-desc">
+                    Comprehensive NABL metabolic panels, DEXA visceral fat imaging, and gut testing scheduled right inside your gated community clubhouse — zero commute, zero guesswork.
+                  </p>
+                  <div class="story-pane-telemetry">
+                    <div class="story-pane-telemetry-row"><span>ApoB Particle Count</span><strong style="color: #00D2B4;">82 mg/dL • Low Risk</strong></div>
+                    <div class="story-pane-telemetry-row"><span>Fasting Insulin (HOMA-IR)</span><strong style="color: #00D2B4;">4.8 µIU/mL • Sensitive</strong></div>
+                    <div class="story-pane-telemetry-row"><span>DEXA Visceral Fat</span><strong style="color: #00D2B4;">0.35 kg • Optimal</strong></div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Stage 05 Card -->
-            <div class="sticky-card-item reveal-up" data-tilt>
-              <div class="sticky-card-media">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80" alt="Continuous Clubhouse Coaching" class="sticky-card-img" loading="lazy">
-                <span class="sticky-card-badge">Step 05 • Evolve</span>
-              </div>
-              <div class="sticky-card-content">
-                <div class="sticky-card-eyebrow">05 — Continuous Ownership</div>
-                <h4 class="sticky-card-title">Build Better Health Habits</h4>
-                <p class="sticky-card-desc">Experience daily coaching right where you live, with 90-day DEXA checkpoints proving your internal transformation.</p>
-                <div style="margin-top: 16px;">
-                  <button class="btn btn-teal btn-md open-intake-trigger" style="width: 100%;">Book a Free Baseline Consultation →</button>
+                <!-- Content 03 -->
+                <div class="story-text-pane" data-step-content="2">
+                  <div class="story-pane-eyebrow">03 — ACTIONABLE ROADMAP</div>
+                  <h3 class="story-pane-heading">Get Your Personalised Report</h3>
+                  <p class="story-pane-desc">
+                    Receive a clear, actionable Helevate Report translating complex biomarker numbers into meaningful, priority daily lifestyle steps and longevity targets.
+                  </p>
+                  <div class="story-pane-score-badge">
+                    <div class="story-score-ring">86</div>
+                    <div>
+                      <div class="story-score-title">Helevate Health Score</div>
+                      <div class="story-score-sub">Cardiometabolic 94 • Lean Mass 82</div>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- Content 04 -->
+                <div class="story-text-pane" data-step-content="3">
+                  <div class="story-pane-eyebrow">04 — TARGETED ACTION</div>
+                  <h3 class="story-pane-heading">Know What Your Body Needs</h3>
+                  <p class="story-pane-desc">
+                    No generic templates. Your certified coach formulates bio-individual nutrition and progressive strength training tailored directly to your diagnostic data.
+                  </p>
+                  <div class="story-pane-pillars-grid">
+                    <div class="story-pillar-chip">
+                      <h5>🥗 Glycemic Pacing</h5>
+                      <p>1.6g/kg protein & fiber timing for steady all-day energy.</p>
+                    </div>
+                    <div class="story-pillar-chip">
+                      <h5>🏋️ Progressive Load</h5>
+                      <p>Thoracic mobility & resistance in your society gym.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Content 05 -->
+                <div class="story-text-pane" data-step-content="4">
+                  <div class="story-pane-eyebrow">05 — CONTINUOUS OWNERSHIP</div>
+                  <h3 class="story-pane-heading">Build Better Health Habits</h3>
+                  <p class="story-pane-desc">
+                    Experience daily coaching right where you live, backed by 90-day DEXA and metabolic checkpoints proving your internal biological transformation.
+                  </p>
+                  <div style="margin-top: 24px;">
+                    <button class="btn btn-teal btn-md open-intake-trigger">Book a Free Baseline Consultation →</button>
+                  </div>
+                </div>
+
               </div>
             </div>
 
           </div>
         </div>
-
       </section>
 
       <!-- 5. THE HELEVATE SOLUTION (ONE TEAM. EVERY LAYER OF YOUR HEALTH.) -->
