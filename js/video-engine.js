@@ -165,8 +165,8 @@ const VideoEngine = {
       threshold: 0.1
     });
 
-    // Observe all lazy videos
-    document.querySelectorAll("video.lazy-video, video.hero-bg-video, video.cinematic-video, video.inline-motion-video").forEach((v) => {
+    // Observe all videos
+    document.querySelectorAll("video.lazy-video, video.hero-bg-video, video.cinematic-video, video.inline-motion-video, video.editorial-video-element, video.hero-ambient-video, video.hero-block-video").forEach((v) => {
       this.observer.observe(v);
     });
   },
@@ -303,3 +303,9 @@ const VideoEngine = {
 
 window.PremiumVideoSection = PremiumVideoSection;
 window.VideoEngine = VideoEngine;
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => VideoEngine.init());
+} else {
+  VideoEngine.init();
+}

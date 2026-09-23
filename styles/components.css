@@ -392,7 +392,7 @@
    4. HERO SECTION (ULTRAHUMAN / TULAH CALM PRECISION)
    ========================================================================== */
 .hero-performance {
-  padding: 76px 0 72px;
+  padding: 80px 0 76px;
   background: radial-gradient(circle at 82% 28%, rgba(0, 210, 180, 0.18) 0%, transparent 48%),
               radial-gradient(circle at 12% 70%, rgba(14, 58, 93, 0.48) 0%, transparent 45%),
               linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
@@ -401,11 +401,35 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.hero-ambient-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.16;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-video-scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(5, 22, 38, 0.5) 0%, rgba(5, 22, 38, 0.92) 80%),
+              linear-gradient(180deg, rgba(5, 22, 38, 0.3) 0%, rgba(5, 22, 38, 0.95) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-copy {
@@ -447,14 +471,138 @@
 
 /* Hero Telemetry & Report Preview Hub */
 .hero-telemetry-hub {
-  background: rgba(11, 37, 64, 0.75);
-  border: 1px solid rgba(0, 210, 180, 0.24);
+  background: rgba(11, 37, 64, 0.78);
+  border: 1px solid rgba(0, 210, 180, 0.28);
   border-radius: var(--radius-xl);
   padding: 26px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 52px rgba(0, 0, 0, 0.45), 0 0 32px rgba(0, 210, 180, 0.12);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
+
+/* ==========================================================================
+   4B. EDITORIAL SPLIT LAYOUTS & CINEMATIC VIDEO COMPONENTS
+   ========================================================================== */
+.editorial-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.editorial-split-grid.reverse {
+  direction: rtl;
+}
+.editorial-split-grid.reverse > * {
+  direction: ltr;
+}
+
+.editorial-video-wrap {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(14, 58, 93, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 50px rgba(7, 26, 46, 0.16);
+  background: #071A2E;
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editorial-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-scrim-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 22, 38, 0.1) 0%, rgba(5, 22, 38, 0.65) 100%);
+  pointer-events: none;
+}
+
+.video-caption-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #FFFFFF;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.video-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 4px 0 2px;
+}
+
+.video-caption-sub {
+  font-size: 0.85rem;
+  color: #DDF1EF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.video-sound-toggle-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(7, 26, 46, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  cursor: pointer;
+  z-index: 3;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.video-sound-toggle-btn:hover {
+  background: rgba(0, 210, 180, 0.85);
+  color: #051626;
+  transform: scale(1.08);
+}
+
+/* Assessment Selection Banner */
+.assessment-notice-banner {
+  background: linear-gradient(135deg, rgba(221, 241, 239, 0.6) 0%, rgba(237, 248, 247, 0.9) 100%);
+  border: 1px solid rgba(0, 210, 180, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--shadow-subtle);
+}
+
+.assessment-notice-text {
+  font-size: 0.92rem;
+  color: var(--color-primary-navy);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assessment-notice-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
 
 .hub-top-bar {
   display: flex;
