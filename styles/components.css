@@ -2877,15 +2877,19 @@
 /* ==========================================================================
    18. CALM SCROLL REVEALS & RESPONSIVE QUERIES
    ========================================================================== */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+.reveal,
+.reveal-up,
+.reveal-fade {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
-.reveal-up.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+.reveal-up.is-revealed,
+.app-view.active .reveal-up {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 /* Tablet (768px – 991px) */

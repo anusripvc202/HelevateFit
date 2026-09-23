@@ -175,6 +175,9 @@ const Router = {
     const targetView = document.getElementById(viewId);
     if (targetView) {
       targetView.classList.add("active");
+      targetView.querySelectorAll(".reveal, .reveal-up, .reveal-fade").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
     }
   }
 };
