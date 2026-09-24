@@ -2756,12 +2756,16 @@
 }
 
 /* ==========================================================================
-   THE BUBBLESMEDIA — CLEAN & ELEGANT BUBBLE HOVER EFFECT
+   DESIGNED BY "THE BUBBLESMEDIA" — PREMIUM SUBTLE BUBBLE HOVER EFFECT
    ========================================================================== */
-.footer-bubbles-media-credit {
+.footer-designed-by {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  color: var(--color-text-dim);
+  font-family: var(--font-body);
+  font-size: 0.86rem;
 }
 
 .bubbles-media-link {
@@ -2769,15 +2773,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #DDF1EF;
+  color: #00D2B4;
   font-family: var(--font-body);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  padding: 5px 14px;
-  border-radius: var(--radius-full, 9999px);
-  background: rgba(221, 241, 239, 0.04);
-  border: 1px solid rgba(221, 241, 239, 0.14);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm, 6px);
+  background: rgba(0, 210, 180, 0.05);
+  border: 1px solid rgba(0, 210, 180, 0.2);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   overflow: visible;
@@ -2788,6 +2792,7 @@
   z-index: 3;
   transition: color 0.3s ease, text-shadow 0.3s ease;
   letter-spacing: 0.02em;
+  color: #00D2B4;
 }
 
 .bubbles-media-effect {
@@ -2802,49 +2807,52 @@
 .bubble-orb {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(0, 210, 180, 0.65) 60%, rgba(14, 58, 93, 0) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 8px rgba(0, 210, 180, 0.45);
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(0, 210, 180, 0.7) 60%, rgba(14, 58, 93, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 8px rgba(0, 210, 180, 0.5);
   opacity: 0;
-  transform: scale(0.3) translateY(4px);
+  transform: scale(0.3) translateY(2px);
   pointer-events: none;
 }
 
-.bubble-orb.orb-1 { width: 7px; height: 7px; left: 12%; bottom: 4px; }
-.bubble-orb.orb-2 { width: 10px; height: 10px; left: 32%; bottom: 3px; }
-.bubble-orb.orb-3 { width: 6px; height: 6px; left: 52%; bottom: 6px; }
-.bubble-orb.orb-4 { width: 11px; height: 11px; left: 70%; bottom: 4px; }
-.bubble-orb.orb-5 { width: 8px; height: 8px; left: 88%; bottom: 5px; }
+.bubble-orb.orb-1 { width: 6px; height: 6px; left: 10%; bottom: 3px; }
+.bubble-orb.orb-2 { width: 9px; height: 9px; left: 28%; bottom: 2px; }
+.bubble-orb.orb-3 { width: 5px; height: 5px; left: 46%; bottom: 4px; }
+.bubble-orb.orb-4 { width: 10px; height: 10px; left: 64%; bottom: 3px; }
+.bubble-orb.orb-5 { width: 7px; height: 7px; left: 82%; bottom: 4px; }
+.bubble-orb.orb-6 { width: 6px; height: 6px; left: 94%; bottom: 2px; }
 
-/* Subtle Elegant Hover Animations */
+/* Subtle & Minimal Hover State (No Layout Shift) */
 @media (hover: hover) and (pointer: fine) {
   .bubbles-media-link:hover {
-    color: #00D2B4;
-    border-color: rgba(0, 210, 180, 0.45);
-    background: rgba(0, 210, 180, 0.08);
-    box-shadow: 0 4px 18px rgba(0, 210, 180, 0.18);
-    transform: translateY(-2px);
+    color: #1AF0D2;
+    border-color: rgba(0, 210, 180, 0.5);
+    background: rgba(0, 210, 180, 0.12);
+    box-shadow: 0 2px 14px rgba(0, 210, 180, 0.25);
   }
 
   .bubbles-media-link:hover .bubbles-media-text {
     color: #1AF0D2;
-    text-shadow: 0 0 10px rgba(0, 210, 180, 0.55);
+    text-shadow: 0 0 10px rgba(0, 210, 180, 0.6);
   }
 
   .bubbles-media-link:hover .bubble-orb.orb-1 {
-    animation: bubbleOrbRise1 1.6s ease-in-out infinite;
+    animation: bubbleOrbRise1 1.5s ease-in-out infinite;
   }
   .bubbles-media-link:hover .bubble-orb.orb-2 {
-    animation: bubbleOrbRise2 1.9s ease-in-out 0.2s infinite;
+    animation: bubbleOrbRise2 1.8s ease-in-out 0.2s infinite;
   }
   .bubbles-media-link:hover .bubble-orb.orb-3 {
-    animation: bubbleOrbRise1 1.7s ease-in-out 0.4s infinite;
+    animation: bubbleOrbRise1 1.6s ease-in-out 0.4s infinite;
   }
   .bubbles-media-link:hover .bubble-orb.orb-4 {
-    animation: bubbleOrbRise2 2.1s ease-in-out 0.15s infinite;
+    animation: bubbleOrbRise2 1.9s ease-in-out 0.15s infinite;
   }
   .bubbles-media-link:hover .bubble-orb.orb-5 {
-    animation: bubbleOrbRise1 1.8s ease-in-out 0.5s infinite;
+    animation: bubbleOrbRise1 1.7s ease-in-out 0.5s infinite;
+  }
+  .bubbles-media-link:hover .bubble-orb.orb-6 {
+    animation: bubbleOrbRise2 1.6s ease-in-out 0.3s infinite;
   }
 }
 
@@ -2855,14 +2863,14 @@
   }
   30% {
     opacity: 0.85;
-    transform: scale(1) translateY(-10px) translateX(-2px);
+    transform: scale(1) translateY(-8px) translateX(-2px);
   }
   70% {
-    opacity: 0.7;
-    transform: scale(0.85) translateY(-22px) translateX(3px);
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-18px) translateX(2px);
   }
   100% {
-    transform: scale(0.2) translateY(-30px) translateX(-1px);
+    transform: scale(0.2) translateY(-26px) translateX(-1px);
     opacity: 0;
   }
 }
@@ -2874,14 +2882,14 @@
   }
   30% {
     opacity: 0.9;
-    transform: scale(1.1) translateY(-12px) translateX(3px);
+    transform: scale(1.05) translateY(-10px) translateX(2px);
   }
   70% {
-    opacity: 0.65;
-    transform: scale(0.8) translateY(-24px) translateX(-3px);
+    opacity: 0.6;
+    transform: scale(0.8) translateY(-20px) translateX(-2px);
   }
   100% {
-    transform: scale(0.2) translateY(-34px) translateX(2px);
+    transform: scale(0.2) translateY(-28px) translateX(1px);
     opacity: 0;
   }
 }
@@ -2889,9 +2897,9 @@
 /* Touch devices */
 @media (hover: none) {
   .bubbles-media-link:active {
-    color: #00D2B4;
+    color: #1AF0D2;
     border-color: rgba(0, 210, 180, 0.4);
-    background: rgba(0, 210, 180, 0.08);
+    background: rgba(0, 210, 180, 0.1);
   }
 }
 
