@@ -340,7 +340,7 @@ const App = {
     if (metricEl) metricEl.textContent = testm.metricBadge || "";
 
     if (videoEl) {
-      videoEl.src = testm.videoSrc || "assets/video-performance.webm";
+      videoEl.src = testm.videoSrc || "assets/real-video1.mp4";
       videoEl.poster = testm.poster || "";
       videoEl.load();
       videoEl.play().catch(() => {});
