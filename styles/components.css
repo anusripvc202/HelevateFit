@@ -2746,11 +2746,153 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
   padding-top: 28px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-body);
   font-size: 0.86rem;
   color: var(--color-text-dim);
+}
+
+/* ==========================================================================
+   THE BUBBLESMEDIA — CLEAN & ELEGANT BUBBLE HOVER EFFECT
+   ========================================================================== */
+.footer-bubbles-media-credit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubbles-media-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #DDF1EF;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(221, 241, 239, 0.04);
+  border: 1px solid rgba(221, 241, 239, 0.14);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: visible;
+}
+
+.bubbles-media-text {
+  position: relative;
+  z-index: 3;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.bubbles-media-effect {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.bubble-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(0, 210, 180, 0.65) 60%, rgba(14, 58, 93, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 8px rgba(0, 210, 180, 0.45);
+  opacity: 0;
+  transform: scale(0.3) translateY(4px);
+  pointer-events: none;
+}
+
+.bubble-orb.orb-1 { width: 7px; height: 7px; left: 12%; bottom: 4px; }
+.bubble-orb.orb-2 { width: 10px; height: 10px; left: 32%; bottom: 3px; }
+.bubble-orb.orb-3 { width: 6px; height: 6px; left: 52%; bottom: 6px; }
+.bubble-orb.orb-4 { width: 11px; height: 11px; left: 70%; bottom: 4px; }
+.bubble-orb.orb-5 { width: 8px; height: 8px; left: 88%; bottom: 5px; }
+
+/* Subtle Elegant Hover Animations */
+@media (hover: hover) and (pointer: fine) {
+  .bubbles-media-link:hover {
+    color: #00D2B4;
+    border-color: rgba(0, 210, 180, 0.45);
+    background: rgba(0, 210, 180, 0.08);
+    box-shadow: 0 4px 18px rgba(0, 210, 180, 0.18);
+    transform: translateY(-2px);
+  }
+
+  .bubbles-media-link:hover .bubbles-media-text {
+    color: #1AF0D2;
+    text-shadow: 0 0 10px rgba(0, 210, 180, 0.55);
+  }
+
+  .bubbles-media-link:hover .bubble-orb.orb-1 {
+    animation: bubbleOrbRise1 1.6s ease-in-out infinite;
+  }
+  .bubbles-media-link:hover .bubble-orb.orb-2 {
+    animation: bubbleOrbRise2 1.9s ease-in-out 0.2s infinite;
+  }
+  .bubbles-media-link:hover .bubble-orb.orb-3 {
+    animation: bubbleOrbRise1 1.7s ease-in-out 0.4s infinite;
+  }
+  .bubbles-media-link:hover .bubble-orb.orb-4 {
+    animation: bubbleOrbRise2 2.1s ease-in-out 0.15s infinite;
+  }
+  .bubbles-media-link:hover .bubble-orb.orb-5 {
+    animation: bubbleOrbRise1 1.8s ease-in-out 0.5s infinite;
+  }
+}
+
+@keyframes bubbleOrbRise1 {
+  0% {
+    transform: scale(0.3) translateY(2px) translateX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+    transform: scale(1) translateY(-10px) translateX(-2px);
+  }
+  70% {
+    opacity: 0.7;
+    transform: scale(0.85) translateY(-22px) translateX(3px);
+  }
+  100% {
+    transform: scale(0.2) translateY(-30px) translateX(-1px);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleOrbRise2 {
+  0% {
+    transform: scale(0.3) translateY(2px) translateX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+    transform: scale(1.1) translateY(-12px) translateX(3px);
+  }
+  70% {
+    opacity: 0.65;
+    transform: scale(0.8) translateY(-24px) translateX(-3px);
+  }
+  100% {
+    transform: scale(0.2) translateY(-34px) translateX(2px);
+    opacity: 0;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) {
+  .bubbles-media-link:active {
+    color: #00D2B4;
+    border-color: rgba(0, 210, 180, 0.4);
+    background: rgba(0, 210, 180, 0.08);
+  }
 }
 
 /* ==========================================================================
