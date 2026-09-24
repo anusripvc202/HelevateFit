@@ -5251,6 +5251,7 @@ input:focus, select:focus, textarea:focus {
 
   /* Force Horizontal Swipe Carousels for all card tracks */
   .assessments-grid-4,
+  .assessments-compact-grid,
   .video-testimonials-grid,
   .clinical-team-grid,
   .pricing-grid-3,
@@ -5262,7 +5263,10 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid,
   .journey-stages-grid,
   .community-reviews-grid,
-  .reviews-community-grid {
+  .why-helevate-grid,
+  .guidance-grid-4,
+  .timeline-grid-4,
+  .testimonial-grid-3 {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -5281,7 +5285,9 @@ input:focus, select:focus, textarea:focus {
     box-sizing: border-box !important;
   }
 
+  /* Hide scrollbar visually */
   .assessments-grid-4::-webkit-scrollbar,
+  .assessments-compact-grid::-webkit-scrollbar,
   .video-testimonials-grid::-webkit-scrollbar,
   .clinical-team-grid::-webkit-scrollbar,
   .pricing-grid-3::-webkit-scrollbar,
@@ -5293,14 +5299,18 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid::-webkit-scrollbar,
   .journey-stages-grid::-webkit-scrollbar,
   .community-reviews-grid::-webkit-scrollbar,
-  .reviews-community-grid::-webkit-scrollbar {
+  .why-helevate-grid::-webkit-scrollbar,
+  .guidance-grid-4::-webkit-scrollbar,
+  .timeline-grid-4::-webkit-scrollbar,
+  .testimonial-grid-3::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
   }
 
-  /* Single Card Item per Screen View: 85% width so single card is visible + next card peeking */
+  /* Single Card Item per Screen View: 86vw width so 1 complete card is visible + next card peeking */
   .assessments-grid-4 > *,
+  .assessments-compact-grid > *,
   .video-testimonials-grid > *,
   .clinical-team-grid > *,
   .pricing-grid-3 > *,
@@ -5312,8 +5322,12 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid > *,
   .journey-stages-grid > *,
   .community-reviews-grid > *,
-  .reviews-community-grid > *,
+  .why-helevate-grid > *,
+  .guidance-grid-4 > *,
+  .timeline-grid-4 > *,
+  .testimonial-grid-3 > *,
   .assessments-grid-4 .assessment-card,
+  .assessments-compact-grid .assessment-compact-card,
   .video-testimonials-grid .video-testimonial-card,
   .clinical-team-grid .clinical-card,
   .pricing-grid-3 .pricing-card,
@@ -5324,10 +5338,10 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid .findus-society-card,
   .journey-stages-grid .journey-stage-card,
   .community-reviews-grid .community-review-item {
-    flex: 0 0 85% !important;
-    width: 85% !important;
-    min-width: 280px !important;
-    max-width: 360px !important;
+    flex: 0 0 86vw !important;
+    width: 86vw !important;
+    min-width: 86vw !important;
+    max-width: 86vw !important;
     scroll-snap-align: start !important;
     scroll-snap-stop: normal !important;
     margin: 0 !important;
@@ -5344,6 +5358,7 @@ input:focus, select:focus, textarea:focus {
 
 @media (max-width: 480px) {
   .assessments-grid-4,
+  .assessments-compact-grid,
   .video-testimonials-grid,
   .clinical-team-grid,
   .pricing-grid-3,
@@ -5355,7 +5370,10 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid,
   .journey-stages-grid,
   .community-reviews-grid,
-  .reviews-community-grid {
+  .why-helevate-grid,
+  .guidance-grid-4,
+  .timeline-grid-4,
+  .testimonial-grid-3 {
     gap: 12px !important;
     padding-left: 14px !important;
     padding-right: 14px !important;
@@ -5364,6 +5382,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   .assessments-grid-4 > *,
+  .assessments-compact-grid > *,
   .video-testimonials-grid > *,
   .clinical-team-grid > *,
   .pricing-grid-3 > *,
@@ -5375,8 +5394,12 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid > *,
   .journey-stages-grid > *,
   .community-reviews-grid > *,
-  .reviews-community-grid > *,
+  .why-helevate-grid > *,
+  .guidance-grid-4 > *,
+  .timeline-grid-4 > *,
+  .testimonial-grid-3 > *,
   .assessments-grid-4 .assessment-card,
+  .assessments-compact-grid .assessment-compact-card,
   .video-testimonials-grid .video-testimonial-card,
   .clinical-team-grid .clinical-card,
   .pricing-grid-3 .pricing-card,
@@ -5387,12 +5410,13 @@ input:focus, select:focus, textarea:focus {
   .findus-societies-grid .findus-society-card,
   .journey-stages-grid .journey-stage-card,
   .community-reviews-grid .community-review-item {
-    flex: 0 0 85% !important;
-    width: 85% !important;
-    min-width: 260px !important;
-    max-width: 320px !important;
+    flex: 0 0 86vw !important;
+    width: 86vw !important;
+    min-width: 86vw !important;
+    max-width: 86vw !important;
   }
 }
+
 
 
 
