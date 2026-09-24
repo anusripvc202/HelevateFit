@@ -3690,6 +3690,12 @@ input:focus, select:focus, textarea:focus {
   line-height: 1.45;
 }
 
+.careers-positions-section {
+  background: #F8FAFC !important;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
 /* 2. Open Positions Grid */
 .simple-roles-grid {
   display: grid;
@@ -4834,9 +4840,11 @@ input:focus, select:focus, textarea:focus {
 }
 
 .community-filter-btn {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  color: var(--color-primary-navy);
+  background: rgba(14, 58, 93, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(221, 241, 239, 0.25);
+  color: #DDF1EF;
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 600;
@@ -4844,19 +4852,21 @@ input:focus, select:focus, textarea:focus {
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .community-filter-btn:hover {
-  border-color: var(--color-accent-teal);
-  color: var(--color-accent-teal-dark);
+  border-color: #00D2B4;
+  color: #00D2B4;
+  background: rgba(14, 58, 93, 0.95);
 }
 
 .community-filter-btn.is-active {
-  background: var(--color-primary-navy);
-  color: #00D2B4;
-  border-color: var(--color-primary-navy);
-  box-shadow: 0 4px 14px rgba(14, 58, 93, 0.2);
+  background: #00D2B4 !important;
+  color: #072238 !important;
+  border-color: #00D2B4 !important;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 210, 180, 0.4);
 }
 
 .community-section-block {
@@ -4870,7 +4880,7 @@ input:focus, select:focus, textarea:focus {
   flex-wrap: wrap;
   gap: 12px;
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--color-border-subtle);
+  border-bottom: 1px solid rgba(221, 241, 239, 0.2);
   margin-bottom: 24px;
 }
 
@@ -4878,20 +4888,29 @@ input:focus, select:focus, textarea:focus {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--color-primary-navy);
+  color: #FFFFFF !important;
   display: flex;
   align-items: center;
   gap: 10px;
+  letter-spacing: -0.01em;
+}
+
+.community-section-subtitle {
+  font-size: 0.88rem;
+  color: #DDF1EF !important;
+  margin-top: 4px;
+  font-weight: 400;
 }
 
 .community-section-badge {
-  background: rgba(0, 210, 180, 0.1);
-  color: var(--color-accent-teal-dark);
+  background: rgba(0, 210, 180, 0.15);
+  color: #00D2B4 !important;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 210, 180, 0.3);
+  border: 1px solid rgba(0, 210, 180, 0.4);
+  font-weight: 600;
 }
 
 .community-reviews-grid {
