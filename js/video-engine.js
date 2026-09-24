@@ -166,7 +166,7 @@ const VideoEngine = {
     });
 
     // Observe all videos
-    document.querySelectorAll("video.lazy-video, video.hero-bg-video, video.cinematic-video, video.inline-motion-video, video.editorial-video-element, video.hero-ambient-video, video.hero-block-video").forEach((v) => {
+    document.querySelectorAll("video.lazy-video, video.video-card-thumb-video, video.hero-bg-video, video.cinematic-video, video.inline-motion-video, video.editorial-video-element, video.hero-ambient-video, video.hero-block-video").forEach((v) => {
       this.observer.observe(v);
     });
   },
