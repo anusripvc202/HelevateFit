@@ -420,3 +420,37 @@ label,
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
+/* ==========================================================================
+   RESPONSIVE CONTAINERS & SPACING
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-sm {
+    padding: 36px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+}
+
+

@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <link rel="stylesheet" href="styles/components.css?v=3.5">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -491,7 +491,7 @@
             </p>
           </div>
 
-          <div class="assessments-grid-4" style="grid-template-columns: repeat(2, 1fr); gap: 26px;">
+          <div class="assessments-grid-4">
             <!-- 1. Metabolic Panel -->
             <div class="assessment-card with-media reveal-up" data-tilt>
               <div class="assessment-card-media">
@@ -598,7 +598,7 @@
             </p>
           </div>
 
-          <div class="assessments-grid-4" style="grid-template-columns: repeat(2, 1fr); gap: 26px;">
+          <div class="assessments-grid-4">
             <div class="assessment-card with-media reveal-up" data-tilt>
               <div class="assessment-card-media">
                 <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&auto=format&fit=crop&q=80" alt="Personalised Strength Coaching" class="assessment-card-img" loading="lazy">
@@ -1199,7 +1199,7 @@
 
       <section class="section">
         <div class="container">
-          <div class="assessments-grid-4" style="grid-template-columns: 1fr 1fr; gap: 28px;">
+          <div class="assessments-grid-4">
             <!-- 1. Metabolic Panel -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
@@ -1340,7 +1340,7 @@
 
       <section class="section">
         <div class="container">
-          <div class="assessments-grid-4" style="grid-template-columns: 1fr 1fr; gap: 28px;">
+          <div class="assessments-grid-4">
             <!-- 1. Strength Coaching -->
             <div class="assessment-card with-media reveal-up">
               <div class="assessment-card-media">
@@ -1475,7 +1475,7 @@
       <!-- 2. The Helevate Story & Founder Vision -->
       <section class="section" style="background: #FFFFFF;">
         <div class="container">
-          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: stretch;" class="reveal-up">
+          <div class="about-story-grid reveal-up">
             <div>
               <span class="badge badge-teal" style="background: #DDF1EF; color: #0E3A5D; font-weight: 700; border: 1px solid rgba(14, 58, 93, 0.2); margin-bottom: 12px;">Our Purpose</span>
               <h2 class="section-title" style="color: #0E3A5D; font-weight: 800; font-size: clamp(1.8rem, 2.5vw, 2.3rem); margin-bottom: 20px;">
@@ -1545,7 +1545,7 @@
             </p>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 36px;" class="reveal-up">
+          <div class="about-pillars-grid reveal-up">
             <!-- Pillar 1 -->
             <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: var(--radius-xl); padding: 26px 20px; box-shadow: var(--shadow-subtle);">
               <div style="font-size: 2rem; margin-bottom: 12px;">🔬</div>
@@ -1850,7 +1850,7 @@
                 <input type="text" id="career-name" class="form-control" placeholder="e.g. Rahul Sharma" required style="border-radius: 8px; font-size: 0.95rem; color: #0E3A5D; background: #FFFFFF; border: 1.5px solid #CBD5E1;">
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px;">
+              <div class="form-row-2col">
                 <div class="form-group" style="margin-bottom: 0;">
                   <label class="form-label" for="career-phone" style="font-weight: 700; color: #0E3A5D; font-size: 0.9rem;">Phone Number *</label>
                   <input type="tel" id="career-phone" class="form-control" placeholder="e.g. +91 98765 43210" required style="border-radius: 8px; font-size: 0.95rem; color: #0E3A5D; background: #FFFFFF; border: 1.5px solid #CBD5E1;">
@@ -2038,7 +2038,7 @@
             </div>
 
             <!-- Video Story + Review Cards Split -->
-            <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; margin-bottom: 24px;" class="reviews-community-grid">
+            <div class="reviews-community-grid">
               
               <!-- Video Testimonial Card -->
               <div class="video-testimonial-card" data-video-id="vid-siddharth">
@@ -2067,7 +2067,7 @@
               </div>
 
               <!-- Community Written Reviews Grid -->
-              <div class="community-reviews-grid" style="grid-template-columns: 1fr; gap: 16px;">
+              <div class="community-reviews-grid">
                 <div class="community-review-item">
                   <div>
                     <div class="review-metric-chip">⚡ Visceral Fat: -4.8 kg | ApoB: 118 → 82 mg/dL</div>
@@ -2120,7 +2120,7 @@
               <span class="community-section-badge">36+ Active Residents • Lead Coach: Meera Nair</span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; margin-bottom: 24px;" class="reviews-community-grid">
+            <div class="reviews-community-grid">
               
               <!-- Video Testimonial Card -->
               <div class="video-testimonial-card" data-video-id="vid-priyanka">
@@ -2149,7 +2149,7 @@
               </div>
 
               <!-- Written Reviews -->
-              <div class="community-reviews-grid" style="grid-template-columns: 1fr; gap: 16px;">
+              <div class="community-reviews-grid">
                 <div class="community-review-item">
                   <div>
                     <div class="review-metric-chip">⚡ hs-CRP: 3.4 → 0.9 mg/L | Thoracic Mobility: 100%</div>
@@ -2202,7 +2202,7 @@
               <span class="community-section-badge">30+ Executive Members • Lead Coach: Harish P</span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; margin-bottom: 24px;" class="reviews-community-grid">
+            <div class="reviews-community-grid">
               
               <!-- Video Testimonial Card -->
               <div class="video-testimonial-card" data-video-id="vid-anand">
@@ -2231,7 +2231,7 @@
               </div>
 
               <!-- Written Reviews -->
-              <div class="community-reviews-grid" style="grid-template-columns: 1fr; gap: 16px;">
+              <div class="community-reviews-grid">
                 <div class="community-review-item">
                   <div>
                     <div class="review-metric-chip">⚡ hs-CRP: -28% | Lean Muscle: +3.4 kg</div>
@@ -2267,7 +2267,7 @@
               <span class="community-section-badge">75+ Active Residents • Lead Coach: Vikram Aditya</span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;" class="reviews-community-grid">
+            <div class="reviews-community-grid reviews-community-grid-even">
               
               <!-- Video Testimonial 1 -->
               <div class="video-testimonial-card" data-video-id="vid-kavitha">
@@ -2594,7 +2594,7 @@
 
         <div class="form-group">
           <label class="form-label">Current Weekly Physical Activity</label>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px;">
+          <div class="intake-activity-grid">
             <button type="button" class="btn btn-secondary btn-sm activity-level-btn is-selected" data-val="Sedentary">0–1 Days</button>
             <button type="button" class="btn btn-secondary btn-sm activity-level-btn" data-val="Moderate">2–3 Days</button>
             <button type="button" class="btn btn-secondary btn-sm activity-level-btn" data-val="Active">4+ Days</button>

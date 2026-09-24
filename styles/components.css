@@ -2892,11 +2892,76 @@
   visibility: visible !important;
 }
 
+/* ==========================================================================
+   SEMANTIC GRID DEFINITIONS (DESKTOP DEFAULT)
+   ========================================================================== */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.reviews-community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.reviews-community-grid-even {
+  grid-template-columns: 1fr 1fr;
+}
+
+.community-reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.intake-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
 /* Tablet (768px – 991px) */
 @media (max-width: 991px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .reviews-community-grid,
+  .reviews-community-grid-even {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .journey-stages-grid {
@@ -2985,7 +3050,7 @@
   }
 }
 
-/* Mobile (up to 767px) */
+/* Mobile & Phablet (up to 767px) — Horizontal Scroll Carousel Mode */
 @media (max-width: 767px) {
   .nav-links {
     display: none;
@@ -2996,17 +3061,106 @@
   }
 
   .section {
-    padding: 52px 0;
+    padding: 44px 0;
   }
 
   .hero-cinematic {
-    padding: 54px 0 48px;
+    padding: 36px 0 28px;
     min-height: auto;
   }
 
+  /* Horizontal Swipe Carousel Track for Cards (Single Card Prominently Visible) */
+  .assessments-grid-4,
+  .video-testimonials-grid,
+  .clinical-team-grid,
+  .pricing-grid-3,
+  .about-pillars-grid,
+  .h75-phase-grid,
+  .team-grid-4,
+  .simple-roles-grid,
+  .insights-grid,
+  .findus-societies-grid,
   .journey-stages-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 10px 18px 24px 18px !important;
+    margin-left: -18px !important;
+    margin-right: -18px !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    scrollbar-width: none !important;
+  }
+
+  .assessments-grid-4::-webkit-scrollbar,
+  .video-testimonials-grid::-webkit-scrollbar,
+  .clinical-team-grid::-webkit-scrollbar,
+  .pricing-grid-3::-webkit-scrollbar,
+  .about-pillars-grid::-webkit-scrollbar,
+  .h75-phase-grid::-webkit-scrollbar,
+  .team-grid-4::-webkit-scrollbar,
+  .simple-roles-grid::-webkit-scrollbar,
+  .insights-grid::-webkit-scrollbar,
+  .findus-societies-grid::-webkit-scrollbar,
+  .journey-stages-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Single Card Item per Snap (88% width with peek of next card) */
+  .assessments-grid-4 .assessment-card,
+  .video-testimonials-grid .video-testimonial-card,
+  .clinical-team-grid .clinical-card,
+  .pricing-grid-3 .pricing-card,
+  .about-pillars-grid > div,
+  .h75-phase-grid .h75-phase-card,
+  .team-grid-4 .team-member-card,
+  .simple-roles-grid .simple-role-card,
+  .insights-grid .insight-card,
+  .findus-societies-grid .findus-society-card,
+  .journey-stages-grid .journey-stage-card {
+    flex: 0 0 88% !important;
+    min-width: 280px !important;
+    max-width: 360px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .findus-society-card.findus-card-extra {
+    display: flex !important;
+  }
+
+  .findus-toggle-wrap {
+    display: none !important;
+  }
+
+  .assessment-card.with-media .assessment-card-media {
+    height: 180px !important;
+  }
+
+  .assessment-card-inner {
+    padding: 20px 18px !important;
+  }
+
+  .assessment-card-header {
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .assessment-card-icon {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .assessment-card-header h3 {
+    font-size: 1.15rem !important;
   }
 
   .pipeline-flow-wrap {
@@ -3052,11 +3206,6 @@
     gap: 14px;
   }
 
-  .team-grid-4 {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
   .why-helevate-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -3070,18 +3219,211 @@
 
   .final-cta-box,
   .final-cinematic-cta-box {
-    padding: 36px 22px;
+    padding: 32px 18px;
+    border-radius: var(--radius-xl);
+  }
+
+  .final-cinematic-cta-box h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .final-cinematic-cta-box .btn {
+    width: 100%;
   }
 
   .footer-top-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .footer-bottom-row {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+  }
+
+  .detailed-step-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 18px;
+  }
+
+  .detailed-step-badge-wrap {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Small Phones (up to 600px) */
+@media (max-width: 600px) {
+  .hero-display-title {
+    font-size: clamp(2rem, 9.5vw, 3.2rem);
+    line-height: 0.98;
+    margin-bottom: 12px;
+  }
+
+  .hero-actions .btn-hero-pill {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .hero-stat-divider {
+    display: none;
+  }
+
+  .hero-stat-block {
+    text-align: left;
+  }
+
+  .hero-stat-val {
+    font-size: clamp(1rem, 4.2vw, 1.3rem);
+    white-space: nowrap;
+  }
+
+  .hero-stat-lbl {
+    font-size: 0.68rem;
+    line-height: 1.25;
+    opacity: 0.88;
+  }
+
+  .hero-contact-pill {
+    width: 100%;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 10px 16px;
+    font-size: 0.84rem;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .intake-activity-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .findus-search-input-wrap {
+    min-width: 100%;
+  }
+
+  .findus-filter-pills,
+  .reviews-filter-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  .findus-filter-pills::-webkit-scrollbar,
+  .reviews-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .findus-pill-btn,
+  .community-filter-btn {
+    flex-shrink: 0;
+  }
+
+  .findus-card-action-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .findus-card-action-row .btn {
+    width: 100%;
+  }
+
+  .video-card-author-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .video-player-modal-dialog {
+    width: 96%;
+    border-radius: var(--radius-lg);
+  }
+
+  .video-modal-info-panel {
+    padding: 16px 14px;
+  }
+
+  .intake-modal-card {
+    padding: 22px 16px;
+    width: 95vw;
+    border-radius: var(--radius-lg);
+  }
+
+  .intake-options-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .intake-option-btn {
+    padding: 12px 14px;
+  }
+
+  .form-control,
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .subview-hero {
+    padding: 44px 0 36px;
+  }
+
+  .subview-hero h1 {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+  }
+
+  .subview-hero p {
+    font-size: 0.92rem;
+  }
+}
+
+/* Extra Compact Phones (up to 380px) */
+@media (max-width: 380px) {
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-stat-block {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .hero-stat-val {
+    font-size: 1.15rem;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.86rem;
   }
 }
 
@@ -4873,9 +5215,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 @media (max-width: 640px) {
-  .clinical-team-grid {
-    grid-template-columns: 1fr;
-  }
   .founder-impact-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -4883,6 +5222,179 @@ input:focus, select:focus, textarea:focus {
     padding: 28px 20px;
   }
 }
+
+/* ==========================================================================
+   MASTER RESPONSIVE MOBILE & SWIPE CAROUSEL SYSTEM (HIGHEST PRIORITY)
+   ========================================================================== */
+
+.mobile-swipe-hint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-swipe-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #00D2B4;
+    background: rgba(0, 210, 180, 0.1);
+    border: 1px solid rgba(0, 210, 180, 0.3);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    margin: 8px auto 14px auto;
+  }
+
+  /* Force Horizontal Swipe Carousels for all card tracks */
+  .assessments-grid-4,
+  .video-testimonials-grid,
+  .clinical-team-grid,
+  .pricing-grid-3,
+  .about-pillars-grid,
+  .h75-phase-grid,
+  .team-grid-4,
+  .simple-roles-grid,
+  .insights-grid,
+  .findus-societies-grid,
+  .journey-stages-grid,
+  .community-reviews-grid,
+  .reviews-community-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 12px 18px 24px 18px !important;
+    margin-left: -18px !important;
+    margin-right: -18px !important;
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .assessments-grid-4::-webkit-scrollbar,
+  .video-testimonials-grid::-webkit-scrollbar,
+  .clinical-team-grid::-webkit-scrollbar,
+  .pricing-grid-3::-webkit-scrollbar,
+  .about-pillars-grid::-webkit-scrollbar,
+  .h75-phase-grid::-webkit-scrollbar,
+  .team-grid-4::-webkit-scrollbar,
+  .simple-roles-grid::-webkit-scrollbar,
+  .insights-grid::-webkit-scrollbar,
+  .findus-societies-grid::-webkit-scrollbar,
+  .journey-stages-grid::-webkit-scrollbar,
+  .community-reviews-grid::-webkit-scrollbar,
+  .reviews-community-grid::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Single Card Item per Screen View: 85% width so single card is visible + next card peeking */
+  .assessments-grid-4 > *,
+  .video-testimonials-grid > *,
+  .clinical-team-grid > *,
+  .pricing-grid-3 > *,
+  .about-pillars-grid > *,
+  .h75-phase-grid > *,
+  .team-grid-4 > *,
+  .simple-roles-grid > *,
+  .insights-grid > *,
+  .findus-societies-grid > *,
+  .journey-stages-grid > *,
+  .community-reviews-grid > *,
+  .reviews-community-grid > *,
+  .assessments-grid-4 .assessment-card,
+  .video-testimonials-grid .video-testimonial-card,
+  .clinical-team-grid .clinical-card,
+  .pricing-grid-3 .pricing-card,
+  .h75-phase-grid .h75-phase-card,
+  .team-grid-4 .team-member-card,
+  .simple-roles-grid .simple-role-card,
+  .insights-grid .insight-card,
+  .findus-societies-grid .findus-society-card,
+  .journey-stages-grid .journey-stage-card,
+  .community-reviews-grid .community-review-item {
+    flex: 0 0 85% !important;
+    width: 85% !important;
+    min-width: 280px !important;
+    max-width: 360px !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .findus-society-card.findus-card-extra {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .assessments-grid-4,
+  .video-testimonials-grid,
+  .clinical-team-grid,
+  .pricing-grid-3,
+  .about-pillars-grid,
+  .h75-phase-grid,
+  .team-grid-4,
+  .simple-roles-grid,
+  .insights-grid,
+  .findus-societies-grid,
+  .journey-stages-grid,
+  .community-reviews-grid,
+  .reviews-community-grid {
+    gap: 12px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    margin-left: -14px !important;
+    margin-right: -14px !important;
+  }
+
+  .assessments-grid-4 > *,
+  .video-testimonials-grid > *,
+  .clinical-team-grid > *,
+  .pricing-grid-3 > *,
+  .about-pillars-grid > *,
+  .h75-phase-grid > *,
+  .team-grid-4 > *,
+  .simple-roles-grid > *,
+  .insights-grid > *,
+  .findus-societies-grid > *,
+  .journey-stages-grid > *,
+  .community-reviews-grid > *,
+  .reviews-community-grid > *,
+  .assessments-grid-4 .assessment-card,
+  .video-testimonials-grid .video-testimonial-card,
+  .clinical-team-grid .clinical-card,
+  .pricing-grid-3 .pricing-card,
+  .h75-phase-grid .h75-phase-card,
+  .team-grid-4 .team-member-card,
+  .simple-roles-grid .simple-role-card,
+  .insights-grid .insight-card,
+  .findus-societies-grid .findus-society-card,
+  .journey-stages-grid .journey-stage-card,
+  .community-reviews-grid .community-review-item {
+    flex: 0 0 85% !important;
+    width: 85% !important;
+    min-width: 260px !important;
+    max-width: 320px !important;
+  }
+}
+
+
 
 
 
