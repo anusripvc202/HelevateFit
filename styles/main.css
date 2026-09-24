@@ -48,6 +48,7 @@
   /* Surfaces & Canvas */
   --color-bg-main: #FFFFFF;
   --color-bg-offwhite: #F8FCFC;
+  --color-bg-light: #F8FAFC;
   --color-surface-card: #FFFFFF;
   --color-surface-glass: rgba(255, 255, 255, 0.94);
   --color-surface-glass-dark: rgba(14, 58, 93, 0.95);
