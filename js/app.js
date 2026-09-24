@@ -16,6 +16,7 @@ const App = {
     this.initIntakeModal();
     this.initMobileDrawer();
     this.initGlobalDelegatedClicks();
+    this.initFooterBubbles();
     
     // Initialize Router
     if (window.Router) {
@@ -541,7 +542,44 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 4. TOAST NOTIFICATIONS
+  // 4. FOOTER SOCIAL MEDIA BUBBLES INTERACTIVITY
+  // --------------------------------------------------------------------------
+  initFooterBubbles() {
+    const bubbles = document.querySelectorAll('.bubble-media-item');
+    if (!bubbles.length) return;
+
+    bubbles.forEach(bubble => {
+      bubble.addEventListener('mouseenter', () => {
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            if (!bubble.isConnected) return;
+            const micro = document.createElement('span');
+            micro.className = 'micro-bubble-particle';
+            const size = Math.floor(Math.random() * 8) + 6;
+            const leftOffset = Math.floor(Math.random() * 26) + 8;
+            micro.style.cssText = `
+              position: absolute;
+              bottom: 8px;
+              left: ${leftOffset}px;
+              width: ${size}px;
+              height: ${size}px;
+              border-radius: 50%;
+              background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(0, 210, 180, 0.65) 60%, rgba(14, 58, 93, 0.9) 100%);
+              border: 1px solid rgba(255, 255, 255, 0.7);
+              pointer-events: none;
+              z-index: 20;
+              animation: microBubbleFly 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            `;
+            bubble.appendChild(micro);
+            setTimeout(() => micro.remove(), 900);
+          }, i * 140);
+        }
+      });
+    });
+  },
+
+  // --------------------------------------------------------------------------
+  // 5. TOAST NOTIFICATIONS
   // --------------------------------------------------------------------------
   showToast(message) {
     let shelf = document.getElementById('toast-shelf');

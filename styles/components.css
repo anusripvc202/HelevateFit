@@ -2754,6 +2754,194 @@
 }
 
 /* ==========================================================================
+   FOOTER BUBBLE MEDIA — FLOATING & HOVER POP EFFECTS
+   ========================================================================== */
+.footer-social-wrapper {
+  margin-top: 20px;
+}
+
+.footer-social-label {
+  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  color: #00D2B4;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.footer-bubbles-media {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bubble-media-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #DDF1EF;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.22) 0%, rgba(14, 58, 93, 0.75) 60%, rgba(5, 22, 38, 0.95) 100%);
+  border: 1.5px solid rgba(221, 241, 239, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.35), inset 0 -3px 6px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  animation: footerBubbleFloat 3.8s ease-in-out infinite;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.bubble-media-item:nth-child(1) { animation-delay: 0s; }
+.bubble-media-item:nth-child(2) { animation-delay: 0.6s; }
+.bubble-media-item:nth-child(3) { animation-delay: 1.2s; }
+.bubble-media-item:nth-child(4) { animation-delay: 1.8s; }
+.bubble-media-item:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes footerBubbleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+/* Glass bubble reflection sheen */
+.bubble-sheen {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 14px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: rotate(-30deg);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Expanding ripple bubble ring on hover */
+.bubble-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.4s ease;
+}
+
+.bubble-media-item svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+/* Hover Bubble Expansion & Pop Effect */
+.bubble-media-item:hover {
+  transform: scale(1.22) translateY(-8px) !important;
+  color: #FFFFFF;
+  z-index: 10;
+}
+
+.bubble-media-item:hover .bubble-sheen {
+  top: 3px;
+  left: 7px;
+  width: 16px;
+  height: 9px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.25) 100%);
+}
+
+.bubble-media-item:hover .bubble-pulse {
+  animation: footerBubblePopRing 1.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes footerBubblePopRing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.bubble-media-item:hover svg {
+  transform: scale(1.18);
+}
+
+/* Platform-Specific Glowing Effects */
+.bubble-instagram:hover {
+  border-color: #E1306C;
+  background: radial-gradient(circle at 35% 30%, rgba(253, 29, 29, 0.4) 0%, rgba(225, 48, 108, 0.85) 60%, rgba(131, 58, 180, 0.95) 100%);
+  box-shadow: 0 0 25px rgba(225, 48, 108, 0.65), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(131, 58, 180, 0.6);
+}
+.bubble-instagram .bubble-pulse {
+  border-color: rgba(225, 48, 108, 0.65);
+}
+
+.bubble-whatsapp:hover {
+  border-color: #25D366;
+  background: radial-gradient(circle at 35% 30%, rgba(37, 211, 102, 0.4) 0%, rgba(18, 140, 126, 0.85) 60%, rgba(7, 94, 84, 0.95) 100%);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.65), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(7, 94, 84, 0.6);
+}
+.bubble-whatsapp .bubble-pulse {
+  border-color: rgba(37, 211, 102, 0.65);
+}
+
+.bubble-linkedin:hover {
+  border-color: #0077B5;
+  background: radial-gradient(circle at 35% 30%, rgba(0, 160, 220, 0.4) 0%, rgba(0, 119, 181, 0.85) 60%, rgba(0, 65, 130, 0.95) 100%);
+  box-shadow: 0 0 25px rgba(0, 119, 181, 0.65), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(0, 65, 130, 0.6);
+}
+.bubble-linkedin .bubble-pulse {
+  border-color: rgba(0, 119, 181, 0.65);
+}
+
+.bubble-youtube:hover {
+  border-color: #FF0000;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 68, 68, 0.4) 0%, rgba(255, 0, 0, 0.85) 60%, rgba(153, 0, 0, 0.95) 100%);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.65), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(153, 0, 0, 0.6);
+}
+.bubble-youtube .bubble-pulse {
+  border-color: rgba(255, 0, 0, 0.65);
+}
+
+.bubble-x:hover {
+  border-color: #00D2B4;
+  background: radial-gradient(circle at 35% 30%, rgba(26, 240, 210, 0.4) 0%, rgba(0, 210, 180, 0.85) 60%, rgba(14, 58, 93, 0.95) 100%);
+  box-shadow: 0 0 25px rgba(0, 210, 180, 0.65), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(14, 58, 93, 0.6);
+}
+.bubble-x .bubble-pulse {
+  border-color: rgba(0, 210, 180, 0.65);
+}
+
+@keyframes microBubbleFly {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-22px) translateX(4px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-44px) translateX(-4px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
    17. TEAM MEMBERS GRID & CARDS (ABOUT VIEW)
    ========================================================================== */
 .team-grid-4 {
