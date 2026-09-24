@@ -413,11 +413,13 @@ const App = {
   },
 
   filterCommunityReviews(communityFilter = "all") {
+    const filter = (communityFilter || "all").trim().toLowerCase();
     const sections = document.querySelectorAll('.community-section-block');
     sections.forEach(sec => {
-      const secCommunity = (sec.getAttribute('data-community-group') || "").toLowerCase();
-      if (communityFilter === "all" || secCommunity === communityFilter.toLowerCase()) {
+      const secCommunity = (sec.getAttribute('data-community-group') || "").trim().toLowerCase();
+      if (filter === "all" || secCommunity === filter || secCommunity.includes(filter) || filter.includes(secCommunity)) {
         sec.style.display = "block";
+        sec.querySelectorAll(".reveal, .reveal-up, .reveal-fade").forEach(el => el.classList.add("is-revealed"));
       } else {
         sec.style.display = "none";
       }
