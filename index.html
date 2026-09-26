@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=5.5">
-  <link rel="stylesheet" href="styles/components.css?v=5.5">
+  <link rel="stylesheet" href="styles/main.css?v=5.6">
+  <link rel="stylesheet" href="styles/components.css?v=5.6">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -530,197 +530,7 @@
         </div>
       </section>
 
-      <!-- 9. FOR RESIDENTS (WELLNESS DESIGNED AROUND YOUR COMMUNITY) -->
-      <section class="section section-light-blue" id="homepage-for-residents">
-        <div class="container">
-          <div class="section-header text-center reveal-up">
-            <span class="badge badge-teal">For Residents</span>
-            <h2 class="section-title">For Your Residents</h2>
-            <p class="section-subtitle">
-              From strength coaching and group fitness to personalised nutrition and transformation programs, residents can access services designed around their individual goals.
-            </p>
-          </div>
-
-          <div style="text-align: center; margin-bottom: 32px;" class="reveal-up">
-            <a href="#/services" class="btn btn-primary btn-md">Explore Services →</a>
-          </div>
-
-          <div class="findus-wrapper">
-            <!-- Search & Locality Filter Toolbar -->
-            <div class="findus-search-toolbar reveal-up">
-              <div class="findus-search-input-wrap">
-                <span class="findus-search-icon">🔍</span>
-                <input type="text" id="findus-search-input" placeholder="Search by society name or locality (e.g. Bhooja, Aparna, Kokapet)..." aria-label="Search societies">
-              </div>
-              <div class="findus-filter-pills">
-                <button class="findus-pill-btn is-active" data-area="all">All Areas</button>
-                <button class="findus-pill-btn" data-area="Hitec">Hitec City</button>
-                <button class="findus-pill-btn" data-area="Gachibowli">Gachibowli</button>
-                <button class="findus-pill-btn" data-area="Jubilee">Jubilee Hills</button>
-                <button class="findus-pill-btn" data-area="Financial">Financial District</button>
-                <button class="findus-pill-btn" data-area="Kokapet">Kokapet</button>
-              </div>
-            </div>
-
-            <!-- Society Cards Grid -->
-            <div class="findus-societies-grid" id="findus-societies-grid">
-              <!-- Society 1: My Home Bhooja -->
-              <div class="findus-society-card reveal-up" data-society-name="My Home Bhooja" data-area="Hitec City / Knowledge City">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">My Home Bhooja</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Hitec City / Knowledge City, Hyderabad</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Clubhouse 1 & 2 Gym Floors</strong>
-                  <span>Morning: 6:00 – 9:30 AM • Evening: 5:00 – 8:30 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Nutrition Guides</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">48+ Active Residents</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="My Home Bhooja">Book in Bhooja</button>
-                </div>
-              </div>
-
-              <!-- Society 2: Aparna Sarovar -->
-              <div class="findus-society-card reveal-up" data-society-name="Aparna Sarovar" data-area="Nallagandla / Gachibowli">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">Aparna Sarovar</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Nallagandla / Gachibowli, Hyderabad</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Main Clubhouse Wellness Studio</strong>
-                  <span>Morning: 6:30 – 9:30 AM • Evening: 5:30 – 8:30 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Nutrition Guides</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">36+ Active Residents</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="Aparna Sarovar">Book in Sarovar</button>
-                </div>
-              </div>
-
-              <!-- Society 3: Jubilee Hills -->
-              <div class="findus-society-card reveal-up" data-society-name="Jubilee Hills" data-area="Jubilee Hills & Banjara Hills">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">Jubilee Hills / Road 36</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Road No. 36, Jubilee Hills, Hyderabad</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Executive Private Pods & Suites</strong>
-                  <span>Flexible Executive Hours: 6:00 AM – 8:00 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Fat-Loss Programs</span>
-                  <span class="findus-service-chip">Nutrition Guides</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">30+ Executive Members</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="Jubilee Hills">Book in Jubilee</button>
-                </div>
-              </div>
-
-              <!-- Society 4: Financial District -->
-              <div class="findus-society-card findus-card-extra reveal-up" data-society-name="Financial District" data-area="Financial District / Nanakramguda">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">Financial District</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Nanakramguda Enclaves, Hyderabad</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Society Fitness Pavilions</strong>
-                  <span>Morning: 6:00 – 9:00 AM • Evening: 5:00 – 8:00 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Fat-Loss Programs</span>
-                  <span class="findus-service-chip">Group Fitness</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">42+ Active Residents</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="Financial District">Book in Fin District</button>
-                </div>
-              </div>
-
-              <!-- Society 5: Kokapet -->
-              <div class="findus-society-card findus-card-extra reveal-up" data-society-name="Kokapet" data-area="Kokapet / Neopolis">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">Kokapet / Neopolis</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Luxury High-Rises, Kokapet, Hyderabad</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Tower Clubhouses & Gyms</strong>
-                  <span>Morning: 6:00 – 9:30 AM • Evening: 5:30 – 8:30 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Nutrition Guides</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">35+ Active Residents</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="Kokapet">Book in Kokapet</button>
-                </div>
-              </div>
-
-              <!-- Society 6: Rainbow Vistas -->
-              <div class="findus-society-card findus-card-extra reveal-up" data-society-name="Rainbow Vistas" data-area="Rainbow Vistas / Moosapet">
-                <div class="findus-card-header">
-                  <h3 class="findus-society-name">Rainbow Vistas</h3>
-                  <span class="findus-status-badge">● Active Coaching Hub</span>
-                </div>
-                <div class="findus-locality-meta">
-                  <span>📍 Rockgarden, Moosapet / Hitec Corridor</span>
-                </div>
-                <div class="findus-clubhouse-box">
-                  <strong>Central Clubhouse Fitness Gym</strong>
-                  <span>Morning: 6:30 – 9:30 AM • Evening: 5:00 – 8:00 PM</span>
-                </div>
-                <div class="findus-services-chips">
-                  <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Nutrition Guides</span>
-                </div>
-                <div class="findus-card-action-row">
-                  <span class="findus-member-count">28+ Active Residents</span>
-                  <button class="btn btn-sm btn-primary book-society-trigger" data-society-name="Rainbow Vistas">Book in Rainbow</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- View More / Toggle Button -->
-            <div class="findus-toggle-wrap reveal-up">
-              <button class="btn-findus-toggle" id="findus-toggle-btn" data-expanded="false">
-                <span>View All 6 Communities</span>
-                <span class="findus-toggle-icon">↓</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 10. THE MINDS BEHIND HELEVATE -->
+      <!-- 9. THE MINDS BEHIND HELEVATE -->
       <section class="section" id="homepage-team">
         <div class="container">
           <div class="section-header text-center reveal-up">
@@ -858,7 +668,7 @@
         </div>
       </section>
 
-      <!-- 11. VIDEO TESTIMONIALS & RESIDENT STORIES -->
+      <!-- 10. VIDEO TESTIMONIALS & RESIDENT STORIES -->
       <section class="section section-light-blue" id="homepage-testimonials">
         <div class="container">
           <div class="section-header text-center reveal-up">
@@ -962,7 +772,7 @@
         </div>
       </section>
 
-      <!-- 12. FINAL CTA -->
+      <!-- 11. FINAL CTA -->
       <section class="section" id="homepage-final-cta">
         <div class="container">
           <div class="final-cinematic-cta-box reveal-up" data-tilt>
