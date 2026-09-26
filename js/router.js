@@ -151,7 +151,7 @@ const Router = {
       case "/partner-with-us":
         this.showView("view-home");
         setTimeout(() => {
-          const commSection = document.getElementById("homepage-for-communities");
+          const commSection = document.getElementById("homepage-community-flow") || document.getElementById("homepage-community-cta");
           if (commSection) {
             commSection.scrollIntoView({ behavior: "smooth", block: "start" });
           }

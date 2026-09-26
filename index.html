@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=5.3">
-  <link rel="stylesheet" href="styles/components.css?v=5.3">
+  <link rel="stylesheet" href="styles/main.css?v=5.4">
+  <link rel="stylesheet" href="styles/components.css?v=5.4">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -189,9 +189,12 @@
         <div class="container">
           <div class="section-header text-center reveal-up" style="max-width: 820px; margin: 0 auto 32px;">
             <span class="badge badge-teal">What is Helevate?</span>
-            <h2 class="section-title">Wellness That Comes to Your Community</h2>
-            <p class="section-subtitle" style="font-size: 1.05rem; line-height: 1.7; color: var(--color-navy-text);">
-              Helevate partners with gated communities to bring professional health, fitness, nutrition and wellness services closer to residents. From structured fitness programs to personalised wellness support, our services are designed to make healthier living convenient and accessible within the community.
+            <h2 class="section-title">What is Helevate?</h2>
+            <p class="section-subtitle" style="font-size: 1.12rem; line-height: 1.7; color: var(--color-primary-navy); font-weight: 700; margin-bottom: 10px;">
+              Helevate is a health, fitness and wellness partner for gated communities.
+            </p>
+            <p style="font-size: 1.02rem; line-height: 1.7; color: var(--color-navy-text); margin: 0 auto; max-width: 760px;">
+              We bring expert-led fitness, nutrition and personalised wellness services directly into communities, making it easier for residents to access the right support without leaving their community.
             </p>
           </div>
 
@@ -215,18 +218,18 @@
         </div>
       </section>
 
-      <!-- 4. OUR SERVICES — PRIMARY HOMEPAGE SECTION -->
+      <!-- 4. OUR SERVICES — PRIMARY HOMEPAGE SECTION (4 MAIN SERVICES) -->
       <section class="section section-light-blue" id="homepage-services">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">Our Services</span>
             <h2 class="section-title">Our Services</h2>
             <p class="section-subtitle">
-              Professional wellness services designed for your community and its residents.
+              Expert-led services designed to support healthier, stronger and more active communities.
             </p>
           </div>
 
-          <div class="services-grid-main reveal-up">
+          <div class="services-grid-4 reveal-up">
             <!-- Service 1: Strength Coaching -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
@@ -244,34 +247,61 @@
                     </div>
                   </div>
                   <p class="service-card-desc">
-                    Structured resistance training led by certified coaches, focusing on safe progressive load, movement screening, and posture restoration inside your clubhouse gym.
+                    Personalised strength training with certified coaches, delivered within the community.
                   </p>
                 </div>
                 <div class="service-card-footer">
-                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Available On-Site</span>
+                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Clubhouse Gym</span>
                   <a href="#/services" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Service →</a>
                 </div>
               </div>
             </div>
 
-            <!-- Service 2: Group Fitness -->
+            <!-- Service 2: Fat-Loss Transformation Programs -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&auto=format&fit=crop&q=80" alt="Community Group Fitness" class="service-card-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=700&auto=format&fit=crop&q=80" alt="Fat-Loss Transformation Programs" class="service-card-img" loading="lazy">
                 <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 02 • Community</span>
+                <span class="service-card-badge">Service 02 • Transformation</span>
+              </div>
+              <div class="service-card-inner">
+                <div>
+                  <div class="service-card-header">
+                    <div class="service-card-icon">🔥</div>
+                    <div>
+                      <h3>Fat-Loss Transformation Programs</h3>
+                      <div class="service-card-tagline">Structured goals with coach accountability.</div>
+                    </div>
+                  </div>
+                  <p class="service-card-desc">
+                    Structured transformation programs designed around individual goals and supported by coaching and nutrition.
+                  </p>
+                </div>
+                <div class="service-card-footer">
+                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Targeted Protocol</span>
+                  <a href="#/h75" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Program →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 3: Group Fitness Classes -->
+            <div class="service-card-main" data-tilt>
+              <div class="service-card-media">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&auto=format&fit=crop&q=80" alt="Group Fitness Classes" class="service-card-img" loading="lazy">
+                <div class="service-card-scrim"></div>
+                <span class="service-card-badge">Service 03 • Group Fitness</span>
               </div>
               <div class="service-card-inner">
                 <div>
                   <div class="service-card-header">
                     <div class="service-card-icon">👥</div>
                     <div>
-                      <h3>Group Fitness</h3>
-                      <div class="service-card-tagline">Consistency, energy & metabolic stamina.</div>
+                      <h3>Group Fitness Classes</h3>
+                      <div class="service-card-tagline">High-energy community movement sessions.</div>
                     </div>
                   </div>
                   <p class="service-card-desc">
-                    High-energy, coach-supervised community workouts engineered for functional movement, cardiovascular health, core stability, and neighborhood camaraderie.
+                    Engaging group fitness sessions that help residents stay active and build a stronger community.
                   </p>
                 </div>
                 <div class="service-card-footer">
@@ -281,110 +311,29 @@
               </div>
             </div>
 
-            <!-- Service 3: Personal Training -->
+            <!-- Service 4: Personalised Nutrition Guides -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&auto=format&fit=crop&q=80" alt="Personal Training" class="service-card-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&auto=format&fit=crop&q=80" alt="Personalised Nutrition Guides" class="service-card-img" loading="lazy">
                 <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 03 • 1-on-1 Coaching</span>
-              </div>
-              <div class="service-card-inner">
-                <div>
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🎯</div>
-                    <div>
-                      <h3>Personal Training</h3>
-                      <div class="service-card-tagline">Customised coaching around your schedule.</div>
-                    </div>
-                  </div>
-                  <p class="service-card-desc">
-                    Dedicated 1-on-1 coaching tailored specifically around your schedule, current fitness level, and individual body goals right inside your community clubhouse.
-                  </p>
-                </div>
-                <div class="service-card-footer">
-                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Dedicated Coach</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Service →</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service 4: Nutrition & Diet -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&auto=format&fit=crop&q=80" alt="Personalised Nutrition & Diet" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 04 • Nutrition</span>
+                <span class="service-card-badge">Service 04 • Nutrition Guides</span>
               </div>
               <div class="service-card-inner">
                 <div>
                   <div class="service-card-header">
                     <div class="service-card-icon">🥗</div>
                     <div>
-                      <h3>Nutrition & Diet</h3>
-                      <div class="service-card-tagline">Sustainable meal frameworks for real family dining.</div>
+                      <h3>Personalised Nutrition Guides</h3>
+                      <div class="service-card-tagline">Sustainable whole-food meal blueprints.</div>
                     </div>
                   </div>
                   <p class="service-card-desc">
-                    Evidence-based whole-food meal planning and macronutrient pacing calibrated to your energy demands and metabolic health — crafted for real Indian family dining.
+                    Nutrition guidance personalised around individual needs, goals and requirements.
                   </p>
                 </div>
                 <div class="service-card-footer">
-                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Dietitian Guidance</span>
+                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Dietitian Crafted</span>
                   <a href="#/services" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Service →</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service 5: H75 Transformation -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=700&auto=format&fit=crop&q=80" alt="H75 Metabolic Transformation" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 05 • Flagship Program</span>
-              </div>
-              <div class="service-card-inner">
-                <div>
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🔥</div>
-                    <div>
-                      <h3>H75 Transformation</h3>
-                      <div class="service-card-tagline">Structured multi-phase biological overhaul.</div>
-                    </div>
-                  </div>
-                  <p class="service-card-desc">
-                    A structured 75-day transformation program combining progressive strength training, nutrition pacing, and coach accountability for measurable body recomposition.
-                  </p>
-                </div>
-                <div class="service-card-footer">
-                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">75-Day Protocol</span>
-                  <a href="#/h75" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Program →</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service 6: Personalised Wellness Support -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="assets/vo2-cardio.jpg" alt="Personalised Wellness Support" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 06 • Support</span>
-              </div>
-              <div class="service-card-inner">
-                <div>
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🌙</div>
-                    <div>
-                      <h3>Personalised Wellness Support</h3>
-                      <div class="service-card-tagline">Mobility, recovery & healthy habit architecture.</div>
-                    </div>
-                  </div>
-                  <p class="service-card-desc">
-                    Individual mobility screening, joint restoration, stress resilience, and sleep habit guidance designed to support long-term physical wellbeing.
-                  </p>
-                </div>
-                <div class="service-card-footer">
-                  <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted);">Customized Care</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost" style="color: var(--color-primary-navy); padding-right: 0; font-weight: 700;">Explore Support →</a>
                 </div>
               </div>
             </div>
@@ -396,101 +345,204 @@
         </div>
       </section>
 
-      <!-- 5. HOW HELEVATE WORKS WITH YOUR COMMUNITY -->
-      <section class="section section-dark" id="homepage-how-it-works-community">
+      <!-- 5. COMMUNITY-FIRST SECTION (ONE PARTNER. COMPLETE WELLNESS SUPPORT) -->
+      <section class="section section-dark" id="homepage-community-flow">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-teal">Community Partnership Flow</span>
+            <span class="badge badge-teal">Community Partnership</span>
+            <h2 class="section-title">One Partner. Complete Wellness Support for Your Community.</h2>
+            <p class="section-subtitle">
+              Helevate works with gated communities to bring professional fitness, nutrition and wellness services directly to residents.
+            </p>
+          </div>
+
+          <!-- 5-Step Visual Flow Diagram -->
+          <div class="community-flow-chain reveal-up">
+            <div class="flow-chain-node">
+              <div class="flow-chain-icon">🏢</div>
+              <div class="flow-chain-label">COMMUNITY</div>
+              <div class="flow-chain-sub">Gated Society / RWA</div>
+            </div>
+            <div class="flow-chain-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flow-chain-node highlight">
+              <div class="flow-chain-icon">🤝</div>
+              <div class="flow-chain-label">PARTNER WITH HELEVATE</div>
+              <div class="flow-chain-sub">On-Site Activation</div>
+            </div>
+            <div class="flow-chain-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flow-chain-node">
+              <div class="flow-chain-icon">⚡</div>
+              <div class="flow-chain-label">HELEVATE SERVICES</div>
+              <div class="flow-chain-sub">Fitness, Nutrition & Care</div>
+            </div>
+            <div class="flow-chain-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flow-chain-node">
+              <div class="flow-chain-icon">👥</div>
+              <div class="flow-chain-label">RESIDENTS</div>
+              <div class="flow-chain-sub">Zero Commute Access</div>
+            </div>
+            <div class="flow-chain-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flow-chain-node success">
+              <div class="flow-chain-icon">🌟</div>
+              <div class="flow-chain-label">HEALTHIER LIFESTYLES</div>
+              <div class="flow-chain-sub">Real Vitality & Longevity</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. HOW IT WORKS (SIMPLE & CLEAR WORKFLOW) -->
+      <section class="section" id="homepage-how-it-works">
+        <div class="container">
+          <div class="section-header text-center reveal-up">
+            <span class="badge badge-teal">How It Works</span>
             <h2 class="section-title">How Helevate Works With Your Community</h2>
             <p class="section-subtitle">
-              A simple, coordinated workflow bringing health and fitness directly to your residential doorstep.
+              A clear, coordinated workflow bringing health and fitness directly to your residential doorstep.
             </p>
           </div>
 
           <div class="community-flow-grid reveal-up">
             <div class="flow-step-card">
               <span class="flow-step-num">01</span>
-              <h3 class="flow-step-title">Community Partners With Helevate</h3>
-              <p class="flow-step-desc">A gated community partners with Helevate to bring professional health and wellness services to residents.</p>
+              <h3 class="flow-step-title">01 — Partner</h3>
+              <p class="flow-step-desc">Your community partners with Helevate.</p>
             </div>
             <div class="flow-step-card">
               <span class="flow-step-num">02</span>
-              <h3 class="flow-step-title">Services Come to the Community</h3>
-              <p class="flow-step-desc">Helevate helps introduce relevant fitness, nutrition and wellness programs within the community.</p>
+              <h3 class="flow-step-title">02 — Bring Services In</h3>
+              <p class="flow-step-desc">Helevate brings relevant fitness, nutrition and wellness services into the community.</p>
             </div>
             <div class="flow-step-card">
               <span class="flow-step-num">03</span>
-              <h3 class="flow-step-title">Residents Access the Services</h3>
-              <p class="flow-step-desc">Residents can explore and participate in the services available in their community.</p>
+              <h3 class="flow-step-title">03 — Residents Participate</h3>
+              <p class="flow-step-desc">Residents can explore and access the services that match their goals.</p>
             </div>
             <div class="flow-step-card">
               <span class="flow-step-num">04</span>
-              <h3 class="flow-step-title">Personalised Support</h3>
-              <p class="flow-step-desc">Where required, assessments and individual requirements can help tailor the service experience.</p>
+              <h3 class="flow-step-title">04 — Personalised Support</h3>
+              <p class="flow-step-desc">Where required, assessments and individual information help personalise the service.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 6. BRING HELEVATE TO YOUR COMMUNITY (FOR COMMUNITIES & RWAs) -->
-      <section class="section section-light-blue" id="homepage-for-communities">
+      <!-- 7. ASSESSMENTS — SUPPORTING FEATURE ONLY -->
+      <section class="section section-light-blue" id="homepage-personalised-support">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-navy">For Communities & RWAs</span>
-            <h2 class="section-title">Bring Helevate to Your Community</h2>
+            <span class="badge badge-navy">Supporting Personalisation</span>
+            <h2 class="section-title">Personalised Support, When You Need It</h2>
             <p class="section-subtitle">
-              Give your residents access to professional health, fitness and wellness services without having to leave their community.
+              For services that require a deeper understanding of individual needs, Helevate can use assessments to help personalise recommendations and support.
             </p>
           </div>
 
-          <div class="community-benefits-grid reveal-up">
-            <div class="benefit-card">
-              <div class="benefit-icon">🏋️</div>
-              <h4 class="benefit-title">Professional Fitness Programs</h4>
-              <p class="benefit-desc">Structured strength training, functional movement classes, and personal coaching inside your society gym.</p>
+          <!-- 4 Supporting Assessment Cards -->
+          <div class="assessments-grid-4 reveal-up">
+            <!-- 1. Metabolic Panel -->
+            <div class="pricing-card">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">🔬</div>
+                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">Metabolic Health Panel</h3>
+                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Optional clinical blood biomarkers (ApoB, fasting insulin, hs-CRP) to uncover individual metabolic requirements.</p>
+                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                  <li>Identifies insulin sensitivity</li>
+                  <li>Cardiometabolic risk evaluation</li>
+                  <li>Doorstep home collection</li>
+                </ul>
+              </div>
+              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
             </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">👥</div>
-              <h4 class="benefit-title">Community Wellness Activities</h4>
-              <p class="benefit-desc">High-energy weekend workouts, running clubs, and mobility sessions that build active neighborhood connection.</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">🥗</div>
-              <h4 class="benefit-title">Nutrition Support</h4>
-              <p class="benefit-desc">Evidence-based dietetic frameworks and practical guidance for residents and their families.</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">📋</div>
-              <h4 class="benefit-title">Structured Coaching</h4>
-              <p class="benefit-desc">Certified CSCS coaches leading progressive overload and movement screening with strict safety standards.</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">✨</div>
-              <h4 class="benefit-title">Resident-Focused Experiences</h4>
-              <p class="benefit-desc">Premium on-site wellness management that boosts resident satisfaction and community amenity value.</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">🏡</div>
-              <h4 class="benefit-title">Convenient On-Site Access</h4>
-              <p class="benefit-desc">Zero commute friction — residents enjoy professional wellness right where they live.</p>
-            </div>
-          </div>
 
-          <div style="text-align: center; margin-top: 36px;" class="reveal-up">
-            <button class="btn btn-primary btn-lg open-partner-trigger">Partner With Helevate →</button>
+            <!-- 2. DEXA Scan -->
+            <div class="pricing-card featured">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">📊</div>
+                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">DEXA Body Composition Scan</h3>
+                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Gold-standard body composition imaging measuring visceral fat, bone density, and lean muscle mass.</p>
+                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                  <li>Visceral fat quantification</li>
+                  <li>Regional lean mass symmetry</li>
+                  <li>Quarterly progress audit</li>
+                </ul>
+              </div>
+              <a href="#/assessments" class="btn btn-primary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+            </div>
+
+            <!-- 3. Gut Microbiome Testing -->
+            <div class="pricing-card">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">🥗</div>
+                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">Gut Microbiome Testing</h3>
+                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Maps bacterial diversity and digestive balance to personalize nutrition plans around your unique biology.</p>
+                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                  <li>Microbiome diversity score</li>
+                  <li>Digestive efficiency mapping</li>
+                  <li>Tailored whole-food guide</li>
+                </ul>
+              </div>
+              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+            </div>
+
+            <!-- 4. DNA / Gene Testing -->
+            <div class="pricing-card">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">🧬</div>
+                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">DNA / Gene Testing</h3>
+                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Reveals genetic responses to carbohydrates, fats, and workout recovery to guide precision lifestyle choices.</p>
+                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                  <li>Macronutrient response data</li>
+                  <li>Recovery latency profile</li>
+                  <li>Long-term habit alignment</li>
+                </ul>
+              </div>
+              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 7. FOR RESIDENTS (WELLNESS DESIGNED AROUND YOUR COMMUNITY) -->
-      <section class="section" id="homepage-for-residents">
+      <!-- 8. COMMUNITY PARTNERSHIP CTA -->
+      <section class="section" id="homepage-community-cta" style="padding: 48px 0; background: #FFFFFF;">
+        <div class="container">
+          <div style="background: linear-gradient(135deg, #072238 0%, #0E3A5D 100%); border-radius: var(--radius-2xl); padding: 48px 36px; color: #FFFFFF; text-align: center; box-shadow: 0 16px 44px rgba(7, 26, 46, 0.25);" class="reveal-up">
+            <span class="badge badge-teal" style="margin-bottom: 12px;">Community Partnership</span>
+            <h2 style="font-family: var(--font-heading); color: #FFFFFF; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 12px;">
+              Bring Helevate to Your Community
+            </h2>
+            <p style="color: #DDF1EF; font-size: 1.05rem; max-width: 680px; margin: 0 auto 28px; line-height: 1.65;">
+              Give your residents access to professional fitness, nutrition and wellness services — right within your community.
+            </p>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+              <button class="btn btn-teal btn-lg open-partner-trigger">Partner With Helevate</button>
+              <button class="btn btn-ghost-dark btn-lg open-intake-trigger">Book a Free Consultation</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FOR RESIDENTS (WELLNESS DESIGNED AROUND YOUR COMMUNITY) -->
+      <section class="section section-light-blue" id="homepage-for-residents">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-teal">For Residents</span>
-            <h2 class="section-title">Wellness Designed Around Your Community</h2>
+            <h2 class="section-title">For Your Residents</h2>
             <p class="section-subtitle">
-              Explore the health, fitness and wellness services available in your community and choose the support that fits your goals.
+              From strength coaching and group fitness to personalised nutrition and transformation programs, residents can access services designed around their individual goals.
             </p>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 32px;" class="reveal-up">
+            <a href="#/services" class="btn btn-primary btn-md">Explore Services →</a>
           </div>
 
           <div class="findus-wrapper">
@@ -526,9 +578,9 @@
                   <span>Morning: 6:00 – 9:30 AM • Evening: 5:00 – 8:30 PM</span>
                 </div>
                 <div class="findus-services-chips">
-                  <span class="findus-service-chip">1-on-1 Strength</span>
+                  <span class="findus-service-chip">Strength Coaching</span>
                   <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Nutrition Support</span>
+                  <span class="findus-service-chip">Nutrition Guides</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">48+ Active Residents</span>
@@ -551,8 +603,8 @@
                 </div>
                 <div class="findus-services-chips">
                   <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">Mobility Restoration</span>
                   <span class="findus-service-chip">Group Fitness</span>
+                  <span class="findus-service-chip">Nutrition Guides</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">36+ Active Residents</span>
@@ -574,9 +626,9 @@
                   <span>Flexible Executive Hours: 6:00 AM – 8:00 PM</span>
                 </div>
                 <div class="findus-services-chips">
-                  <span class="findus-service-chip">Personal Coaching</span>
-                  <span class="findus-service-chip">Nutrition Guidance</span>
-                  <span class="findus-service-chip">H75 Transformation</span>
+                  <span class="findus-service-chip">Strength Coaching</span>
+                  <span class="findus-service-chip">Fat-Loss Programs</span>
+                  <span class="findus-service-chip">Nutrition Guides</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">30+ Executive Members</span>
@@ -599,8 +651,8 @@
                 </div>
                 <div class="findus-services-chips">
                   <span class="findus-service-chip">Strength Coaching</span>
-                  <span class="findus-service-chip">H75 Fat-Loss</span>
-                  <span class="findus-service-chip">Conditioning</span>
+                  <span class="findus-service-chip">Fat-Loss Programs</span>
+                  <span class="findus-service-chip">Group Fitness</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">42+ Active Residents</span>
@@ -622,9 +674,9 @@
                   <span>Morning: 6:00 – 9:30 AM • Evening: 5:30 – 8:30 PM</span>
                 </div>
                 <div class="findus-services-chips">
-                  <span class="findus-service-chip">Progressive Overload</span>
-                  <span class="findus-service-chip">Recovery Protocols</span>
-                  <span class="findus-service-chip">Dietetics</span>
+                  <span class="findus-service-chip">Strength Coaching</span>
+                  <span class="findus-service-chip">Group Fitness</span>
+                  <span class="findus-service-chip">Nutrition Guides</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">35+ Active Residents</span>
@@ -647,8 +699,8 @@
                 </div>
                 <div class="findus-services-chips">
                   <span class="findus-service-chip">Group Fitness</span>
-                  <span class="findus-service-chip">Movement Screening</span>
-                  <span class="findus-service-chip">Nutritional Pacing</span>
+                  <span class="findus-service-chip">Strength Coaching</span>
+                  <span class="findus-service-chip">Nutrition Guides</span>
                 </div>
                 <div class="findus-card-action-row">
                   <span class="findus-member-count">28+ Active Residents</span>
@@ -668,72 +720,14 @@
         </div>
       </section>
 
-      <!-- 8. PERSONALISED SUPPORT & OPTIONAL ASSESSMENTS -->
-      <section class="section section-light-blue" id="homepage-personalised-support">
-        <div class="container">
-          <div class="section-header text-center reveal-up">
-            <span class="badge badge-teal">Supporting Precision</span>
-            <h2 class="section-title">Personalised Support When You Need It</h2>
-            <p class="section-subtitle">
-              Some services may include assessments to better understand individual needs and provide a more personalised approach.
-            </p>
-          </div>
-
-          <!-- Supporting Features 3-Grid -->
-          <div class="pricing-grid-3 reveal-up">
-            <div class="pricing-card">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">🔬</div>
-                <h3>Metabolic Biomarkers</h3>
-                <p>Optional clinical blood panels (ApoB, fasting insulin, hs-CRP) to uncover individual metabolic requirements.</p>
-                <ul class="pricing-feature-list">
-                  <li>Identifies insulin sensitivity</li>
-                  <li>Cardiometabolic risk evaluation</li>
-                  <li>Doorstep home collection</li>
-                </ul>
-              </div>
-              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
-            </div>
-
-            <div class="pricing-card featured">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">📊</div>
-                <h3>DEXA Body Composition</h3>
-                <p>Accurate fat mass, lean muscle distribution, and visceral fat tracking to guide physical progress.</p>
-                <ul class="pricing-feature-list">
-                  <li>Visceral fat quantification</li>
-                  <li>Regional lean mass symmetry</li>
-                  <li>Quarterly progress audit</li>
-                </ul>
-              </div>
-              <a href="#/assessments" class="btn btn-primary btn-sm" style="width: 100%;">Learn About Assessments →</a>
-            </div>
-
-            <div class="pricing-card">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">📑</div>
-                <h3>Personalised Insights</h3>
-                <p>When an assessment is part of your service, your results can help guide personalised recommendations and next steps.</p>
-                <ul class="pricing-feature-list">
-                  <li>Actionable health summary</li>
-                  <li>Clear priority lifestyle targets</li>
-                  <li>Coach-guided protocol</li>
-                </ul>
-              </div>
-              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 9. THE MINDS BEHIND HELEVATE -->
+      <!-- 10. THE MINDS BEHIND HELEVATE -->
       <section class="section" id="homepage-team">
         <div class="container">
           <div class="section-header text-center reveal-up">
-            <span class="badge badge-navy">The Minds Behind Helevate</span>
+            <span class="badge badge-navy">Leadership & Coaching</span>
             <h2 class="section-title">The Minds Behind Helevate</h2>
             <p class="section-subtitle">
-              Meet the multidisciplinary coaches, clinical nutritionists, and wellness specialists translating health data into daily clubhouse execution.
+              Meet the multidisciplinary coaches, clinical nutritionists, and wellness specialists delivering professional health inside your community.
             </p>
           </div>
 
@@ -864,7 +858,7 @@
         </div>
       </section>
 
-      <!-- 10. VIDEO TESTIMONIALS & RESIDENT STORIES -->
+      <!-- 11. VIDEO TESTIMONIALS & RESIDENT STORIES -->
       <section class="section section-light-blue" id="homepage-testimonials">
         <div class="container">
           <div class="section-header text-center reveal-up">
@@ -968,14 +962,14 @@
         </div>
       </section>
 
-      <!-- 11. FINAL CONVERSION CTA -->
+      <!-- 12. FINAL CTA -->
       <section class="section" id="homepage-final-cta">
         <div class="container">
           <div class="final-cinematic-cta-box reveal-up" data-tilt>
             <span class="badge badge-teal">Bring Helevate To Your Society</span>
-            <h2>Bring Professional Wellness to Your Gated Community</h2>
+            <h2>Ready to Bring Better Health to Your Community?</h2>
             <p>
-              Partner with Helevate to introduce structured fitness, nutrition, and wellness services right inside your society.
+              Partner with Helevate to bring professional fitness, nutrition and wellness services directly to your residents.
             </p>
             <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
               <button class="btn btn-teal btn-lg open-partner-trigger">Partner With Helevate →</button>
@@ -2986,10 +2980,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=5.3"></script>
-  <script src="js/video-engine.js?v=5.3"></script>
-  <script src="js/router.js?v=5.3"></script>
-  <script src="js/scroll-motion.js?v=5.3"></script>
-  <script src="js/app.js?v=5.3"></script>
+  <script src="js/data.js?v=5.4"></script>
+  <script src="js/video-engine.js?v=5.4"></script>
+  <script src="js/router.js?v=5.4"></script>
+  <script src="js/scroll-motion.js?v=5.4"></script>
+  <script src="js/app.js?v=5.4"></script>
 </body>
 </html>
