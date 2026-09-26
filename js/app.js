@@ -14,6 +14,7 @@ const App = {
   init() {
     this.initReportTabs();
     this.initIntakeModal();
+    this.initPartnerModal();
     this.initMobileDrawer();
     this.initGlobalDelegatedClicks();
     this.initFooterBubbles();
@@ -50,6 +51,60 @@ const App = {
         }
       });
     });
+  },
+
+  // --------------------------------------------------------------------------
+  // 2. COMMUNITY PARTNERSHIP MODAL CONTROLLER ("Partner With Helevate")
+  // --------------------------------------------------------------------------
+  initPartnerModal() {
+    const modal = document.getElementById('community-partner-modal');
+    const closeBtn = document.getElementById('close-partner-modal-btn');
+    const partnerForm = document.getElementById('community-partner-form');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.closePartnerModal());
+    }
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          this.closePartnerModal();
+        }
+      });
+    }
+
+    if (partnerForm) {
+      partnerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const commName = document.getElementById('partner-community')?.value || "your gated community";
+        const personName = document.getElementById('partner-contact-person')?.value || "there";
+
+        this.closePartnerModal();
+        this.showToast(`Thank you, ${personName}! We have received your community consultation request for ${commName}. Our team will connect with you within 24 hours.`);
+        partnerForm.reset();
+      });
+    }
+  },
+
+  openPartnerModal(prefillCommunity = "") {
+    const modal = document.getElementById('community-partner-modal');
+    if (modal) {
+      if (prefillCommunity) {
+        const commInput = document.getElementById('partner-community');
+        if (commInput) commInput.value = prefillCommunity;
+      }
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      this.closeMobileDrawer();
+    }
+  },
+
+  closePartnerModal() {
+    const modal = document.getElementById('community-partner-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
   },
 
   // --------------------------------------------------------------------------
@@ -185,7 +240,16 @@ const App = {
   // --------------------------------------------------------------------------
   initGlobalDelegatedClicks() {
     document.addEventListener('click', (e) => {
-      // Intake modal triggers
+      // Community Partner Modal triggers ("Partner With Helevate")
+      const partnerTrigger = e.target.closest('.open-partner-trigger, #header-partner-btn, #mobile-partner-btn');
+      if (partnerTrigger) {
+        e.preventDefault();
+        const prefillSoc = partnerTrigger.getAttribute('data-society-name') || "";
+        this.openPartnerModal(prefillSoc);
+        return;
+      }
+
+      // Resident Intake / Consultation modal triggers
       const intakeTrigger = e.target.closest('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
       if (intakeTrigger) {
         e.preventDefault();

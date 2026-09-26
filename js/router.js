@@ -145,6 +145,27 @@ const Router = {
         this.showView("view-contact");
         break;
 
+      case "/for-communities":
+      case "/for-community":
+      case "/communities-partnership":
+      case "/partner-with-us":
+        this.showView("view-home");
+        setTimeout(() => {
+          const commSection = document.getElementById("homepage-for-communities");
+          if (commSection) {
+            commSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
+        break;
+
+      case "/partner":
+      case "/partner-with-helevate":
+        this.showView("view-home");
+        if (window.App && window.App.openPartnerModal) {
+          window.App.openPartnerModal();
+        }
+        break;
+
       case "/get-started":
       case "/booking":
       case "/consultation":

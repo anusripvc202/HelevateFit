@@ -1,20 +1,20 @@
 /**
  * HELEVATE.FIT — STRUCTURED DATA & CONTENT REPOSITORY
  * Source of truth based on Client Handoff Document & Core Objective:
- * Assess -> Understand -> Report -> Personalised Guidance -> Better Health
+ * Gated Community -> Helevate -> Health & Wellness Services -> Residents
  */
 
 const HELEVATE_DATA = {
   brand: {
     name: "Helevate.fit",
     legalName: "Helevate Fit Pvt Ltd",
-    tagline: "Elevating Human Performance & Lifestyle",
+    tagline: "Better Health. Right in Your Community.",
     brandLine: "Not Ordinary",
-    positioning: "Precision Health & Human Performance for Gated Communities",
-    mission: "Helevate Fit helps users understand and measure their current health through precision assessments, generate a customized Helevate Report, and provide ongoing treatment support, nutrition, and lifestyle guidance delivered directly inside gated communities in Hyderabad.",
+    positioning: "Community Health, Fitness & Wellness Service Provider",
+    mission: "Helevate partners with gated communities to bring professional health, fitness, nutrition, and wellness services directly to residents.",
     founder: "Harish P",
     founderRole: "Founder & Head Coach",
-    founderCert: "Certified Human Performance Coach",
+    founderCert: "Certified Human Performance Coach • Gated Community Pioneer",
     email: "helevatefit@gmail.com",
     phone: "+91 99639 60259",
     phoneAlt: "+91 94403 09596",
@@ -23,59 +23,83 @@ const HELEVATE_DATA = {
     website: "https://helevate.fit"
   },
 
-  // 1. Core Value Proposition (4 Simple Points)
-  coreValuePoints: [
-    {
-      step: "01",
-      name: "Assess",
-      title: "Assess",
-      desc: "Understand your current health through precision biological diagnostics."
-    },
-    {
-      step: "02",
-      name: "Analyse",
-      title: "Analyse",
-      desc: "Identify your specific health requirements and underlying metabolic patterns."
-    },
-    {
-      step: "03",
-      name: "Personalise",
-      title: "Personalise",
-      desc: "Receive clear, structured guidance tailored to your biological results."
-    },
-    {
-      step: "04",
-      name: "Improve",
-      title: "Improve",
-      desc: "Build better health habits with dedicated coaching in your community."
-    }
-  ],
-
-  // 2. 4-Step Homepage Journey Flow
+  // 1. Core Flow (Community -> Services -> Residents -> Personalised Support)
   homepageFlow: [
     {
       num: "01",
-      title: "Assess",
-      desc: "Complete your health assessment to establish an accurate, objective baseline of where you are today."
+      title: "Community Partners With Helevate",
+      desc: "A gated community partners with Helevate to bring professional health and wellness services to residents."
     },
     {
       num: "02",
-      title: "Understand",
-      desc: "Your health information and biomarkers are analysed to understand your current physiological condition."
+      title: "Services Come to the Community",
+      desc: "Helevate helps introduce relevant fitness, nutrition, and wellness programs within the community."
     },
     {
       num: "03",
-      title: "Receive Your Report",
-      desc: "Get a clear, personalised health report highlighting key observations, scores, and areas needing attention."
+      title: "Residents Access the Services",
+      desc: "Residents can explore and participate in the services available in their community."
     },
     {
       num: "04",
-      title: "Get Personalised Guidance",
-      desc: "Receive relevant treatment support, lifestyle, nutrition, and strength guidance based on your results."
+      title: "Personalised Support",
+      desc: "Where required, assessments and individual requirements can help tailor the service experience."
     }
   ],
 
-  // 3. 4 Diagnostic Health Assessments (From PDF)
+  // 2. Client-Approved Services List
+  services: [
+    {
+      id: "strength-coaching",
+      name: "Strength Coaching",
+      tagline: "Structured resistance training with certified coaches.",
+      desc: "Progressive resistance training, thoracic spine screening, and mobility protocols led by certified coaches in your community gym.",
+      icon: "🏋️",
+      link: "#/services"
+    },
+    {
+      id: "group-fitness",
+      name: "Group Fitness",
+      tagline: "High-energy coach-supervised community workouts.",
+      desc: "High-energy, coach-supervised community workouts that build functional conditioning and consistency without leaving your society.",
+      icon: "👥",
+      link: "#/services"
+    },
+    {
+      id: "personal-training",
+      name: "Personal Training",
+      tagline: "Dedicated 1-on-1 coaching for your schedule and goals.",
+      desc: "Dedicated 1-on-1 coaching tailored specifically to your schedule, current fitness level, and individual body goals.",
+      icon: "🎯",
+      link: "#/services"
+    },
+    {
+      id: "nutrition-diet",
+      name: "Nutrition & Diet",
+      tagline: "Bio-individual meal frameworks from Registered Dietitians.",
+      desc: "Whole-food nutrition frameworks, glycemic pacing, and practical Indian family meal plans created by Registered Dietitians.",
+      icon: "🥗",
+      link: "#/services"
+    },
+    {
+      id: "h75-transformation",
+      name: "H75 Transformation",
+      tagline: "12-Week structured transformation journey.",
+      desc: "Structured multi-phase transformation journey combining strength coaching, nutrition pacing, and optional DEXA progress tracking.",
+      icon: "🔥",
+      link: "#/services"
+    },
+    {
+      id: "wellness-support",
+      name: "Personalised Wellness Support",
+      tagline: "Mobility restoration and circadian lifestyle support.",
+      desc: "Postural restoration, mobility screening, and optional baseline health assessments to provide tailored recommendations when needed.",
+      icon: "🌙",
+      link: "#/services"
+    }
+  ],
+
+  // 3. Supporting Health Assessments (Supporting Precision Only)
   assessments: [
     {
       id: "metabolic-panel",
@@ -116,96 +140,6 @@ const HELEVATE_DATA = {
       bestFor: "Anyone who wants a long-term, precision-built lifestyle plan.",
       markers: ["Carb & Fat Sensitivity", "Recovery Latency Profile", "Micronutrient Utilization", "Cardiovascular Tendencies"],
       icon: "🧬"
-    }
-  ],
-
-  // 4. Sample Helevate Report Interactive Showcase
-  sampleReport: {
-    userName: "Sample Member Profile (Executive, Age 42)",
-    status: "Baseline Assessment • Q1 Report",
-    overallScore: 78,
-    summary: "Your assessment results are organised into a personalised report designed to help you understand your health and identify areas that may need attention.",
-    categories: {
-      health: {
-        title: "Metabolic & Biomarker Health",
-        badge: "Attention Needed",
-        summary: "Fasting insulin (14.2 µIU/mL) and hs-CRP (2.4 mg/L) indicate subclinical insulin resistance despite standard blood sugar appearing normal.",
-        items: [
-          { name: "Fasting Insulin & HOMA-IR", val: "14.2 µIU/mL", status: "Attention Needed", target: "< 6.0 µIU/mL" },
-          { name: "Apolipoprotein B (ApoB)", val: "108 mg/dL", status: "Moderate", target: "< 80 mg/dL" },
-          { name: "hs-CRP Vascular Inflammation", val: "2.4 mg/L", status: "Attention Needed", target: "< 1.0 mg/L" }
-        ],
-        action: "Prioritize glycemic meal sequencing and progressive strength training to restore insulin sensitivity."
-      },
-      lifestyle: {
-        title: "Lifestyle & Sleep Architecture",
-        badge: "Score: 68/100",
-        summary: "Restricted deep sleep duration (48 mins/night) and long sedentary desk stretches are contributing to afternoon fatigue.",
-        items: [
-          { name: "Deep Sleep Duration", val: "48 mins/night", status: "Needs Improvement", target: "80+ mins/night" },
-          { name: "Daily Step Baseline", val: "4,200 steps", status: "Low Baseline", target: "8,500+ steps" },
-          { name: "Circadian Wind-down Latency", val: "12 mins pre-sleep", status: "Restricted", target: "45 mins buffer" }
-        ],
-        action: "Establish a 20-minute digital wind-down buffer and scheduled midday posture mobility breaks."
-      },
-      nutrition: {
-        title: "Nutrition & Diet Pacing",
-        badge: "Protein Deficit",
-        summary: "Current dietary structure causes glucose spikes. Increasing bio-individual protein distribution stabilizes energy.",
-        items: [
-          { name: "Protein Distribution", val: "0.85 g/kg", status: "Target: 1.4–1.8 g/kg", target: "115g daily total" },
-          { name: "Prebiotic Fiber Intake", val: "14 g/day", status: "Low Intake", target: "30+ g/day" },
-          { name: "Glycemic Stability", val: "Frequent Swings", status: "Needs Optimization", target: "Stable Curve" }
-        ],
-        action: "Structure whole-food meals with protein prioritization and complex prebiotic fibers."
-      },
-      fitness: {
-        title: "Strength & Biomechanics",
-        badge: "Mobility Focus",
-        summary: "Desk hours have restricted thoracic spine rotation, while posterior chain muscular endurance remains ready for progressive load.",
-        items: [
-          { name: "Thoracic Spine Mobility", val: "32° Rotation", status: "Restricted", target: "45°+ Full Range" },
-          { name: "Visceral Fat Index (DEXA)", val: "112 cm²", status: "Moderate", target: "< 100 cm²" },
-          { name: "Posterior Chain Strength", val: "Baseline Preserved", status: "Ready to Train", target: "Progressive Load" }
-        ],
-        action: "3x weekly coach-led clubhouse strength sessions targeting thoracic mobilization and posterior chain activation."
-      }
-    }
-  },
-
-  // 5. 4 Core Services / Personalised Guidance Disciplines (From PDF)
-  services: [
-    {
-      id: "strength-coaching",
-      name: "Strength Coaching",
-      tagline: "Personalised strength training with certified coaches.",
-      desc: "One-on-one and small-group strength training led by certified Human Performance Coaches, delivered inside your community. Programs are built around your assessment data and adjusted as you progress.",
-      icon: "🏋️",
-      link: "#/services"
-    },
-    {
-      id: "fat-loss-h75",
-      name: "Fat-Loss Transformation (e.g. H75)",
-      tagline: "Structured, multi-phase transformation journey.",
-      desc: "A structured, multi-phase program designed for adults who want to reclaim their health and functional fitness — combining assessments (metabolic panel, DEXA), personalised training, and nutrition coaching into one clear 12-week (or longer) journey with measurable checkpoints.",
-      icon: "🔥",
-      link: "#/services"
-    },
-    {
-      id: "group-fitness",
-      name: "Group Fitness Classes",
-      tagline: "Community-based training that builds consistency.",
-      desc: "Community-based group sessions that build consistency, accountability, and connection — without needing to leave your community or commute to a gym.",
-      icon: "👥",
-      link: "#/services"
-    },
-    {
-      id: "nutrition-guides",
-      name: "Personalised Nutrition Guides",
-      tagline: "Nutrition built from your actual biology.",
-      desc: "Nutrition plans built from your actual biomarkers, body composition, and (optionally) gut and genetic data — not a generic calorie sheet copy-pasted across clients.",
-      icon: "🥗",
-      link: "#/services"
     }
   ],
 
