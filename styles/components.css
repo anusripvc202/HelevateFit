@@ -5098,15 +5098,17 @@ input:focus, select:focus, textarea:focus {
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  min-height: 2.8rem;
 }
 
 .findus-society-name {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--color-primary-navy);
-  line-height: 1.2;
+  line-height: 1.25;
+  margin: 0;
 }
 
 .findus-status-badge {
@@ -5119,6 +5121,7 @@ input:focus, select:focus, textarea:focus {
   border-radius: var(--radius-full);
   border: 1px solid rgba(0, 210, 180, 0.3);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .findus-locality-meta {
@@ -5128,6 +5131,7 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
   gap: 6px;
   margin-bottom: 14px;
+  min-height: 1.6rem;
 }
 
 .findus-clubhouse-box {
@@ -5135,9 +5139,13 @@ input:focus, select:focus, textarea:focus {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   padding: 12px 14px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   font-size: 0.84rem;
   color: var(--color-text-main);
+  min-height: 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .findus-clubhouse-box strong {
@@ -5151,6 +5159,8 @@ input:focus, select:focus, textarea:focus {
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 18px;
+  min-height: 32px;
+  align-items: center;
 }
 
 .findus-service-chip {
@@ -5472,6 +5482,7 @@ input:focus, select:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
   transition: all var(--transition-normal);
 }
@@ -5487,6 +5498,7 @@ input:focus, select:focus, textarea:focus {
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 10px;
+  min-height: 54px;
 }
 
 .clinical-avatar-badge {
@@ -5537,6 +5549,8 @@ input:focus, select:focus, textarea:focus {
   color: var(--color-text-main);
   line-height: 1.5;
   margin: 0 0 10px 0;
+  min-height: 3.8rem;
+  flex: 1 1 auto;
 }
 
 .clinical-specialty-pill {
@@ -5810,6 +5824,103 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
+/* Assessments 4-Column Grid for Supporting Personalisation */
+.assessments-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .assessments-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .assessments-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+.assessments-grid-4 .pricing-card {
+  padding: 28px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.assessments-grid-4 .pricing-card > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.assessments-grid-4 .pricing-card h3 {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 2.8rem;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.assessments-grid-4 .pricing-card p {
+  font-size: 0.88rem;
+  color: var(--color-navy-text);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  min-height: 4.2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.assessments-grid-4 .pricing-feature-list {
+  margin: 0 0 20px;
+  min-height: 6.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.assessments-grid-4 .pricing-feature-list li {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.assessments-grid-4 .pricing-card .btn {
+  margin-top: auto;
+}
+
+/* Overview Pillars Alignments */
+.overview-pillars-grid .benefit-card {
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.overview-pillars-grid .benefit-title {
+  min-height: 2.4rem;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.overview-pillars-grid .benefit-desc {
+  min-height: 4.2rem;
+  flex: 1 1 auto;
+  line-height: 1.55;
+}
+
 /* 5-Step Community Flow Chain */
 .community-flow-chain {
   display: flex;
@@ -5837,6 +5948,7 @@ input:focus, select:focus, textarea:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 160px;
   transition: all var(--transition-normal);
   position: relative;
 }
@@ -5862,7 +5974,7 @@ input:focus, select:focus, textarea:focus {
 
 .flow-chain-icon {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: 1;
 }
 
@@ -5874,6 +5986,11 @@ input:focus, select:focus, textarea:focus {
   letter-spacing: 0.03em;
   line-height: 1.25;
   margin-bottom: 4px;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .flow-chain-sub {
@@ -5881,6 +5998,11 @@ input:focus, select:focus, textarea:focus {
   color: #DDF1EF;
   opacity: 0.85;
   line-height: 1.35;
+  min-height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .flow-chain-arrow {
@@ -5901,6 +6023,11 @@ input:focus, select:focus, textarea:focus {
   .flow-chain-node {
     width: 100%;
     padding: 16px 14px;
+    min-height: auto;
+  }
+  .flow-chain-label,
+  .flow-chain-sub {
+    min-height: auto;
   }
   .flow-chain-arrow {
     transform: rotate(90deg);
@@ -5915,6 +6042,7 @@ input:focus, select:focus, textarea:focus {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   box-shadow: var(--shadow-card);
   transition: all var(--transition-normal);
   position: relative;
@@ -5928,9 +6056,10 @@ input:focus, select:focus, textarea:focus {
 
 .service-card-media {
   position: relative;
-  height: 200px;
+  height: 190px;
   overflow: hidden;
   background: #072238;
+  flex-shrink: 0;
 }
 
 .service-card-img {
@@ -5967,10 +6096,10 @@ input:focus, select:focus, textarea:focus {
 }
 
 .service-card-inner {
-  padding: 24px 22px;
+  padding: 24px 20px 20px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 auto;
   justify-content: space-between;
 }
 
@@ -5988,26 +6117,43 @@ input:focus, select:focus, textarea:focus {
   margin-top: 2px;
 }
 
+.service-card-header > div {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .service-card-header h3 {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-primary-navy);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   line-height: 1.25;
+  min-height: 3.1rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .service-card-tagline {
   font-size: 0.82rem;
   font-weight: 600;
   color: #00A68E;
+  line-height: 1.35;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .service-card-desc {
   font-size: 0.92rem;
   color: var(--color-navy-text);
-  line-height: 1.55;
+  line-height: 1.6;
   margin-bottom: 16px;
+  min-height: 4.6rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-start;
 }
 
 .service-card-footer {
@@ -6037,9 +6183,10 @@ input:focus, select:focus, textarea:focus {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 28px 22px;
+  padding: 26px 20px;
   display: flex;
   flex-direction: column;
+  height: 100%;
   box-shadow: var(--shadow-subtle);
   transition: all var(--transition-normal);
   position: relative;
@@ -6053,12 +6200,13 @@ input:focus, select:focus, textarea:focus {
 
 .flow-step-num {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: #00A68E;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   letter-spacing: 0.04em;
   display: inline-block;
+  line-height: 1;
 }
 
 .flow-step-title {
@@ -6066,8 +6214,11 @@ input:focus, select:focus, textarea:focus {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--color-primary-navy);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: 1.3;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .flow-step-desc {
@@ -6075,6 +6226,8 @@ input:focus, select:focus, textarea:focus {
   color: var(--color-navy-text);
   line-height: 1.55;
   margin: 0;
+  min-height: 3.6rem;
+  flex: 1 1 auto;
 }
 
 /* Dark Theme Variant for Flow Step Cards */
