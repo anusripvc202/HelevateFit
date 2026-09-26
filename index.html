@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=6.0">
-  <link rel="stylesheet" href="styles/components.css?v=6.0">
+  <link rel="stylesheet" href="styles/main.css?v=6.1">
+  <link rel="stylesheet" href="styles/components.css?v=6.1">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -464,63 +464,99 @@
           <!-- 4 Supporting Assessment Cards -->
           <div class="assessments-grid-4 reveal-up">
             <!-- 1. Metabolic Panel -->
-            <div class="pricing-card">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">🔬</div>
-                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">Metabolic Health Panel</h3>
-                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Optional clinical blood biomarkers (ApoB, fasting insulin, hs-CRP) to uncover individual metabolic requirements.</p>
-                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                  <li>Identifies insulin sensitivity</li>
-                  <li>Cardiometabolic risk evaluation</li>
-                  <li>Doorstep home collection</li>
-                </ul>
+            <div class="pricing-card with-media">
+              <div class="assessment-card-media">
+                <img src="assets/metabolic-panel.jpg" alt="Metabolic Health Panel" class="assessment-card-img" loading="lazy">
+                <div class="assessment-card-media-scrim"></div>
+                <span class="assessment-card-badge">Assessment 01 • Biomarkers</span>
               </div>
-              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+              <div class="pricing-card-inner">
+                <div>
+                  <div class="assessment-card-header">
+                    <div class="assessment-card-icon">🔬</div>
+                    <h3 class="assessment-card-title">Metabolic Health Panel</h3>
+                  </div>
+                  <p class="assessment-card-desc">Optional clinical blood biomarkers (ApoB, fasting insulin, hs-CRP) to uncover individual metabolic requirements.</p>
+                  <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                    <li>Identifies insulin sensitivity</li>
+                    <li>Cardiometabolic risk evaluation</li>
+                    <li>Doorstep home collection</li>
+                  </ul>
+                </div>
+                <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
+              </div>
             </div>
 
             <!-- 2. DEXA Scan -->
-            <div class="pricing-card featured">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">📊</div>
-                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">DEXA Body Composition Scan</h3>
-                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Gold-standard body composition imaging measuring visceral fat, bone density, and lean muscle mass.</p>
-                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                  <li>Visceral fat quantification</li>
-                  <li>Regional lean mass symmetry</li>
-                  <li>Quarterly progress audit</li>
-                </ul>
+            <div class="pricing-card featured with-media">
+              <div class="assessment-card-media">
+                <img src="assets/dexa-scan-body.jpg" alt="DEXA Body Composition Scan" class="assessment-card-img" loading="lazy">
+                <div class="assessment-card-media-scrim"></div>
+                <span class="assessment-card-badge">Assessment 02 • Composition</span>
               </div>
-              <a href="#/assessments" class="btn btn-primary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+              <div class="pricing-card-inner">
+                <div>
+                  <div class="assessment-card-header">
+                    <div class="assessment-card-icon">📊</div>
+                    <h3 class="assessment-card-title">DEXA Body Composition Scan</h3>
+                  </div>
+                  <p class="assessment-card-desc">Gold-standard body composition imaging measuring visceral fat, bone density, and lean muscle mass.</p>
+                  <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                    <li>Visceral fat quantification</li>
+                    <li>Regional lean mass symmetry</li>
+                    <li>Quarterly progress audit</li>
+                  </ul>
+                </div>
+                <a href="#/assessments" class="btn btn-primary btn-sm" style="width: 100%;">Learn About Assessments →</a>
+              </div>
             </div>
 
             <!-- 3. Gut Microbiome Testing -->
-            <div class="pricing-card">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">🥗</div>
-                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">Gut Microbiome Testing</h3>
-                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Maps bacterial diversity and digestive balance to personalize nutrition plans around your unique biology.</p>
-                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                  <li>Microbiome diversity score</li>
-                  <li>Digestive efficiency mapping</li>
-                  <li>Tailored whole-food guide</li>
-                </ul>
+            <div class="pricing-card with-media">
+              <div class="assessment-card-media">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=700&auto=format&fit=crop&q=80" alt="Gut Microbiome Testing" class="assessment-card-img" loading="lazy">
+                <div class="assessment-card-media-scrim"></div>
+                <span class="assessment-card-badge">Assessment 03 • Microbiome</span>
               </div>
-              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+              <div class="pricing-card-inner">
+                <div>
+                  <div class="assessment-card-header">
+                    <div class="assessment-card-icon">🥗</div>
+                    <h3 class="assessment-card-title">Gut Microbiome Testing</h3>
+                  </div>
+                  <p class="assessment-card-desc">Maps bacterial diversity and digestive balance to personalize nutrition plans around your unique biology.</p>
+                  <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                    <li>Microbiome diversity score</li>
+                    <li>Digestive efficiency mapping</li>
+                    <li>Tailored whole-food guide</li>
+                  </ul>
+                </div>
+                <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
+              </div>
             </div>
 
             <!-- 4. DNA / Gene Testing -->
-            <div class="pricing-card">
-              <div>
-                <div style="font-size: 2rem; margin-bottom: 8px;">🧬</div>
-                <h3 style="font-size: 1.18rem; font-weight: 800; color: var(--color-primary-navy); margin-bottom: 8px;">DNA / Gene Testing</h3>
-                <p style="font-size: 0.88rem; color: var(--color-navy-text); line-height: 1.5; margin-bottom: 12px;">Reveals genetic responses to carbohydrates, fats, and workout recovery to guide precision lifestyle choices.</p>
-                <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                  <li>Macronutrient response data</li>
-                  <li>Recovery latency profile</li>
-                  <li>Long-term habit alignment</li>
-                </ul>
+            <div class="pricing-card with-media">
+              <div class="assessment-card-media">
+                <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=700&auto=format&fit=crop&q=80" alt="DNA / Gene Testing" class="assessment-card-img" loading="lazy">
+                <div class="assessment-card-media-scrim"></div>
+                <span class="assessment-card-badge">Assessment 04 • Genetics</span>
               </div>
-              <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 14px;">Learn About Assessments →</a>
+              <div class="pricing-card-inner">
+                <div>
+                  <div class="assessment-card-header">
+                    <div class="assessment-card-icon">🧬</div>
+                    <h3 class="assessment-card-title">DNA / Gene Testing</h3>
+                  </div>
+                  <p class="assessment-card-desc">Reveals genetic responses to carbohydrates, fats, and workout recovery to guide precision lifestyle choices.</p>
+                  <ul class="pricing-feature-list" style="font-size: 0.82rem;">
+                    <li>Macronutrient response data</li>
+                    <li>Recovery latency profile</li>
+                    <li>Long-term habit alignment</li>
+                  </ul>
+                </div>
+                <a href="#/assessments" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
+              </div>
             </div>
           </div>
         </div>
