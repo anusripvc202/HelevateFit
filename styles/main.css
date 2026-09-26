@@ -408,17 +408,24 @@ label,
 .section {
   padding: 76px 0;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 .section-sm {
   padding: 48px 0;
+  background-color: #FFFFFF;
 }
 
 .section-light-blue {
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-bg-subtle, #DDF1EF) !important;
   background-image: radial-gradient(circle at 50% 0%, rgba(0, 210, 180, 0.035) 0%, transparent 60%);
   border-top: 1px solid var(--color-border-subtle);
   border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.section-dark {
+  background: linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%) !important;
+  color: #FFFFFF !important;
 }
 
 /* ==========================================================================

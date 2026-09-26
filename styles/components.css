@@ -329,22 +329,24 @@
 .section {
   padding: 80px 0;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 .section-sm {
   padding: 52px 0;
+  background-color: #FFFFFF;
 }
 
 .section-light-blue {
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-bg-subtle, #DDF1EF) !important;
   background-image: radial-gradient(circle at 50% 0%, rgba(0, 210, 180, 0.035) 0%, transparent 60%);
   border-top: 1px solid var(--color-border-subtle);
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .section-dark {
-  background: linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%);
-  color: #FFFFFF;
+  background: linear-gradient(145deg, #051626 0%, #071A2E 50%, #0B2540 100%) !important;
+  color: #FFFFFF !important;
 }
 
 .container {
@@ -5743,6 +5745,18 @@ input:focus, select:focus, textarea:focus {
   .overview-pillars-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Desktop Sizing Safety Resets */
+.services-grid-main .service-card-main,
+.community-flow-grid .flow-step-card,
+.community-benefits-grid .benefit-card,
+.overview-pillars-grid .benefit-card,
+.pricing-grid-3 .pricing-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 /* ==========================================================================
