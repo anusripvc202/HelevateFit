@@ -1,215 +1,217 @@
 /**
- * HELEVATE.FIT — INTERACTIVE ASSESSMENT RECOMMENDER QUIZ
- * Provides an intelligent self-diagnostic tool that matches residents
- * to the exact biomarker panels & coaching programs they need.
+ * HELEVATE.FIT — 3-QUESTION PROGRAM RECOMMENDATION QUIZ
+ * Compact interactive workflow embedded under the Programs section.
+ * Maps resident responses to Helevate RESET, RESTORE, BUILD, or THRIVE.
+ * Result format: "Your starting point looks like Helevate [Program]. Your coach confirms it after your Body Report."
  */
 
-const ASSESSMENT_QUIZ_QUESTIONS = [
-  {
-    id: "age",
-    question: "What is your current age and life stage?",
-    subtitle: "Precision health protocols vary significantly based on hormonal and metabolic milestones.",
-    options: [
-      { text: "Under 35 — Building athletic baseline & metabolic resilience", value: "young", points: { metabolic: 1, dexa: 2, gut: 1, dna: 2 } },
-      { text: "35 to 49 — Reclaiming metabolic rate, body composition & energy", value: "prime", points: { metabolic: 3, dexa: 3, gut: 2, dna: 2 } },
-      { text: "50+ — Prioritizing longevity, joint protection, bone density & cardiovascular health", value: "senior", points: { metabolic: 3, dexa: 3, gut: 1, dna: 1 } }
-    ]
-  },
-  {
-    id: "primary_goal",
-    question: "What is your primary health & body transformation goal?",
-    subtitle: "Select the outcome you want to measure and achieve over the next 90 days.",
-    options: [
-      { text: "Visceral Fat Loss & Reclaiming Waistline (H75 Protocol)", value: "fatloss", points: { dexa: 3, metabolic: 3, gut: 1 } },
-      { text: "Joint-Safe Strength, Lean Muscle & Posture Rebuilding", value: "strength", points: { dexa: 3, dna: 2, metabolic: 1 } },
-      { text: "Cardiometabolic Protection (Reversing silent cholesterol/insulin risks)", value: "longevity", points: { metabolic: 4, dexa: 2, dna: 2 } },
-      { text: "Resolving Gut Issues, Bloating & Unexplained Fatigue", value: "gut", points: { gut: 4, metabolic: 2, dexa: 1 } }
-    ]
-  },
-  {
-    id: "risk_factors",
-    question: "Do you have any family history or underlying health indicators?",
-    subtitle: "Our precision panels intercept risks years before routine check-ups flag them.",
-    options: [
-      { text: "Family history of early heart disease, high cholesterol, or ApoB issues", value: "cardio", points: { metabolic: 4, dna: 2 } },
-      { text: "Family history of Diabetes, PCOS, or stubborn insulin resistance", value: "metabolic_risk", points: { metabolic: 4, dexa: 2 } },
-      { text: "Chronic digestive flare-ups, food sensitivities, or sluggish recovery", value: "digestive", points: { gut: 4, metabolic: 1 } },
-      { text: "No known family risk factors — looking for peak human performance", value: "performance", points: { dna: 3, dexa: 2, metabolic: 2 } }
-    ]
-  },
-  {
-    id: "routine",
-    question: "What is your current fitness routine inside your gated community?",
-    subtitle: "We deliver coaching directly in your clubhouse gym with zero commute.",
-    options: [
-      { text: "Currently inactive / busy executive needing high-efficiency guidance", value: "inactive", points: { dexa: 2, metabolic: 2 } },
-      { text: "Work out regularly, but results have stalled despite consistent effort", value: "stalled", points: { metabolic: 3, dexa: 3, gut: 2 } },
-      { text: "Prefer small group community sessions and social accountability", value: "group", points: { dexa: 2, metabolic: 1 } }
-    ]
-  }
-];
-
-class AssessmentQuiz {
+class ProgramRecommendationQuiz {
   constructor() {
     this.currentStep = 0;
-    this.scores = { metabolic: 0, dexa: 0, gut: 0, dna: 0 };
-    this.answers = {};
-    this.container = document.getElementById("quiz-modal-body");
+    this.answers = {
+      goal: null,
+      condition: null,
+      schedule: null
+    };
+    this.questions = [
+      {
+        id: "goal",
+        title: "1. What is your primary health & body priority?",
+        subtitle: "Select your main focus for the next 12 weeks.",
+        options: [
+          { text: "Lose belly fat & bring health markers to safe (BP / Glucose)", program: "reset" },
+          { text: "Move without knee, back or shoulder pain", program: "restore" },
+          { text: "Build real muscle & bone density after 35", program: "build" },
+          { text: "Stay strong, fit and sharp for the next 30 years", program: "thrive" }
+        ]
+      },
+      {
+        id: "condition",
+        title: "2. What describes your current movement & physical condition?",
+        subtitle: "Helps us assess joint tolerance and coaching intensity.",
+        options: [
+          { text: "Pain, past injury, or stiffness that limits my exercise", program: "restore" },
+          { text: "Sedentary routine, carry extra waistline fat, sluggish energy", program: "reset" },
+          { text: "Work out regularly, but muscle and strength results stalled", program: "build" },
+          { text: "Generally healthy and active, seeking structured continuity", program: "thrive" }
+        ]
+      },
+      {
+        id: "schedule",
+        title: "3. What weekly schedule best fits your lifestyle?",
+        subtitle: "Coached inside your community clubhouse gym.",
+        options: [
+          { text: "4 Coach-Led sessions + 1 Guided session / week (Recommended)", format: "4-Day Coached" },
+          { text: "3 Coach-Led sessions + 1 Guided session / week (Lighter Schedule)", format: "3-Day Coached" }
+        ]
+      }
+    ];
   }
 
-  init() {
+  init(containerId = "quiz-inline-container") {
+    this.container = document.getElementById(containerId);
     if (!this.container) return;
-    this.renderQuestion();
+    this.render();
+  }
+
+  render() {
+    if (this.currentStep < this.questions.length) {
+      this.renderQuestion();
+    } else {
+      this.renderResult();
+    }
   }
 
   renderQuestion() {
-    const q = ASSESSMENT_QUIZ_QUESTIONS[this.currentStep];
-    const totalSteps = ASSESSMENT_QUIZ_QUESTIONS.length;
-    const progressPercent = Math.round(((this.currentStep + 1) / totalSteps) * 100);
+    const q = this.questions[this.currentStep];
+    const progressPercent = Math.round(((this.currentStep + 1) / this.questions.length) * 100);
 
-    let html = `
-      <div class="quiz-step-container">
-        <div class="quiz-progress-bar-wrap">
-          <div class="quiz-progress-text">
-            <span>Question ${this.currentStep + 1} of ${totalSteps}</span>
-            <span>${progressPercent}% Complete</span>
-          </div>
-          <div class="quiz-progress-track">
-            <div class="quiz-progress-fill" style="width: ${progressPercent}%"></div>
-          </div>
+    this.container.innerHTML = `
+      <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(14,58,93,0.12); box-shadow: var(--shadow-card); padding: 32px 28px; max-width: 680px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-gold-accent); text-transform: uppercase;">
+            Question ${this.currentStep + 1} of ${this.questions.length}
+          </span>
+          <span style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-dim);">${progressPercent}% Complete</span>
+        </div>
+        <div style="height: 6px; background: rgba(14,58,93,0.08); border-radius: 999px; overflow: hidden; margin-bottom: 24px;">
+          <div style="width: ${progressPercent}%; height: 100%; background: var(--color-primary-navy); transition: width 0.3s ease;"></div>
         </div>
 
-        <h3 class="quiz-question-title">${q.question}</h3>
-        <p class="quiz-question-subtitle">${q.subtitle}</p>
+        <h3 style="font-size: 1.25rem; color: var(--color-primary-navy); margin-bottom: 6px; font-weight: 700;">
+          ${q.title}
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 20px;">
+          ${q.subtitle}
+        </p>
 
-        <div class="quiz-options-list">
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
           ${q.options.map((opt, idx) => `
-            <button class="quiz-option-btn" data-value="${opt.value}" data-index="${idx}">
-              <div class="option-check-circle"></div>
-              <span class="option-text">${opt.text}</span>
+            <button type="button" class="quiz-choice-btn" data-idx="${idx}" style="background: var(--color-bg-subtle); border: 1px solid rgba(14,58,93,0.1); border-radius: 12px; padding: 14px 18px; text-align: left; font-size: 0.96rem; font-weight: 600; color: var(--color-primary-navy); cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px;">
+              <span style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--color-primary-navy); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0;"></span>
+              <span>${opt.text}</span>
             </button>
           `).join('')}
         </div>
 
-        <div class="quiz-nav-row">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
           ${this.currentStep > 0 ? `
-            <button class="btn btn-secondary btn-sm" id="quiz-prev-btn">
-              ← Back
-            </button>
-          ` : `<div></div>`}
+            <button type="button" class="btn btn-secondary btn-sm" id="quiz-back-btn">← Back</button>
+          ` : `<span></span>`}
+          <span style="font-size: 0.78rem; color: var(--color-text-dim);">No medical diagnosis • Coach confirmed</span>
         </div>
       </div>
     `;
 
-    this.container.innerHTML = html;
-    this.bindEvents(q);
-  }
+    // Bind option clicks
+    const btns = this.container.querySelectorAll(".quiz-choice-btn");
+    btns.forEach((b) => {
+      b.addEventListener("click", () => {
+        const idx = parseInt(b.getAttribute("data-idx"), 10);
+        const selectedOpt = q.options[idx];
+        if (q.id === "goal") this.answers.goal = selectedOpt.program;
+        if (q.id === "condition") this.answers.condition = selectedOpt.program;
+        if (q.id === "schedule") this.answers.schedule = selectedOpt.format;
 
-  bindEvents(question) {
-    const optionBtns = this.container.querySelectorAll(".quiz-option-btn");
-    optionBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const idx = parseInt(btn.getAttribute("data-index"), 10);
-        const selectedOpt = question.options[idx];
-        
-        // Add points
-        Object.entries(selectedOpt.points).forEach(([key, val]) => {
-          this.scores[key] = (this.scores[key] || 0) + val;
-        });
-        
-        this.answers[question.id] = selectedOpt.value;
-
-        if (this.currentStep < ASSESSMENT_QUIZ_QUESTIONS.length - 1) {
-          this.currentStep++;
-          this.renderQuestion();
-        } else {
-          this.renderResults();
-        }
+        this.currentStep++;
+        this.render();
       });
     });
 
-    const prevBtn = this.container.querySelector("#quiz-prev-btn");
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
+    const backBtn = this.container.querySelector("#quiz-back-btn");
+    if (backBtn) {
+      backBtn.addEventListener("click", () => {
         if (this.currentStep > 0) {
           this.currentStep--;
-          this.renderQuestion();
+          this.render();
         }
       });
     }
   }
 
-  renderResults() {
-    // Determine top 2 recommended assessments
-    const sorted = Object.entries(this.scores).sort((a, b) => b[1] - a[1]);
-    const topKey = sorted[0][0];
-    const secondKey = sorted[1][0];
+  renderResult() {
+    // Scoring logic
+    let recommendedSlug = "reset";
+    if (this.answers.condition === "restore" || this.answers.goal === "restore") {
+      recommendedSlug = "restore";
+    } else if (this.answers.goal === "build" || this.answers.condition === "build") {
+      recommendedSlug = "build";
+    } else if (this.answers.goal === "thrive" && this.answers.condition !== "restore" && this.answers.condition !== "reset") {
+      recommendedSlug = "thrive";
+    } else {
+      recommendedSlug = "reset";
+    }
 
-    const topAssessment = HELEVATE_DATA.assessments.find(a => a.id === topKey) || HELEVATE_DATA.assessments[0];
-    const secondAssessment = HELEVATE_DATA.assessments.find(a => a.id === secondKey) || HELEVATE_DATA.assessments[1];
+    const progInfo = window.HELEVATE_DATA?.programs?.find(p => p.slug === recommendedSlug) || {
+      name: "Helevate RESET",
+      subtitle: "Lose belly fat, keep muscle, bring health markers to safe.",
+      slug: "reset"
+    };
 
-    let html = `
-      <div class="quiz-results-container">
-        <div class="quiz-badge-result">✨ Precision Diagnostics Match</div>
-        <h3 class="quiz-result-title">Your Tailored Assessment Protocol</h3>
-        <p class="quiz-result-desc">Based on your age profile, goals, and health history, here is the scientific starting point recommended by our Human Performance Team:</p>
+    const scheduleFormat = this.answers.schedule || "4-Day Coached (Recommended)";
 
-        <div class="quiz-result-card primary-match">
-          <div class="match-icon">${topAssessment.icon}</div>
-          <div class="match-content">
-            <span class="match-badge">Primary Recommended Baseline</span>
-            <h4>${topAssessment.title}</h4>
-            <p>${topAssessment.shortDesc}</p>
-            <div class="match-biomarkers">
-              ${topAssessment.biomarkers.slice(0, 3).map(b => `<span class="biomarker-chip">${b}</span>`).join('')}
-            </div>
-          </div>
+    this.container.innerHTML = `
+      <div style="background: #FFFFFF; border-radius: 20px; border: 2px solid var(--color-primary-navy); box-shadow: var(--shadow-card); padding: 36px 30px; max-width: 680px; margin: 0 auto; text-align: center;">
+        <span class="badge badge-teal" style="margin-bottom: 12px;">Your Recommended Starting Point</span>
+        
+        <h3 style="font-size: 1.6rem; color: var(--color-primary-navy); margin-bottom: 12px; font-weight: 700;">
+          Your starting point looks like ${progInfo.name}. Your coach confirms it after your Body Report.
+        </h3>
+
+        <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; max-width: 540px; margin: 0 auto 20px auto;">
+          ${progInfo.subtitle} Format preference: <strong>${scheduleFormat}</strong>.
+        </p>
+
+        <div style="background: var(--color-bg-subtle); border-radius: 12px; padding: 14px 20px; margin-bottom: 26px; font-size: 0.88rem; color: var(--color-text-dim);">
+          ℹ️ Every journey starts with a DEXA baseline Body Report so your coach can verify your muscle, visceral fat, and bone density before starting.
         </div>
 
-        <div class="quiz-result-card secondary-match">
-          <div class="match-icon">${secondAssessment.icon}</div>
-          <div class="match-content">
-            <span class="match-badge">Secondary Complementary Scan</span>
-            <h4>${secondAssessment.title}</h4>
-            <p>${secondAssessment.shortDesc}</p>
-          </div>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+          <a href="#homepage-final-cta" class="btn btn-gold btn-lead-scroll">
+            Book My Body Report →
+          </a>
+          <a href="#/programs/${progInfo.slug}" class="btn btn-secondary">
+            Explore ${progInfo.name}
+          </a>
         </div>
 
-        <div class="quiz-result-actions">
-          <button class="btn btn-primary btn-lg" id="quiz-book-recommendation-btn">
-            Book Free Consultation for This Protocol →
-          </button>
-          <button class="btn btn-secondary btn-sm" id="quiz-restart-btn">
-            Retake Assessment Quiz
-          </button>
-        </div>
+        <button type="button" id="quiz-restart-btn" style="background: none; border: none; font-size: 0.82rem; color: var(--color-text-dim); text-decoration: underline; cursor: pointer;">
+          Retake 3 Questions
+        </button>
       </div>
     `;
-
-    this.container.innerHTML = html;
-
-    const bookBtn = this.container.querySelector("#quiz-book-recommendation-btn");
-    if (bookBtn) {
-      bookBtn.addEventListener("click", () => {
-        // Close quiz modal and open booking modal prefilled
-        document.getElementById("quiz-modal").classList.remove("active");
-        window.openBookingModalWithGoal(topAssessment.title);
-      });
-    }
 
     const restartBtn = this.container.querySelector("#quiz-restart-btn");
     if (restartBtn) {
       restartBtn.addEventListener("click", () => {
         this.currentStep = 0;
-        this.scores = { metabolic: 0, dexa: 0, gut: 0, dna: 0 };
-        this.renderQuestion();
+        this.answers = { goal: null, condition: null, schedule: null };
+        this.render();
+      });
+    }
+
+    // Scroll smoothly to form when clicking Book My Body Report
+    const leadScrollBtn = this.container.querySelector(".btn-lead-scroll");
+    if (leadScrollBtn) {
+      leadScrollBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById("homepage-final-cta");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          // Pre-select program goal if possible
+          const goalSelect = document.getElementById("lead-matters-most");
+          if (goalSelect) {
+            if (recommendedSlug === "reset") goalSelect.value = "Belly fat & health markers";
+            if (recommendedSlug === "restore") goalSelect.value = "Pain-free movement";
+            if (recommendedSlug === "build") goalSelect.value = "Muscle & strength";
+            if (recommendedSlug === "thrive") goalSelect.value = "Stay fit for life";
+          }
+        }
       });
     }
   }
 }
 
-// Global hook
-window.initAssessmentQuiz = () => {
-  const quiz = new AssessmentQuiz();
-  quiz.init();
-};
+if (typeof window !== "undefined") {
+  window.ProgramRecommendationQuiz = ProgramRecommendationQuiz;
+}

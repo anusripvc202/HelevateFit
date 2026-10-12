@@ -1,692 +1,495 @@
 /**
- * HELEVATE.FIT — STRUCTURED DATA & CONTENT REPOSITORY
- * Source of truth based on Client Handoff Document & Core Objective:
- * Gated Community -> Helevate -> Health & Wellness Services -> Residents
+ * HELEVATE.FIT — COMPLETE STRUCTURED CONTENT REPOSITORY
+ * Based on Client's Website Content & Performance Marketing Blueprint — October 2026
+ * Official Brand Line: Elevating Human Performance & Lifestyle
  */
 
 const HELEVATE_DATA = {
   brand: {
     name: "Helevate.fit",
     legalName: "Helevate Fit Pvt Ltd",
-    tagline: "Better Health. Right in Your Community.",
-    brandLine: "Not Ordinary",
-    positioning: "Community Health, Fitness & Wellness Service Provider",
-    mission: "Helevate partners with gated communities to bring professional health, fitness, nutrition, and wellness services directly to residents.",
-    founder: "Harish P",
-    founderRole: "Founder & Head Coach",
-    founderCert: "Certified Human Performance Coach • Gated Community Pioneer",
-    email: "helevatefit@gmail.com",
+    brandLine: "Elevating Human Performance & Lifestyle",
+    headline: "Better Health. Right in Your Community.",
+    supportingCopy: "Measured, coach-led wellness programs inside Hyderabad’s gated communities.",
+    corePositioning: "Helevate is the premium wellness partner for gated communities in Hyderabad. We bring measured, coach-led health and performance programs into your clubhouse — so you get real results without the commute, the crowd or the guesswork.",
+    taglineSupporting: "Your Community. Your Coach. Your Numbers.",
     phone: "+91 99639 60259",
-    phoneAlt: "+91 94403 09596",
+    phoneDisplay: "+91 99639 60259",
+    email: "helevatefit@gmail.com",
     address: "4th Floor, JK Business Centre, Road No. 36, Jubilee Hills, Hyderabad – 500033, Telangana",
     city: "Hyderabad",
-    website: "https://helevate.fit"
+    website: "https://helevate.fit",
+    disclaimer: "Helevate provides fitness and performance coaching. It is not a substitute for medical advice, diagnosis or treatment. Consult your doctor before starting; some programs need medical clearance.",
+    resultsDisclaimer: "Individual results vary."
   },
 
-  // 1. Core Flow (Community -> Services -> Residents -> Personalised Support)
-  homepageFlow: [
-    {
-      num: "01",
-      title: "Community Partners With Helevate",
-      desc: "A gated community partners with Helevate to bring professional health and wellness services to residents."
-    },
-    {
-      num: "02",
-      title: "Services Come to the Community",
-      desc: "Helevate helps introduce relevant fitness, nutrition, and wellness programs within the community."
-    },
-    {
-      num: "03",
-      title: "Residents Access the Services",
-      desc: "Residents can explore and participate in the services available in their community."
-    },
-    {
-      num: "04",
-      title: "Personalised Support",
-      desc: "Where required, assessments and individual requirements can help tailor the service experience."
-    }
-  ],
-
-  // 2. Client-Approved Services List
-  services: [
-    {
-      id: "strength-coaching",
-      name: "Strength Coaching",
-      tagline: "Structured resistance training with certified coaches.",
-      desc: "Progressive resistance training, thoracic spine screening, and mobility protocols led by certified coaches in your community gym.",
-      icon: "🏋️",
-      link: "#/services"
-    },
-    {
-      id: "group-fitness",
-      name: "Group Fitness",
-      tagline: "High-energy coach-supervised community workouts.",
-      desc: "High-energy, coach-supervised community workouts that build functional conditioning and consistency without leaving your society.",
-      icon: "👥",
-      link: "#/services"
-    },
-    {
-      id: "personal-training",
-      name: "Personal Training",
-      tagline: "Dedicated 1-on-1 coaching for your schedule and goals.",
-      desc: "Dedicated 1-on-1 coaching tailored specifically to your schedule, current fitness level, and individual body goals.",
-      icon: "🎯",
-      link: "#/services"
-    },
-    {
-      id: "nutrition-diet",
-      name: "Nutrition & Diet",
-      tagline: "Bio-individual meal frameworks from Registered Dietitians.",
-      desc: "Whole-food nutrition frameworks, glycemic pacing, and practical Indian family meal plans created by Registered Dietitians.",
-      icon: "🥗",
-      link: "#/services"
-    },
-    {
-      id: "h75-transformation",
-      name: "H75 Transformation",
-      tagline: "12-Week structured transformation journey.",
-      desc: "Structured multi-phase transformation journey combining strength coaching, nutrition pacing, and optional DEXA progress tracking.",
-      icon: "🔥",
-      link: "#/services"
-    },
-    {
-      id: "wellness-support",
-      name: "Personalised Wellness Support",
-      tagline: "Mobility restoration and circadian lifestyle support.",
-      desc: "Postural restoration, mobility screening, and optional baseline health assessments to provide tailored recommendations when needed.",
-      icon: "🌙",
-      link: "#/services"
-    }
-  ],
-
-  // 3. Supporting Health Assessments (Supporting Precision Only)
-  assessments: [
-    {
-      id: "metabolic-panel",
-      name: "Metabolic Health Panel",
-      tagline: "Beyond routine bloodwork.",
-      shortDesc: "Uncover inflammation, insulin resistance, and cardiovascular risk patterns before they become diagnoses.",
-      fullDesc: "Routine labs can look 'normal' while risk builds underneath. Our precision panel adds markers most routine check-ups skip — ApoB, Lp(a), fasting insulin/HOMA-IR, hs-CRP, and more — to reveal particle burden, insulin resistance, and inflammatory patterns early, while there's still time to change direction.",
-      bestFor: "Anyone 35+, anyone with a family history of heart disease/diabetes, anyone whose weight isn't responding to normal effort.",
-      markers: ["Apolipoprotein B (ApoB)", "Fasting Insulin & HOMA-IR", "hs-CRP Vascular Inflammation", "Lipoprotein(a) [Lp(a)]", "HbA1c Glycemic Dynamic"],
-      icon: "🔬"
-    },
-    {
-      id: "dexa-scan",
-      name: "DEXA Body Composition Scan",
-      tagline: "The real number behind the scale.",
-      shortDesc: "Precise fat mass, lean muscle mass, and visceral fat data — the real metrics behind your health.",
-      fullDesc: "A single scan measures your actual fat mass, lean muscle mass, bone density, and visceral fat — the fat around your organs linked to metabolic risk. It is the gold standard way to track real body transformation, not just weight on a scale.",
-      bestFor: "Anyone starting a fat-loss or strength program, anyone who wants to track progress accurately.",
-      markers: ["Visceral Adipose Tissue (VAT)", "Regional Lean Muscle Mass", "Total Body Fat %", "Bone Mineral Density", "Symmetry Baseline"],
-      icon: "📊"
-    },
-    {
-      id: "gut-microbiome",
-      name: "Gut Microbiome Testing",
-      tagline: "Nutrition built around your biology.",
-      shortDesc: "Understand your gut bacteria to build a nutrition plan that works with your unique biology.",
-      fullDesc: "Your gut bacteria influence digestion, inflammation, weight, and even mood. This test maps your gut microbiome so your nutrition plan works with your biology instead of against it.",
-      bestFor: "Anyone with digestive issues, unexplained fatigue, or stalled progress despite a 'clean' diet.",
-      markers: ["Microbiome Diversity Index", "Inflammatory Flora Ratios", "Short-Chain Fatty Acid Yield", "Digestive Efficiency"],
-      icon: "🥗"
-    },
-    {
-      id: "dna-testing",
-      name: "DNA / Gene Testing",
-      tagline: "Genetic insights into metabolism.",
-      shortDesc: "Reveals how your body responds to exercise, macronutrients, and recovery demands.",
-      fullDesc: "Genetic testing reveals how your body responds to different types of exercise, carbohydrates, fats, and recovery demands — turning your training and nutrition plan into something built specifically for you.",
-      bestFor: "Anyone who wants a long-term, precision-built lifestyle plan.",
-      markers: ["Carb & Fat Sensitivity", "Recovery Latency Profile", "Micronutrient Utilization", "Cardiovascular Tendencies"],
-      icon: "🧬"
-    }
-  ],
-
-  // 6. 5-Step Detailed How It Works Roadmap (From PDF)
-  detailedHowItWorks: [
-    {
-      step: "01",
-      name: "Assess",
-      title: "Baseline Your Biology",
-      desc: "Complete comprehensive baseline diagnostics: metabolic health panel, DEXA body composition, and optionally gut/DNA testing."
-    },
-    {
-      step: "02",
-      name: "Personalise",
-      title: "Build Around Your Data",
-      desc: "Your certified coach interprets your Helevate Report and formulates a training and nutrition plan around what your data actually shows."
-    },
-    {
-      step: "03",
-      name: "Train & Act",
-      title: "Execute In Your Community",
-      desc: "Strength coaching, group fitness, and nutrition guidance delivered consistently inside your society clubhouse."
-    },
-    {
-      step: "04",
-      name: "Reassess",
-      title: "90-Day Objective Checkpoints",
-      desc: "Repeat key markers and scans to objectively measure what has changed — not just how you feel."
-    },
-    {
-      step: "05",
-      name: "Evolve",
-      title: "Continuous Adaptation",
-      desc: "Your plan adjusts as your body changes. Escalate to medical referral or higher performance protocols as needed."
-    }
-  ],
-
-  // 7. Why Helevate Fit (Trust & Model Pillars)
-  whyHelevatePoints: [
-    {
-      title: "Assessment-Led, Not Guesswork-Led",
-      desc: "Every program starts with clinical blood panels and DEXA scans, so your plan is built for your biology, not a generic template.",
-      icon: "🔬"
-    },
-    {
-      title: "Community-Based Delivery",
-      desc: "Delivered inside your gated community clubhouse in Hyderabad — zero commute friction, no traffic, and seamless consistency.",
-      icon: "🏡"
-    },
-    {
-      title: "Certified Human Performance Coaches",
-      desc: "Work with certified coaches who understand biomechanics, metabolic health, and real human longevity.",
-      icon: "🏅"
-    },
-    {
-      title: "90-Day Measurable Proof",
-      desc: "We track transformation with objective quarterly re-tests and DEXA scans to validate real internal progress.",
-      icon: "📈"
-    }
-  ],
-
-  // 8. Authentic Member Video Testimonials & Transformation Reviews (Community-wise)
-  testimonials: [
-    {
-      id: "vid-siddharth",
-      name: "Siddharth Rao",
-      role: "VP of Engineering",
-      community: "My Home Bhooja",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80",
-      duration: "0:48",
-      metricBadge: "⚡ -4.8kg Visceral Fat • ApoB 118 → 82",
-      quote: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless.",
-      fullStory: "Working in tech leadership meant 12-hour desk days. My standard hospital checkups always came back 'normal', but my energy was crashing every afternoon. Helevate's metabolic panel flagged early insulin resistance. With on-site clubhouse coaching and protein pacing, my 90-day DEXA showed a 4.8kg drop in visceral fat and my ApoB dropped into the optimal green zone.",
-      rating: 5,
-      program: "Transformation Tier (H75)"
-    },
-    {
-      id: "vid-priyanka",
-      name: "Priyanka Reddy",
-      role: "Corporate Lawyer",
-      community: "Aparna Sarovar",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80",
-      duration: "0:56",
-      metricBadge: "⚡ Thoracic Mobility 100% • hs-CRP 3.4 → 0.9",
-      quote: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction.",
-      fullStory: "After 8 years of corporate litigation, chronic neck stiffness and poor posture were affecting my sleep. Helevate conducted a full movement screening right in Aparna Sarovar's clubhouse. Within 8 weeks of targeted resistance and thoracic mobility, my stiffness vanished completely and my systemic inflammation (hs-CRP) dropped by 73%.",
-      rating: 5,
-      program: "Precision Tier"
-    },
-    {
-      id: "vid-anand",
-      name: "Anand Verma",
-      role: "Managing Director",
-      community: "Jubilee Hills",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
-      duration: "1:04",
-      metricBadge: "⚡ -28% Inflammation • +3.4kg Lean Muscle",
-      quote: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss.",
-      fullStory: "I was tired of generic gym trainers and unsustainable crash diets. Harish and the Helevate team interpreted my blood panel into a clear, family-compatible whole-food blueprint. I never felt deprived, and our 90-day DEXA scan objectively proved I gained 3.4kg of lean muscle while shedding visceral fat.",
-      rating: 5,
-      program: "Precision Tier"
-    },
-    {
-      id: "vid-kavitha",
-      name: "Kavitha Ramanathan",
-      role: "Senior Product Director",
-      community: "Financial District",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=80",
-      duration: "0:42",
-      metricBadge: "⚡ VO2 Max +18% • Fasting Glucose 104 → 88",
-      quote: "Zero commute meant I finally stopped skipping sessions. Morning coach presence right downstairs in the society gym built the most consistent habit of my life.",
-      fullStory: "Commuting across Hyderabad to a gym was costing me 90 minutes every day. Having Helevate coaches stationed inside our clubhouse floor eliminated all friction. My resting heart rate dropped from 74 to 59 bpm, and my VO2 max improved by 18%.",
-      rating: 5,
-      program: "Foundation & Strength"
-    },
-    {
-      id: "vid-vikram",
-      name: "Vikram Nambiar",
-      role: "Founder & Angel Investor",
-      community: "Kokapet",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80",
-      duration: "0:52",
-      metricBadge: "⚡ HOMA-IR 3.6 → 1.4 • -7.2kg Fat Loss",
-      quote: "The precision diagnostic approach felt like working with a high-performance sports team. The results are undeniable on paper and in energy levels.",
-      fullStory: "I value data in business and wanted the same rigor for my health. Helevate's metabolic analysis unlocked exactly why my previous diet attempts failed. The 1-on-1 coaching inside Kokapet transformed my insulin sensitivity and athletic capacity.",
-      rating: 5,
-      program: "Transformation Tier (H75)"
-    },
-    {
-      id: "vid-deepa",
-      name: "Deepa & Rajesh Sundaram",
-      role: "Architect & Consultant",
-      community: "Rainbow Vistas",
-      videoSrc: "assets/real-video1.mp4",
-      fallbackSrc: "assets/real-video1.mp4",
-      poster: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&auto=format&fit=crop&q=80",
-      duration: "1:10",
-      metricBadge: "⚡ Couple Transformation • Joint Mobility +40%",
-      quote: "Training together right downstairs in Rainbow Vistas clubhouse has made wellness an effortless part of our family routine.",
-      fullStory: "We wanted a program that catered to both of our differing fitness levels without needing external gym commutes. Helevate tailored individual protocols for both of us with weekly on-site coach check-ins.",
-      rating: 5,
-      program: "Foundation & Community Tier"
-    }
-  ],
-
-  // Community-specific detailed Reviews
-  communityReviews: [
-    {
-      community: "My Home Bhooja",
-      reviewer: "Siddharth Rao",
-      role: "VP of Engineering",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "The blood panel and DEXA scan caught insulin resistance that routine executive checkups completely missed. Having coaches right in our clubhouse made consistency effortless.",
-      metric: "Visceral Fat: -4.8 kg | ApoB: 118 → 82 mg/dL",
-      date: "September 2026"
-    },
-    {
-      community: "My Home Bhooja",
-      reviewer: "Ritu Kulkarni",
-      role: "Design Lead & Mother of 2",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "The WhatsApp nutrition concierge helped me plan high-protein South Indian vegetarian meals that our entire family loves. 10/10 recommendation.",
-      metric: "Lean Mass: +2.8 kg | Energy: High all day",
-      date: "August 2026"
-    },
-    {
-      community: "Aparna Sarovar",
-      reviewer: "Priyanka Reddy",
-      role: "Corporate Lawyer",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "Years of desk work caused severe upper spine stiffness. The biomechanical screening and tailored mobility plan restored my posture within 8 weeks without any commute friction.",
-      metric: "hs-CRP: 3.4 → 0.9 mg/L | Thoracic Mobility: 100%",
-      date: "September 2026"
-    },
-    {
-      community: "Aparna Sarovar",
-      reviewer: "Karthik V.",
-      role: "Senior Consultant",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "The 6:30 AM clubhouse sessions fit right into my workday before meetings start. Coach Vikram ensures technique is flawless on every set.",
-      metric: "Body Fat: 24.2% → 17.6%",
-      date: "August 2026"
-    },
-    {
-      community: "Jubilee Hills",
-      reviewer: "Anand Verma",
-      role: "Managing Director",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "The Helevate Report gave me a clear scientific dietary framework without crash diets. My 90-day reassessment showed a 28% drop in hs-CRP inflammation and tangible fat loss.",
-      metric: "hs-CRP: -28% | Lean Muscle: +3.4 kg",
-      date: "September 2026"
-    },
-    {
-      community: "Financial District",
-      reviewer: "Kavitha Ramanathan",
-      role: "Senior Product Director",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "Zero commute meant I finally stopped skipping sessions. Morning coach presence right downstairs in the society gym built the most consistent habit of my life.",
-      metric: "VO2 Max: +18% | Fasting Glucose: 104 → 88 mg/dL",
-      date: "August 2026"
-    },
-    {
-      community: "Kokapet",
-      reviewer: "Vikram Nambiar",
-      role: "Founder & Angel Investor",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "The precision diagnostic approach felt like working with a high-performance sports team. The results are undeniable on paper and in daily energy levels.",
-      metric: "HOMA-IR: 3.6 → 1.4 | Fat Loss: -7.2 kg",
-      date: "September 2026"
-    },
-    {
-      community: "Rainbow Vistas",
-      reviewer: "Deepa & Rajesh Sundaram",
-      role: "Architect & Consultant",
-      rating: 5,
-      tag: "Verified Resident",
-      review: "Training together right downstairs in Rainbow Vistas clubhouse has made wellness an effortless part of our family routine.",
-      metric: "Couple Fitness | Joint Mobility: +40%",
-      date: "July 2026"
-    }
-  ],
-
-  // Hyderabad Gated Community Clubhouse Locations
-  communityLocations: [
-    {
-      id: "my-home-bhooja",
-      name: "My Home Bhooja",
-      locality: "Hitec City / Knowledge City, Hyderabad",
-      clubhouse: "Clubhouse 1 & 2 Gym Floors",
-      timings: "Morning 6:00 – 9:30 AM • Evening 5:00 – 8:30 PM",
-      status: "Active Coaching Hub",
-      membersCount: "48+ Active Residents",
-      services: ["DEXA Visceral Fat Imaging", "Metabolic Blood Panels", "1-on-1 Strength Coaching", "Group Longevity Classes"],
-      leadCoach: "Harish P & Vikram A."
-    },
-    {
-      id: "aparna-sarovar",
-      name: "Aparna Sarovar",
-      locality: "Nallagandla / Gachibowli, Hyderabad",
-      clubhouse: "Main Clubhouse Wellness Studio",
-      timings: "Morning 6:30 – 9:30 AM • Evening 5:30 – 8:30 PM",
-      status: "Active Coaching Hub",
-      membersCount: "36+ Active Residents",
-      services: ["Biomechanical Screening", "Clinical Nutrition", "Posture Restoration", "Strength Coaching"],
-      leadCoach: "Meera Nair & Team"
-    },
-    {
-      id: "jubilee-hills",
-      name: "Jubilee Hills / Road 36",
-      locality: "Jubilee Hills & Banjara Hills, Hyderabad",
-      clubhouse: "Private Residence & Community Pods",
-      timings: "Flexible Executive Timings (6:00 AM – 8:00 PM)",
-      status: "Active Coaching Hub",
-      membersCount: "30+ Executive Members",
-      services: ["Full Diagnostic Suite", "DEXA Scan", "ApoB Cardio Profiling", "Executive Coaching"],
-      leadCoach: "Harish P (Head Coach)"
-    },
-    {
-      id: "financial-district",
-      name: "Financial District / Nanakramguda",
-      locality: "Gated Enclaves, Financial District, Hyderabad",
-      clubhouse: "Society Fitness Pavilions",
-      timings: "Morning 6:00 – 9:00 AM • Evening 5:00 – 8:00 PM",
-      status: "Active Coaching Hub",
-      membersCount: "42+ Active Residents",
-      services: ["Metabolic Diagnostics", "H75 Fat-Loss", "Zone-2 Cardio Conditioning", "Nutrition Concierge"],
-      leadCoach: "Dr. S. Ananya & Vikram A."
-    },
-    {
-      id: "kokapet",
-      name: "Kokapet / Neopolis",
-      locality: "Luxury High-Rises, Kokapet, Hyderabad",
-      clubhouse: "Tower Clubhouses & Gyms",
-      timings: "Morning 6:00 – 9:30 AM • Evening 5:30 – 8:30 PM",
-      status: "Active Coaching Hub",
-      membersCount: "35+ Active Residents",
-      services: ["DEXA Body Composition", "Biomarker Tracking", "Progressive Strength Load", "Restorative Mobility"],
-      leadCoach: "Vikram Aditya"
-    },
-    {
-      id: "rainbow-vistas",
-      name: "Rainbow Vistas Rockgarden",
-      locality: "Moosapet / Hitec Corridor, Hyderabad",
-      clubhouse: "Central Clubhouse Gym",
-      timings: "Morning 6:30 – 9:30 AM • Evening 5:00 – 8:00 PM",
-      status: "Active Coaching Hub",
-      membersCount: "28+ Active Residents",
-      services: ["Group Fitness", "Movement Screening", "Metabolic Baseline", "Nutritional Coaching"],
-      leadCoach: "Meera Nair"
-    },
-    {
-      id: "lanco-hills",
-      name: "Lanco Hills",
-      locality: "Manikonda, Hyderabad",
-      clubhouse: "Club House Fitness Center",
-      timings: "Morning 6:00 – 9:00 AM • Evening 5:00 – 8:00 PM",
-      status: "Active Coaching Hub",
-      membersCount: "24+ Active Residents",
-      services: ["Strength & Conditioning", "Biomarker Panels", "DEXA Scans", "Lifestyle Coaching"],
-      leadCoach: "Harish P & Team"
-    },
-    {
-      id: "jayabheri-silicon",
-      name: "Jayabheri Silicon County",
-      locality: "Hitec City / Kondapur, Hyderabad",
-      clubhouse: "Clubhouse Gymnasium",
-      timings: "Morning 6:30 – 9:30 AM • Evening 5:30 – 8:30 PM",
-      status: "Active Coaching Hub",
-      membersCount: "22+ Active Residents",
-      services: ["1-on-1 Personal Training", "Metabolic Profiling", "Body Composition", "Cardio Base"],
-      leadCoach: "Vikram Aditya"
-    }
-  ],
-
-  // 9. Membership / Tier Structure (From PDF)
-  pricingTiers: [
-    {
-      id: "foundation",
-      name: "Foundation Tier",
-      badge: "Community Entry",
-      desc: "Group fitness and community coaching for consistent habit building.",
-      features: [
-        "Community group fitness sessions",
-        "Basic movement screening",
-        "Clubhouse coach support",
-        "Lifestyle habit guidance"
-      ]
-    },
-    {
-      id: "transformation",
-      name: "Transformation Tier",
-      badge: "Most Popular",
-      desc: "Personal strength coaching, nutrition planning, and DEXA body scans (e.g. H75).",
-      features: [
-        "1-on-1 Personal Strength Coaching",
-        "DEXA Body Composition Scan",
-        "Personalised Nutrition Blueprint",
-        "Continuous coach accountability",
-        "Quarterly 90-day re-testing"
-      ]
-    },
-    {
-      id: "precision",
-      name: "Precision Tier",
-      badge: "Complete Diagnostic",
-      desc: "Comprehensive diagnostics + Metabolic Panel + Gut Microbiome + DNA testing.",
-      features: [
-        "Full Metabolic Health Panel (ApoB, Insulin, hs-CRP)",
-        "DEXA Scan + Gut Microbiome & DNA Testing",
-        "The Comprehensive Helevate Report",
-        "Dedicated Human Performance Coach",
-        "Full medical-grade reassessment loop"
-      ]
-    }
-  ],
-
-  // 10. Hyderabad Gated Communities List
-  communities: [
-    "My Home Bhooja",
-    "Aparna Sarovar",
-    "Jubilee Hills",
-    "Gachibowli",
-    "Financial District",
-    "Hitec City",
-    "Kokapet",
-    "Narsingi",
-    "Kondapur",
-    "Madhapur"
-  ],
-
-  // 11. SEO & Editorial Insights (Blog starter topics)
-  insights: [
-    {
-      id: "bloodwork-risk-patterns",
-      title: "Why Your Bloodwork Can Look Normal While Your Risk Is Rising",
-      tagline: "The gap between standard check-ups and precision preventive diagnostics.",
-      category: "Metabolic Health",
-      readTime: "5 min read",
-      author: "Helevate Science Team",
-      date: "September 2026",
-      image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&auto=format&fit=crop&q=80",
-      excerpt: "Standard annual health checks focus on late-stage disease thresholds like fasting glucose. Learn how early subclinical markers like fasting insulin and ApoB reveal true cardiovascular risk years in advance.",
-      content: `
-        <p>Most executive health check-ups follow a reactive diagnostic model designed to flag active pathology rather than early physiological decline. A fasting blood glucose level of 96 mg/dL is marked 'normal' on lab reference ranges, even when the pancreas is producing 3x the normal amount of insulin to keep it there.</p>
-        <h4>The Hyperinsulinemic Compensation Phase</h4>
-        <p>Before fasting glucose climbs into pre-diabetic or diabetic territory, fasting insulin often rises silently for 5 to 10 years. This hyperinsulinemic state promotes visceral fat accumulation, elevates blood pressure, and accelerates arterial plaque buildup — all while standard annual bloodwork reports 'all clear.'</p>
-        <h4>The Role of ApoB vs. Total Cholesterol</h4>
-        <p>Standard lipid panels measure total cholesterol and LDL-C, which quantify the mass of cholesterol inside particles. However, modern preventive cardiology looks at Apolipoprotein B (ApoB) — which counts the actual number of atherogenic particles circulating in your bloodstream. Particle count is the true driver of vascular plaque penetration.</p>
-        <div class="insight-highlight-box">
-          <strong>Key Takeaway:</strong> Baseline testing should look beyond standard reference ranges. Assessing fasting insulin, HOMA-IR, ApoB, and hs-CRP allows proactive lifestyle intervention before metabolic strain turns into a clinical diagnosis.
-        </div>
-      `
-    },
-    {
-      id: "dexa-vs-weighing-scale",
-      title: "DEXA vs. the Weighing Scale: What Actually Changed",
-      tagline: "Understanding visceral fat, regional lean mass, and true body recomposition.",
-      category: "Body Composition",
-      readTime: "4 min read",
-      author: "Harish P, Head Coach",
-      date: "September 2026",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
-      excerpt: "A standard bathroom scale measures total body weight, but fails to distinguish between lean muscle, subcutaneous fat, and dangerous visceral adipose tissue surrounding vital organs.",
-      content: `
-        <p>When you start a structured strength and nutrition protocol, the bathroom scale can often be misleading. It is common to drop 2 kg of body fat while gaining 1.5 kg of lean contractile muscle, resulting in a net scale shift of only 0.5 kg. Without objective scanning, many become discouraged despite making monumental health progress.</p>
-        <h4>The Danger of Visceral Fat (VAT)</h4>
-        <p>Unlike subcutaneous fat (the soft fat beneath the skin), visceral fat accumulates inside the abdominal cavity around the liver, pancreas, and intestines. Visceral fat is metabolically active, secreting inflammatory cytokines and free fatty acids directly into the portal vein. DEXA imaging quantifies visceral adipose tissue in exact grams and square centimeters.</p>
-        <h4>Skeletal Muscle Index and Metabolic Longevity</h4>
-        <p>Muscle mass is our primary metabolic sink for glucose disposal. DEXA tracks regional lean mass across your arms, legs, and trunk — ensuring you preserve or build muscle while losing fat, protecting your basal metabolic rate and long-term joint health.</p>
-        <div class="insight-highlight-box">
-          <strong>Key Takeaway:</strong> Track your transformation with gold-standard DEXA body composition scans rather than bathroom scales to verify real visceral fat reduction and muscle retention.
-        </div>
-      `
-    },
-    {
-      id: "apob-and-cardiology",
-      title: "What Is ApoB and Why Cardiologists Are Starting to Care",
-      tagline: "The single best biomarker for atherogenic particle burden.",
-      category: "Cardiovascular Longevity",
-      readTime: "6 min read",
-      author: "Clinical Advisory Board",
-      date: "August 2026",
-      image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop&q=80",
-      excerpt: "Why the global cardiology consensus is shifting towards ApoB testing as the most accurate predictor of cardiovascular risk and plaque progression.",
-      content: `
-        <p>For decades, standard medical practice has relied on LDL-C (LDL cholesterol) to assess cardiovascular risk. While useful, LDL-C only estimates the total mass of cholesterol within your LDL particles — not how many particles exist.</p>
-        <h4>Why Particle Count Matters</h4>
-        <p>Imagine cargo ships carrying containers into a harbor. LDL-C is the amount of cargo; ApoB is the number of ships. Each particle of LDL, VLDL, and IDL carries exactly one ApoB protein molecule. If you have many small, dense LDL particles, your total cholesterol might appear moderate, but your ApoB particle count is dangerously high — exponentially increasing the probability that particles will penetrate the arterial endothelial wall.</p>
-        <h4>Optimizing ApoB Through Lifestyle & Training</h4>
-        <p>Zone-2 cardiovascular training, reduction of refined seed oils and sugars, optimization of saturated vs. polyunsaturated fat ratios, and resistance training work together to enhance LDL receptor clearance and reduce hepatic ApoB secretion.</p>
-        <div class="insight-highlight-box">
-          <strong>Key Takeaway:</strong> Knowing your ApoB baseline gives you an objective metric to track heart health progression alongside your coach and clinical team.
-        </div>
-      `
-    },
-    {
-      id: "insulin-resistance-stubborn-weight",
-      title: "Insulin Resistance: The Silent Driver Behind Stubborn Weight",
-      tagline: "Why caloric restriction alone fails when hormones block fat oxidation.",
-      category: "Metabolic Nutrition",
-      readTime: "5 min read",
-      author: "Dr. S. Ananya, Clinical Nutrition Lead",
-      date: "August 2026",
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80",
-      excerpt: "Understand how chronic hyperinsulinemia locks fat stores, why afternoon energy crashes occur, and how glycemic pacing unlocks sustainable metabolic flexibility.",
-      content: `
-        <p>If you have ever felt like you're eating less and working out more without seeing fat loss, elevated insulin is frequently the physiological roadblock. Insulin is a storage hormone. When circulating levels remain chronically elevated throughout the day, the enzyme hormone-sensitive lipase (HSL) is inhibited, preventing fat cells from releasing stored triglycerides for energy.</p>
-        <h4>The Afternoon Fatigue Cycle</h4>
-        <p>High-glycemic meals trigger rapid glucose spikes followed by excessive insulin surges. As insulin pulls glucose into cells, blood sugar drops sharply, triggering brain fog, carbohydrate cravings, and afternoon lethargy. You're not lazy — your metabolism is stuck on a glucose rollercoaster.</p>
-        <h4>The Helevate Approach: Glycemic Pacing & Strength</h4>
-        <p>Instead of starvation diets, we implement bio-individual protein pacing (1.4–1.8g/kg lean mass), fiber prioritization, post-meal walking, and progressive resistance training. Muscle contraction stimulates GLUT4 glucose transporters independent of insulin, directly reversing insulin resistance.</p>
-        <div class="insight-highlight-box">
-          <strong>Key Takeaway:</strong> Restore metabolic flexibility first through data-led nutrition and progressive strength training, and fat loss becomes the natural outcome.
-        </div>
-      `
-    }
-  ],
-
-  // 12. Careers & Open Positions
-  careers: {
-    headline: "Build the Future of Precision Fitness With Us",
-    subheadline: "We’re looking for coaches and specialists who want to practice real, data-led health — not just run generic sessions.",
-    benefits: [
-      {
-        icon: "🔬",
-        title: "Work with Real Assessment Data",
-        desc: "Formulate training and nutrition plans based on metabolic panels, DEXA body scans, and biometric telemetry."
-      },
-      {
-        icon: "📈",
-        title: "Structured Career Path",
-        desc: "Clear growth trajectory from on-site coach to Master Performance Lead with ongoing clinical education."
-      },
-      {
-        icon: "🎓",
-        title: "Training & Certification Support",
-        desc: "Access proprietary Helevate diagnostic interpretation protocols and continuing human performance education."
-      },
-      {
-        icon: "🏡",
-        title: "Community-Based Work",
-        desc: "Deliver high-touch coaching inside premium gated communities in Hyderabad with dedicated clubhouse facilities."
-      },
-      {
-        icon: "✨",
-        title: "A New Wellness Model",
-        desc: "Be part of an anti-hustle, science-first health movement transforming preventive longevity."
-      }
+  founder: {
+    name: "Harish P",
+    role: "Founder & Human Performance Coach",
+    credentials: [
+      "7 years in fitness coaching & lifestyle transformation",
+      "Human Performance Coach Certification",
+      "ACE-Certified Health Coach",
+      "Rehab-focused strength training specialist"
     ],
-    roles: [
+    bio: "Harish founded Helevate to solve the real everyday health challenge for gated community residents in Hyderabad: crowded gyms, traffic stress, lack of accurate tracking, and one-size-fits-all workouts. By bringing structured, 2-clients-per-slot coaching directly into community clubhouses, Helevate ensures every movement is safe, coached, and objectively measured."
+  },
+
+  pillars: [
+    {
+      id: "community",
+      number: "01",
+      title: "Inside Your Community",
+      shortDesc: "Residents access coaching in their own clubhouse gym.",
+      desc: "No commute, no traffic, no crowded commercial gyms. Step right from your elevator into your community clubhouse where your dedicated coach is ready.",
+      bulletPoints: [
+        "Zero travel time — right inside your society",
+        "Consistent morning & evening clubhouse slots",
+        "Train alongside fellow community residents"
+      ]
+    },
+    {
+      id: "measured",
+      number: "02",
+      title: "Measured, Not Guessed",
+      shortDesc: "Body Report and DEXA-measured metrics at week 1 & week 12.",
+      desc: "The bathroom scale only shows weight. Your Helevate Body Report reveals visceral fat, muscle mass, and bone density. We retest at week 12 to prove real progress.",
+      bulletPoints: [
+        "Accurate DEXA scan at week 1 baseline",
+        "30-minute coach report consultation",
+        "Objective retest at week 12 to verify changes"
+      ]
+    },
+    {
+      id: "coached",
+      number: "03",
+      title: "Coached, Not Left Alone",
+      shortDesc: "Small groups of two per slot with dedicated coach eyes on every rep.",
+      desc: "Never wander the gym alone. With just two clients per coaching slot, your coach adjusts your form, manages your load, and supports you throughout the week on WhatsApp.",
+      bulletPoints: [
+        "Small groups of two for focused attention",
+        "Weekly progress check-in with your coach",
+        "Guided sessions shared on WhatsApp a day before"
+      ]
+    }
+  ],
+
+  trustPoints: [
+    { title: "Coaching in your clubhouse", desc: "Zero commute — right where you live" },
+    { title: "DEXA-measured results", desc: "Track real fat, muscle & bone changes" },
+    { title: "Small groups of two", desc: "Your coach sees and guides every rep" },
+    { title: "Built for adults 35+", desc: "Joint-safe, sustainable & doctor-friendly" }
+  ],
+
+  theProblemPoints: [
+    {
+      title: "Weight Doesn't Tell the Whole Story",
+      desc: "A conventional scale cannot distinguish between 2 kg of lost muscle and 2 kg of lost fat. Losing muscle slows your metabolism, yet the scale calls it 'progress'."
+    },
+    {
+      title: "Visceral Fat Remains Hidden",
+      desc: "The most dangerous fat sits deep around internal organs, elevating cardiovascular and blood sugar markers while remaining invisible to standard mirrors or scales."
+    },
+    {
+      title: "Generic Gyms Leave You Guessing",
+      desc: "Crowded workouts and unverified routines lead to stalled results or joint flare-ups. True health improvements require objective baselines and dedicated coach supervision."
+    }
+  ],
+
+  bodyReportMetrics: [
+    { name: "Body Fat", desc: "Exact fat mass and percentage, mapping true fat loss rather than water or muscle fluctuation." },
+    { name: "Visceral Fat", desc: "Crucial hidden fat surrounding internal organs that impacts cardiovascular and metabolic health." },
+    { name: "Lean Muscle", desc: "Skeletal muscle mass distribution across arms, legs, and trunk to protect metabolic health and posture." },
+    { name: "Bone Density", desc: "Regional bone mineral density measurements vital for adults 35+ to guard against osteopenia." }
+  ],
+
+  programs: [
+    {
+      id: "reset",
+      slug: "reset",
+      name: "Helevate RESET",
+      descriptor: "Metabolic reset",
+      subtitle: "Lose belly fat, keep muscle, bring your health markers to safe.",
+      bestFor: "Extra weight, high belly fat, sugar / BP worries",
+      buttonText: "Start My Reset",
+      tagClass: "tag-reset",
+      heroHeadline: "Lose the belly fat. Keep the muscle. Coached inside your community.",
+      trustPoints: ["Clubhouse coaching", "DEXA baseline & week-12 retest", "2 clients per slot"],
+      clientQuote: "Normal weight, but belly fat won't go.",
+      problemCopy: "Standard weight loss programs often burn away valuable muscle tissue while leaving stubborn visceral belly fat untouched. For adults 35+, this slows metabolic rate and leads to weight rebound. RESET is engineered to target visceral fat, protect lean muscle, and support healthy metabolic markers with coach guidance.",
+      whoItsFor: [
+        "Adults 35+ carrying stubborn waistline or belly fat",
+        "Residents concerned about fasting glucose, HbA1c, or blood pressure trends",
+        "Professionals seeking structured habit pacing without extreme crash diets"
+      ],
+      whoItsNotFor: [
+        "Anyone looking for rapid overnight 'guaranteed 10 kg' crash programs",
+        "Individuals with acute unmanaged medical emergencies needing immediate hospital care",
+        "Those unwilling to complete a baseline Body Report to guide training"
+      ],
+      whatYouGet: [
+        "Small-group clubhouse coaching (2 clients per slot)",
+        "DEXA baseline Body Report & week-12 retest",
+        "Metabolic nutrition & meal pacing framework",
+        "Weekly coach review & progress check-in",
+        "Guided homework sessions delivered via WhatsApp",
+        "Continuous coach WhatsApp support"
+      ],
+      yourWeek: {
+        format: "4-Day Coached (recommended) or 3-Day Coached",
+        simple5Day: [
+          { day: "Day 1", type: "Coach-Led", title: "Metabolic Resistance (Upper & Core)", location: "Clubhouse Gym" },
+          { day: "Day 2", type: "Coach-Led", title: "Lower Body Stability & Tempo", location: "Clubhouse Gym" },
+          { day: "Day 3", type: "Coach-Led", title: "Full Body Glycemic Circuit", location: "Clubhouse Gym" },
+          { day: "Day 4", type: "Coach-Led", title: "Posterior Chain & Core Integration", location: "Clubhouse Gym" },
+          { day: "Day 5", type: "Guided", title: "Guided Movement & Conditioning Session", location: "Shared on WhatsApp" }
+        ],
+        commonNote: "Sessions are held in your community clubhouse. Your coach plans the week and shares the next guided session on WhatsApp a day before."
+      },
+      your12Weeks: [
+        { phase: "Phase 1: Weeks 1–4", title: "Metabolic Baseline & Glycemic Reset", desc: "Establish DEXA baseline, master movement form, and stabilize blood sugar swings." },
+        { phase: "Phase 2: Weeks 5–8", title: "Visceral Fat Mobilization", desc: "Increase training density while dialing in protein intake to preserve lean muscle." },
+        { phase: "Phase 3: Weeks 9–12", title: "Retest & Lifestyle Consolidation", desc: "Complete week-12 DEXA retest, measure biomarker progress, and lock in long-term habits." }
+      ],
+      measureSummary: "Baseline Body Report at week 1 establishes exact visceral fat and muscle mass. Week-12 retest verifies true metabolic progress.",
+      faqs: [
+        { q: "How long does each coaching session take?", a: "Each clubhouse session lasts 45 to 50 minutes of structured, focused training with zero wasted time." },
+        { q: "Can I join RESET if I have elevated BP or sugar levels?", a: "Yes. RESET is specifically designed for adults managing health markers. We request medical clearance where appropriate and adapt intensity to your capacity." },
+        { q: "What happens when I travel for work?", a: "Your coach provides travel-friendly bodyweight and band routines via WhatsApp so your momentum stays intact." },
+        { q: "Is strict starvation dieting required?", a: "No. Starvation causes muscle loss. RESET focuses on sustainable whole-food meal timing and sufficient protein." },
+        { q: "How is safety ensured with small groups?", a: "There are strictly two clients per slot. Your coach watches every repetition and adjusts weights individually." },
+        { q: "What if I miss a scheduled clubhouse session?", a: "You can coordinate with your coach to reschedule within the same week's available community slots or complete a guided session." }
+      ]
+    },
+
+    {
+      id: "restore",
+      slug: "restore",
+      name: "Helevate RESTORE",
+      descriptor: "Pain-free movement",
+      subtitle: "Move, lift and walk without knee, back or shoulder pain.",
+      bestFor: "Pain, past injury, post-surgery (with doctor's OK)",
+      buttonText: "Book a Movement Check",
+      tagClass: "tag-restore",
+      heroHeadline: "Move without pain again. Coached inside your community.",
+      trustPoints: ["Rehab-focused strength", "Doctor-cleared protocols", "2 clients per slot"],
+      clientQuote: "Joint stiffness and knee/back pain make workouts feel risky.",
+      problemCopy: "Joint pain in the lower back, knees, or shoulders often leads people to avoid movement altogether — causing surrounding muscles to weaken and stiffness to worsen. RESTORE uses deliberate, joint-friendly strengthening protocols to rebuild joint stability, correct muscular imbalances, and restore confidence in everyday movement.",
+      whoItsFor: [
+        "Residents dealing with nagging knee, lumbar spine, or shoulder stiffness",
+        "Adults returning to activity post-injury or post-surgery with doctor's approval",
+        "Individuals wanting joint-friendly strength training without aggressive impact"
+      ],
+      whoItsNotFor: [
+        "Acute unmanaged fractures or traumatic injuries requiring surgical intervention",
+        "Individuals lacking doctor clearance for light-to-moderate physical activity",
+        "Those seeking high-impact plyometric bootcamps"
+      ],
+      whatYouGet: [
+        "Comprehensive movement pattern & mobility assessment",
+        "Joint-safe progressive resistance training",
+        "DEXA baseline bone & muscle composition review",
+        "Thoracic, pelvic, and ankle mobility corrections",
+        "Weekly coach review and movement modifications",
+        "Continuous coach WhatsApp support"
+      ],
+      yourWeek: {
+        format: "4-Day Coached (recommended) or 3-Day Coached",
+        simple5Day: [
+          { day: "Day 1", type: "Coach-Led", title: "Hip Hinge & Lumbar Spine Stabilization", location: "Clubhouse Gym" },
+          { day: "Day 2", type: "Coach-Led", title: "Scapular Mechanics & Shoulder Freedom", location: "Clubhouse Gym" },
+          { day: "Day 3", type: "Coach-Led", title: "Knee-Friendly Squat & Ankle Mechanics", location: "Clubhouse Gym" },
+          { day: "Day 4", type: "Coach-Led", title: "Rotational Core & Postural Integration", location: "Clubhouse Gym" },
+          { day: "Day 5", type: "Guided", title: "Guided Joint Flossing & Decompression Routine", location: "Shared on WhatsApp" }
+        ],
+        commonNote: "Sessions are held in your community clubhouse. Your coach plans the week and shares the next guided session on WhatsApp a day before."
+      },
+      your12Weeks: [
+        { phase: "Phase 1: Weeks 1–4", title: "Decompression & Positional Control", desc: "Identify pain triggers, decompress tight joints, and activate dormant stabilizers." },
+        { phase: "Phase 2: Weeks 5–8", title: "Load Tolerance & Strength Rebuilding", desc: "Safely introduce progressive resistance to strengthen tendons and connective tissues." },
+        { phase: "Phase 3: Weeks 9–12", title: "Functional Freedom & Week-12 Check", desc: "Re-test movement capacity and baseline markers, establishing durable pain-free movement." }
+      ],
+      measureSummary: "Baseline mobility screen and DEXA scan at week 1; week-12 retest evaluates functional range of motion and joint stability.",
+      faqs: [
+        { q: "How long does each coaching session take?", a: "Sessions are 45 to 50 minutes including dedicated movement preparation and cool-down." },
+        { q: "Can I participate if I have past injuries or surgeries?", a: "Yes, provided you have doctor's clearance for exercise. Our Head Coach Harish specializes in rehab-focused strength training." },
+        { q: "What happens when I travel for work?", a: "Your coach provides travel mobility and pain-relief band routines via WhatsApp to prevent joint stiffness on flights." },
+        { q: "What food or nutrition guidance is included?", a: "We provide anti-inflammatory food frameworks, hydration guidelines, and collagen/protein pacing to support connective tissue recovery." },
+        { q: "How is safety managed to avoid aggravating pain?", a: "With only two clients per slot, the coach monitors joint angles, regulates loading, and regressions are used so there are zero painful reps." },
+        { q: "What happens if I miss a scheduled clubhouse session?", a: "You can reschedule in open community slots during the week or complete your guided mobility workout." }
+      ]
+    },
+
+    {
+      id: "build",
+      slug: "build",
+      name: "Helevate BUILD",
+      descriptor: "Strength builder",
+      subtitle: "Build real muscle after 35, proven on your scan.",
+      bestFor: "Low muscle, strength goals",
+      buttonText: "Start Building",
+      tagClass: "tag-build",
+      heroHeadline: "Build muscle after 35 — and prove it on your scan.",
+      trustPoints: ["Clubhouse gym coaching", "DEXA-verified muscle gain", "2 clients per slot"],
+      clientQuote: "Losing muscle and strength after 35, despite going to the gym.",
+      problemCopy: "After age 35, adults lose 3% to 5% of their muscle mass every decade without deliberate resistance training. This loss slows metabolism, weakens posture, and increases vulnerability to insulin resistance. BUILD provides structured, progressive resistance training to stimulate muscle protein synthesis and prove gains objectively on your DEXA scan.",
+      whoItsFor: [
+        "Adults 35+ looking to increase lean muscle mass and bone mineral density",
+        "Residents wanting to feel capable, athletic, and strong in everyday life",
+        "Individuals whose gym workouts have plateaued and want structured progressive overload"
+      ],
+      whoItsNotFor: [
+        "Individuals looking for dangerous maximum 1-rep lift competitions",
+        "Those seeking steroid or extreme bodybuilding transformations",
+        "Anyone with uncontrolled cardiac conditions without cardiologist approval"
+      ],
+      whatYouGet: [
+        "Structured progressive overload strength program",
+        "Small group clubhouse coaching (2 clients per slot)",
+        "DEXA baseline muscle mass scan & week-12 verification",
+        "Protein pacing and recovery nutrition guidance",
+        "Weekly strength journal and coach review",
+        "Continuous coach WhatsApp support"
+      ],
+      yourWeek: {
+        format: "4-Day Coached (recommended) or 3-Day Coached",
+        simple5Day: [
+          { day: "Day 1", type: "Coach-Led", title: "Upper Body Horizontal Push & Pull", location: "Clubhouse Gym" },
+          { day: "Day 2", type: "Coach-Led", title: "Lower Body Knee & Hip Dominance", location: "Clubhouse Gym" },
+          { day: "Day 3", type: "Coach-Led", title: "Upper Body Vertical Push & Pull", location: "Clubhouse Gym" },
+          { day: "Day 4", type: "Coach-Led", title: "Posterior Chain, Glute & Core Power", location: "Clubhouse Gym" },
+          { day: "Day 5", type: "Guided", title: "Conditioning, Grip & Loaded Carry Routine", location: "Shared on WhatsApp" }
+        ],
+        commonNote: "Sessions are held in your community clubhouse. Your coach plans the week and shares the next guided session on WhatsApp a day before."
+      },
+      your12Weeks: [
+        { phase: "Phase 1: Weeks 1–4", title: "Neuromuscular Activation & Technique", desc: "Baseline DEXA scan, master lifting tempo, and establish joint-safe baseline loads." },
+        { phase: "Phase 2: Weeks 5–8", title: "Progressive Hypertrophy & Volume", desc: "Gradually increase training volume and time-under-tension to stimulate lean muscle growth." },
+        { phase: "Phase 3: Weeks 9–12", title: "Peak Strength & DEXA Verification", desc: "Consolidate strength gains, perform week-12 DEXA retest, and verify lean tissue increase." }
+      ],
+      measureSummary: "Baseline Body Report at week 1 establishes segmental muscle mass; week-12 retest verifies exact lean tissue gain across limbs and torso.",
+      faqs: [
+        { q: "How long does each coaching session take?", a: "Each session is 45 to 50 minutes of efficient, focused progressive overload." },
+        { q: "Can I do BUILD if I have minor knee or shoulder concerns?", a: "Yes. Your coach chooses joint-safe exercise variations and strictly regulates loading to protect your joints while stimulating muscle." },
+        { q: "What happens when I travel for business?", a: "Your coach sends bodyweight progressive strength circuits via WhatsApp to preserve muscle protein synthesis." },
+        { q: "What nutrition support is included in BUILD?", a: "We provide protein pacing frameworks, hydration targets, and Indian food macro guidance to fuel recovery without excess fat gain." },
+        { q: "How is safety managed during heavy lifts?", a: "Strictly two clients per slot. Your coach is beside you to spot every set, correct technique, and manage bar path." },
+        { q: "What happens if I miss a session?", a: "You can reschedule in open community coaching slots or complete the guided conditioning routine." }
+      ]
+    },
+
+    {
+      id: "thrive",
+      slug: "thrive",
+      name: "Helevate THRIVE",
+      descriptor: "Longevity membership",
+      subtitle: "Stay strong, fit and sharp for the next 30 years.",
+      bestFor: "Healthy adults, program graduates",
+      buttonText: "Join THRIVE",
+      tagClass: "tag-thrive",
+      heroHeadline: "Stay strong and sharp for the next 30 years.",
+      trustPoints: ["Clubhouse longevity coaching", "Quarterly DEXA checkups", "2 clients per slot"],
+      clientQuote: "Want to stay vital, strong and sharp for the decades ahead.",
+      problemCopy: "Peak health is not a 12-week sprint — it is a lifelong habit. Once baseline fat loss or strength goals are achieved, maintaining metabolic flexibility, bone density, cardiovascular stamina, and cognitive sharpness requires ongoing consistency. THRIVE is our flagship membership designed to keep community residents vibrant for decades to come.",
+      whoItsFor: [
+        "Graduates of RESET, RESTORE, or BUILD wanting seamless continuity",
+        "Active, healthy adults 35+ committed to long-term healthspan and vitality",
+        "Residents wanting ongoing clubhouse accountability and quarterly scans"
+      ],
+      whoItsNotFor: [
+        "Individuals wanting short-term transactional training without long-term commitment",
+        "Those who prefer unguided commercial gym environments"
+      ],
+      whatYouGet: [
+        "Ongoing clubhouse coaching (2 clients per slot)",
+        "Quarterly DEXA Body Report & consultations",
+        "Seasonal metabolic & stamina training blocks",
+        "Continuous nutrition & recovery adjustments",
+        "Priority scheduling in your community clubhouse",
+        "Dedicated coach WhatsApp access"
+      ],
+      yourWeek: {
+        format: "4-Day Coached (recommended) or 3-Day Coached",
+        simple5Day: [
+          { day: "Day 1", type: "Coach-Led", title: "Functional Strength & Joint Mobility", location: "Clubhouse Gym" },
+          { day: "Day 2", type: "Coach-Led", title: "Zone 2 Aerobic Base & Core Durability", location: "Clubhouse Gym" },
+          { day: "Day 3", type: "Coach-Led", title: "Power, Posture & Balance Integration", location: "Clubhouse Gym" },
+          { day: "Day 4", type: "Coach-Led", title: "Full Body Durability & Conditioning Circuit", location: "Clubhouse Gym" },
+          { day: "Day 5", type: "Guided", title: "Weekend Vitality & Stamina Session", location: "Shared on WhatsApp" }
+        ],
+        commonNote: "Sessions are held in your community clubhouse. Your coach plans the week and shares the next guided session on WhatsApp a day before."
+      },
+      your12Weeks: [
+        { phase: "Quarter 1: Weeks 1–12", title: "Structural Durability & Foundation", desc: "Reinforce tendon strength, maintain ideal body composition, and fine-tune recovery." },
+        { phase: "Quarter 2: Weeks 13–24", title: "Cardiometabolic & Mitochondrial Health", desc: "Target aerobic capacity and metabolic efficiency alongside resistance training." },
+        { phase: "Quarter 3: Weeks 25–36", title: "Balance, Agility & Bone Preservation", desc: "Integrate vestibular balance and bone loading for long-term healthspan." }
+      ],
+      measureSummary: "Baseline Body Report at inception with quarterly retests every 12 weeks to monitor long-term health markers.",
+      faqs: [
+        { q: "How long does each coaching session take?", a: "Each session is 45 to 50 minutes, fitting smoothly into a morning or evening routine." },
+        { q: "Can I join THRIVE if I have past injuries?", a: "Yes. All THRIVE sessions are coached with joint-friendly exercise selection and customized intensity." },
+        { q: "What happens when I travel for holidays or work?", a: "You can pause your active membership or switch to guided travel workouts shared on WhatsApp." },
+        { q: "What nutrition guidance is included in THRIVE?", a: "Continuous longevity nutrition advice: glycemic stability, anti-inflammatory meal pacing, and protein targets." },
+        { q: "How is safety maintained in the community gym?", a: "Strictly two clients per slot with full coach supervision and zero crowding." },
+        { q: "What if I miss a scheduled session?", a: "You can reschedule in available slots with your coach within your community's weekly schedule." }
+      ]
+    }
+  ],
+
+  trainingFormats: {
+    recommended: {
+      name: "4-Day Coached (recommended)",
+      badge: "Recommended",
+      summary: "Four coach-led sessions plus one guided session a week. Small group of two per slot, so your coach sees every rep. Our most complete format and the fastest route to measurable change."
+    },
+    standard: {
+      name: "3-Day Coached",
+      badge: "Flexible Schedule",
+      summary: "Three coach-led sessions plus one guided session a week, for a lighter schedule. Same coach, same measurement, same standards."
+    },
+    commonNote: "Sessions are held in your community clubhouse. Your coach plans the week and shares the next guided session on WhatsApp a day before."
+  },
+
+  homepageFaqs: [
+    {
+      q: "How long does a session take?",
+      a: "Each clubhouse coaching session is 45 to 50 minutes. Because your coach is ready the moment you walk into the clubhouse, workouts are concise, structured, and respect your busy schedule."
+    },
+    {
+      q: "Can people with injuries or past surgeries participate?",
+      a: "Yes, provided you have doctor's clearance for exercise. Our Head Coach Harish specializes in rehab-focused strength training, and with only two clients per slot, exercises are customized to protect your joints."
+    },
+    {
+      q: "What happens when someone travels for work or vacation?",
+      a: "We maintain coaching momentum through guided travel routines shared on WhatsApp. Your membership schedule can also be paused with prior notice for planned travel."
+    },
+    {
+      q: "What food or nutrition guidance is included?",
+      a: "You receive practical, Indian family-friendly whole-food frameworks, protein pacing guidance, and meal timing suggestions tailored to your Body Report metrics. We never promote crash starvation diets."
+    },
+    {
+      q: "How is safety managed inside the clubhouse gym?",
+      a: "Safety is built into our core model: strictly two clients per coaching slot. Your coach watches every repetition, manages weight loads, ensures clean movement patterns, and avoids dangerous maximal lifts."
+    },
+    {
+      q: "What happens if a session is missed?",
+      a: "If you miss a scheduled session, you can coordinate with your coach to attend a makeup slot within the same week or complete an alternate guided session via WhatsApp."
+    },
+    {
+      q: "What is included in the Helevate Body Report?",
+      a: "The Body Report includes a clinical DEXA scan measuring your exact body fat percentage, visceral fat level, lean muscle distribution, and bone density, followed by a 30-minute private consultation with your coach."
+    },
+    {
+      q: "How do the 3-Day and 4-Day formats differ?",
+      a: "Both formats feature the exact same coaching standards, Body Report measurements, and 2-clients-per-slot attention. The 4-Day format offers four coach-led sessions for faster adaptation, while the 3-Day format accommodates lighter weekly schedules."
+    }
+  ],
+
+  quizData: {
+    title: "Not sure where to start? Answer 3 questions.",
+    subtitle: "Find your recommended starting program in under 60 seconds.",
+    questions: [
       {
-        id: "strength-performance-coach",
-        title: "Strength & Performance Coach",
-        type: "Full-Time • On-Site",
-        location: "Hyderabad (Gated Communities)",
-        desc: "Lead 1-on-1 and small group strength protocols in society clubhouses. Interpret DEXA and movement baselines to guide residents with precision.",
-        requirements: [
-          "CSCS, ACE, NSCA, or equivalent recognized certification",
-          "Deep understanding of biomechanics, progressive resistance, and posture screening",
-          "Strong communication skills and passion for working with adult professionals"
+        id: "goal",
+        question: "1. What is your primary health & body priority?",
+        options: [
+          { label: "Lose belly fat, reduce waistline & support health markers (BP / Sugar)", value: "reset" },
+          { label: "Overcome knee, back, or shoulder pain and move freely", value: "restore" },
+          { label: "Build real muscle, bone density and strength after 35", value: "build" },
+          { label: "Stay strong, fit, energetic and sharp for the long term", value: "thrive" }
         ]
       },
       {
-        id: "nutrition-coach",
-        title: "Clinical & Sports Nutrition Coach",
-        type: "Full-Time / Hybrid",
-        location: "Hyderabad (Jubilee Hills / On-Site)",
-        desc: "Translate metabolic blood panels, lipid markers, and gut microbiome data into bio-individual nutrition frameworks tailored to real Indian family meal structures.",
-        requirements: [
-          "Degree in Clinical Nutrition / Dietetics (RD preferred) or certified Precision Nutrition coach",
-          "Experience with metabolic markers (fasting insulin, ApoB, lipid subfractions)",
-          "Empathetic, habit-first coaching approach without fad diet dogmatism"
+        id: "condition",
+        question: "2. What describes your current movement & physical condition?",
+        options: [
+          { label: "I have joint pain, past injury, or stiffness that holds me back", value: "restore" },
+          { label: "I have extra belly fat, low energy, or sedentary desk habits", value: "reset" },
+          { label: "I work out occasionally but haven't gained visible muscle or strength", value: "build" },
+          { label: "I am generally healthy and want structured long-term coaching", value: "thrive" }
         ]
       },
       {
-        id: "community-growth-associate",
-        title: "Community Growth & Partnership Associate",
-        type: "Full-Time",
-        location: "Hyderabad",
-        desc: "Engage with RWA committees, resident associations, and clubhouse leadership to expand Helevate's on-site wellness ecosystem across Hyderabad societies.",
-        requirements: [
-          "2+ years experience in community engagement, premium wellness partnerships, or hospitality",
-          "Outstanding presentation, interpersonal, and organizational abilities",
-          "Familiarity with Hyderabad premium residential societies"
+        id: "schedule",
+        question: "3. What is your preferred weekly clubhouse schedule?",
+        options: [
+          { label: "4 Coach-Led sessions + 1 Guided session a week (Recommended)", value: "4day" },
+          { label: "3 Coach-Led sessions + 1 Guided session a week (Lighter Schedule)", value: "3day" }
         ]
       }
     ]
-  }
+  },
+
+  communities: [
+    {
+      slug: "tellapur",
+      name: "Tellapur",
+      headline: "Health coaching for Tellapur residents — inside your community.",
+      tagline: "Tellapur's Premier Gated Communities",
+      landmarks: "My Home Sayuk, Vision Arsha, Aliens Space Station, Muppa's Indraprastha & neighboring Tellapur societies.",
+      commuteText: "Tellapur residents often spend 45+ minutes commuting across ORR to commercial gyms in Gachibowli or Financial District. Helevate brings measured, coach-led sessions directly into your Tellapur society clubhouse with zero commute.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    },
+    {
+      slug: "gachibowli",
+      name: "Gachibowli",
+      headline: "Health coaching for Gachibowli residents — inside your community.",
+      tagline: "Gachibowli & Financial District Communities",
+      landmarks: "My Home Bhooja, Jayabheri Silicon County, Golf View, Western Marina & Financial District residences.",
+      commuteText: "Avoid the rush-hour traffic of Gachibowli and crowded fitness centers. Train right downstairs in your residential clubhouse with our 2-clients-per-slot coaching model.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    },
+    {
+      slug: "kondapur",
+      name: "Kondapur",
+      headline: "Health coaching for Kondapur residents — inside your community.",
+      tagline: "Kondapur & Botanical Garden Hubs",
+      landmarks: "My Home Mangala, Aparna Sarovar Zenith, Lansum Etania & Botanical Garden communities.",
+      commuteText: "Skip the congested Kondapur main roads. Enjoy structured, DEXA-measured strength and fat loss programs delivered right inside your community gates.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    },
+    {
+      slug: "kokapet",
+      name: "Kokapet",
+      headline: "Health coaching for Kokapet residents — inside your community.",
+      tagline: "Kokapet Luxury High-Rise Living",
+      landmarks: "My Home Tarkshya, SAS Crown, Poulomi Aristos, Rajapushpa Regalia & Golden Mile residences.",
+      commuteText: "Kokapet's expansive clubhouse gyms are underutilized. We bring dedicated Human Performance Coaches into your society facilities so you get real results steps from home.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    },
+    {
+      slug: "narsingi",
+      name: "Narsingi",
+      headline: "Health coaching for Narsingi residents — inside your community.",
+      tagline: "Narsingi & Puppalguda Corridor",
+      landmarks: "NCC Urban One, Jayabheri The Peak, DSR The Courtyard & Puppalguda gated enclaves.",
+      commuteText: "Zero travel along the ORR service road. Access certified coaching and objective Body Report tracking right in your society clubhouse gym.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    },
+    {
+      slug: "osman-nagar",
+      name: "Osman Nagar",
+      headline: "Health coaching for Osman Nagar residents — inside your community.",
+      tagline: "Osman Nagar & Kollur Emerging Hubs",
+      landmarks: "Aparna Cyber4, Muppa Melody, IRA Aerocity & Osman Nagar residential towers.",
+      commuteText: "With few high-end gyms nearby, Osman Nagar residents face long commutes to work out. Helevate activates your community clubhouse with top-tier coaching and body composition measurement.",
+      slots: "Morning 6:00 AM – 9:00 AM & Evening 5:30 PM – 8:30 PM"
+    }
+  ],
+
+  dropdownCommunities: [
+    "My Home Bhooja, Gachibowli",
+    "Aparna Sarovar / Zenith, Nallagandla",
+    "My Home Sayuk, Tellapur",
+    "Rajapushpa Atria / Regalia, Kokapet",
+    "Jayabheri Silicon County, Hitec City",
+    "NCC Urban One, Narsingi",
+    "Lansum Etania, Gachibowli",
+    "Golf View, Financial District",
+    "Other Gated Community (Hyderabad)"
+  ]
 };
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   window.HELEVATE_DATA = HELEVATE_DATA;
 }
