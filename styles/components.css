@@ -7341,97 +7341,85 @@ input:focus, select:focus, textarea:focus {
     position: relative !important;
   }
 
-  /* Section Spacing — Comfortable breathing room, reduces endless scrolling */
-  .section {
-    padding: 28px 0 !important;
+  /* Section Spacing — Strictly compact across whole website, minimizes vertical scrolling */
+  .section,
+  .what-we-assess-cards-section,
+  .personalisation-journey-section,
+  .what-we-assess-cta-section {
+    padding: 20px 0 !important;
   }
 
   .section-sm {
-    padding: 18px 0 !important;
+    padding: 14px 0 !important;
   }
 
   .container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
     max-width: 100% !important;
   }
 
-  /* Section Headers: Clean hierarchy, readable, avoid awkward wraps */
+  /* Section Headers: Clean hierarchy, minimal spacing */
   .section-header {
-    margin-bottom: 16px !important;
+    margin-bottom: 12px !important;
     text-align: center;
   }
 
   .section-title {
-    font-size: clamp(1.48rem, 5.8vw, 1.85rem) !important;
-    line-height: 1.18 !important;
+    font-size: clamp(1.36rem, 5.2vw, 1.7rem) !important;
+    line-height: 1.15 !important;
     letter-spacing: -0.01em !important;
-    margin-top: 4px !important;
-    margin-bottom: 6px !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
   }
 
   .section-subtitle {
-    font-size: 0.85rem !important;
-    line-height: 1.48 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
     color: var(--color-navy-text) !important;
-    max-width: 100% !important;
+    max-width: 96% !important;
     margin: 0 auto !important;
   }
 
   .badge {
-    font-size: 0.68rem !important;
-    padding: 3px 10px !important;
-    letter-spacing: 0.08em !important;
+    font-size: 0.66rem !important;
+    padding: 2px 8px !important;
+    letter-spacing: 0.06em !important;
+    margin-bottom: 6px !important;
   }
 
   /* Compact Subview Heroes for All Pages (How It Works, Services, About, Careers, Insights, Reviews, H75, Contact) */
-  .subview-hero {
-    padding: 30px 0 22px !important;
+  .subview-hero,
+  .what-we-assess-hero {
+    padding: 22px 0 16px !important;
     text-align: center !important;
     position: relative !important;
     overflow: hidden !important;
   }
 
-  .subview-hero .badge {
-    margin-bottom: 8px !important;
+  .subview-hero .badge,
+  .what-we-assess-hero .badge {
+    margin-bottom: 6px !important;
     display: inline-block !important;
   }
 
-  .subview-hero h1 {
-    font-size: clamp(1.52rem, 6.2vw, 2.05rem) !important;
-    line-height: 1.15 !important;
-    margin-top: 6px !important;
-    margin-bottom: 8px !important;
+  .subview-hero h1,
+  .what-we-assess-hero h1 {
+    font-size: clamp(1.42rem, 5.8vw, 1.85rem) !important;
+    line-height: 1.12 !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
     letter-spacing: -0.01em !important;
     color: #FFFFFF !important;
   }
 
-  .subview-hero p {
-    font-size: 0.88rem !important;
-    line-height: 1.48 !important;
-    max-width: 92% !important;
+  .subview-hero p,
+  .what-we-assess-hero p {
+    font-size: 0.84rem !important;
+    line-height: 1.42 !important;
+    max-width: 94% !important;
     margin: 0 auto !important;
     color: rgba(221, 241, 239, 0.9) !important;
-  }
-
-  /* What We Assess Subview Hero */
-  .what-we-assess-hero {
-    padding: 30px 0 20px !important;
-    text-align: center !important;
-  }
-
-  .what-we-assess-hero h1 {
-    font-size: clamp(1.55rem, 6.4vw, 2.1rem) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 8px !important;
-    letter-spacing: -0.01em !important;
-  }
-
-  .what-we-assess-hero p {
-    font-size: 0.88rem !important;
-    line-height: 1.48 !important;
-    margin: 0 auto 16px !important;
-    max-width: 94% !important;
   }
 
   /* Careers Hero 3 Highlights Row on Mobile */
@@ -7503,6 +7491,7 @@ input:focus, select:focus, textarea:focus {
   .testimonial-grid-3,
   .community-flow-grid,
   .community-benefits-grid,
+  .detailed-steps-track,
   .cards-scroll-mobile {
     display: flex !important;
     flex-direction: row !important;
@@ -7512,17 +7501,17 @@ input:focus, select:focus, textarea:focus {
     -webkit-overflow-scrolling: touch !important;
     scroll-snap-type: x mandatory !important;
     scroll-behavior: smooth !important;
-    scroll-padding-left: 16px !important;
-    scroll-padding-right: 16px !important;
-    gap: 14px !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    padding-top: 6px !important;
-    padding-bottom: 16px !important;
-    width: calc(100% + 32px) !important;
-    max-width: calc(100% + 32px) !important;
+    scroll-padding-left: 14px !important;
+    scroll-padding-right: 14px !important;
+    gap: 12px !important;
+    margin-left: -14px !important;
+    margin-right: -14px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 4px !important;
+    padding-bottom: 12px !important;
+    width: calc(100% + 28px) !important;
+    max-width: calc(100% + 28px) !important;
     box-sizing: border-box !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
@@ -7554,6 +7543,7 @@ input:focus, select:focus, textarea:focus {
   .testimonial-grid-3::-webkit-scrollbar,
   .community-flow-grid::-webkit-scrollbar,
   .community-benefits-grid::-webkit-scrollbar,
+  .detailed-steps-track::-webkit-scrollbar,
   .cards-scroll-mobile::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
@@ -7587,6 +7577,8 @@ input:focus, select:focus, textarea:focus {
   .testimonial-grid-3 > *,
   .community-flow-grid > *,
   .community-benefits-grid > *,
+  .detailed-steps-track > *,
+  .detailed-step-row,
   .cards-scroll-mobile > *,
   .services-grid-4 .service-card-main,
   .services-grid-main .service-card-main,
@@ -7598,9 +7590,9 @@ input:focus, select:focus, textarea:focus {
   .journey-track-grid .journey-step-card,
   .overview-pillars-grid .overview-pillar-card,
   .assess-card {
-    flex: 0 0 calc(84vw - 20px) !important;
-    max-width: 335px !important;
-    min-width: 250px !important;
+    flex: 0 0 calc(78vw - 12px) !important;
+    max-width: 295px !important;
+    min-width: 220px !important;
     width: auto !important;
     scroll-snap-align: start !important;
     scroll-snap-stop: normal !important;
@@ -7613,7 +7605,7 @@ input:focus, select:focus, textarea:focus {
     position: relative !important;
     height: auto !important;
     transform: none !important;
-    border-radius: 18px !important;
+    border-radius: 14px !important;
   }
 
   /* Trailing spacer ensures the last card can be fully reached without edge clipping */
@@ -7643,6 +7635,7 @@ input:focus, select:focus, textarea:focus {
   .testimonial-grid-3::after,
   .community-flow-grid::after,
   .community-benefits-grid::after,
+  .detailed-steps-track::after,
   .cards-scroll-mobile::after {
     content: "" !important;
     flex: 0 0 10px !important;
@@ -7673,10 +7666,12 @@ input:focus, select:focus, textarea:focus {
     .journey-flow-5 > *,
     .community-reviews-grid > *,
     .reviews-community-grid > *,
+    .detailed-steps-track > *,
+    .detailed-step-row,
     .cards-scroll-mobile > * {
-      flex: 0 0 calc(86vw - 16px) !important;
-      min-width: 240px !important;
-      max-width: 280px !important;
+      flex: 0 0 calc(80vw - 10px) !important;
+      min-width: 210px !important;
+      max-width: 260px !important;
     }
   }
 
@@ -7686,10 +7681,10 @@ input:focus, select:focus, textarea:focus {
     justify-content: center !important;
     align-items: center !important;
     gap: 6px !important;
-    margin-top: 10px !important;
-    margin-bottom: 8px !important;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
     width: 100% !important;
-    padding: 4px 0 !important;
+    padding: 2px 0 !important;
   }
 
   .mobile-carousel-dot {
@@ -7706,67 +7701,72 @@ input:focus, select:focus, textarea:focus {
   }
 
   /* ------------------------------------------------------------------------
-     1. Primary Service Cards Mobile Refinement (Sunrooof Reference Alignment)
-     Prioritize: Clear Image -> Short Title -> Benefit Statement -> 2-3 lines desc -> CTA
+     1. Primary Service Cards Mobile Refinement
+     Prioritize: Compact Media -> Clean Title -> 2-Line Clamped Desc -> Compact CTA
      ------------------------------------------------------------------------ */
   .service-card-main {
-    border-radius: 18px !important;
-    box-shadow: 0 4px 16px rgba(14, 58, 93, 0.06) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 14px rgba(14, 58, 93, 0.05) !important;
     overflow: hidden !important;
   }
 
   .service-card-media {
-    height: 160px !important;
+    height: 105px !important;
   }
 
   .service-card-badge {
-    top: 10px !important;
-    left: 10px !important;
-    padding: 4px 10px !important;
-    font-size: 0.7rem !important;
+    top: 8px !important;
+    left: 8px !important;
+    padding: 3px 8px !important;
+    font-size: 0.65rem !important;
   }
 
   .service-card-inner {
-    padding: 16px 16px 14px !important;
+    padding: 12px 12px 10px !important;
   }
 
   .service-card-header {
-    gap: 10px !important;
-    margin-bottom: 8px !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
   }
 
   .service-card-icon {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-    font-size: 1.15rem !important;
-    border-radius: 10px !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
   }
 
   .service-card-header h3 {
-    font-size: 1.05rem !important;
-    line-height: 1.25 !important;
+    font-size: 0.98rem !important;
+    line-height: 1.2 !important;
     letter-spacing: -0.01em !important;
   }
 
+  /* Hide redundant tagline on mobile */
   .service-card-tagline {
-    font-size: 0.76rem !important;
-    padding: 3px 8px !important;
-    margin-bottom: 8px !important;
-    line-height: 1.3 !important;
-    display: inline-flex !important;
-    border-radius: 6px !important;
+    display: none !important;
+  }
+
+  /* Hide verbose 3-line info block inside cards on mobile */
+  .service-card-main > div[style*="background: var(--color-light-blue-soft)"] {
+    display: none !important;
   }
 
   .service-card-desc {
-    font-size: 0.84rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 12px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
     min-height: auto !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   .service-card-footer {
-    padding-top: 10px !important;
+    padding-top: 6px !important;
     margin-top: auto !important;
     display: flex !important;
     align-items: center !important;
@@ -7774,14 +7774,14 @@ input:focus, select:focus, textarea:focus {
   }
 
   .service-card-footer span {
-    font-size: 0.74rem !important;
+    font-size: 0.72rem !important;
   }
 
   .service-card-footer a,
   .service-card-footer .btn {
-    font-size: 0.82rem !important;
-    min-height: 36px !important;
-    padding: 4px 0 !important;
+    font-size: 0.76rem !important;
+    min-height: 32px !important;
+    padding: 3px 8px !important;
     font-weight: 700 !important;
   }
 
@@ -7789,124 +7789,132 @@ input:focus, select:focus, textarea:focus {
      2. Supporting Personalisation Assessment Cards Mobile Refinement
      ------------------------------------------------------------------------ */
   .assessments-grid-4 .pricing-card {
-    border-radius: 18px !important;
+    border-radius: 14px !important;
   }
 
   .assessment-card-media {
-    height: 150px !important;
+    height: 105px !important;
   }
 
   .pricing-card-inner {
-    padding: 16px 16px 14px !important;
+    padding: 12px 12px 10px !important;
   }
 
   .assessments-grid-4 .assessment-card-header {
-    gap: 8px !important;
-    margin-bottom: 6px !important;
+    gap: 6px !important;
+    margin-bottom: 4px !important;
   }
 
   .assessments-grid-4 .assessment-card-icon {
-    font-size: 1.15rem !important;
+    font-size: 1.05rem !important;
   }
 
   .assessments-grid-4 .assessment-card-title {
-    font-size: 1.05rem !important;
+    font-size: 0.96rem !important;
     min-height: auto !important;
-    line-height: 1.25 !important;
+    line-height: 1.2 !important;
   }
 
   .assessments-grid-4 .assessment-card-desc {
-    font-size: 0.83rem !important;
-    line-height: 1.48 !important;
-    margin: 4px 0 10px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    margin: 2px 0 6px !important;
     min-height: auto !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
+  /* Hide bullet lists on mobile - secondary details available on detail page */
   .assessments-grid-4 .pricing-feature-list {
-    margin: 0 0 14px 0 !important;
-    min-height: auto !important;
-    gap: 6px !important;
-  }
-
-  .assessments-grid-4 .pricing-feature-list li {
-    font-size: 0.79rem !important;
-    line-height: 1.35 !important;
+    display: none !important;
   }
 
   .assessments-grid-4 .pricing-card .btn {
-    min-height: 42px !important;
-    font-size: 0.82rem !important;
+    min-height: 36px !important;
+    font-size: 0.76rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
+    padding: 4px 8px !important;
   }
 
   /* ------------------------------------------------------------------------
      3. InBody Body Composition Analysis Section Mobile Refinement
      ------------------------------------------------------------------------ */
   .inbody-section {
-    padding: 26px 0 18px !important;
+    padding: 16px 0 !important;
   }
 
   .inbody-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 12px !important;
   }
 
   .inbody-image-card {
-    max-height: 200px !important;
-    border-radius: 16px !important;
+    max-height: 130px !important;
+    border-radius: 14px !important;
   }
 
   .inbody-image {
-    max-height: 200px !important;
+    max-height: 130px !important;
     aspect-ratio: 16 / 9 !important;
     object-fit: cover !important;
   }
 
   .inbody-badge-overlay {
-    font-size: 0.7rem !important;
-    padding: 4px 10px !important;
-    bottom: 8px !important;
-    left: 8px !important;
+    font-size: 0.65rem !important;
+    padding: 3px 8px !important;
+    bottom: 6px !important;
+    left: 6px !important;
   }
 
   .inbody-heading {
-    font-size: clamp(1.4rem, 5.2vw, 1.78rem) !important;
-    margin-top: 6px !important;
-    margin-bottom: 8px !important;
-    line-height: 1.2 !important;
+    font-size: clamp(1.3rem, 4.8vw, 1.55rem) !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+    line-height: 1.15 !important;
   }
 
   .inbody-description {
-    font-size: 0.86rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 12px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   .inbody-features-list {
-    gap: 8px !important;
-    margin-bottom: 16px !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
   }
 
   .inbody-feature-item {
-    font-size: 0.84rem !important;
-    gap: 8px !important;
+    font-size: 0.8rem !important;
+    gap: 6px !important;
+  }
+
+  /* Hide 3rd and 4th feature items on mobile to keep section compact */
+  .inbody-feature-item:nth-child(n+3) {
+    display: none !important;
   }
 
   .inbody-check-icon {
-    width: 18px !important;
-    height: 18px !important;
-    min-width: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
   }
 
   .inbody-sample-preview-btn {
     position: absolute !important;
-    bottom: 8px !important;
-    right: 8px !important;
-    padding: 5px 12px !important;
-    font-size: 0.72rem !important;
+    bottom: 6px !important;
+    right: 6px !important;
+    padding: 4px 10px !important;
+    font-size: 0.68rem !important;
   }
 
   .inbody-actions-group {
@@ -7914,17 +7922,17 @@ input:focus, select:focus, textarea:focus {
     flex-direction: row !important;
     gap: 8px !important;
     width: 100% !important;
-    margin-top: 10px !important;
-    margin-bottom: 12px !important;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
     box-sizing: border-box !important;
   }
 
   .inbody-actions-group .btn {
     flex: 1 1 0px !important;
     min-width: 0 !important;
-    min-height: 40px !important;
-    font-size: clamp(0.7rem, 2.7vw, 0.8rem) !important;
-    padding: 8px 4px !important;
+    min-height: 38px !important;
+    font-size: clamp(0.68rem, 2.6vw, 0.78rem) !important;
+    padding: 6px 4px !important;
     text-align: center !important;
     white-space: nowrap !important;
     justify-content: center !important;
@@ -7934,14 +7942,9 @@ input:focus, select:focus, textarea:focus {
     box-sizing: border-box !important;
   }
 
+  /* Hide privacy callout on mobile to save vertical space */
   .inbody-privacy-callout {
-    padding: 8px 10px !important;
-    margin-top: 6px !important;
-  }
-
-  .inbody-privacy-text {
-    font-size: 0.74rem !important;
-    line-height: 1.4 !important;
+    display: none !important;
   }
 
   /* InBody Sample Report Lightbox Modal on Mobile */
@@ -7983,110 +7986,113 @@ input:focus, select:focus, textarea:focus {
      4. 5-Step Member Journey Mobile Refinement
      ------------------------------------------------------------------------ */
   .journey-section {
-    padding: 26px 0 16px !important;
+    padding: 18px 0 12px !important;
   }
 
   .journey-track-grid {
     gap: 10px !important;
-    margin-top: 14px !important;
+    margin-top: 10px !important;
   }
 
   .journey-step-card {
-    padding: 14px 14px !important;
-    border-radius: 14px !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
   }
 
   .journey-step-header {
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
   }
 
   .journey-step-badge {
-    font-size: 0.7rem !important;
-    padding: 2px 8px !important;
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
   }
 
   .journey-step-arrow {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
   }
 
   .journey-step-name {
-    font-size: 1.02rem !important;
+    font-size: 0.96rem !important;
     margin-bottom: 2px !important;
   }
 
   .journey-step-sub {
-    font-size: 0.76rem !important;
-    margin-bottom: 6px !important;
+    font-size: 0.72rem !important;
+    margin-bottom: 4px !important;
   }
 
   .journey-step-desc {
-    font-size: 0.81rem !important;
-    line-height: 1.48 !important;
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   /* ------------------------------------------------------------------------
      5. What is Helevate Overview Pillars Mobile
      ------------------------------------------------------------------------ */
   .section-overview-premium {
-    padding: 24px 0 16px !important;
+    padding: 18px 0 12px !important;
   }
 
   .section-overview-premium .section-header {
-    margin: 0 auto 14px !important;
+    margin: 0 auto 10px !important;
   }
 
   .section-overview-premium .badge {
-    margin-bottom: 6px !important;
-  }
-
-  .section-overview-premium .section-title {
-    font-size: clamp(1.48rem, 5.8vw, 1.85rem) !important;
-    margin: 4px 0 8px 0 !important;
-  }
-
-  .overview-lead-text {
-    font-size: 0.98rem !important;
-    line-height: 1.48 !important;
-    margin-bottom: 6px !important;
-    font-weight: 600 !important;
-  }
-
-  .overview-body-text {
-    font-size: 0.85rem !important;
-    line-height: 1.48 !important;
-  }
-
-  .overview-pillar-card {
-    padding: 16px 14px !important;
-    border-radius: 14px !important;
-  }
-
-  .overview-pillar-top {
-    margin-bottom: 8px !important;
-  }
-
-  .overview-pillar-icon-wrap {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 1.2rem !important;
-  }
-
-  .overview-pillar-title {
-    font-size: 1.02rem !important;
-    min-height: auto !important;
     margin-bottom: 4px !important;
   }
 
-  .overview-pillar-desc {
-    font-size: 0.82rem !important;
+  .section-overview-premium .section-title {
+    font-size: clamp(1.36rem, 5.2vw, 1.7rem) !important;
+    margin: 2px 0 6px 0 !important;
+  }
+
+  .overview-lead-text {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 4px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Hide secondary verbose paragraph on mobile */
+  .overview-body-text {
+    display: none !important;
+  }
+
+  .overview-pillar-card {
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .overview-pillar-top {
+    margin-bottom: 4px !important;
+  }
+
+  .overview-pillar-icon-wrap {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .overview-pillar-title {
+    font-size: 0.95rem !important;
     min-height: auto !important;
-    margin-bottom: 8px !important;
-    line-height: 1.45 !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Hide lengthy paragraph inside pillar cards on mobile - icon, title and highlight speak clearly */
+  .overview-pillar-desc {
+    display: none !important;
   }
 
   .overview-pillar-highlight {
-    font-size: 0.72rem !important;
-    padding: 5px 8px !important;
+    font-size: 0.7rem !important;
+    padding: 4px 6px !important;
+    margin-top: 6px !important;
   }
 
   /* ------------------------------------------------------------------------
@@ -8094,127 +8100,134 @@ input:focus, select:focus, textarea:focus {
      ------------------------------------------------------------------------ */
   .founder-minds-wrapper {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
-    margin-top: 20px !important;
+    gap: 12px !important;
+    margin-top: 14px !important;
   }
 
   .founder-spotlight-card {
-    padding: 22px 16px !important;
-    border-radius: 18px !important;
+    padding: 14px 14px !important;
+    border-radius: 14px !important;
   }
 
   .founder-role-text {
-    font-size: 0.84rem !important;
+    font-size: 0.8rem !important;
   }
 
   .founder-cred-pill {
-    font-size: 0.68rem !important;
-    padding: 3px 8px !important;
+    font-size: 0.65rem !important;
+    padding: 2px 6px !important;
   }
 
-  .founder-quote-text {
-    font-size: 0.86rem !important;
-    line-height: 1.55 !important;
+  /* Hide long quote box on mobile to save dominant screen space */
+  .founder-quote-box {
+    display: none !important;
   }
 
   .founder-impact-stats {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 6px !important;
-    margin: 16px 0 !important;
+    gap: 4px !important;
+    margin: 10px 0 !important;
   }
 
   .founder-stat-num {
-    font-size: 1.25rem !important;
+    font-size: 1.15rem !important;
   }
 
   .founder-stat-lbl {
-    font-size: 0.65rem !important;
+    font-size: 0.62rem !important;
   }
 
   .founder-footer-row {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px !important;
+    gap: 8px !important;
   }
 
   .founder-footer-row .btn {
     width: 100% !important;
     justify-content: center !important;
+    min-height: 36px !important;
+    font-size: 0.78rem !important;
   }
 
   .clinical-team-grid {
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
   .clinical-card {
-    padding: 16px 14px !important;
-    border-radius: 14px !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
   }
 
   .clinical-card-header {
-    gap: 10px !important;
-    margin-bottom: 8px !important;
+    gap: 8px !important;
+    margin-bottom: 4px !important;
   }
 
+  /* Hide verbose bio paragraphs on mobile */
   .clinical-bio {
-    font-size: 0.8rem !important;
-    line-height: 1.45 !important;
-    margin: 6px 0 10px !important;
+    display: none !important;
   }
 
   .clinical-specialty-pill {
-    font-size: 0.72rem !important;
-    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+    padding: 3px 6px !important;
+    margin-top: 6px !important;
   }
 
   /* ------------------------------------------------------------------------
      7. Video Testimonials Mobile
      ------------------------------------------------------------------------ */
   .video-testimonials-grid {
-    gap: 16px !important;
+    gap: 12px !important;
   }
 
   .video-testimonial-card {
-    border-radius: 16px !important;
+    border-radius: 14px !important;
   }
 
   .video-card-thumb-wrap {
-    height: 180px !important;
+    height: 135px !important;
   }
 
   .video-metric-badge {
-    font-size: 0.7rem !important;
-    padding: 4px 8px !important;
-    top: 10px !important;
-    left: 10px !important;
+    font-size: 0.65rem !important;
+    padding: 3px 6px !important;
+    top: 6px !important;
+    left: 6px !important;
   }
 
   .video-card-body {
-    padding: 16px 14px !important;
+    padding: 10px 12px 8px !important;
   }
 
   .video-card-quote {
-    font-size: 0.84rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin-bottom: 6px !important;
   }
 
   .video-card-author-info h5 {
-    font-size: 0.92rem !important;
+    font-size: 0.88rem !important;
   }
 
   .video-card-author-info p {
-    font-size: 0.75rem !important;
-  }
-
-  .video-community-tag {
     font-size: 0.72rem !important;
   }
 
+  .video-community-tag {
+    font-size: 0.68rem !important;
+  }
+
   /* ------------------------------------------------------------------------
-     8. Trust Bar Mobile — Smooth Horizontal Scrollable Benefits Row
+     8. Trust Bar Mobile — Compact Single-Line Pill Badges
      ------------------------------------------------------------------------ */
   .trust-bar-section {
-    padding: 12px 0 8px !important;
+    padding: 8px 0 4px !important;
     overflow: hidden !important;
   }
 
@@ -8227,17 +8240,17 @@ input:focus, select:focus, textarea:focus {
     -webkit-overflow-scrolling: touch !important;
     scroll-snap-type: x mandatory !important;
     scroll-behavior: smooth !important;
-    scroll-padding-left: 16px !important;
-    scroll-padding-right: 16px !important;
-    gap: 12px !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    padding-top: 4px !important;
-    padding-bottom: 10px !important;
-    width: calc(100% + 32px) !important;
-    max-width: calc(100% + 32px) !important;
+    scroll-padding-left: 14px !important;
+    scroll-padding-right: 14px !important;
+    gap: 8px !important;
+    margin-left: -14px !important;
+    margin-right: -14px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 2px !important;
+    padding-bottom: 8px !important;
+    width: calc(100% + 28px) !important;
+    max-width: calc(100% + 28px) !important;
     box-sizing: border-box !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
@@ -8250,29 +8263,29 @@ input:focus, select:focus, textarea:focus {
   }
 
   .trust-bar-item {
-    flex: 0 0 calc(84vw - 20px) !important;
-    min-width: 250px !important;
-    max-width: 320px !important;
+    flex: 0 0 auto !important;
+    min-width: fit-content !important;
+    max-width: none !important;
     scroll-snap-align: start !important;
-    padding: 12px 14px !important;
-    border-radius: 14px !important;
-    gap: 12px !important;
+    padding: 6px 12px !important;
+    border-radius: 9999px !important;
+    gap: 8px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     background: #FFFFFF !important;
     border: 1px solid rgba(14, 58, 93, 0.08) !important;
-    box-shadow: 0 4px 14px rgba(14, 58, 93, 0.05) !important;
+    box-shadow: 0 2px 8px rgba(14, 58, 93, 0.04) !important;
     box-sizing: border-box !important;
   }
 
   .trust-bar-icon-wrap {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    border-radius: 12px !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    border-radius: 50% !important;
     background: var(--color-mint-light, #E6F7F5) !important;
-    font-size: 1.25rem !important;
+    font-size: 0.92rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -8280,22 +8293,22 @@ input:focus, select:focus, textarea:focus {
   }
 
   .trust-bar-title {
-    font-size: 0.88rem !important;
+    font-size: 0.8rem !important;
     font-weight: 700 !important;
-    line-height: 1.25 !important;
+    line-height: 1.2 !important;
     color: var(--color-navy-dark, #0E3A5D) !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap !important;
   }
 
+  /* Hide secondary subtext on mobile to make trust items sleek compact chips */
   .trust-bar-sub {
-    font-size: 0.76rem !important;
-    line-height: 1.35 !important;
-    color: var(--color-navy-text, #4A657E) !important;
+    display: none !important;
   }
 
   .trust-bar-grid::after {
     content: '' !important;
-    flex: 0 0 8px !important;
+    flex: 0 0 6px !important;
   }
 
   /* ------------------------------------------------------------------------
@@ -8311,7 +8324,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-cinematic {
-    padding: 18px 0 12px !important;
+    padding: 14px 0 10px !important;
     min-height: auto !important;
     max-height: none !important;
   }
@@ -8319,7 +8332,7 @@ input:focus, select:focus, textarea:focus {
   .hero-container-layout {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 8px !important;
+    gap: 6px !important;
   }
 
   .hero-cinematic-inner {
@@ -8329,9 +8342,9 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-location-eyebrow {
-    font-size: 0.7rem !important;
-    letter-spacing: 0.1em !important;
-    margin-bottom: 4px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 3px !important;
   }
 
   .hero-title-br {
@@ -8339,8 +8352,8 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-display-title {
-    font-size: clamp(1.42rem, 6.2vw, 1.92rem) !important;
-    line-height: 1.06 !important;
+    font-size: clamp(1.36rem, 5.8vw, 1.72rem) !important;
+    line-height: 1.08 !important;
     margin: 0 0 6px 0 !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
@@ -8354,7 +8367,7 @@ input:focus, select:focus, textarea:focus {
 
   .hero-desc-mobile {
     display: block !important;
-    font-size: clamp(0.82rem, 3.2vw, 0.92rem) !important;
+    font-size: clamp(0.8rem, 3vw, 0.88rem) !important;
     line-height: 1.35 !important;
     color: #FFFFFF !important;
     margin: 0 0 10px 0 !important;
@@ -8379,10 +8392,10 @@ input:focus, select:focus, textarea:focus {
     flex: 1 1 0px !important;
     min-width: 0 !important;
     width: auto !important;
-    min-height: 40px !important;
-    height: 40px !important;
-    padding: 8px 4px !important;
-    font-size: clamp(0.64rem, 2.7vw, 0.76rem) !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 6px 4px !important;
+    font-size: clamp(0.64rem, 2.7vw, 0.74rem) !important;
     font-weight: 700 !important;
     letter-spacing: 0.02em !important;
     text-transform: uppercase !important;
@@ -8396,93 +8409,10 @@ input:focus, select:focus, textarea:focus {
     border-radius: 9999px !important;
   }
 
-  /* Move Hero Statistics Below Hero Section on Mobile — Horizontal Scrollable Row */
-  .hero-cinematic .hero-stats-row {
-    display: none !important;
-  }
-
+  /* Remove Statistics and Secondary Information from Hero Area on Mobile */
+  .hero-cinematic .hero-stats-row,
   .hero-stats-mobile-strip {
-    display: block !important;
-    background: #081B2E !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 10px 0 !important;
-    overflow: hidden !important;
-  }
-
-  .hero-stats-mobile-container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    align-items: stretch !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-behavior: smooth !important;
-    scroll-padding-left: 16px !important;
-    scroll-padding-right: 16px !important;
-    gap: 10px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-  }
-
-  .hero-stats-mobile-container::-webkit-scrollbar {
     display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  .hero-stats-mobile-strip .hero-stat-block {
-    flex: 0 0 auto !important;
-    min-width: 136px !important;
-    scroll-snap-align: start !important;
-    text-align: center !important;
-    padding: 7px 12px !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 10px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero-stats-mobile-strip .hero-stat-val {
-    font-family: var(--font-display) !important;
-    font-size: 1.05rem !important;
-    font-weight: 800 !important;
-    font-style: italic !important;
-    color: #00E5BE !important;
-    line-height: 1.15 !important;
-    white-space: nowrap !important;
-    letter-spacing: 0.02em !important;
-  }
-
-  .hero-stats-mobile-strip .hero-stat-lbl {
-    font-family: var(--font-mono) !important;
-    font-size: 0.64rem !important;
-    color: #FFFFFF !important;
-    opacity: 0.88 !important;
-    margin-top: 2px !important;
-    line-height: 1.25 !important;
-    white-space: nowrap !important;
-  }
-
-  .hero-stats-mobile-strip .hero-stat-divider {
-    display: none !important;
-  }
-
-  .hero-stats-mobile-container::after {
-    content: '' !important;
-    flex: 0 0 8px !important;
   }
 
   /* Quick Contact / WhatsApp Pill - Clean Separation (Prevents Overlap) */
@@ -8491,15 +8421,84 @@ input:focus, select:focus, textarea:focus {
     width: auto !important;
     max-width: fit-content !important;
     align-self: center !important;
-    margin: 8px auto 0 !important;
-    padding: 5px 12px 5px 14px !important;
-    font-size: 0.78rem !important;
+    margin: 6px auto 0 !important;
+    padding: 4px 12px !important;
+    font-size: 0.74rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     box-sizing: border-box !important;
     z-index: 2 !important;
+  }
+
+  /* Community CTA & Final CTA Mobile Refinement */
+  #homepage-community-cta {
+    padding: 14px 0 !important;
+  }
+
+  #homepage-community-cta > .container > div {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  #homepage-community-cta h2,
+  .final-cinematic-cta-box h2 {
+    font-size: clamp(1.28rem, 4.8vw, 1.5rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+  }
+
+  #homepage-community-cta p,
+  .final-cinematic-cta-box p {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .final-cinematic-cta-box {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* About Page Story Refinement on Mobile */
+  .about-story-grid p:nth-of-type(n+3) {
+    display: none !important;
+  }
+
+  /* Detailed Steps Track Content Clamping on Mobile */
+  .detailed-step-content h4 {
+    font-size: 0.92rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .detailed-step-content p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* H75 Phase Cards on Mobile */
+  .h75-phase-card {
+    padding: 10px 12px !important;
+  }
+
+  .h75-phase-card h4 {
+    font-size: 0.92rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .h75-phase-card p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   @media (max-width: 360px) {
@@ -8508,24 +8507,14 @@ input:focus, select:focus, textarea:focus {
     }
     .hero-actions .btn,
     .hero-actions .btn-hero-pill {
-      font-size: 0.62rem !important;
-      padding: 7px 2px !important;
+      font-size: 0.6rem !important;
+      padding: 6px 2px !important;
       letter-spacing: 0.01em !important;
-      min-height: 38px !important;
-      height: 38px !important;
+      min-height: 36px !important;
+      height: 36px !important;
     }
     .hero-display-title {
-      font-size: 1.42rem !important;
-    }
-    .hero-stats-mobile-strip .hero-stat-block {
-      min-width: 125px !important;
-      padding: 6px 10px !important;
-    }
-    .hero-stats-mobile-strip .hero-stat-val {
-      font-size: 0.96rem !important;
-    }
-    .hero-stats-mobile-strip .hero-stat-lbl {
-      font-size: 0.6rem !important;
+      font-size: 1.34rem !important;
     }
   }
 
@@ -9149,10 +9138,10 @@ input:focus, select:focus, textarea:focus {
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch;
-    gap: 16px !important;
-    padding: 12px 16px 20px 16px !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
+    gap: 12px !important;
+    padding: 4px 14px 12px 14px !important;
+    margin-left: -14px !important;
+    margin-right: -14px !important;
     scrollbar-width: none;
   }
 
@@ -9161,11 +9150,11 @@ input:focus, select:focus, textarea:focus {
   }
 
   .cards-scroll-mobile > * {
-    flex: 0 0 calc(100% - 28px) !important;
-    max-width: calc(100% - 28px) !important;
-    min-width: calc(100% - 28px) !important;
-    scroll-snap-align: center !important;
-    scroll-snap-stop: always !important;
+    flex: 0 0 calc(78vw - 12px) !important;
+    max-width: 295px !important;
+    min-width: 220px !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
     box-sizing: border-box !important;
   }
 
