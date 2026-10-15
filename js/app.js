@@ -108,6 +108,25 @@ const App = {
     }
   },
 
+  openSampleReportModal() {
+    const modal = document.getElementById('sample-report-modal');
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      this.closeMobileDrawer();
+    }
+  },
+
+  closeSampleReportModal() {
+    const modal = document.getElementById('sample-report-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  },
+
   // --------------------------------------------------------------------------
   // 2. QUICK ASSESSMENT INTAKE MODAL CONTROLLER
   // --------------------------------------------------------------------------
@@ -241,6 +260,31 @@ const App = {
   // --------------------------------------------------------------------------
   initGlobalDelegatedClicks() {
     document.addEventListener('click', (e) => {
+      // InBody Sample Report Modal triggers
+      const sampleReportTrigger = e.target.closest('.open-sample-report-modal');
+      if (sampleReportTrigger) {
+        e.preventDefault();
+        this.openSampleReportModal();
+        return;
+      }
+
+      const closeReportBtn = e.target.closest('#close-report-modal-btn, #report-modal-close-btn');
+      if (closeReportBtn) {
+        e.preventDefault();
+        this.closeSampleReportModal();
+        return;
+      }
+
+      const reportOverlay = document.getElementById('sample-report-modal');
+      if (reportOverlay && e.target === reportOverlay) {
+        this.closeSampleReportModal();
+        return;
+      }
+
+      if (e.target.closest('.close-report-on-click')) {
+        this.closeSampleReportModal();
+      }
+
       // Community Partner Modal triggers ("Partner With Helevate")
       const partnerTrigger = e.target.closest('.open-partner-trigger, #header-partner-btn, #mobile-partner-btn');
       if (partnerTrigger) {
@@ -381,6 +425,18 @@ const App = {
         }
       });
     }
+
+    // Global ESC key listener to close any open modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeSampleReportModal();
+        this.closePartnerModal();
+        this.closeIntakeModal();
+        this.closeVideoModal();
+        this.closeArticleModal();
+        this.closeMobileDrawer();
+      }
+    });
   },
 
   openVideoModal(videoId) {
