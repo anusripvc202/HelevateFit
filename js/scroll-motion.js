@@ -241,33 +241,72 @@
 
     // 6. Mobile 1-Card Swipe Carousel Indicator Sync
     initMobileCarouselIndicators() {
-      if (window.innerWidth > 640) return;
+      if (window.innerWidth > 768) return;
 
-      const scrollTracks = document.querySelectorAll('.cards-scroll-mobile');
+      const scrollSelector = [
+        '.cards-scroll-mobile',
+        '.overview-pillars-grid',
+        '.services-grid-4',
+        '.services-grid-main',
+        '.assessments-grid-4',
+        '.assessments-compact-grid',
+        '.what-we-assess-grid',
+        '.journey-track-grid',
+        '.clinical-team-grid',
+        '.video-testimonials-grid',
+        '.pricing-grid-3',
+        '.about-pillars-grid',
+        '.team-grid-4',
+        '.simple-roles-grid',
+        '.insights-grid',
+        '.community-reviews-grid',
+        '.reviews-community-grid',
+        '.h75-phase-grid',
+        '.journey-stages-grid',
+        '.journey-flow-5',
+        '.findus-societies-grid'
+      ].join(', ');
+
+      const scrollTracks = document.querySelectorAll(scrollSelector);
       scrollTracks.forEach(track => {
-        if (track.dataset.hasIndicator === 'true') return;
-        const cards = track.children;
+        // Collect visible card children
+        const cards = Array.from(track.children).filter(el => 
+          el.nodeType === 1 && 
+          !el.classList.contains('mobile-carousel-indicator') && 
+          !el.classList.contains('is-hidden')
+        );
         if (cards.length <= 1) return;
 
-        track.dataset.hasIndicator = 'true';
-        const indicator = document.createElement('div');
-        indicator.className = 'mobile-carousel-indicator';
-        indicator.setAttribute('aria-hidden', 'true');
+        // If indicator already exists in DOM right after track, reuse or re-sync it
+        let indicator = track.nextElementSibling;
+        if (!indicator || !indicator.classList.contains('mobile-carousel-indicator')) {
+          indicator = document.createElement('div');
+          indicator.className = 'mobile-carousel-indicator';
+          indicator.setAttribute('aria-hidden', 'true');
+          track.parentNode.insertBefore(indicator, track.nextSibling);
+        }
 
+        // Render dot for each visible card
+        indicator.innerHTML = '';
         for (let i = 0; i < cards.length; i++) {
           const dot = document.createElement('span');
           dot.className = `mobile-carousel-dot${i === 0 ? ' active' : ''}`;
           indicator.appendChild(dot);
         }
 
-        track.parentNode.insertBefore(indicator, track.nextSibling);
+        if (track.dataset.hasSwipeListener === 'true') return;
+        track.dataset.hasSwipeListener = 'true';
 
         let ticking = false;
         track.addEventListener('scroll', () => {
           if (!ticking) {
             window.requestAnimationFrame(() => {
-              const cardWidth = cards[0].offsetWidth + 16;
-              const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / cardWidth)));
+              if (!cards.length || !cards[0].offsetWidth) {
+                ticking = false;
+                return;
+              }
+              const cardStep = cards[0].offsetWidth + 14;
+              const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / cardStep)));
               const dots = indicator.querySelectorAll('.mobile-carousel-dot');
               dots.forEach((d, idx) => {
                 d.classList.toggle('active', idx === activeIndex);
