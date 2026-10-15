@@ -212,6 +212,12 @@ const Router = {
     const targetView = document.getElementById(viewId);
     if (targetView) {
       targetView.classList.add("active");
+
+      // Immediately ensure all elements inside subview-hero and what-we-assess-hero are visible
+      targetView.querySelectorAll(".subview-hero *, .what-we-assess-hero *").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
+
       if (window.MotionEngine && window.MotionEngine.refresh) {
         window.MotionEngine.refresh();
       } else {

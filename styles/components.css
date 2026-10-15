@@ -3329,22 +3329,39 @@
 .journey-flow-5 > *:nth-child(9) { transition-delay: 0.36s; }
 
 /* Subview Hero entrance animations */
-.subview-hero .badge {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: sunrooofHeroGlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+@keyframes subviewHeroGlide {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.subview-hero h1 {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+.subview-hero .badge,
+.what-we-assess-hero .badge {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  animation: subviewHeroGlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
 }
 
-.subview-hero p {
-  opacity: 0;
-  transform: translateY(16px);
-  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+.subview-hero h1,
+.what-we-assess-hero h1 {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  animation: subviewHeroGlide 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.subview-hero p,
+.what-we-assess-hero p {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  animation: subviewHeroGlide 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
 }
 
 /* Sunrooof Card Lift & Image Zoom */
@@ -3448,7 +3465,8 @@
   .hero-actions,
   .hero-stats-row,
   .hero-contact-pill,
-  .subview-hero * {
+  .subview-hero *,
+  .what-we-assess-hero * {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
