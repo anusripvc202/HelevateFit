@@ -503,6 +503,18 @@
   font-weight: 400;
 }
 
+.hero-desc-mobile {
+  display: none;
+}
+
+.hero-title-br-desktop {
+  display: inline;
+}
+
+.hero-stats-mobile-strip {
+  display: none;
+}
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -3801,55 +3813,6 @@
 
 /* Small Phones (up to 600px) */
 @media (max-width: 600px) {
-  .hero-display-title {
-    font-size: clamp(2rem, 9.5vw, 3.2rem);
-    line-height: 0.98;
-    margin-bottom: 12px;
-  }
-
-  .hero-actions .btn-hero-pill {
-    width: 100%;
-    padding: 13px 20px;
-    font-size: 0.88rem;
-    letter-spacing: 0.08em;
-  }
-
-  .hero-stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    width: 100%;
-    margin-top: 20px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-
-  .hero-stat-divider {
-    display: none;
-  }
-
-  .hero-stat-block {
-    text-align: left;
-  }
-
-  .hero-stat-val {
-    font-size: clamp(1rem, 4.2vw, 1.3rem);
-    white-space: nowrap;
-  }
-
-  .hero-stat-lbl {
-    font-size: 0.68rem;
-    line-height: 1.25;
-    opacity: 0.88;
-  }
-
-  .hero-contact-pill {
-    width: 100%;
-    justify-content: center;
-    margin-top: 14px;
-    padding: 10px 16px;
-    font-size: 0.84rem;
-  }
 
   .form-row-2col {
     grid-template-columns: 1fr;
@@ -7743,7 +7706,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   /* ------------------------------------------------------------------------
-     9. Header & Hero Cinematic Mobile
+     9. Header & Compact Mobile Hero Section
      ------------------------------------------------------------------------ */
   #header-partner-btn {
     display: none !important;
@@ -7755,75 +7718,176 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-cinematic {
-    padding: 36px 0 24px !important;
+    padding: 24px 0 16px !important;
     min-height: auto !important;
+    max-height: none !important;
   }
 
-  .hero-display-title {
-    font-size: clamp(1.65rem, 6.2vw, 2.05rem) !important;
-    line-height: 1.08 !important;
-    margin-bottom: 12px !important;
-    word-break: break-word !important;
-  }
-
-  .hero-supporting-text {
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 20px !important;
-  }
-
-  .hero-actions {
-    display: flex !important;
+  .hero-container-layout {
     flex-direction: column !important;
+    align-items: stretch !important;
     gap: 10px !important;
-    width: 100% !important;
   }
 
-  .hero-actions .btn {
+  .hero-cinematic-inner {
+    max-width: 100% !important;
     width: 100% !important;
-    min-height: 46px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    margin: 0 !important;
   }
 
-  .hero-stats-row {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px 14px !important;
-    width: 100% !important;
-    margin-top: 18px !important;
-    padding-top: 14px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
+  .hero-location-eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 6px !important;
   }
 
-  .hero-stat-divider {
+  .hero-title-br-desktop {
     display: none !important;
   }
 
-  .hero-stat-block {
-    text-align: left !important;
+  .hero-display-title {
+    font-size: clamp(1.52rem, 6.8vw, 2.05rem) !important;
+    line-height: 1.05 !important;
+    margin: 0 0 8px 0 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    text-wrap: balance !important;
+    letter-spacing: -0.01em !important;
   }
 
-  .hero-stat-block:last-child {
-    grid-column: span 2 !important;
+  .hero-desc-desktop {
+    display: none !important;
   }
 
-  .hero-stat-val {
-    font-size: clamp(0.95rem, 4vw, 1.25rem) !important;
+  .hero-desc-mobile {
+    display: block !important;
+    font-size: clamp(0.85rem, 3.4vw, 0.94rem) !important;
+    line-height: 1.38 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 12px 0 !important;
+    max-width: 100% !important;
+    font-weight: 400 !important;
+  }
+
+  /* Side-by-side Hero Buttons in a Single Horizontal Row */
+  .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-actions .btn,
+  .hero-actions .btn-hero-pill {
+    flex: 1 1 0px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    min-height: 42px !important;
+    height: auto !important;
+    padding: 9px 6px !important;
+    font-size: clamp(0.66rem, 2.7vw, 0.78rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+  }
+
+  /* Move Hero Statistics Below Hero Section on Mobile */
+  .hero-cinematic .hero-stats-row {
+    display: none !important;
+  }
+
+  .hero-stats-mobile-strip {
+    display: block !important;
+    background: #081B2E !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 12px 0 !important;
+  }
+
+  .hero-stats-mobile-container {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-align: center !important;
+  }
+
+  .hero-stats-mobile-strip .hero-stat-block {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+
+  .hero-stats-mobile-strip .hero-stat-val {
+    font-family: var(--font-display) !important;
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem) !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    color: #00E5BE !important;
+    line-height: 1.1 !important;
     white-space: nowrap !important;
   }
 
-  .hero-stat-lbl {
-    font-size: 0.68rem !important;
-    line-height: 1.25 !important;
-    opacity: 0.88 !important;
+  .hero-stats-mobile-strip .hero-stat-lbl {
+    font-family: var(--font-mono) !important;
+    font-size: 0.64rem !important;
+    color: #FFFFFF !important;
+    opacity: 0.85 !important;
+    margin-top: 2px !important;
+    line-height: 1.2 !important;
   }
 
+  .hero-stats-mobile-strip .hero-stat-divider {
+    display: block !important;
+    width: 1px !important;
+    height: 24px !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Quick Contact / WhatsApp Pill - Clean Separation (Prevents Overlap) */
   .hero-contact-pill {
-    width: 100% !important;
+    position: relative !important;
+    width: auto !important;
+    max-width: fit-content !important;
+    align-self: center !important;
+    margin: 10px auto 0 !important;
+    padding: 6px 14px 6px 16px !important;
+    font-size: 0.8rem !important;
+    display: inline-flex !important;
     justify-content: center !important;
-    margin-top: 14px !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+  }
+
+  @media (max-width: 360px) {
+    .hero-actions {
+      gap: 5px !important;
+    }
+    .hero-actions .btn,
+    .hero-actions .btn-hero-pill {
+      font-size: 0.64rem !important;
+      padding: 8px 3px !important;
+      letter-spacing: 0.01em !important;
+    }
+    .hero-display-title {
+      font-size: 1.48rem !important;
+    }
+    .hero-stats-mobile-strip .hero-stat-val {
+      font-size: 0.88rem !important;
+    }
+    .hero-stats-mobile-strip .hero-stat-lbl {
+      font-size: 0.58rem !important;
+    }
   }
 }
 
