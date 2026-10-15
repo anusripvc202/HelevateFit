@@ -62,10 +62,12 @@ const Router = {
         
         const isHomeActive = (normalizedPath === "/" || normalizedPath === "/home") && 
           (targetClean === "/" || targetClean === "" || targetClean === "home");
+        const isAssessActive = (normalizedPath === "/what-we-assess" || normalizedPath === "/assessments" || normalizedPath === "/what-we-test") && 
+          (targetClean === "/what-we-assess" || targetClean === "/assessments");
         const isPageActive = targetClean.length > 1 && 
           (normalizedPath === targetClean || normalizedPath.startsWith(targetClean + "/"));
 
-        if (isHomeActive || isPageActive) {
+        if (isHomeActive || isPageActive || isAssessActive) {
           link.classList.add("active");
         } else {
           link.classList.remove("active");
@@ -90,6 +92,8 @@ const Router = {
         this.showView("view-how-it-works");
         break;
 
+      case "/what-we-assess":
+      case "/what-we-test":
       case "/assessments":
       case "/assessment":
       case "/diagnostics":
@@ -190,6 +194,18 @@ const Router = {
     if (window.VideoEngine && window.VideoEngine.refresh) {
       window.VideoEngine.refresh();
     }
+
+    // Direct section scroll parameter support (for targeted section views)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const scrollToId = urlParams.get('scroll');
+      if (scrollToId) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollToId);
+          if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        }, 120);
+      }
+    } catch (e) {}
   },
 
   showView(viewId) {

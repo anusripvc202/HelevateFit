@@ -18,6 +18,7 @@ const App = {
     this.initMobileDrawer();
     this.initGlobalDelegatedClicks();
     this.initFooterBubbles();
+    this.initWhatWeAssess();
     
     // Initialize Router
     if (window.Router) {
@@ -643,7 +644,78 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 5. TOAST NOTIFICATIONS
+  // 5. WHAT WE ASSESS CONTROLLER (Function Health UX reference)
+  // --------------------------------------------------------------------------
+  initWhatWeAssess() {
+    // 1. Category Filter Tabs
+    const filterPills = document.querySelectorAll('.assess-filter-pill');
+    const cards = document.querySelectorAll('.assess-card');
+
+    if (filterPills.length && cards.length) {
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const filter = pill.getAttribute('data-filter') || 'all';
+
+          // Update active pill state
+          filterPills.forEach(p => {
+            p.classList.remove('active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('active');
+          pill.setAttribute('aria-selected', 'true');
+
+          // Filter cards
+          cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (filter === 'all' || cardCat === filter) {
+              card.classList.remove('is-hidden');
+            } else {
+              card.classList.add('is-hidden');
+            }
+          });
+
+          // Refresh motion engine if present
+          if (window.MotionEngine && window.MotionEngine.refresh) {
+            window.MotionEngine.refresh();
+          }
+        });
+      });
+    }
+
+    // 2. Expandable Details Toggle ("Learn More" / "Hide Details")
+    document.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.btn-assess-toggle');
+      if (!toggleBtn) return;
+
+      e.preventDefault();
+      const card = toggleBtn.closest('.assess-card');
+      if (!card) return;
+
+      const detailsPanel = card.querySelector('.assess-expandable-content');
+      const toggleText = toggleBtn.querySelector('.toggle-text');
+      if (!detailsPanel) return;
+
+      const isHidden = detailsPanel.hasAttribute('hidden');
+      if (isHidden) {
+        detailsPanel.removeAttribute('hidden');
+        toggleBtn.classList.add('is-expanded');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        if (toggleText) toggleText.textContent = 'Hide Details';
+      } else {
+        detailsPanel.setAttribute('hidden', '');
+        toggleBtn.classList.remove('is-expanded');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        if (toggleText) toggleText.textContent = 'Learn More';
+      }
+
+      if (window.MotionEngine && window.MotionEngine.refresh) {
+        window.MotionEngine.refresh();
+      }
+    });
+  },
+
+  // --------------------------------------------------------------------------
+  // 6. TOAST NOTIFICATIONS
   // --------------------------------------------------------------------------
   showToast(message) {
     let shelf = document.getElementById('toast-shelf');
