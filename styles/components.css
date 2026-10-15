@@ -6156,6 +6156,55 @@ input:focus, select:focus, textarea:focus {
   color: #00A68E;
 }
 
+/* Reusable Card Benefits List & Learn More Link */
+.card-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-benefits-list li {
+  font-size: 0.86rem;
+  color: var(--color-primary-navy, #0E3A5D);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.card-benefits-list .benefit-check {
+  color: #00A68E;
+  font-weight: 800;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.overview-pillar-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(14, 58, 93, 0.08);
+}
+
+.card-learn-more-link {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #008774;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.card-learn-more-link:hover {
+  color: var(--color-primary-navy);
+  transform: translateX(2px);
+}
+
 /* 5-Step Community Flow Chain */
 .community-flow-chain {
   display: flex;
@@ -7501,14 +7550,14 @@ input:focus, select:focus, textarea:focus {
     -webkit-overflow-scrolling: touch !important;
     scroll-snap-type: x mandatory !important;
     scroll-behavior: smooth !important;
-    scroll-padding-left: 14px !important;
-    scroll-padding-right: 14px !important;
+    scroll-padding-left: 16px !important;
+    scroll-padding-right: 16px !important;
     gap: 12px !important;
     margin-left: -14px !important;
     margin-right: -14px !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    padding-top: 4px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 6px !important;
     padding-bottom: 12px !important;
     width: calc(100% + 28px) !important;
     max-width: calc(100% + 28px) !important;
@@ -7590,11 +7639,13 @@ input:focus, select:focus, textarea:focus {
   .journey-track-grid .journey-step-card,
   .overview-pillars-grid .overview-pillar-card,
   .assess-card {
-    flex: 0 0 calc(78vw - 12px) !important;
-    max-width: 295px !important;
-    min-width: 220px !important;
+    flex: 0 0 calc(80vw - 8px) !important;
+    max-width: 315px !important;
+    min-width: 235px !important;
     width: auto !important;
     scroll-snap-align: start !important;
+    scroll-margin-left: 16px !important;
+    scroll-margin-right: 16px !important;
     scroll-snap-stop: normal !important;
     display: flex !important;
     flex-direction: column !important;
@@ -7638,9 +7689,9 @@ input:focus, select:focus, textarea:focus {
   .detailed-steps-track::after,
   .cards-scroll-mobile::after {
     content: "" !important;
-    flex: 0 0 10px !important;
-    width: 10px !important;
-    min-width: 10px !important;
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    min-width: 16px !important;
     display: block !important;
     pointer-events: none !important;
   }
@@ -7669,9 +7720,10 @@ input:focus, select:focus, textarea:focus {
     .detailed-steps-track > *,
     .detailed-step-row,
     .cards-scroll-mobile > * {
-      flex: 0 0 calc(80vw - 10px) !important;
-      min-width: 210px !important;
-      max-width: 260px !important;
+      flex: 0 0 calc(82vw - 8px) !important;
+      min-width: 220px !important;
+      max-width: 280px !important;
+      scroll-margin-left: 16px !important;
     }
   }
 
@@ -7706,7 +7758,7 @@ input:focus, select:focus, textarea:focus {
      ------------------------------------------------------------------------ */
   .service-card-main {
     border-radius: 14px !important;
-    box-shadow: 0 4px 14px rgba(14, 58, 93, 0.05) !important;
+    box-shadow: 0 4px 14px rgba(14, 58, 93, 0.06) !important;
     overflow: hidden !important;
   }
 
@@ -7722,20 +7774,20 @@ input:focus, select:focus, textarea:focus {
   }
 
   .service-card-inner {
-    padding: 12px 12px 10px !important;
+    padding: 12px 14px 10px !important;
   }
 
   .service-card-header {
     gap: 8px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
   }
 
   .service-card-icon {
-    width: 28px !important;
-    height: 28px !important;
-    min-width: 28px !important;
-    font-size: 1rem !important;
-    border-radius: 8px !important;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    font-size: 0.95rem !important;
+    border-radius: 6px !important;
   }
 
   .service-card-header h3 {
@@ -7755,14 +7807,11 @@ input:focus, select:focus, textarea:focus {
   }
 
   .service-card-desc {
-    font-size: 0.8rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 8px !important;
+    font-size: 0.79rem !important;
+    line-height: 1.38 !important;
+    margin-bottom: 4px !important;
     min-height: auto !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    color: var(--color-navy-text) !important;
   }
 
   .service-card-footer {
@@ -7771,6 +7820,7 @@ input:focus, select:focus, textarea:focus {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    border-top: 1px solid rgba(14, 58, 93, 0.06) !important;
   }
 
   .service-card-footer span {
@@ -7779,9 +7829,9 @@ input:focus, select:focus, textarea:focus {
 
   .service-card-footer a,
   .service-card-footer .btn {
-    font-size: 0.76rem !important;
-    min-height: 32px !important;
-    padding: 3px 8px !important;
+    font-size: 0.74rem !important;
+    min-height: 30px !important;
+    padding: 3px 10px !important;
     font-weight: 700 !important;
   }
 
@@ -7849,13 +7899,34 @@ input:focus, select:focus, textarea:focus {
     overflow: hidden !important;
   }
 
-  /* Hide bullet lists on mobile - secondary details available on detail page */
+  /* Show concise benefits list on assessment cards */
   .assessments-grid-4 .pricing-feature-list {
-    display: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    margin: 6px 0 8px 0 !important;
+    list-style: none !important;
+  }
+
+  .assessments-grid-4 .pricing-feature-list li {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    color: var(--color-primary-navy) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 5px !important;
+  }
+
+  .assessments-grid-4 .pricing-feature-list li::before {
+    content: '✓' !important;
+    color: #00A68E !important;
+    font-weight: 800 !important;
+    font-size: 0.74rem !important;
   }
 
   .assessments-grid-4 .pricing-card .btn {
-    min-height: 36px !important;
+    min-height: 34px !important;
     font-size: 0.76rem !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -8199,35 +8270,94 @@ input:focus, select:focus, textarea:focus {
   }
 
   .overview-pillar-card {
-    padding: 10px 12px !important;
-    border-radius: 12px !important;
+    padding: 14px 14px 12px !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(14, 58, 93, 0.06) !important;
   }
 
   .overview-pillar-top {
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
   .overview-pillar-icon-wrap {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 1.05rem !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 1.1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .overview-pillar-tag {
+    font-size: 0.65rem !important;
+    padding: 2px 7px !important;
   }
 
   .overview-pillar-title {
-    font-size: 0.95rem !important;
+    font-size: 1.02rem !important;
+    font-weight: 800 !important;
     min-height: auto !important;
-    margin-bottom: 2px !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
   }
 
-  /* Hide lengthy paragraph inside pillar cards on mobile - icon, title and highlight speak clearly */
   .overview-pillar-desc {
-    display: none !important;
+    display: block !important;
+    font-size: 0.79rem !important;
+    line-height: 1.4 !important;
+    color: var(--color-navy-text, #153255) !important;
+    margin-bottom: 6px !important;
+    min-height: auto !important;
   }
 
   .overview-pillar-highlight {
-    font-size: 0.7rem !important;
-    padding: 4px 6px !important;
-    margin-top: 6px !important;
+    display: none !important;
+  }
+
+  /* Reusable Mobile Card Benefits List */
+  .card-benefits-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 6px 0 8px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .card-benefits-list li {
+    font-size: 0.77rem !important;
+    line-height: 1.35 !important;
+    color: var(--color-primary-navy, #0E3A5D) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .card-benefits-list .benefit-check {
+    color: #00A68E !important;
+    font-weight: 800 !important;
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .overview-pillar-footer {
+    margin-top: auto !important;
+    padding-top: 6px !important;
+    border-top: 1px solid rgba(14, 58, 93, 0.08) !important;
+  }
+
+  .card-learn-more-link {
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    color: var(--color-accent-teal-dark, #008774) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
   }
 
   /* ------------------------------------------------------------------------
