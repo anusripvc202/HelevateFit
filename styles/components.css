@@ -435,6 +435,18 @@
   filter: brightness(0.92) contrast(1.12);
   pointer-events: none;
   z-index: 0;
+  animation: sunrooofHeroMedia 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes sunrooofHeroMedia {
+  0% {
+    transform: scale(1.08);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.46;
+  }
 }
 
 .hero-video-scrim {
@@ -476,6 +488,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
 }
 
 .hero-display-title {
@@ -489,6 +504,9 @@
   text-transform: uppercase;
   margin: 0 0 10px 0;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: sunrooofHeroGlide 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
 }
 
 .hero-supporting-text {
@@ -499,6 +517,9 @@
   max-width: 580px;
   margin: 0 0 18px 0;
   font-weight: 400;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sunrooofHeroGlide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards;
 }
 
 .hero-actions {
@@ -507,6 +528,9 @@
   justify-content: flex-start;
   gap: 14px;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
 
 .btn-hero-pill {
@@ -521,15 +545,19 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .btn-hero-pill:hover {
   background: #00D2B4;
   color: #04101D;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 210, 180, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0, 210, 180, 0.5);
+}
+
+.btn-hero-pill:active {
+  transform: scale(0.97);
 }
 
 /* Bottom Stats Row with Vertical Dividers */
@@ -541,6 +569,9 @@
   padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.64s forwards;
 }
 
 .hero-stat-block {
@@ -590,16 +621,34 @@
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 4px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards;
 }
 
 .hero-contact-pill:hover {
   border-color: #00D2B4;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 210, 180, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 210, 180, 0.35);
+}
+
+.hero-contact-pill:active {
+  transform: scale(0.97);
+}
+
+@keyframes sunrooofHeroGlide {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-contact-phone {
@@ -3223,21 +3272,223 @@
 }
 
 /* ==========================================================================
-   18. CALM SCROLL REVEALS & RESPONSIVE QUERIES
+   18. SUNROOOF-INSPIRED PREMIUM SCROLL REVEALS & MOTION ENGINE
    ========================================================================== */
 .reveal,
-.reveal-up,
-.reveal-fade {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
+.reveal-up {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-.reveal-up.is-revealed,
-.app-view.active .reveal-up {
+.reveal.is-revealed,
+.reveal-up.is-revealed {
   opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1 !important;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(16px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1 !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Staggered Delay Helpers */
+.reveal-stagger-1 { transition-delay: 0.05s; }
+.reveal-stagger-2 { transition-delay: 0.12s; }
+.reveal-stagger-3 { transition-delay: 0.19s; }
+.reveal-stagger-4 { transition-delay: 0.26s; }
+.reveal-stagger-5 { transition-delay: 0.33s; }
+
+/* Grid Stagger Cascades (Rhythmic Sunrooof Rhythms) */
+.overview-pillars-grid > *:nth-child(1) { transition-delay: 0.04s; }
+.overview-pillars-grid > *:nth-child(2) { transition-delay: 0.14s; }
+.overview-pillars-grid > *:nth-child(3) { transition-delay: 0.24s; }
+
+.services-grid-main > *:nth-child(1) { transition-delay: 0.04s; }
+.services-grid-main > *:nth-child(2) { transition-delay: 0.12s; }
+.services-grid-main > *:nth-child(3) { transition-delay: 0.20s; }
+.services-grid-main > *:nth-child(4) { transition-delay: 0.28s; }
+
+.assessments-grid-4 > *:nth-child(1) { transition-delay: 0.04s; }
+.assessments-grid-4 > *:nth-child(2) { transition-delay: 0.12s; }
+.assessments-grid-4 > *:nth-child(3) { transition-delay: 0.20s; }
+.assessments-grid-4 > *:nth-child(4) { transition-delay: 0.28s; }
+
+.trust-bar-grid > *:nth-child(1) { transition-delay: 0.06s; }
+.trust-bar-grid > *:nth-child(2) { transition-delay: 0.16s; }
+.trust-bar-grid > *:nth-child(3) { transition-delay: 0.26s; }
+
+.journey-stages-grid > *:nth-child(1) { transition-delay: 0.04s; }
+.journey-stages-grid > *:nth-child(2) { transition-delay: 0.12s; }
+.journey-stages-grid > *:nth-child(3) { transition-delay: 0.20s; }
+.journey-stages-grid > *:nth-child(4) { transition-delay: 0.28s; }
+
+.what-we-assess-grid > *:nth-child(1) { transition-delay: 0.04s; }
+.what-we-assess-grid > *:nth-child(2) { transition-delay: 0.12s; }
+.what-we-assess-grid > *:nth-child(3) { transition-delay: 0.20s; }
+.what-we-assess-grid > *:nth-child(4) { transition-delay: 0.28s; }
+
+.video-testimonials-grid > *:nth-child(1) { transition-delay: 0.06s; }
+.video-testimonials-grid > *:nth-child(2) { transition-delay: 0.16s; }
+.video-testimonials-grid > *:nth-child(3) { transition-delay: 0.26s; }
+
+.team-grid-4 > *:nth-child(1) { transition-delay: 0.05s; }
+.team-grid-4 > *:nth-child(2) { transition-delay: 0.13s; }
+.team-grid-4 > *:nth-child(3) { transition-delay: 0.21s; }
+.team-grid-4 > *:nth-child(4) { transition-delay: 0.29s; }
+
+.journey-flow-5 > *:nth-child(1) { transition-delay: 0.04s; }
+.journey-flow-5 > *:nth-child(3) { transition-delay: 0.12s; }
+.journey-flow-5 > *:nth-child(5) { transition-delay: 0.20s; }
+.journey-flow-5 > *:nth-child(7) { transition-delay: 0.28s; }
+.journey-flow-5 > *:nth-child(9) { transition-delay: 0.36s; }
+
+/* Subview Hero entrance animations */
+.subview-hero .badge {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: sunrooofHeroGlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.subview-hero h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.subview-hero p {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: sunrooofHeroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+/* Sunrooof Card Lift & Image Zoom */
+.service-card-main,
+.overview-pillar-card,
+.assessment-card-main,
+.assess-card,
+.journey-stage-card,
+.team-member-card,
+.format-card-clean,
+.journey-step-5-card,
+.trust-bar-item {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .overview-pillar-card:hover,
+  .service-card-main:hover,
+  .assessment-card-main:hover,
+  .assess-card:hover,
+  .journey-stage-card:hover,
+  .team-member-card:hover,
+  .format-card-clean:hover,
+  .journey-step-5-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(14, 58, 93, 0.14),
+                0 0 0 1px rgba(0, 210, 180, 0.35);
+  }
+
+  .trust-bar-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(14, 58, 93, 0.08);
+    border-color: rgba(0, 210, 180, 0.35);
+  }
+
+  .service-card-main:hover .service-card-img,
+  .assessment-card-main:hover .assessment-card-img,
+  .assess-card:hover .assess-card-img,
+  .team-member-card:hover .team-member-img,
+  .journey-stage-card:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Touch Tap Feedback */
+@media (hover: none) and (pointer: coarse) {
+  .overview-pillar-card:active,
+  .service-card-main:active,
+  .assessment-card-main:active,
+  .assess-card:active,
+  .journey-stage-card:active,
+  .team-member-card:active,
+  .format-card-clean:active,
+  .journey-step-5-card:active,
+  .trust-bar-item:active,
+  .btn:active,
+  .assess-filter-pill:active {
+    transform: scale(0.982);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Sunrooof magnetic button hover states */
+.btn-primary,
+.btn-teal,
+.btn-gold {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover,
+  .btn-teal:hover,
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 210, 180, 0.36);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost-dark:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 210, 180, 0.5);
+    background: rgba(0, 210, 180, 0.08);
+  }
+}
+
+/* Accessibility fallback */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-fade,
+  .reveal-scale,
+  .hero-ambient-video,
+  .hero-location-eyebrow,
+  .hero-display-title,
+  .hero-supporting-text,
+  .hero-actions,
+  .hero-stats-row,
+  .hero-contact-pill,
+  .subview-hero * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ==========================================================================
@@ -8218,6 +8469,56 @@ input:focus, select:focus, textarea:focus {
 
   .assess-cta-actions .btn {
     width: 100%;
+  }
+/* ==========================================================================
+   SUNROOOF-INSPIRED MOBILE 1-CARD SWIPE CAROUSEL (TOUCH SNAP)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cards-scroll-mobile {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding: 12px 16px 20px 16px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    scrollbar-width: none;
+  }
+
+  .cards-scroll-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards-scroll-mobile > * {
+    flex: 0 0 calc(100% - 28px) !important;
+    max-width: calc(100% - 28px) !important;
+    min-width: calc(100% - 28px) !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-carousel-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin: 12px 0 18px 0;
+  }
+
+  .mobile-carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(14, 58, 93, 0.22);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-carousel-dot.active {
+    width: 22px;
+    border-radius: 999px;
+    background: #00D2B4;
   }
 }
 

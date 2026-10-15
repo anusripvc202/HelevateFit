@@ -212,9 +212,13 @@ const Router = {
     const targetView = document.getElementById(viewId);
     if (targetView) {
       targetView.classList.add("active");
-      targetView.querySelectorAll(".reveal, .reveal-up, .reveal-fade").forEach((el) => {
-        el.classList.add("is-revealed");
-      });
+      if (window.MotionEngine && window.MotionEngine.refresh) {
+        window.MotionEngine.refresh();
+      } else {
+        targetView.querySelectorAll(".reveal, .reveal-up, .reveal-fade, .reveal-scale").forEach((el) => {
+          el.classList.add("is-revealed");
+        });
+      }
     }
   }
 };

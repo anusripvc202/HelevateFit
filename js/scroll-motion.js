@@ -1,12 +1,15 @@
 /**
- * HELEVATE.FIT — ULTRAHUMAN-INSPIRED CALM CINEMATIC MOTION ENGINE
+ * HELEVATE.FIT — SUNROOOF-INSPIRED PREMIUM MOTION & INTERACTION ENGINE
  * 
  * Features:
- * - Magnetic 3D tilt on cards and interactive visuals ([data-tilt])
- * - Smooth count-up telemetry numbers ([data-count-to])
- * - Subtle parallax image effects
- * - IntersectionObserver reveals (fade-in, slide-up, blur-to-sharp)
- * - Sticky header glassmorphism state
+ * - Fluid scroll reveals with Sunrooof cubic-bezier easing (fade-in, slide-up, scale)
+ * - Mobile-first viewport detection with zero-jank IntersectionObserver
+ * - Sequential stagger cascades for card grids and metrics
+ * - Desktop-exclusive magnetic 3D tilt with spring return (disabled on touch to preserve smooth scroll)
+ * - Mobile 1-card swipe carousel synchronization with dynamic progress indicators
+ * - Telemetry number count-up animation on viewport entry
+ * - Subtle desktop-only media parallax
+ * - Full prefers-reduced-motion accessibility support
  */
 
 (function() {
@@ -14,14 +17,22 @@
 
   const MotionEngine = {
     observer: null,
+    storytellingInitialized: false,
 
     init() {
+      // Respect accessibility settings
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        this.revealAllInstantly();
+        return;
+      }
+
       this.initHeaderScroll();
       this.initIntersectionObserver();
       this.initSmoothScrollLinks();
       this.init3DTilt();
-      this.initNumberCounters();
       this.initParallaxImages();
+      this.initMobileCarouselIndicators();
       this.initStorytellingScroll();
     },
 
@@ -30,11 +41,18 @@
       const header = document.querySelector('.site-header');
       if (!header) return;
 
+      let ticking = false;
       const onScroll = () => {
-        if (window.scrollY > 24) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (window.scrollY > 20) {
+              header.classList.add('scrolled');
+            } else {
+              header.classList.remove('scrolled');
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       };
 
@@ -42,35 +60,46 @@
       onScroll();
     },
 
-    // 2. Gentle, Calm Scroll Reveals via IntersectionObserver
+    // 2. Sunrooof Scroll Reveals via IntersectionObserver
     initIntersectionObserver() {
       if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal, .reveal-up, .reveal-fade').forEach(el => {
-          el.classList.add('is-revealed');
-        });
+        this.revealAllInstantly();
         return;
       }
+
+      const isMobile = window.innerWidth <= 768;
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
+            const target = entry.target;
+            target.classList.add('is-revealed');
             
-            // Trigger count-up if element contains counter
-            const counter = entry.target.querySelector('[data-count-to]');
+            // Trigger count-up telemetry numbers if present
+            const counter = target.querySelector('[data-count-to]');
             if (counter && !counter.classList.contains('has-counted')) {
               this.animateCounter(counter);
             }
-            if (entry.target.hasAttribute('data-count-to') && !entry.target.classList.contains('has-counted')) {
-              this.animateCounter(entry.target);
+            if (target.hasAttribute('data-count-to') && !target.classList.contains('has-counted')) {
+              this.animateCounter(target);
             }
 
-            this.observer.unobserve(entry.target);
+            // Cascade staggered child reveals
+            const staggerChildren = target.querySelectorAll('.reveal-child');
+            if (staggerChildren.length) {
+              staggerChildren.forEach((child, index) => {
+                setTimeout(() => {
+                  child.classList.add('is-revealed');
+                }, index * 80);
+              });
+            }
+
+            this.observer.unobserve(target);
           }
         });
       }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: isMobile ? 0.08 : 0.12,
+        rootMargin: isMobile ? '0px 0px -25px 0px' : '0px 0px -35px 0px'
       });
 
       this.observeElements();
@@ -78,31 +107,60 @@
 
     observeElements() {
       if (!this.observer) return;
-      const elements = document.querySelectorAll('.app-view.active .reveal, .app-view.active .reveal-up, .app-view.active .reveal-fade, .reveal, .reveal-up, .reveal-fade');
+      
+      const selector = '.app-view.active .reveal, .app-view.active .reveal-up, .app-view.active .reveal-fade, .app-view.active .reveal-scale, .reveal, .reveal-up, .reveal-fade, .reveal-scale';
+      const elements = document.querySelectorAll(selector);
+      const windowH = window.innerHeight;
+
       elements.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
+        // If element is already in or above the visible viewport on view load, reveal immediately
+        if (rect.top < windowH - 20 && rect.bottom > 0) {
           el.classList.add('is-revealed');
           const counter = el.querySelector('[data-count-to]');
           if (counter && !counter.classList.contains('has-counted')) {
             this.animateCounter(counter);
           }
-        } else {
+        } else if (!el.classList.contains('is-revealed')) {
           this.observer.observe(el);
         }
       });
+
+      // Safety fallback: Ensure all content in active view becomes visible within 2.5s
+      setTimeout(() => {
+        document.querySelectorAll('.app-view.active .reveal:not(.is-revealed), .app-view.active .reveal-up:not(.is-revealed)').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight + 120) {
+            el.classList.add('is-revealed');
+          }
+        });
+      }, 2200);
     },
 
-    // 3. Magnetic 3D Tilt Effect on Visual Cards ([data-tilt])
+    revealAllInstantly() {
+      document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .reveal-scale').forEach(el => {
+        el.classList.add('is-revealed');
+      });
+    },
+
+    // 3. Desktop-Exclusive Magnetic 3D Tilt on Visual Cards ([data-tilt])
     init3DTilt() {
+      // ONLY attach mousemove tilt on desktop devices with precise pointer (eliminates mobile scroll jitter)
+      const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      if (isTouch) return;
+
       const cards = document.querySelectorAll('[data-tilt]');
       if (!cards.length) return;
 
       cards.forEach(card => {
+        if (card.dataset.tiltInitialized === 'true') return;
+        card.dataset.tiltInitialized = 'true';
+
         let isHovered = false;
 
         card.addEventListener('mouseenter', () => {
           isHovered = true;
+          card.style.transition = 'transform 0.15s ease-out, box-shadow 0.25s ease';
         });
 
         card.addEventListener('mousemove', (e) => {
@@ -113,14 +171,15 @@
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           
-          const rotateX = ((y - centerY) / centerY) * -5;
-          const rotateY = ((x - centerX) / centerX) * 5;
+          const rotateX = ((y - centerY) / centerY) * -4.5;
+          const rotateY = ((x - centerX) / centerX) * 4.5;
 
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
         });
 
         card.addEventListener('mouseleave', () => {
           isHovered = false;
+          card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease';
           card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
         });
       });
@@ -128,7 +187,7 @@
 
     // 4. Smooth Telemetry Counter Animation
     initNumberCounters() {
-      // Handled via IntersectionObserver
+      // Handled automatically via IntersectionObserver
     },
 
     animateCounter(el) {
@@ -157,8 +216,10 @@
       requestAnimationFrame(update);
     },
 
-    // 5. Subtle Parallax Effect on Editorial Images
+    // 5. Subtle Desktop-Only Parallax
     initParallaxImages() {
+      if (window.innerWidth <= 768) return;
+
       const parallaxImages = document.querySelectorAll('.food-editorial-img, .hero-ambient-video');
       if (!parallaxImages.length) return;
 
@@ -168,7 +229,7 @@
           window.requestAnimationFrame(() => {
             const scrolled = window.pageYOffset;
             parallaxImages.forEach(img => {
-              const speed = 0.04;
+              const speed = img.classList.contains('hero-ambient-video') ? 0.08 : 0.04;
               img.style.transform = `translateY(${scrolled * speed}px)`;
             });
             ticking = false;
@@ -178,7 +239,48 @@
       }, { passive: true });
     },
 
-    // 6. Smooth Scroll to In-Page Anchors
+    // 6. Mobile 1-Card Swipe Carousel Indicator Sync
+    initMobileCarouselIndicators() {
+      if (window.innerWidth > 640) return;
+
+      const scrollTracks = document.querySelectorAll('.cards-scroll-mobile');
+      scrollTracks.forEach(track => {
+        if (track.dataset.hasIndicator === 'true') return;
+        const cards = track.children;
+        if (cards.length <= 1) return;
+
+        track.dataset.hasIndicator = 'true';
+        const indicator = document.createElement('div');
+        indicator.className = 'mobile-carousel-indicator';
+        indicator.setAttribute('aria-hidden', 'true');
+
+        for (let i = 0; i < cards.length; i++) {
+          const dot = document.createElement('span');
+          dot.className = `mobile-carousel-dot${i === 0 ? ' active' : ''}`;
+          indicator.appendChild(dot);
+        }
+
+        track.parentNode.insertBefore(indicator, track.nextSibling);
+
+        let ticking = false;
+        track.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const cardWidth = cards[0].offsetWidth + 16;
+              const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / cardWidth)));
+              const dots = indicator.querySelectorAll('.mobile-carousel-dot');
+              dots.forEach((d, idx) => {
+                d.classList.toggle('active', idx === activeIndex);
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      });
+    },
+
+    // 7. Smooth Scroll to In-Page Anchors
     initSmoothScrollLinks() {
       document.addEventListener('click', (e) => {
         const link = e.target.closest('a[href^="#section-"], a[href^="#homepage-"]');
@@ -198,9 +300,7 @@
       });
     },
 
-    // 7. Ultrahuman-Inspired Synchronized Sticky Visual + Single-Pane Content Controller
-    storytellingInitialized: false,
-
+    // 8. Ultrahuman-Inspired Synchronized Sticky Visual + Single-Pane Content Controller
     initStorytellingScroll() {
       const section = document.getElementById('homepage-story-scroll');
       if (!section) return;
@@ -209,7 +309,7 @@
       const textPanes = section.querySelectorAll('.story-text-pane');
       const indicatorDots = section.querySelectorAll('.story-indicator-dot');
       const stepCounter = section.querySelector('#story-step-counter .current-step-num');
-      const totalSteps = visualItems.length; // 5
+      const totalSteps = visualItems.length;
 
       if (!totalSteps) return;
 
@@ -219,28 +319,23 @@
         if (index === currentActiveIndex || index < 0 || index >= totalSteps) return;
         currentActiveIndex = index;
 
-        // Update Visuals
         visualItems.forEach((item, i) => {
           item.classList.toggle('is-active', i === index);
         });
 
-        // Update Texts
         textPanes.forEach((pane, i) => {
           pane.classList.toggle('is-active', i === index);
         });
 
-        // Update Indicators
         indicatorDots.forEach((dot, i) => {
           dot.classList.toggle('is-active', i === index);
         });
 
-        // Update Step Counter
         if (stepCounter) {
           stepCounter.textContent = `0${index + 1}`;
         }
       };
 
-      // Click to navigate directly to step
       indicatorDots.forEach((dot, index) => {
         dot.addEventListener('click', (e) => {
           e.preventDefault();
@@ -264,8 +359,6 @@
 
         const progress = -rect.top / totalScroll;
         const clampedProgress = Math.max(0, Math.min(0.999, progress));
-
-        // Determine active step (0 to totalSteps - 1)
         const step = Math.min(totalSteps - 1, Math.floor(clampedProgress * totalSteps));
         setActiveStep(step);
       };
@@ -288,7 +381,6 @@
         this.storytellingInitialized = true;
       }
 
-      // Initial check
       setActiveStep(0);
       updateScrollStory();
     },
@@ -297,15 +389,19 @@
       setTimeout(() => {
         this.observeElements();
         this.init3DTilt();
+        this.initMobileCarouselIndicators();
         this.initStorytellingScroll();
-      }, 40);
+      }, 50);
     }
   };
 
   window.MotionEngine = MotionEngine;
 
-  document.addEventListener('DOMContentLoaded', () => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      MotionEngine.init();
+    });
+  } else {
     MotionEngine.init();
-  });
+  }
 })();
-
