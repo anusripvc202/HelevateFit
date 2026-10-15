@@ -7148,11 +7148,11 @@ input:focus, select:focus, textarea:focus {
 
   /* Section Spacing — Comfortable breathing room, reduces endless scrolling */
   .section {
-    padding: 42px 0 !important;
+    padding: 28px 0 !important;
   }
 
   .section-sm {
-    padding: 30px 0 !important;
+    padding: 18px 0 !important;
   }
 
   .container {
@@ -7163,21 +7163,21 @@ input:focus, select:focus, textarea:focus {
 
   /* Section Headers: Clean hierarchy, readable, avoid awkward wraps */
   .section-header {
-    margin-bottom: 22px !important;
+    margin-bottom: 16px !important;
     text-align: center;
   }
 
   .section-title {
-    font-size: clamp(1.55rem, 6.2vw, 1.95rem) !important;
+    font-size: clamp(1.48rem, 5.8vw, 1.85rem) !important;
     line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
-    margin-top: 6px !important;
-    margin-bottom: 8px !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
   }
 
   .section-subtitle {
-    font-size: 0.88rem !important;
-    line-height: 1.52 !important;
+    font-size: 0.85rem !important;
+    line-height: 1.48 !important;
     color: var(--color-navy-text) !important;
     max-width: 100% !important;
     margin: 0 auto !important;
@@ -7564,81 +7564,81 @@ input:focus, select:focus, textarea:focus {
      3. InBody Body Composition Analysis Section Mobile Refinement
      ------------------------------------------------------------------------ */
   .inbody-section {
-    padding: 42px 0 !important;
+    padding: 26px 0 18px !important;
   }
 
   .inbody-grid {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    gap: 16px !important;
   }
 
   .inbody-image-card {
-    max-height: 220px !important;
-    border-radius: 18px !important;
+    max-height: 200px !important;
+    border-radius: 16px !important;
   }
 
   .inbody-image {
-    max-height: 220px !important;
+    max-height: 200px !important;
     aspect-ratio: 16 / 9 !important;
     object-fit: cover !important;
   }
 
   .inbody-badge-overlay {
-    font-size: 0.72rem !important;
-    padding: 5px 12px !important;
-    bottom: 10px !important;
-    left: 10px !important;
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    bottom: 8px !important;
+    left: 8px !important;
   }
 
   .inbody-heading {
-    font-size: clamp(1.45rem, 5.5vw, 1.85rem) !important;
-    margin-top: 8px !important;
-    margin-bottom: 10px !important;
-    line-height: 1.22 !important;
+    font-size: clamp(1.4rem, 5.2vw, 1.78rem) !important;
+    margin-top: 6px !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2 !important;
   }
 
   .inbody-description {
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 16px !important;
+    font-size: 0.86rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
   }
 
   .inbody-features-list {
-    gap: 10px !important;
-    margin-bottom: 20px !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
   }
 
   .inbody-feature-item {
-    font-size: 0.86rem !important;
-    gap: 10px !important;
+    font-size: 0.84rem !important;
+    gap: 8px !important;
   }
 
   .inbody-check-icon {
-    width: 20px !important;
-    height: 20px !important;
-    min-width: 20px !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
   }
 
   .inbody-content-col .btn {
     width: 100% !important;
-    min-height: 44px !important;
+    min-height: 42px !important;
     justify-content: center !important;
   }
 
   /* ------------------------------------------------------------------------
-     4. 5-Step Member Journey Mobile Refinement (Vertical Stack Flow)
+     4. 5-Step Member Journey Mobile Refinement
      ------------------------------------------------------------------------ */
   .journey-section {
-    padding: 42px 0 !important;
+    padding: 26px 0 16px !important;
   }
 
   .journey-track-grid {
     gap: 10px !important;
-    margin-top: 20px !important;
+    margin-top: 14px !important;
   }
 
   .journey-step-card {
-    padding: 14px 16px !important;
+    padding: 14px 14px !important;
     border-radius: 14px !important;
   }
 
@@ -7674,51 +7674,65 @@ input:focus, select:focus, textarea:focus {
      5. What is Helevate Overview Pillars Mobile
      ------------------------------------------------------------------------ */
   .section-overview-premium {
-    padding: 42px 0 !important;
+    padding: 24px 0 16px !important;
   }
 
-  .overview-lead-text {
-    font-size: 1.02rem !important;
-    line-height: 1.55 !important;
+  .section-overview-premium .section-header {
+    margin: 0 auto 14px !important;
+  }
+
+  .section-overview-premium .badge {
     margin-bottom: 6px !important;
   }
 
+  .section-overview-premium .section-title {
+    font-size: clamp(1.48rem, 5.8vw, 1.85rem) !important;
+    margin: 4px 0 8px 0 !important;
+  }
+
+  .overview-lead-text {
+    font-size: 0.98rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 6px !important;
+    font-weight: 600 !important;
+  }
+
   .overview-body-text {
-    font-size: 0.88rem !important;
-    line-height: 1.55 !important;
+    font-size: 0.85rem !important;
+    line-height: 1.48 !important;
   }
 
   .overview-pillar-card {
-    padding: 18px 16px !important;
-    border-radius: 16px !important;
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
   }
 
   .overview-pillar-top {
-    margin-bottom: 10px !important;
+    margin-bottom: 8px !important;
   }
 
   .overview-pillar-icon-wrap {
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 1.25rem !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.2rem !important;
   }
 
   .overview-pillar-title {
-    font-size: 1.08rem !important;
+    font-size: 1.02rem !important;
     min-height: auto !important;
     margin-bottom: 4px !important;
   }
 
   .overview-pillar-desc {
-    font-size: 0.85rem !important;
+    font-size: 0.82rem !important;
     min-height: auto !important;
-    margin-bottom: 10px !important;
-    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.45 !important;
   }
 
   .overview-pillar-highlight {
-    font-size: 0.74rem !important;
-    padding: 6px 10px !important;
+    font-size: 0.72rem !important;
+    padding: 5px 8px !important;
   }
 
   /* ------------------------------------------------------------------------
@@ -7843,30 +7857,91 @@ input:focus, select:focus, textarea:focus {
   }
 
   /* ------------------------------------------------------------------------
-     8. Trust Bar Mobile
+     8. Trust Bar Mobile — Smooth Horizontal Scrollable Benefits Row
      ------------------------------------------------------------------------ */
   .trust-bar-section {
-    padding: 16px 0 !important;
+    padding: 12px 0 8px !important;
+    overflow: hidden !important;
   }
 
   .trust-bar-grid {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    scroll-padding-left: 16px !important;
+    scroll-padding-right: 16px !important;
+    gap: 12px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 4px !important;
+    padding-bottom: 10px !important;
+    width: calc(100% + 32px) !important;
+    max-width: calc(100% + 32px) !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .trust-bar-grid::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .trust-bar-item {
+    flex: 0 0 calc(84vw - 20px) !important;
+    min-width: 250px !important;
+    max-width: 320px !important;
+    scroll-snap-align: start !important;
     padding: 12px 14px !important;
-    border-radius: 12px !important;
+    border-radius: 14px !important;
     gap: 12px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(14, 58, 93, 0.08) !important;
+    box-shadow: 0 4px 14px rgba(14, 58, 93, 0.05) !important;
+    box-sizing: border-box !important;
+  }
+
+  .trust-bar-icon-wrap {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 12px !important;
+    background: var(--color-mint-light, #E6F7F5) !important;
+    font-size: 1.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
   }
 
   .trust-bar-title {
     font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: var(--color-navy-dark, #0E3A5D) !important;
+    margin-bottom: 2px !important;
   }
 
   .trust-bar-sub {
     font-size: 0.76rem !important;
     line-height: 1.35 !important;
+    color: var(--color-navy-text, #4A657E) !important;
+  }
+
+  .trust-bar-grid::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
   }
 
   /* ------------------------------------------------------------------------
@@ -7882,7 +7957,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-cinematic {
-    padding: 24px 0 16px !important;
+    padding: 18px 0 12px !important;
     min-height: auto !important;
     max-height: none !important;
   }
@@ -7890,7 +7965,7 @@ input:focus, select:focus, textarea:focus {
   .hero-container-layout {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 10px !important;
+    gap: 8px !important;
   }
 
   .hero-cinematic-inner {
@@ -7900,9 +7975,9 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-location-eyebrow {
-    font-size: 0.72rem !important;
-    letter-spacing: 0.12em !important;
-    margin-bottom: 6px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 4px !important;
   }
 
   .hero-title-br-desktop {
@@ -7910,9 +7985,9 @@ input:focus, select:focus, textarea:focus {
   }
 
   .hero-display-title {
-    font-size: clamp(1.52rem, 6.8vw, 2.05rem) !important;
-    line-height: 1.05 !important;
-    margin: 0 0 8px 0 !important;
+    font-size: clamp(1.42rem, 6.2vw, 1.92rem) !important;
+    line-height: 1.06 !important;
+    margin: 0 0 6px 0 !important;
     word-break: normal !important;
     overflow-wrap: normal !important;
     text-wrap: balance !important;
@@ -7925,10 +8000,10 @@ input:focus, select:focus, textarea:focus {
 
   .hero-desc-mobile {
     display: block !important;
-    font-size: clamp(0.85rem, 3.4vw, 0.94rem) !important;
-    line-height: 1.38 !important;
+    font-size: clamp(0.82rem, 3.2vw, 0.92rem) !important;
+    line-height: 1.35 !important;
     color: #FFFFFF !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 10px 0 !important;
     max-width: 100% !important;
     font-weight: 400 !important;
   }
@@ -7950,12 +8025,12 @@ input:focus, select:focus, textarea:focus {
     flex: 1 1 0px !important;
     min-width: 0 !important;
     width: auto !important;
-    min-height: 42px !important;
-    height: auto !important;
-    padding: 9px 6px !important;
-    font-size: clamp(0.66rem, 2.7vw, 0.78rem) !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 8px 4px !important;
+    font-size: clamp(0.64rem, 2.7vw, 0.76rem) !important;
     font-weight: 700 !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.02em !important;
     text-transform: uppercase !important;
     text-align: center !important;
     white-space: nowrap !important;
@@ -7964,9 +8039,10 @@ input:focus, select:focus, textarea:focus {
     justify-content: center !important;
     box-sizing: border-box !important;
     text-decoration: none !important;
+    border-radius: 9999px !important;
   }
 
-  /* Move Hero Statistics Below Hero Section on Mobile */
+  /* Move Hero Statistics Below Hero Section on Mobile — Horizontal Scrollable Row */
   .hero-cinematic .hero-stats-row {
     display: none !important;
   }
@@ -7975,47 +8051,84 @@ input:focus, select:focus, textarea:focus {
     display: block !important;
     background: #081B2E !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 12px 0 !important;
+    padding: 10px 0 !important;
+    overflow: hidden !important;
   }
 
   .hero-stats-mobile-container {
     display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    gap: 6px !important;
-    text-align: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    scroll-padding-left: 16px !important;
+    scroll-padding-right: 16px !important;
+    gap: 10px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .hero-stats-mobile-container::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .hero-stats-mobile-strip .hero-stat-block {
-    flex: 1 !important;
+    flex: 0 0 auto !important;
+    min-width: 136px !important;
+    scroll-snap-align: start !important;
     text-align: center !important;
+    padding: 7px 12px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
   .hero-stats-mobile-strip .hero-stat-val {
     font-family: var(--font-display) !important;
-    font-size: clamp(0.95rem, 3.8vw, 1.15rem) !important;
+    font-size: 1.05rem !important;
     font-weight: 800 !important;
     font-style: italic !important;
     color: #00E5BE !important;
-    line-height: 1.1 !important;
+    line-height: 1.15 !important;
     white-space: nowrap !important;
+    letter-spacing: 0.02em !important;
   }
 
   .hero-stats-mobile-strip .hero-stat-lbl {
     font-family: var(--font-mono) !important;
     font-size: 0.64rem !important;
     color: #FFFFFF !important;
-    opacity: 0.85 !important;
+    opacity: 0.88 !important;
     margin-top: 2px !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
   }
 
   .hero-stats-mobile-strip .hero-stat-divider {
-    display: block !important;
-    width: 1px !important;
-    height: 24px !important;
-    background: rgba(255, 255, 255, 0.14) !important;
-    flex-shrink: 0 !important;
+    display: none !important;
+  }
+
+  .hero-stats-mobile-container::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
   }
 
   /* Quick Contact / WhatsApp Pill - Clean Separation (Prevents Overlap) */
@@ -8024,13 +8137,15 @@ input:focus, select:focus, textarea:focus {
     width: auto !important;
     max-width: fit-content !important;
     align-self: center !important;
-    margin: 10px auto 0 !important;
-    padding: 6px 14px 6px 16px !important;
-    font-size: 0.8rem !important;
+    margin: 8px auto 0 !important;
+    padding: 5px 12px 5px 14px !important;
+    font-size: 0.78rem !important;
     display: inline-flex !important;
+    align-items: center !important;
     justify-content: center !important;
-    z-index: 2 !important;
+    gap: 8px !important;
     box-sizing: border-box !important;
+    z-index: 2 !important;
   }
 
   @media (max-width: 360px) {
@@ -8039,18 +8154,24 @@ input:focus, select:focus, textarea:focus {
     }
     .hero-actions .btn,
     .hero-actions .btn-hero-pill {
-      font-size: 0.64rem !important;
-      padding: 8px 3px !important;
+      font-size: 0.62rem !important;
+      padding: 7px 2px !important;
       letter-spacing: 0.01em !important;
+      min-height: 38px !important;
+      height: 38px !important;
     }
     .hero-display-title {
-      font-size: 1.48rem !important;
+      font-size: 1.42rem !important;
+    }
+    .hero-stats-mobile-strip .hero-stat-block {
+      min-width: 125px !important;
+      padding: 6px 10px !important;
     }
     .hero-stats-mobile-strip .hero-stat-val {
-      font-size: 0.88rem !important;
+      font-size: 0.96rem !important;
     }
     .hero-stats-mobile-strip .hero-stat-lbl {
-      font-size: 0.58rem !important;
+      font-size: 0.6rem !important;
     }
   }
 }
@@ -8640,6 +8761,8 @@ input:focus, select:focus, textarea:focus {
   .assess-cta-actions .btn {
     width: 100%;
   }
+}
+
 /* ==========================================================================
    SUNROOOF-INSPIRED MOBILE 1-CARD SWIPE CAROUSEL (TOUCH SNAP)
    ========================================================================== */
