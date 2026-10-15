@@ -7788,6 +7788,29 @@ input:focus, select:focus, textarea:focus {
   /* ------------------------------------------------------------------------
      2. Supporting Personalisation Assessment Cards Mobile Refinement
      ------------------------------------------------------------------------ */
+  #homepage-personalised-support {
+    padding: 18px 0 !important;
+    overflow-x: clip !important;
+  }
+
+  #homepage-personalised-support .section-header {
+    margin-bottom: 8px !important;
+  }
+
+  #homepage-personalised-support .section-title {
+    font-size: clamp(1.25rem, 4.8vw, 1.48rem) !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.2 !important;
+  }
+
+  #homepage-personalised-support .section-subtitle {
+    font-size: 0.8rem !important;
+    line-height: 1.38 !important;
+    max-width: 96% !important;
+    margin: 0 auto 10px !important;
+  }
+
   .assessments-grid-4 .pricing-card {
     border-radius: 14px !important;
   }
@@ -7845,7 +7868,8 @@ input:focus, select:focus, textarea:focus {
      3. InBody Body Composition Analysis Section Mobile Refinement
      ------------------------------------------------------------------------ */
   .inbody-section {
-    padding: 16px 0 !important;
+    padding: 18px 0 !important;
+    overflow-x: clip !important;
   }
 
   .inbody-grid {
@@ -7853,39 +7877,128 @@ input:focus, select:focus, textarea:focus {
     gap: 12px !important;
   }
 
+  /* InBody Image Card & Banner: Clean, Proportional, Fully Responsive */
+  .inbody-media-col {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
   .inbody-image-card {
-    max-height: 130px !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 156px !important;
+    max-height: 165px !important;
     border-radius: 14px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(14, 58, 93, 0.12) !important;
+    box-shadow: 0 8px 24px -4px rgba(14, 58, 93, 0.12) !important;
   }
 
   .inbody-image {
-    max-height: 130px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 165px !important;
     aspect-ratio: 16 / 9 !important;
     object-fit: cover !important;
+    display: block !important;
   }
 
+  /* Top-Left Banner Overlay: Clinical Grade InBody Analysis (Decoupled from bottom chip) */
   .inbody-badge-overlay {
+    position: absolute !important;
+    top: 8px !important;
+    left: 8px !important;
+    bottom: auto !important;
+    right: auto !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+    background: rgba(7, 34, 56, 0.9) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(0, 210, 180, 0.45) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+    max-width: calc(100% - 16px) !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .inbody-badge-overlay span {
+    color: #00D2B4 !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Bottom-Right Floating Chip: View Sample Report */
+  .inbody-sample-preview-btn {
+    position: absolute !important;
+    bottom: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
+    padding: 5px 12px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    background: rgba(4, 16, 29, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(0, 229, 190, 0.5) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    max-width: calc(100% - 16px) !important;
+    box-sizing: border-box !important;
+    z-index: 3 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .inbody-sample-preview-btn .preview-chip-icon {
+    font-size: 0.78rem !important;
+  }
+
+  .inbody-sample-preview-btn .preview-chip-arrow {
+    color: #00E5BE !important;
+    font-weight: 800 !important;
+    margin-left: 2px !important;
+  }
+
+  .inbody-content-col {
+    width: 100% !important;
+  }
+
+  .inbody-content-col .badge {
     font-size: 0.65rem !important;
     padding: 3px 8px !important;
-    bottom: 6px !important;
-    left: 6px !important;
+    margin-bottom: 4px !important;
+    display: inline-block !important;
   }
 
   .inbody-heading {
-    font-size: clamp(1.3rem, 4.8vw, 1.55rem) !important;
+    font-size: clamp(1.22rem, 4.6vw, 1.48rem) !important;
     margin-top: 4px !important;
     margin-bottom: 6px !important;
-    line-height: 1.15 !important;
+    line-height: 1.18 !important;
   }
 
   .inbody-description {
-    font-size: 0.82rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
     margin-bottom: 8px !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    color: var(--color-navy-text) !important;
+    display: block !important;
+    max-width: 100% !important;
   }
 
   .inbody-features-list {
@@ -7895,44 +8008,47 @@ input:focus, select:focus, textarea:focus {
 
   .inbody-feature-item {
     font-size: 0.8rem !important;
-    gap: 6px !important;
+    gap: 8px !important;
+    line-height: 1.3 !important;
   }
 
-  /* Hide 3rd and 4th feature items on mobile to keep section compact */
+  /* Show only the two most important assessment benefits initially on mobile */
   .inbody-feature-item:nth-child(n+3) {
     display: none !important;
   }
 
   .inbody-check-icon {
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
   }
 
-  .inbody-sample-preview-btn {
-    position: absolute !important;
-    bottom: 6px !important;
-    right: 6px !important;
-    padding: 4px 10px !important;
-    font-size: 0.68rem !important;
+  .inbody-check-icon svg {
+    width: 11px !important;
+    height: 11px !important;
   }
 
+  /* InBody Action Buttons: Side by side when width permits, cleanly stacked vertically when tight */
   .inbody-actions-group {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: wrap !important;
     gap: 8px !important;
     width: 100% !important;
-    margin-top: 8px !important;
+    margin-top: 10px !important;
     margin-bottom: 8px !important;
     box-sizing: border-box !important;
   }
 
   .inbody-actions-group .btn {
-    flex: 1 1 0px !important;
-    min-width: 0 !important;
-    min-height: 38px !important;
-    font-size: clamp(0.68rem, 2.6vw, 0.78rem) !important;
-    padding: 6px 4px !important;
+    flex: 1 1 180px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    padding: 8px 14px !important;
     text-align: center !important;
     white-space: nowrap !important;
     justify-content: center !important;
@@ -7940,6 +8056,25 @@ input:focus, select:focus, textarea:focus {
     align-items: center !important;
     border-radius: 9999px !important;
     box-sizing: border-box !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* On screens <= 410px (320px, 360px, 375px, 390px), stack buttons vertically to prevent overlap */
+  @media (max-width: 410px) {
+    .inbody-actions-group {
+      flex-direction: column !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+
+    .inbody-actions-group .btn {
+      width: 100% !important;
+      flex: 0 0 42px !important;
+      min-height: 42px !important;
+      height: 42px !important;
+      font-size: 0.84rem !important;
+      padding: 10px 16px !important;
+    }
   }
 
   /* Hide privacy callout on mobile to save vertical space */
