@@ -7629,7 +7629,7 @@ input:focus, select:focus, textarea:focus {
 
 /* Subview Hero for What We Assess */
 .what-we-assess-hero {
-  padding: clamp(50px, 8vw, 84px) 0 clamp(24px, 4vw, 36px);
+  padding: clamp(56px, 8vw, 84px) 0 clamp(32px, 5vw, 48px);
   position: relative;
   text-align: center;
 }
@@ -7638,7 +7638,26 @@ input:focus, select:focus, textarea:focus {
   max-width: 980px;
 }
 
-/* Category Filter Bar (Function Health UX reference) */
+.what-we-assess-hero h1 {
+  color: #FFFFFF !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 16px !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.what-we-assess-hero p {
+  color: #DDF1EF !important;
+  font-size: clamp(1rem, 1.8vw, 1.15rem) !important;
+  max-width: 680px !important;
+  margin: 0 auto 28px !important;
+  line-height: 1.6 !important;
+  opacity: 0.95;
+}
+
+/* Category Filter Bar (Function Health UX reference with high-contrast luxury styling) */
 .assess-category-nav {
   display: flex;
   align-items: center;
@@ -7647,17 +7666,20 @@ input:focus, select:focus, textarea:focus {
   gap: 10px;
   margin: 32px auto 0;
   padding: 6px;
-  background: rgba(14, 58, 93, 0.05);
-  border: 1px solid rgba(14, 58, 93, 0.08);
+  background: rgba(7, 34, 56, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 210, 180, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   border-radius: 999px;
   max-width: fit-content;
 }
 
 .assess-filter-pill {
   appearance: none;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
-  color: var(--color-primary-navy);
+  color: #DDF1EF;
   font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
@@ -7672,32 +7694,62 @@ input:focus, select:focus, textarea:focus {
 }
 
 .assess-filter-pill:hover {
-  background: rgba(14, 58, 93, 0.08);
-  color: var(--color-primary-navy);
+  background: rgba(0, 210, 180, 0.15);
+  color: #FFFFFF;
+  border-color: rgba(0, 210, 180, 0.35);
 }
 
 .assess-filter-pill.active {
-  background: var(--color-primary-navy);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(14, 58, 93, 0.25);
+  background: linear-gradient(135deg, #00D2B4 0%, #00A68E 100%);
+  color: #072238;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(0, 210, 180, 0.4);
+  border-color: transparent;
 }
 
 .assess-filter-pill .pill-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   font-size: 0.72rem;
-  background: rgba(255, 255, 255, 0.22);
-  color: inherit;
   font-weight: 800;
 }
 
 .assess-filter-pill:not(.active) .pill-count {
-  background: rgba(14, 58, 93, 0.12);
-  color: var(--color-primary-navy);
+  background: rgba(221, 241, 239, 0.18);
+  color: #DDF1EF;
+}
+
+.assess-filter-pill.active .pill-count {
+  background: rgba(7, 34, 56, 0.25);
+  color: #072238;
+}
+
+/* Grid Layout for Assessment Cards */
+.what-we-assess-cards-section {
+  background: #F8FCFC !important;
+  position: relative;
+  z-index: 1;
+  padding: 48px 0 64px;
+}
+
+.personalisation-journey-section {
+  background: #EDF8F7 !important;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(14, 58, 93, 0.08);
+  border-bottom: 1px solid rgba(14, 58, 93, 0.08);
+  padding: 72px 0;
+}
+
+.what-we-assess-cta-section {
+  background: #F8FCFC !important;
+  position: relative;
+  z-index: 1;
+  padding: 64px 0 80px;
 }
 
 /* Grid Layout for Assessment Cards */
