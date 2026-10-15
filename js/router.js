@@ -102,11 +102,22 @@ const Router = {
         break;
 
       case "/services":
-      case "/programs":
       case "/care":
       case "/guidance":
       case "/nutrition":
         this.showView("view-services");
+        break;
+
+      case "/programs":
+      case "/structured-programs":
+      case "/four-programs":
+        this.showView("view-home");
+        setTimeout(() => {
+          const progSection = document.getElementById("homepage-programs");
+          if (progSection) {
+            progSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
         break;
 
       case "/about":

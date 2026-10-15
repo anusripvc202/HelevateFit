@@ -9448,6 +9448,202 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
+/* ==========================================================================
+   STRUCTURED PROGRAMS SECTION (RESET, RESTORE, BUILD, THRIVE)
+   ========================================================================== */
+.section-programs {
+  padding: 72px 0;
+  background: #FFFFFF;
+}
+
+.programs-section-title {
+  font-family: var(--font-display), var(--font-heading), sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  color: #0E3A5D;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  margin-top: 14px;
+  margin-bottom: 12px;
+}
+
+.programs-section-subtitle {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #50718A;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.programs-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.program-card-modern {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(14, 58, 93, 0.09);
+  box-shadow: 0 4px 18px rgba(14, 58, 93, 0.04);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card-modern:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(14, 58, 93, 0.1);
+  border-color: rgba(0, 210, 180, 0.4);
+}
+
+.program-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0E3A5D;
+}
+
+.program-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.program-card-modern:hover .program-img {
+  transform: scale(1.05);
+}
+
+.program-badge-chip {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: #00D2B4;
+  color: #072238;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 210, 180, 0.3);
+}
+
+.program-card-body {
+  padding: 22px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.program-title {
+  font-family: var(--font-display), var(--font-heading), sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: #0E3A5D;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.program-desc {
+  font-size: 0.90rem;
+  color: #385269;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+.carousel-dots-nav {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .programs-modern-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-programs {
+    padding: 48px 0;
+  }
+
+  .programs-section-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.8rem);
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .programs-section-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .programs-modern-grid {
+    margin-top: 24px;
+  }
+
+  .programs-modern-grid.cards-scroll-mobile {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px !important;
+    padding: 4px 14px 12px 14px !important;
+    margin-left: -14px !important;
+    margin-right: -14px !important;
+    scrollbar-width: none;
+  }
+
+  .programs-modern-grid.cards-scroll-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .programs-modern-grid.cards-scroll-mobile > * {
+    flex: 0 0 calc(78vw - 12px) !important;
+    max-width: 295px !important;
+    min-width: 220px !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
+  }
+
+  .carousel-dots-nav {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .carousel-dots-nav .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(14, 58, 93, 0.22);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .carousel-dots-nav .dot.active {
+    width: 22px;
+    border-radius: 10px;
+    background: #00D2B4;
+  }
+}
+
+
 
 
 

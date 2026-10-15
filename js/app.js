@@ -19,6 +19,7 @@ const App = {
     this.initGlobalDelegatedClicks();
     this.initFooterBubbles();
     this.initWhatWeAssess();
+    this.initCarouselDots();
     
     // Initialize Router
     if (window.Router) {
@@ -771,7 +772,56 @@ const App = {
   },
 
   // --------------------------------------------------------------------------
-  // 6. TOAST NOTIFICATIONS
+  // 6. MOBILE HORIZONTAL CAROUSEL DOTS SYNCHRONIZATION
+  // --------------------------------------------------------------------------
+  initCarouselDots() {
+    const dotContainers = document.querySelectorAll('.carousel-dots-nav');
+    if (!dotContainers.length) return;
+
+    dotContainers.forEach(container => {
+      const targetId = container.getAttribute('data-target');
+      if (!targetId) return;
+
+      const carousel = document.getElementById(targetId);
+      if (!carousel) return;
+
+      const dots = container.querySelectorAll('.dot');
+      const cards = carousel.children;
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          if (cards[idx]) {
+            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        });
+      });
+
+      let scrollTimer = null;
+      carousel.addEventListener('scroll', () => {
+        if (scrollTimer) cancelAnimationFrame(scrollTimer);
+        scrollTimer = requestAnimationFrame(() => {
+          const scrollLeft = carousel.scrollLeft;
+          const firstCard = cards[0];
+          const cardWidth = firstCard ? firstCard.offsetWidth + 14 : 260;
+          const activeIndex = Math.min(
+            dots.length - 1,
+            Math.max(0, Math.round(scrollLeft / cardWidth))
+          );
+
+          dots.forEach((dot, idx) => {
+            if (idx === activeIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        });
+      }, { passive: true });
+    });
+  },
+
+  // --------------------------------------------------------------------------
+  // 7. TOAST NOTIFICATIONS
   // --------------------------------------------------------------------------
   showToast(message) {
     let shelf = document.getElementById('toast-shelf');

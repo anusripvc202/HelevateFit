@@ -99,6 +99,42 @@ const HELEVATE_DATA = {
     }
   ],
 
+  // 2b. Client-Approved Four Programs (One Starting Point)
+  programs: [
+    {
+      id: "helevate-reset",
+      name: "HELEVATE RESET",
+      subtitle: "Body Composition & Fat Loss",
+      desc: "Focuses on body composition, fat-loss goals, and muscle preservation with structured coaching.",
+      image: "assets/program-reset.jpg",
+      badge: "RESET"
+    },
+    {
+      id: "helevate-restore",
+      name: "HELEVATE RESTORE",
+      subtitle: "Movement & Joint Function",
+      desc: "Designed to improve movement quality, joint mobility, strength, and everyday physical function through expert guidance.",
+      image: "assets/program-restore.jpg",
+      badge: "RESTORE"
+    },
+    {
+      id: "helevate-build",
+      name: "HELEVATE BUILD",
+      subtitle: "Strength & Performance",
+      desc: "Focuses on progressive muscle building, strength development, and physical performance goals.",
+      image: "assets/program-build.jpg",
+      badge: "BUILD"
+    },
+    {
+      id: "helevate-thrive",
+      name: "HELEVATE THRIVE",
+      subtitle: "Long-Term Lifestyle Maintenance",
+      desc: "Intended to maintain long-term functional fitness, strength, stamina, and a sustainable healthy lifestyle.",
+      image: "assets/program-thrive.jpg",
+      badge: "THRIVE"
+    }
+  ],
+
   // 3. Supporting Health Assessments (Supporting Precision Only)
   assessments: [
     {
