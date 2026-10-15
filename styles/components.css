@@ -6989,6 +6989,7 @@ input:focus, select:focus, textarea:focus {
   min-height: 46px;
   padding: 10px 22px;
   font-size: 0.92rem;
+  text-decoration: none;
 }
 
 /* InBody Privacy & Confidentiality Callout */
@@ -8128,6 +8129,7 @@ input:focus, select:focus, textarea:focus {
     border-radius: 9999px !important;
     box-sizing: border-box !important;
     letter-spacing: -0.01em !important;
+    text-decoration: none !important;
   }
 
   /* On screens <= 410px (320px, 360px, 375px, 390px), stack buttons vertically to prevent overlap */

@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=8.0">
-  <link rel="stylesheet" href="styles/components.css?v=8.0">
+  <link rel="stylesheet" href="styles/main.css?v=8.1">
+  <link rel="stylesheet" href="styles/components.css?v=8.1">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -433,76 +433,62 @@
         </div>
       </section>
 
-      <!-- 4. INBODY BODY COMPOSITION ANALYSIS SECTION -->
+      <!-- 4. FITNESS ASSESSMENT & BODY COMPOSITION SECTION -->
       <section class="section inbody-section" id="homepage-inbody">
         <div class="container">
           <div class="inbody-grid reveal-up">
-            <!-- Left Column: Large High-Quality InBody Machine Image with Sample Preview Overlay -->
+            <!-- Left Column: InBody Analyzer Machine Image with Assessment Badge -->
             <div class="inbody-media-col">
               <div class="inbody-image-card" data-tilt>
-                <img src="assets/inbody-analyzer.jpg" alt="Professional InBody Body Composition Analyzer Machine" class="inbody-image" loading="lazy">
+                <img src="assets/inbody-analyzer.jpg" alt="InBody Body Composition Assessment" class="inbody-image" loading="lazy">
                 <div class="inbody-badge-overlay">
-                  <span>✦</span> Clinical Grade InBody Analysis
+                  <span>✦</span> Optional Fitness Assessment
                 </div>
-                <!-- Interactive Sample Report Preview Chip -->
-                <button type="button" class="inbody-sample-preview-btn open-sample-report-modal" id="inbody-chip-sample-btn" aria-label="Open Sample Report Preview">
-                  <span class="preview-chip-icon">📄</span>
-                  <span class="preview-chip-text">View Sample Report</span>
-                  <span class="preview-chip-arrow">↗</span>
-                </button>
               </div>
             </div>
 
             <!-- Right Column: Heading, Description, Feature Points & Dual CTAs -->
             <div class="inbody-content-col">
-              <span class="badge badge-teal">Diagnostic Technology • On-Site Assessment</span>
-              <h2 class="inbody-heading">Understand Your Body with InBody Analysis</h2>
+              <span class="badge badge-teal">FITNESS ASSESSMENT • PERSONALIZED WELLNESS</span>
+              <h2 class="inbody-heading">UNDERSTAND YOUR BODY. TRACK YOUR PROGRESS.</h2>
               <p class="inbody-description">
-                Understand your body composition with a professional on-site assessment.
+                Get insights into your body composition to support your fitness journey with Helevate's professional coaching and wellness services.
               </p>
               <ul class="inbody-features-list">
                 <li class="inbody-feature-item">
                   <span class="inbody-check-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
                   </span>
-                  <span>Skeletal Muscle Mass & Body Fat Distribution</span>
+                  <span>Skeletal Muscle Mass & Body Fat Percentage</span>
                 </li>
                 <li class="inbody-feature-item">
                   <span class="inbody-check-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
                   </span>
-                  <span>Visceral Fat Rating & Basal Metabolic Rate (BMR)</span>
+                  <span>Basal Metabolic Rate (BMR) for Nutrition Planning</span>
                 </li>
                 <li class="inbody-feature-item">
                   <span class="inbody-check-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
                   </span>
-                  <span>Segmental Lean Analysis (Arms, Trunk, Legs)</span>
+                  <span>Segmental Lean Balance (Arms, Legs, Core)</span>
                 </li>
                 <li class="inbody-feature-item">
                   <span class="inbody-check-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
                   </span>
-                  <span>Longitudinal Progress & Fitness Tracking</span>
+                  <span>Progress Tracking Over Your Coaching Journey</span>
                 </li>
               </ul>
               
               <!-- InBody Action Buttons -->
               <div class="inbody-actions-group">
-                <button type="button" class="btn btn-teal btn-md open-sample-report-modal" id="btn-inbody-view-sample">
-                  <span style="margin-right: 6px;">📄</span> View Sample Report
-                </button>
-                <button type="button" class="btn btn-primary btn-md open-partner-trigger" id="btn-inbody-book">
-                  Book an Assessment
-                </button>
-              </div>
-
-              <!-- Privacy & Confidentiality Callout -->
-              <div class="inbody-privacy-callout">
-                <span class="inbody-privacy-icon">🔒</span>
-                <p class="inbody-privacy-text">
-                  <strong>Private & Confidential:</strong> Sample shown for demonstration. Individual member biometrics and reports remain 100% confidential and accessible only by verified residents.
-                </p>
+                <a href="#/what-we-assess" class="btn btn-primary btn-md" id="btn-inbody-explore">
+                  Explore Fitness Assessments
+                </a>
+                <a href="#/contact" class="btn btn-secondary btn-md" id="btn-inbody-contact">
+                  Contact Helevate
+                </a>
               </div>
             </div>
           </div>
@@ -3239,10 +3225,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=8.0"></script>
-  <script src="js/video-engine.js?v=8.0"></script>
-  <script src="js/router.js?v=8.0"></script>
-  <script src="js/scroll-motion.js?v=8.0"></script>
-  <script src="js/app.js?v=8.0"></script>
+  <script src="js/data.js?v=8.1"></script>
+  <script src="js/video-engine.js?v=8.1"></script>
+  <script src="js/router.js?v=8.1"></script>
+  <script src="js/scroll-motion.js?v=8.1"></script>
+  <script src="js/app.js?v=8.1"></script>
 </body>
 </html>
