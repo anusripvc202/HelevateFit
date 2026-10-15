@@ -1,358 +1,748 @@
 /**
  * HELEVATE.FIT — MAIN APPLICATION CONTROLLER
- * Compliant with Client's Blueprint — October 2026
  * Handles:
- * - SEO & Routing initialization
- * - Lead capture with UTM tracking & client-side validation
- * - WhatsApp Business handoff & click tracking
- * - 3-Question Program Recommendation Quiz initialization
- * - Cookie Consent Banner (Accept/Reject)
- * - Mobile Navigation Drawer & Sticky Mobile CTAs
- * - GA4 & Meta Pixel tracking hooks
+ * - Interactive Helevate Report tab switcher (Health, Lifestyle, Nutrition, Fitness)
+ * - 3-step Quick Assessment Intake Modal & Consultation Scheduler
+ * - Mobile Navigation Drawer
+ * - Toast Notification System
  */
 
 const App = {
-  utmData: {},
+  selectedGoal: "Metabolic Health & Energy",
+  selectedActivity: "Sedentary / Desk Work",
 
   init() {
-    this.captureUtmParams();
+    this.initReportTabs();
+    this.initIntakeModal();
+    this.initPartnerModal();
     this.initMobileDrawer();
-    this.bindLeadForms();
-    this.bindWhatsAppTracking();
-    this.initCookieConsent();
-    this.initQuiz();
-    this.initSmoothScrollButtons();
-
+    this.initGlobalDelegatedClicks();
+    this.initFooterBubbles();
+    this.initWhatWeAssess();
+    
     // Initialize Router
     if (window.Router) {
       window.Router.init();
     }
   },
 
-  // 1. UTM Attribution Capture
-  captureUtmParams() {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      this.utmData = {
-        utm_source: params.get("utm_source") || "direct",
-        utm_medium: params.get("utm_medium") || "none",
-        utm_campaign: params.get("utm_campaign") || "",
-        utm_content: params.get("utm_content") || "",
-        utm_term: params.get("utm_term") || "",
-        landing_url: window.location.href,
-        referrer: document.referrer || "direct",
-        captured_at: new Date().toISOString()
-      };
-      // Store attribution in session
-      sessionStorage.setItem("helevate_utm", JSON.stringify(this.utmData));
-    } catch (e) {
-      console.warn("UTM capture error", e);
-    }
+  // --------------------------------------------------------------------------
+  // 1. HELEVATE REPORT INTERACTIVE TAB SWITCHER
+  // --------------------------------------------------------------------------
+  initReportTabs() {
+    const tabBtns = document.querySelectorAll('.report-tab-btn');
+    if (!tabBtns.length) return;
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        
+        // Update active buttons
+        tabBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        // Update active content panels
+        document.querySelectorAll('.report-category-content').forEach(panel => {
+          panel.classList.remove('is-active');
+        });
+
+        const targetPanel = document.getElementById(`tab-content-${tabId}`);
+        if (targetPanel) {
+          targetPanel.classList.add('is-active');
+        }
+      });
+    });
   },
 
-  // 2. Mobile Drawer
-  initMobileDrawer() {
-    const menuBtn = document.getElementById("mobile-menu-btn");
-    const closeBtn = document.getElementById("close-drawer-btn");
-    const drawer = document.getElementById("mobile-nav-drawer");
-    const backdrop = document.getElementById("drawer-backdrop");
+  // --------------------------------------------------------------------------
+  // 2. COMMUNITY PARTNERSHIP MODAL CONTROLLER ("Partner With Helevate")
+  // --------------------------------------------------------------------------
+  initPartnerModal() {
+    const modal = document.getElementById('community-partner-modal');
+    const closeBtn = document.getElementById('close-partner-modal-btn');
+    const partnerForm = document.getElementById('community-partner-form');
 
-    if (menuBtn && drawer && backdrop) {
-      menuBtn.addEventListener("click", () => {
-        drawer.classList.add("is-open");
-        backdrop.classList.add("is-open");
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.closePartnerModal());
+    }
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          this.closePartnerModal();
+        }
       });
     }
 
-    if (closeBtn && drawer && backdrop) {
-      closeBtn.addEventListener("click", () => this.closeMobileDrawer());
+    if (partnerForm) {
+      partnerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const commName = document.getElementById('partner-community')?.value || "your gated community";
+        const personName = document.getElementById('partner-contact-person')?.value || "there";
+
+        this.closePartnerModal();
+        this.showToast(`Thank you, ${personName}! We have received your community consultation request for ${commName}. Our team will connect with you within 24 hours.`);
+        partnerForm.reset();
+      });
+    }
+  },
+
+  openPartnerModal(prefillCommunity = "") {
+    const modal = document.getElementById('community-partner-modal');
+    if (modal) {
+      if (prefillCommunity) {
+        const commInput = document.getElementById('partner-community');
+        if (commInput) commInput.value = prefillCommunity;
+      }
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      this.closeMobileDrawer();
+    }
+  },
+
+  closePartnerModal() {
+    const modal = document.getElementById('community-partner-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  // --------------------------------------------------------------------------
+  // 2. QUICK ASSESSMENT INTAKE MODAL CONTROLLER
+  // --------------------------------------------------------------------------
+  initIntakeModal() {
+    const modal = document.getElementById('intake-modal');
+    const closeBtn = document.getElementById('close-intake-modal-btn');
+    const successCloseBtn = document.getElementById('intake-success-close-btn');
+
+    // Close triggers
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.closeIntakeModal());
+    }
+    if (successCloseBtn) {
+      successCloseBtn.addEventListener('click', () => this.closeIntakeModal());
     }
 
-    if (backdrop) {
-      backdrop.addEventListener("click", () => this.closeMobileDrawer());
+    // Backdrop click close
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          this.closeIntakeModal();
+        }
+      });
     }
+
+    // Step 1: Goal Option Selection
+    const optionBtns = document.querySelectorAll('.intake-option-btn');
+    optionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        optionBtns.forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        this.selectedGoal = btn.getAttribute('data-value') || "Metabolic Health";
+      });
+    });
+
+    // Step 2: Activity level selection
+    const activityBtns = document.querySelectorAll('.activity-level-btn');
+    activityBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activityBtns.forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        this.selectedActivity = btn.getAttribute('data-val') || "Sedentary";
+      });
+    });
+
+    // Step Navigation Buttons
+    const toStep2Btn = document.getElementById('intake-to-step-2');
+    const backTo1Btn = document.getElementById('intake-back-to-1');
+    const toStep3Btn = document.getElementById('intake-to-step-3');
+    const backTo2Btn = document.getElementById('intake-back-to-2');
+    const finalForm = document.getElementById('intake-final-form');
+
+    if (toStep2Btn) {
+      toStep2Btn.addEventListener('click', () => this.goToStep(2));
+    }
+    if (backTo1Btn) {
+      backTo1Btn.addEventListener('click', () => this.goToStep(1));
+    }
+    if (toStep3Btn) {
+      toStep3Btn.addEventListener('click', () => {
+        const commInput = document.getElementById('intake-community');
+        if (commInput && !commInput.value.trim()) {
+          commInput.value = "Hyderabad Community";
+        }
+        this.goToStep(3);
+      });
+    }
+    if (backTo2Btn) {
+      backTo2Btn.addEventListener('click', () => this.goToStep(2));
+    }
+
+    // Form submission
+    if (finalForm) {
+      finalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('intake-name')?.value || "";
+        const phone = document.getElementById('intake-phone')?.value || "";
+        const email = document.getElementById('intake-email')?.value || "";
+
+        // Show Success Step
+        document.querySelectorAll('.intake-step-container').forEach(c => c.classList.remove('is-active'));
+        const successEl = document.getElementById('intake-step-success');
+        if (successEl) successEl.classList.add('is-active');
+
+        const progFill = document.getElementById('intake-prog-fill');
+        const progLabel = document.getElementById('intake-step-label');
+        if (progFill) progFill.style.width = '100%';
+        if (progLabel) progLabel.textContent = 'Completed';
+
+        this.showToast(`Thank you, ${name}! Your consultation request has been received.`);
+      });
+    }
+
+    // Contact form submission
+    const contactForm = document.getElementById('main-contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contact-name')?.value || "there";
+        this.showToast(`Thank you, ${name}! Your consultation request has been received. We will contact you shortly.`);
+        contactForm.reset();
+      });
+    }
+
+    // Community Referral RWA Form
+    const referralForm = document.getElementById('community-referral-form');
+    if (referralForm) {
+      referralForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const society = document.getElementById('ref-community')?.value || "your society";
+        this.showToast(`Thank you! We have received your inquiry for ${society}. Our team will connect with your management committee.`);
+        referralForm.reset();
+      });
+    }
+
+    // Careers Application Form
+    const careerForm = document.getElementById('career-apply-form');
+    if (careerForm) {
+      careerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const applicantName = document.getElementById('career-name')?.value || "there";
+        const role = document.getElementById('career-role')?.value || "the role";
+        this.showToast(`Thank you, ${applicantName}! Your application for ${role} has been received. Our leadership will review your profile.`);
+        careerForm.reset();
+      });
+    }
+  },
+
+  // --------------------------------------------------------------------------
+  // 3. GLOBAL DELEGATED CLICKS & MODAL TRIGGERS
+  // --------------------------------------------------------------------------
+  initGlobalDelegatedClicks() {
+    document.addEventListener('click', (e) => {
+      // Community Partner Modal triggers ("Partner With Helevate")
+      const partnerTrigger = e.target.closest('.open-partner-trigger, #header-partner-btn, #mobile-partner-btn');
+      if (partnerTrigger) {
+        e.preventDefault();
+        const prefillSoc = partnerTrigger.getAttribute('data-society-name') || "";
+        this.openPartnerModal(prefillSoc);
+        return;
+      }
+
+      // Resident Intake / Consultation modal triggers
+      const intakeTrigger = e.target.closest('.open-intake-trigger, #header-get-started-btn, #mobile-get-started-btn');
+      if (intakeTrigger) {
+        e.preventDefault();
+        this.openIntakeModal();
+        return;
+      }
+
+      // Video Testimonial Modal triggers
+      const videoCard = e.target.closest('[data-video-id]');
+      if (videoCard) {
+        e.preventDefault();
+        const vidId = videoCard.getAttribute('data-video-id');
+        this.openVideoModal(vidId);
+        return;
+      }
+
+      const closeVideoBtn = e.target.closest('#close-video-modal-btn');
+      if (closeVideoBtn) {
+        e.preventDefault();
+        this.closeVideoModal();
+        return;
+      }
+
+      // Article Reader Modal triggers
+      const articleCard = e.target.closest('[data-article-id]');
+      if (articleCard) {
+        e.preventDefault();
+        const artId = articleCard.getAttribute('data-article-id');
+        this.openArticleModal(artId);
+        return;
+      }
+
+      const closeArticleBtn = e.target.closest('#close-article-modal-btn');
+      if (closeArticleBtn) {
+        e.preventDefault();
+        this.closeArticleModal();
+        return;
+      }
+
+      // Find Us Filter Pills
+      const findusPill = e.target.closest('.findus-pill-btn');
+      if (findusPill) {
+        e.preventDefault();
+        const area = findusPill.getAttribute('data-area');
+        document.querySelectorAll('.findus-pill-btn').forEach(p => p.classList.remove('is-active'));
+        findusPill.classList.add('is-active');
+        this.filterFindUsSocieties("", area);
+        return;
+      }
+
+      // Find Us View All / Show Less Toggle
+      const findusToggleBtn = e.target.closest('#findus-toggle-btn');
+      if (findusToggleBtn) {
+        e.preventDefault();
+        const isExpanded = findusToggleBtn.getAttribute('data-expanded') === 'true';
+        this.toggleFindUsExpanded(!isExpanded);
+        return;
+      }
+
+      // Community Reviews Filter Pills
+      const reviewPill = e.target.closest('.community-filter-btn');
+      if (reviewPill) {
+        e.preventDefault();
+        const commName = reviewPill.getAttribute('data-filter-community');
+        document.querySelectorAll('.community-filter-btn').forEach(p => p.classList.remove('is-active'));
+        reviewPill.classList.add('is-active');
+        this.filterCommunityReviews(commName);
+        return;
+      }
+
+      // Society Quick Consultation Trigger
+      const societyBookBtn = e.target.closest('.book-society-trigger');
+      if (societyBookBtn) {
+        e.preventDefault();
+        const socName = societyBookBtn.getAttribute('data-society-name');
+        const commInput = document.getElementById('intake-community');
+        const contactCommInput = document.getElementById('contact-community');
+        if (commInput && socName) commInput.value = socName;
+        if (contactCommInput && socName) contactCommInput.value = socName;
+        this.openIntakeModal();
+        return;
+      }
+
+      // Career Apply Role Trigger
+      const applyRoleBtn = e.target.closest('.apply-role-trigger');
+      if (applyRoleBtn) {
+        e.preventDefault();
+        const roleName = applyRoleBtn.getAttribute('data-role');
+        const roleSelect = document.getElementById('career-role');
+        if (roleSelect && roleName) {
+          roleSelect.value = roleName;
+        }
+        const formContainer = document.getElementById('career-form-container') || document.getElementById('career-apply-form');
+        if (formContainer) {
+          formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const nameInput = document.getElementById('career-name');
+          if (nameInput) {
+            setTimeout(() => nameInput.focus(), 400);
+          }
+        }
+        return;
+      }
+    });
+
+    // Find Us Search Input live filtering
+    const searchInput = document.getElementById('findus-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        this.filterFindUsSocieties(query, "all");
+      });
+    }
+
+    const videoModal = document.getElementById('video-testimonial-modal');
+    if (videoModal) {
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          this.closeVideoModal();
+        }
+      });
+    }
+
+    const articleModal = document.getElementById('article-reader-modal');
+    if (articleModal) {
+      articleModal.addEventListener('click', (e) => {
+        if (e.target === articleModal) {
+          this.closeArticleModal();
+        }
+      });
+    }
+  },
+
+  openVideoModal(videoId) {
+    if (!window.HELEVATE_DATA || !window.HELEVATE_DATA.testimonials) return;
+    const testm = window.HELEVATE_DATA.testimonials.find(t => t.id === videoId) || window.HELEVATE_DATA.testimonials[0];
+    if (!testm) return;
+
+    const modal = document.getElementById('video-testimonial-modal');
+    const videoEl = document.getElementById('video-modal-player');
+    const nameEl = document.getElementById('video-modal-name');
+    const roleEl = document.getElementById('video-modal-role');
+    const commEl = document.getElementById('video-modal-community');
+    const quoteEl = document.getElementById('video-modal-quote');
+    const storyEl = document.getElementById('video-modal-story');
+    const metricEl = document.getElementById('video-modal-metric');
+
+    if (nameEl) nameEl.textContent = testm.name;
+    if (roleEl) roleEl.textContent = testm.role;
+    if (commEl) commEl.textContent = testm.community;
+    if (quoteEl) quoteEl.textContent = `“${testm.quote}”`;
+    if (storyEl) storyEl.textContent = testm.fullStory || testm.quote;
+    if (metricEl) metricEl.textContent = testm.metricBadge || "";
+
+    if (videoEl) {
+      videoEl.src = testm.videoSrc || "assets/real-video1.mp4";
+      videoEl.poster = testm.poster || "";
+      videoEl.load();
+      videoEl.play().catch(() => {});
+    }
+
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+  },
+
+  closeVideoModal() {
+    const modal = document.getElementById('video-testimonial-modal');
+    const videoEl = document.getElementById('video-modal-player');
+    if (videoEl) {
+      videoEl.pause();
+      videoEl.src = "";
+    }
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  findUsExpanded: false,
+
+  toggleFindUsExpanded(expand) {
+    this.findUsExpanded = expand;
+    const toggleBtn = document.getElementById('findus-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('data-expanded', expand ? 'true' : 'false');
+      toggleBtn.innerHTML = expand 
+        ? `<span>Show Less</span> <span class="findus-toggle-icon">↑</span>`
+        : `<span>View All 6 Communities</span> <span class="findus-toggle-icon">↓</span>`;
+    }
+    
+    const searchInput = document.getElementById('findus-search-input');
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+    const activePill = document.querySelector('.findus-pill-btn.is-active');
+    const area = activePill ? activePill.getAttribute('data-area') : "all";
+    this.filterFindUsSocieties(query, area);
+  },
+
+  filterFindUsSocieties(searchQuery = "", areaFilter = "all") {
+    const cards = document.querySelectorAll('.findus-society-card');
+    const toggleWrap = document.querySelector('.findus-toggle-wrap');
+    const isFiltered = Boolean(searchQuery) || (areaFilter && areaFilter !== "all");
+
+    if (toggleWrap) {
+      toggleWrap.style.display = isFiltered ? "none" : "block";
+    }
+
+    cards.forEach((card, index) => {
+      const name = (card.getAttribute('data-society-name') || "").toLowerCase();
+      const area = (card.getAttribute('data-area') || "").toLowerCase();
+      const services = (card.innerText || "").toLowerCase();
+
+      const matchesSearch = !searchQuery || name.includes(searchQuery) || area.includes(searchQuery) || services.includes(searchQuery);
+      const matchesArea = !areaFilter || areaFilter === "all" || area.includes(areaFilter.toLowerCase());
+
+      if (matchesSearch && matchesArea) {
+        if (!isFiltered && !this.findUsExpanded && index >= 3) {
+          card.style.display = "none";
+        } else {
+          card.style.display = "flex";
+        }
+      } else {
+        card.style.display = "none";
+      }
+    });
+  },
+
+  filterCommunityReviews(communityFilter = "all") {
+    const filter = (communityFilter || "all").trim().toLowerCase();
+    const sections = document.querySelectorAll('.community-section-block');
+    sections.forEach(sec => {
+      const secCommunity = (sec.getAttribute('data-community-group') || "").trim().toLowerCase();
+      if (filter === "all" || secCommunity === filter || secCommunity.includes(filter) || filter.includes(secCommunity)) {
+        sec.style.display = "block";
+        sec.querySelectorAll(".reveal, .reveal-up, .reveal-fade").forEach(el => el.classList.add("is-revealed"));
+      } else {
+        sec.style.display = "none";
+      }
+    });
+  },
+
+  openArticleModal(articleId) {
+    if (!window.HELEVATE_DATA || !window.HELEVATE_DATA.insights) return;
+    const article = window.HELEVATE_DATA.insights.find(a => a.id === articleId) || window.HELEVATE_DATA.insights[0];
+    if (!article) return;
+
+    const modal = document.getElementById('article-reader-modal');
+    const titleEl = document.getElementById('article-modal-title');
+    const metaEl = document.getElementById('article-modal-meta');
+    const bodyEl = document.getElementById('article-modal-body');
+    const imgEl = document.getElementById('article-modal-img');
+
+    if (titleEl) titleEl.textContent = article.title;
+    if (metaEl) metaEl.textContent = `${article.category} • ${article.readTime} • By ${article.author}`;
+    if (bodyEl) bodyEl.innerHTML = article.content;
+    if (imgEl) {
+      imgEl.src = article.image;
+      imgEl.alt = article.title;
+    }
+
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+  },
+
+  closeArticleModal() {
+    const modal = document.getElementById('article-reader-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  updateCommunityView(communityName) {
+    const nameEls = document.querySelectorAll('.dynamic-community-name');
+    nameEls.forEach(el => {
+      el.textContent = communityName;
+    });
+    const subEls = document.querySelectorAll('.dynamic-community-sub');
+    subEls.forEach(el => {
+      el.textContent = `On-site precision diagnostics, DEXA imaging, and coaching available now at ${communityName}, Hyderabad.`;
+    });
+  },
+
+  goToStep(stepNumber) {
+    document.querySelectorAll('.intake-step-container').forEach(c => c.classList.remove('is-active'));
+    const targetStep = document.getElementById(`intake-step-${stepNumber}`);
+    if (targetStep) targetStep.classList.add('is-active');
+
+    const progFill = document.getElementById('intake-prog-fill');
+    const progLabel = document.getElementById('intake-step-label');
+    if (progFill) {
+      progFill.style.width = `${stepNumber * 33.33}%`;
+    }
+    if (progLabel) {
+      progLabel.textContent = `Step ${stepNumber} of 3`;
+    }
+  },
+
+  openIntakeModal() {
+    const modal = document.getElementById('intake-modal');
+    if (modal) {
+      modal.classList.add('is-active');
+      modal.setAttribute('aria-hidden', 'false');
+      this.goToStep(1);
+      this.closeMobileDrawer();
+    }
+  },
+
+  closeIntakeModal() {
+    const modal = document.getElementById('intake-modal');
+    if (modal) {
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+
+  // --------------------------------------------------------------------------
+  // 3. MOBILE NAVIGATION DRAWER
+  // --------------------------------------------------------------------------
+  initMobileDrawer() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const backdrop = document.getElementById('drawer-backdrop');
+    const drawerLinks = document.querySelectorAll('.nav-link-mobile');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => this.openMobileDrawer());
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.closeMobileDrawer());
+    }
+    if (backdrop) {
+      backdrop.addEventListener('click', () => this.closeMobileDrawer());
+    }
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => this.closeMobileDrawer());
+    });
+  },
+
+  openMobileDrawer() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    if (drawer) drawer.classList.add('is-open');
+    if (backdrop) backdrop.classList.add('is-open');
   },
 
   closeMobileDrawer() {
-    const drawer = document.getElementById("mobile-nav-drawer");
-    const backdrop = document.getElementById("drawer-backdrop");
-    if (drawer) drawer.classList.remove("is-open");
-    if (backdrop) backdrop.classList.remove("is-open");
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    if (drawer) drawer.classList.remove('is-open');
+    if (backdrop) backdrop.classList.remove('is-open');
   },
 
-  // 3. Lead Generation Forms & Validation
-  bindLeadForms() {
-    document.querySelectorAll(".lead-gen-form").forEach((form) => {
-      if (form.hasAttribute("data-bound")) return;
-      form.setAttribute("data-bound", "true");
+  // --------------------------------------------------------------------------
+  // 4. FOOTER SOCIAL MEDIA BUBBLES INTERACTIVITY
+  // --------------------------------------------------------------------------
+  initFooterBubbles() {
+    const bubbles = document.querySelectorAll('.bubble-media-item');
+    if (!bubbles.length) return;
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        this.handleLeadSubmit(form);
-      });
-    });
-  },
-
-  handleLeadSubmit(form) {
-    const nameInput = form.querySelector(".lead-input-name");
-    const phoneInput = form.querySelector(".lead-input-phone");
-    const commInput = form.querySelector(".lead-input-community");
-    const mattersInput = form.querySelector(".lead-input-matters");
-    const timeInput = form.querySelector(".lead-input-time");
-    const consentInput = form.querySelector(".lead-input-consent");
-
-    const name = nameInput ? nameInput.value.trim() : "";
-    let phone = phoneInput ? phoneInput.value.trim().replace(/\D/g, "") : "";
-    const community = commInput ? commInput.value.trim() : "Hyderabad Community";
-    const matters = mattersInput ? mattersInput.value : "General Wellness";
-    const callTime = timeInput ? timeInput.value : "Morning";
-    const consent = consentInput ? consentInput.checked : true;
-
-    if (!name) {
-      this.showToast("Please enter your full name.", "error");
-      if (nameInput) nameInput.focus();
-      return;
-    }
-
-    // Phone validation: require 10 digits
-    if (phone.length === 12 && phone.startsWith("91")) {
-      phone = phone.slice(2);
-    }
-    if (phone.length !== 10) {
-      this.showToast("Please enter a valid 10-digit Indian WhatsApp phone number.", "error");
-      if (phoneInput) phoneInput.focus();
-      return;
-    }
-
-    if (!consent) {
-      this.showToast("Please agree to the privacy policy consent to proceed.", "error");
-      return;
-    }
-
-    const source = form.getAttribute("data-source") || "website-form";
-    const storedUtm = JSON.parse(sessionStorage.getItem("helevate_utm") || "{}");
-
-    const leadPayload = {
-      id: "lead_" + Date.now(),
-      name,
-      phone: "+91 " + phone,
-      community,
-      mattersMost: matters,
-      bestTimeToCall: callTime,
-      source,
-      attribution: storedUtm,
-      submittedAt: new Date().toISOString()
-    };
-
-    // Store in LocalStorage
-    try {
-      const existingLeads = JSON.parse(localStorage.getItem("helevate_leads") || "[]");
-      existingLeads.push(leadPayload);
-      localStorage.setItem("helevate_leads", JSON.stringify(existingLeads));
-    } catch (err) {
-      console.warn("Storage error", err);
-    }
-
-    // Fire Analytics Lead Event
-    this.trackEvent("Lead", {
-      currency: "INR",
-      value: 0,
-      lead_source: source,
-      community: community
-    });
-
-    // Form success state & WhatsApp pre-fill handoff
-    const prefilledText = encodeURIComponent(`Hi Helevate, I’m from ${community}. I’d like to book my Body Report.`);
-    const waUrl = `https://wa.me/919963960259?text=${prefilledText}`;
-
-    form.innerHTML = `
-      <div style="text-align: center; padding: 24px 16px;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(46, 154, 104, 0.15); border: 2px solid #2E9A68; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #2E9A68; margin: 0 auto 16px auto;">
-          ✓
-        </div>
-        <h3 style="color: var(--color-primary-navy); font-size: 1.45rem; margin-bottom: 8px; font-weight: 700;">
-          Request Received, ${name}!
-        </h3>
-        <p style="color: var(--color-text-muted); font-size: 0.98rem; line-height: 1.6; max-width: 480px; margin: 0 auto 20px auto;">
-          Coach Harish will contact you at <strong>+91 ${phone}</strong> during <strong>${callTime}</strong> to schedule your Body Report in <strong>${community}</strong>.
-        </p>
-        
-        <div style="background: var(--color-bg-subtle); border-radius: 14px; padding: 18px 20px; max-width: 460px; margin: 0 auto 24px auto;">
-          <div style="font-size: 0.9rem; font-weight: 700; color: var(--color-primary-navy); margin-bottom: 4px;">
-            💬 Fast-Track on WhatsApp
-          </div>
-          <div style="font-size: 0.85rem; color: var(--color-text-dim); margin-bottom: 14px;">
-            Lock in your preferred consultation slot immediately via WhatsApp:
-          </div>
-          <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; justify-content: center;">
-            Chat with Coach Harish on WhatsApp →
-          </a>
-        </div>
-
-        <div style="font-size: 0.8rem; color: var(--color-text-dim);">
-          Your information is secure. View our <a href="#/privacy-policy" style="color: var(--color-primary-navy); text-decoration: underline;">Privacy Policy</a>.
-        </div>
-      </div>
-    `;
-
-    this.showToast(`Thank you, ${name}! Consultation requested.`, "success");
-  },
-
-  // 4. WhatsApp & Phone Click Tracking
-  bindWhatsAppTracking() {
-    document.addEventListener("click", (e) => {
-      const target = e.target.closest("a");
-      if (!target) return;
-      const href = target.getAttribute("href") || "";
-
-      if (href.includes("wa.me") || href.includes("whatsapp.com")) {
-        this.trackEvent("Contact", { method: "WhatsApp" });
-      } else if (href.startsWith("tel:")) {
-        this.trackEvent("Contact", { method: "Phone" });
-      }
-    });
-  },
-
-  // 5. Analytics Tracker (GA4 & Meta Pixel)
-  trackEvent(eventName, params = {}) {
-    try {
-      // Google Analytics 4
-      if (typeof window.gtag === "function") {
-        window.gtag("event", eventName.toLowerCase(), params);
-      }
-      // Meta Pixel
-      if (typeof window.fbq === "function") {
-        window.fbq("track", eventName, params);
-      }
-      console.log(`[Analytics Event] ${eventName}:`, params);
-    } catch (e) {
-      console.warn("Analytics error", e);
-    }
-  },
-
-  trackPageView(pagePath) {
-    try {
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "page_view", { page_path: pagePath });
-      }
-      if (typeof window.fbq === "function") {
-        window.fbq("track", "PageView");
-      }
-    } catch (e) {
-      console.warn("PageView tracking error", e);
-    }
-  },
-
-  // 6. Cookie Consent Management
-  initCookieConsent() {
-    const banner = document.getElementById("cookie-consent-banner");
-    if (!banner) return;
-
-    const existingConsent = localStorage.getItem("helevate_cookie_consent");
-    if (!existingConsent) {
-      setTimeout(() => {
-        banner.classList.add("is-visible");
-      }, 1200);
-    }
-
-    const acceptBtn = document.getElementById("cookie-accept-btn");
-    const rejectBtn = document.getElementById("cookie-reject-btn");
-
-    if (acceptBtn) {
-      acceptBtn.addEventListener("click", () => {
-        localStorage.setItem("helevate_cookie_consent", "accepted");
-        banner.classList.remove("is-visible");
-        this.showToast("Cookie preferences saved.", "success");
-      });
-    }
-
-    if (rejectBtn) {
-      rejectBtn.addEventListener("click", () => {
-        localStorage.setItem("helevate_cookie_consent", "rejected");
-        banner.classList.remove("is-visible");
-        this.showToast("Non-essential cookies disabled.", "info");
-      });
-    }
-  },
-
-  // 7. Initialize 3-Question Recommendation Quiz
-  initQuiz() {
-    if (window.ProgramRecommendationQuiz) {
-      const quiz = new window.ProgramRecommendationQuiz();
-      quiz.init("quiz-inline-container");
-    }
-  },
-
-  // 8. Smooth scrolling for internal anchor CTA buttons
-  initSmoothScrollButtons() {
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".btn-lead-scroll");
-      if (!btn) return;
-      const targetId = btn.getAttribute("href") || "#homepage-final-cta";
-      if (targetId.startsWith("#")) {
-        const el = document.querySelector(targetId);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: "smooth" });
+    bubbles.forEach(bubble => {
+      bubble.addEventListener('mouseenter', () => {
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            if (!bubble.isConnected) return;
+            const micro = document.createElement('span');
+            micro.className = 'micro-bubble-particle';
+            const size = Math.floor(Math.random() * 8) + 6;
+            const leftOffset = Math.floor(Math.random() * 26) + 8;
+            micro.style.cssText = `
+              position: absolute;
+              bottom: 8px;
+              left: ${leftOffset}px;
+              width: ${size}px;
+              height: ${size}px;
+              border-radius: 50%;
+              background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(0, 210, 180, 0.65) 60%, rgba(14, 58, 93, 0.9) 100%);
+              border: 1px solid rgba(255, 255, 255, 0.7);
+              pointer-events: none;
+              z-index: 20;
+              animation: microBubbleFly 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            `;
+            bubble.appendChild(micro);
+            setTimeout(() => micro.remove(), 900);
+          }, i * 140);
         }
+      });
+    });
+  },
+
+  // --------------------------------------------------------------------------
+  // 5. WHAT WE ASSESS CONTROLLER (Function Health UX reference)
+  // --------------------------------------------------------------------------
+  initWhatWeAssess() {
+    // 1. Category Filter Tabs
+    const filterPills = document.querySelectorAll('.assess-filter-pill');
+    const cards = document.querySelectorAll('.assess-card');
+
+    if (filterPills.length && cards.length) {
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const filter = pill.getAttribute('data-filter') || 'all';
+
+          // Update active pill state
+          filterPills.forEach(p => {
+            p.classList.remove('active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('active');
+          pill.setAttribute('aria-selected', 'true');
+
+          // Filter cards
+          cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (filter === 'all' || cardCat === filter) {
+              card.classList.remove('is-hidden');
+            } else {
+              card.classList.add('is-hidden');
+            }
+          });
+
+          // Refresh motion engine if present
+          if (window.MotionEngine && window.MotionEngine.refresh) {
+            window.MotionEngine.refresh();
+          }
+        });
+      });
+    }
+
+    // 2. Expandable Details Toggle ("Learn More" / "Hide Details")
+    document.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.btn-assess-toggle');
+      if (!toggleBtn) return;
+
+      e.preventDefault();
+      const card = toggleBtn.closest('.assess-card');
+      if (!card) return;
+
+      const detailsPanel = card.querySelector('.assess-expandable-content');
+      const toggleText = toggleBtn.querySelector('.toggle-text');
+      if (!detailsPanel) return;
+
+      const isHidden = detailsPanel.hasAttribute('hidden');
+      if (isHidden) {
+        detailsPanel.removeAttribute('hidden');
+        toggleBtn.classList.add('is-expanded');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        if (toggleText) toggleText.textContent = 'Hide Details';
+      } else {
+        detailsPanel.setAttribute('hidden', '');
+        toggleBtn.classList.remove('is-expanded');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        if (toggleText) toggleText.textContent = 'Learn More';
+      }
+
+      if (window.MotionEngine && window.MotionEngine.refresh) {
+        window.MotionEngine.refresh();
       }
     });
   },
 
-  // 9. Toast Notification Utility
-  showToast(message, type = "info") {
-    let container = document.getElementById("app-toast-container");
-    if (!container) {
-      container = document.createElement("div");
-      container.id = "app-toast-container";
-      container.style.cssText = `
-        position: fixed;
-        top: 24px;
-        right: 24px;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        pointer-events: none;
-      `;
-      document.body.appendChild(container);
+  // --------------------------------------------------------------------------
+  // 6. TOAST NOTIFICATIONS
+  // --------------------------------------------------------------------------
+  showToast(message) {
+    let shelf = document.getElementById('toast-shelf');
+    if (!shelf) {
+      shelf = document.createElement('div');
+      shelf.id = 'toast-shelf';
+      shelf.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;';
+      document.body.appendChild(shelf);
     }
 
-    const toast = document.createElement("div");
-    const bgColor = type === "error" ? "#E05344" : type === "success" ? "#0E3A5D" : "#0E3A5D";
-    toast.style.cssText = `
-      background: ${bgColor};
-      color: #FFFFFF;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      opacity: 0;
-      transform: translateY(-8px);
-      transition: all 0.25s ease;
-      pointer-events: auto;
-      max-width: 360px;
-    `;
+    const toast = document.createElement('div');
+    toast.style.cssText = 'background:#071A2E;color:#FFFFFF;border:1px solid #00D2B4;padding:14px 20px;border-radius:12px;font-size:0.92rem;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.3);max-width:380px;pointer-events:auto;transition:all 0.3s ease;';
     toast.textContent = message;
-    container.appendChild(toast);
 
-    requestAnimationFrame(() => {
-      toast.style.opacity = "1";
-      toast.style.transform = "translateY(0)";
-    });
+    shelf.appendChild(toast);
 
     setTimeout(() => {
-      toast.style.opacity = "0";
-      toast.style.transform = "translateY(-8px)";
-      setTimeout(() => toast.remove(), 250);
-    }, 4000);
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 4500);
   }
 };
 
 window.App = App;
-window.showToast = (msg, type) => App.showToast(msg, type);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   App.init();
 });
+
