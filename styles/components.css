@@ -7366,6 +7366,93 @@ input:focus, select:focus, textarea:focus {
     letter-spacing: 0.08em !important;
   }
 
+  /* Compact Subview Heroes for All Pages (How It Works, Services, About, Careers, Insights, Reviews, H75, Contact) */
+  .subview-hero {
+    padding: 30px 0 22px !important;
+    text-align: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .subview-hero .badge {
+    margin-bottom: 8px !important;
+    display: inline-block !important;
+  }
+
+  .subview-hero h1 {
+    font-size: clamp(1.52rem, 6.2vw, 2.05rem) !important;
+    line-height: 1.15 !important;
+    margin-top: 6px !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.01em !important;
+    color: #FFFFFF !important;
+  }
+
+  .subview-hero p {
+    font-size: 0.88rem !important;
+    line-height: 1.48 !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+    color: rgba(221, 241, 239, 0.9) !important;
+  }
+
+  /* What We Assess Subview Hero */
+  .what-we-assess-hero {
+    padding: 30px 0 20px !important;
+    text-align: center !important;
+  }
+
+  .what-we-assess-hero h1 {
+    font-size: clamp(1.55rem, 6.4vw, 2.1rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .what-we-assess-hero p {
+    font-size: 0.88rem !important;
+    line-height: 1.48 !important;
+    margin: 0 auto 16px !important;
+    max-width: 94% !important;
+  }
+
+  /* Careers Hero 3 Highlights Row on Mobile */
+  .simple-careers-highlights {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-left: 16px !important;
+    scroll-padding-right: 16px !important;
+    gap: 10px !important;
+    margin: 16px -16px 0 -16px !important;
+    padding: 4px 16px 8px 16px !important;
+    scrollbar-width: none !important;
+  }
+
+  .simple-careers-highlights::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .simple-highlight-item {
+    flex: 0 0 calc(78vw - 16px) !important;
+    max-width: 270px !important;
+    scroll-snap-align: start !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  .simple-careers-highlights::after {
+    content: '' !important;
+    flex: 0 0 8px !important;
+  }
+
   /* ==========================================================================
      SUNROOOF-INSPIRED MOBILE HORIZONTAL CARD SCROLLING ENGINE
      Displays cards in a horizontal, side-by-side scrolling row on mobile.
