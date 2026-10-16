@@ -66,8 +66,10 @@ const Router = {
           (targetClean === "/what-we-assess" || targetClean === "/assessments");
         const isPageActive = targetClean.length > 1 && 
           (normalizedPath === targetClean || normalizedPath.startsWith(targetClean + "/"));
+        const isCareersActive = (normalizedPath === "/careers" || normalizedPath === "/career" || normalizedPath === "/carrier" || normalizedPath === "/carriers" || normalizedPath === "/jobs" || normalizedPath === "/hiring") && 
+          (targetClean === "/careers" || targetClean === "/career" || targetClean === "/carrier");
 
-        if (isHomeActive || isPageActive || isAssessActive) {
+        if (isHomeActive || isPageActive || isAssessActive || isCareersActive) {
           link.classList.add("active");
         } else {
           link.classList.remove("active");
@@ -128,6 +130,9 @@ const Router = {
         break;
 
       case "/careers":
+      case "/career":
+      case "/carrier":
+      case "/carriers":
       case "/jobs":
       case "/hiring":
         this.showView("view-careers");
