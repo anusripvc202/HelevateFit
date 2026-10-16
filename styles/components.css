@@ -4087,11 +4087,11 @@ input:focus, select:focus, textarea:focus {
 
 @media (max-width: 900px) {
   .trust-bar-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
   }
   .trust-bar-item {
-    padding: 6px 0;
+    padding: 6px 4px;
   }
 }
 
@@ -8491,94 +8491,113 @@ input:focus, select:focus, textarea:focus {
   }
 
   /* ------------------------------------------------------------------------
-     8. Trust Bar Mobile — Compact Single-Line Pill Badges
+     8. Trust Bar Mobile — Single Horizontal Row (3 Side-by-Side, No Scrolling)
      ------------------------------------------------------------------------ */
   .trust-bar-section {
-    padding: 8px 0 4px !important;
+    padding: clamp(10px, 2.5vw, 16px) 0 !important;
+    background: var(--color-light-blue-soft, #DDF1EF) !important;
+    border-top: 1px solid var(--color-border-subtle, rgba(14, 58, 93, 0.08)) !important;
+    border-bottom: 1px solid var(--color-border, rgba(14, 58, 93, 0.12)) !important;
     overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .trust-bar-section .container {
+    padding-left: clamp(8px, 2vw, 14px) !important;
+    padding-right: clamp(8px, 2vw, 14px) !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .trust-bar-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-behavior: smooth !important;
-    scroll-padding-left: 14px !important;
-    scroll-padding-right: 14px !important;
-    gap: 8px !important;
-    margin-left: -14px !important;
-    margin-right: -14px !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    padding-top: 2px !important;
-    padding-bottom: 8px !important;
-    width: calc(100% + 28px) !important;
-    max-width: calc(100% + 28px) !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(5px, 1.5vw, 12px) !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
     box-sizing: border-box !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
   }
 
   .trust-bar-grid::-webkit-scrollbar {
     display: none !important;
-    width: 0 !important;
-    height: 0 !important;
+  }
+
+  .trust-bar-grid::after {
+    display: none !important;
   }
 
   .trust-bar-item {
-    flex: 0 0 auto !important;
-    min-width: fit-content !important;
-    max-width: none !important;
-    scroll-snap-align: start !important;
-    padding: 6px 12px !important;
-    border-radius: 9999px !important;
-    gap: 8px !important;
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
-    background: #FFFFFF !important;
-    border: 1px solid rgba(14, 58, 93, 0.08) !important;
-    box-shadow: 0 2px 8px rgba(14, 58, 93, 0.04) !important;
+    align-items: flex-start !important;
+    gap: clamp(4px, 1.2vw, 8px) !important;
+    padding: 2px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    min-width: 0 !important;
+    width: 100% !important;
     box-sizing: border-box !important;
   }
 
   .trust-bar-icon-wrap {
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px !important;
+    width: clamp(22px, 5.8vw, 30px) !important;
+    height: clamp(22px, 5.8vw, 30px) !important;
+    min-width: clamp(22px, 5.8vw, 30px) !important;
+    max-width: clamp(22px, 5.8vw, 30px) !important;
     border-radius: 50% !important;
-    background: var(--color-mint-light, #E6F7F5) !important;
-    font-size: 0.92rem !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--color-border-cyan, rgba(14, 58, 93, 0.2)) !important;
+    box-shadow: 0 2px 6px rgba(14, 58, 93, 0.05) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    font-size: clamp(0.68rem, 2vw, 0.92rem) !important;
+    line-height: 1 !important;
     flex-shrink: 0 !important;
+    margin-top: 1px !important;
+    box-sizing: border-box !important;
+  }
+
+  .trust-bar-item > div:not(.trust-bar-icon-wrap) {
+    flex: 1 1 0px !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .trust-bar-title {
-    font-size: 0.8rem !important;
+    font-family: var(--font-heading, 'Quicksand', sans-serif) !important;
+    font-size: clamp(0.60rem, 1.85vw, 0.76rem) !important;
     font-weight: 700 !important;
-    line-height: 1.2 !important;
-    color: var(--color-navy-dark, #0E3A5D) !important;
-    margin-bottom: 0 !important;
-    white-space: nowrap !important;
+    line-height: 1.18 !important;
+    color: var(--color-primary-navy, #0E3A5D) !important;
+    margin: 0 0 2px 0 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
-  /* Hide secondary subtext on mobile to make trust items sleek compact chips */
   .trust-bar-sub {
-    display: none !important;
+    display: block !important;
+    font-size: clamp(0.50rem, 1.5vw, 0.65rem) !important;
+    line-height: 1.24 !important;
+    color: var(--color-text-muted, #2C4A63) !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    opacity: 0.88 !important;
   }
 
-  .trust-bar-grid::after {
-    content: '' !important;
-    flex: 0 0 6px !important;
-  }
-
-  /* ------------------------------------------------------------------------
+/* ------------------------------------------------------------------------
      9. Header & Compact Mobile Hero Section
      ------------------------------------------------------------------------ */
   #header-partner-btn {

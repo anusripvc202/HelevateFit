@@ -244,7 +244,6 @@
       if (window.innerWidth > 768) return;
 
       const scrollSelector = [
-        '.trust-bar-grid',
         '.cards-scroll-mobile',
         '.overview-pillars-grid',
         '.services-grid-4',
