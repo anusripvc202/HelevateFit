@@ -18,9 +18,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=Saira+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Design System Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=8.2">
-  <link rel="stylesheet" href="styles/components.css?v=8.2">
+  <link rel="stylesheet" href="styles/main.css?v=9.5">
+  <link rel="stylesheet" href="styles/components.css?v=9.5">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -99,7 +103,7 @@
        ======================================================================== -->
   <main id="main-content">
 
-    <!-- ======================================================================
+        <!-- ======================================================================
          VIEW 1: HOMEPAGE (COMMUNITY HEALTH, FITNESS & WELLNESS SERVICE PROVIDER)
          ====================================================================== -->
     <div class="app-view active" id="view-home">
@@ -120,32 +124,12 @@
             <h1 class="hero-display-title">
               BETTER HEALTH.<br class="hero-title-br">RIGHT IN YOUR COMMUNITY.
             </h1>
-            <p class="hero-supporting-text hero-desc-desktop">
-              Helevate brings professional fitness, nutrition and wellness services directly to gated communities — helping residents build healthier lifestyles with expert support, right where they live.
-            </p>
-            <p class="hero-supporting-text hero-desc-mobile">
-              Fitness, nutrition and wellness — right where you live.
+            <p class="hero-supporting-text">
+              Fitness and wellness, right where you live.
             </p>
             <div class="hero-actions">
               <button class="btn btn-teal btn-hero-pill open-partner-trigger" id="hero-partner-cta">PARTNER WITH HELEVATE</button>
               <a href="#/services" class="btn btn-ghost-dark btn-hero-pill" id="hero-explore-cta">EXPLORE SERVICES</a>
-            </div>
-            
-            <div class="hero-stats-row">
-              <div class="hero-stat-block">
-                <div class="hero-stat-val">12+ HUBS</div>
-                <div class="hero-stat-lbl">Active Hyderabad Communities</div>
-              </div>
-              <div class="hero-stat-divider"></div>
-              <div class="hero-stat-block">
-                <div class="hero-stat-val">0 COMMUTE</div>
-                <div class="hero-stat-lbl">Inside your clubhouse</div>
-              </div>
-              <div class="hero-stat-divider"></div>
-              <div class="hero-stat-block">
-                <div class="hero-stat-val">CERTIFIED</div>
-                <div class="hero-stat-lbl">Dedicated On-Site Coaches</div>
-              </div>
             </div>
           </div>
 
@@ -161,70 +145,47 @@
         </div>
       </section>
 
-      <!-- Mobile-Only Sub-Hero Statistics Strip (Moved below hero section on mobile) -->
-      <div class="hero-stats-mobile-strip" aria-label="Community Key Highlights">
-        <div class="container hero-stats-mobile-container">
-          <div class="hero-stat-block">
-            <div class="hero-stat-val">12+ HUBS</div>
-            <div class="hero-stat-lbl">Active Communities</div>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat-block">
-            <div class="hero-stat-val">0 COMMUTE</div>
-            <div class="hero-stat-lbl">Inside Clubhouse</div>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat-block">
-            <div class="hero-stat-val">CERTIFIED</div>
-            <div class="hero-stat-lbl">On-Site Coaches</div>
-          </div>
-        </div>
-      </div>
-
       <!-- 2. TRUST BAR (IMMEDIATELY BELOW HERO) -->
       <section class="trust-bar-section" id="homepage-trust-bar">
         <div class="container">
-          <div class="trust-bar-grid reveal-up">
+          <div class="trust-bar-grid reveal-up cards-scroll-mobile">
             <div class="trust-bar-item">
               <div class="trust-bar-icon-wrap">🏅</div>
               <div>
-                <div class="trust-bar-title">Certified Human Performance Coaches</div>
-                <div class="trust-bar-sub">Professional on-site coaching & structured movement standards</div>
+                <div class="trust-bar-title">Certified On-Site Coaches</div>
+                <div class="trust-bar-sub">Professional guidance inside your clubhouse gym</div>
               </div>
             </div>
             <div class="trust-bar-item">
               <div class="trust-bar-icon-wrap">🏡</div>
               <div>
                 <div class="trust-bar-title">Community-Based Delivery</div>
-                <div class="trust-bar-sub">No commute, no crowded gyms — directly inside your society</div>
+                <div class="trust-bar-sub">Zero commute friction — right where you live</div>
               </div>
             </div>
             <div class="trust-bar-item">
               <div class="trust-bar-icon-wrap">🔬</div>
               <div>
-                <div class="trust-bar-title">Personalised Wellness Guidance</div>
-                <div class="trust-bar-sub">Structured fitness, nutrition, and care tailored to resident goals</div>
+                <div class="trust-bar-title">Personalised Guidance</div>
+                <div class="trust-bar-sub">Data-backed fitness & nutrition tailored to your goals</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. WHAT IS HELEVATE? (SIMPLE & CONCISE INTRODUCTION) -->
+      <!-- 3. WHAT IS HELEVATE? (CORE MISSION & 3 PILLARS) -->
       <section class="section section-overview-premium" id="homepage-overview">
         <div class="container">
-          <div class="section-header text-center reveal-up" style="max-width: 840px; margin: 0 auto 36px;">
+          <div class="section-header text-center reveal-up" style="max-width: 800px; margin: 0 auto 36px;">
             <span class="badge badge-teal">Our Core Mission</span>
             <h2 class="section-title">What is Helevate?</h2>
             <p class="overview-lead-text">
-              Helevate is a health, fitness and wellness partner for gated communities.
-            </p>
-            <p class="overview-body-text">
-              We bring expert-led fitness, nutrition and personalised wellness services directly into communities, making it easier for residents to access the right support without leaving their community.
+              We bring expert-led fitness, nutrition, and wellness services directly into your gated community clubhouse.
             </p>
           </div>
 
-          <div class="overview-pillars-grid reveal-up">
+          <div class="overview-pillars-grid reveal-up cards-scroll-mobile">
             <!-- Pillar 1 -->
             <div class="overview-pillar-card" data-tilt>
               <div>
@@ -234,12 +195,12 @@
                 </div>
                 <h3 class="overview-pillar-title">Inside Your Community</h3>
                 <p class="overview-pillar-desc">
-                  Convenient fitness and wellness coaching delivered right where you live, with zero commute friction.
+                  Convenient coaching delivered right where you live, with zero commute.
                 </p>
                 <ul class="card-benefits-list">
                   <li><span class="benefit-check">✓</span> Convenient clubhouse coaching</li>
-                  <li><span class="benefit-check">✓</span> Professional guidance from qualified coaches</li>
-                  <li><span class="benefit-check">✓</span> Fitness support close to home</li>
+                  <li><span class="benefit-check">✓</span> Qualified on-site coaches</li>
+                  <li><span class="benefit-check">✓</span> Flexible morning & evening batches</li>
                 </ul>
               </div>
               <div class="overview-pillar-footer">
@@ -256,10 +217,10 @@
                 </div>
                 <h3 class="overview-pillar-title">Measured, Not Guessed</h3>
                 <p class="overview-pillar-desc">
-                  Clinical diagnostic assessments and scans to evaluate your exact body composition and health biomarkers.
+                  Objective assessments and scans to evaluate your exact body composition and health biomarkers.
                 </p>
                 <ul class="card-benefits-list">
-                  <li><span class="benefit-check">✓</span> Baseline & 12-week progress scans</li>
+                  <li><span class="benefit-check">✓</span> InBody & DEXA body imaging</li>
                   <li><span class="benefit-check">✓</span> Clear metrics for fat loss & muscle gain</li>
                   <li><span class="benefit-check">✓</span> Data-backed personal recommendations</li>
                 </ul>
@@ -281,13 +242,13 @@
                   Dedicated certified coaches providing close supervision, technique correction, and continuous accountability.
                 </p>
                 <ul class="card-benefits-list">
-                  <li><span class="benefit-check">✓</span> Semi-private coaching (max 2 per slot)</li>
+                  <li><span class="benefit-check">✓</span> Semi-private & 1-on-1 coaching</li>
                   <li><span class="benefit-check">✓</span> Form guidance & injury prevention</li>
-                  <li><span class="benefit-check">✓</span> Regular check-ins & progress tracking</li>
+                  <li><span class="benefit-check">✓</span> Continuous habit accountability</li>
                 </ul>
               </div>
               <div class="overview-pillar-footer">
-                <a href="#/services" class="card-learn-more-link">View Coaching Programs →</a>
+                <a href="#/services" class="card-learn-more-link">View Coaching Services →</a>
               </div>
             </div>
           </div>
@@ -301,11 +262,11 @@
             <span class="badge badge-navy">Our Services</span>
             <h2 class="section-title">Our Services</h2>
             <p class="section-subtitle">
-              Expert-led services designed to support healthier, stronger and more active communities.
+              Expert-led services designed to support healthier, stronger, and more active communities.
             </p>
           </div>
 
-          <div class="services-grid-4 reveal-up">
+          <div class="services-grid-4 reveal-up cards-scroll-mobile">
             <!-- Service 1: Personalised Strength Coaching -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
@@ -317,7 +278,7 @@
                 <div class="service-card-body">
                   <div class="service-card-header">
                     <div class="service-card-icon">🏋️</div>
-                    <h3>Personalised Strength Coaching</h3>
+                    <h3>Personal Strength Coaching</h3>
                   </div>
                   <div class="service-card-tagline">Progressive resistance with certified coaches.</div>
                   <p class="service-card-desc">
@@ -336,7 +297,7 @@
               </div>
             </div>
 
-            <!-- Service 2: Functional Fitness -->
+            <!-- Service 2: Functional Fitness Training -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
                 <img src="assets/functional-fitness.jpg" alt="Functional Fitness Training with Certified Coach in Clubhouse Gym" class="service-card-img" loading="lazy">
@@ -347,16 +308,16 @@
                 <div class="service-card-body">
                   <div class="service-card-header">
                     <div class="service-card-icon">🤸</div>
-                    <h3>FUNCTIONAL FITNESS TRAINING</h3>
+                    <h3>Functional Fitness Training</h3>
                   </div>
-                  <div class="service-card-tagline">Movement, balance & everyday strength.</div>
+                  <div class="service-card-tagline">Movement, balance & everyday performance.</div>
                   <p class="service-card-desc">
-                    Coach-led functional workouts designed to improve movement quality, coordination, stability, and everyday physical performance within your community.
+                    Coach-led functional workouts designed to improve movement quality, coordination, stability, and everyday physical performance.
                   </p>
                   <ul class="card-benefits-list">
                     <li><span class="benefit-check">✓</span> Functional movement training</li>
                     <li><span class="benefit-check">✓</span> Balance and coordination exercises</li>
-                    <li><span class="benefit-check">✓</span> Workouts adapted to individual fitness levels</li>
+                    <li><span class="benefit-check">✓</span> Scaled to individual fitness levels</li>
                   </ul>
                 </div>
                 <div class="service-card-footer">
@@ -381,11 +342,11 @@
                   </div>
                   <div class="service-card-tagline">High-energy community movement sessions.</div>
                   <p class="service-card-desc">
-                    Engaging morning and evening group workouts designed to build cardiovascular endurance, mobility, and community camaraderie.
+                    Engaging morning and evening group workouts designed to build cardiovascular endurance, stamina, and community camaraderie.
                   </p>
                   <ul class="card-benefits-list">
-                    <li><span class="benefit-check">✓</span> High-energy group training</li>
-                    <li><span class="benefit-check">✓</span> Cardiovascular & core conditioning</li>
+                    <li><span class="benefit-check">✓</span> High-energy group conditioning</li>
+                    <li><span class="benefit-check">✓</span> Cardiovascular & core endurance</li>
                     <li><span class="benefit-check">✓</span> Morning & evening batch schedules</li>
                   </ul>
                 </div>
@@ -399,9 +360,9 @@
             <!-- Service 4: Personalised Nutrition -->
             <div class="service-card-main" data-tilt>
               <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80" alt="Personalised Nutrition Meal Guides" class="service-card-img" loading="lazy">
+                <img src="assets/service-nutrition.jpg" alt="Personalised Nutrition Meal Guides" class="service-card-img" loading="lazy">
                 <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 04 • Nutrition Guides</span>
+                <span class="service-card-badge">Service 04 • Nutrition</span>
               </div>
               <div class="service-card-inner">
                 <div class="service-card-body">
@@ -433,7 +394,7 @@
         </div>
       </section>
 
-      <!-- 3. STRUCTURED PROGRAMS — FOUR PROGRAMS. ONE STARTING POINT. -->
+      <!-- 5. STRUCTURED PROGRAMS — FOUR PROGRAMS. ONE STARTING POINT. -->
       <section class="section section-programs" id="homepage-programs">
         <div class="container">
           <div class="section-header text-center reveal-up">
@@ -504,7 +465,7 @@
         </div>
       </section>
 
-      <!-- 4. FITNESS ASSESSMENT & BODY COMPOSITION SECTION -->
+      <!-- 6. FITNESS ASSESSMENT & BODY COMPOSITION SECTION -->
       <section class="section inbody-section" id="homepage-inbody">
         <div class="container">
           <div class="inbody-grid reveal-up">
@@ -523,7 +484,7 @@
               <span class="badge badge-teal">FITNESS ASSESSMENT • PERSONALIZED WELLNESS</span>
               <h2 class="inbody-heading">UNDERSTAND YOUR BODY. TRACK YOUR PROGRESS.</h2>
               <p class="inbody-description">
-                Get insights into your body composition to support your fitness journey with Helevate's professional coaching and wellness services.
+                Get objective insights into your body composition to support your fitness journey with Helevate's professional coaching.
               </p>
               <ul class="inbody-features-list">
                 <li class="inbody-feature-item">
@@ -548,7 +509,7 @@
                   <span class="inbody-check-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
                   </span>
-                  <span>Progress Tracking Over Your Coaching Journey</span>
+                  <span>Objective Progress Tracking Over Time</span>
                 </li>
               </ul>
               
@@ -566,19 +527,19 @@
         </div>
       </section>
 
-      <!-- 5. PERSONALISED SUPPORT -->
+      <!-- 7. PERSONALISED SUPPORT -->
       <section class="section section-light-blue" id="homepage-personalised-support">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">Supporting Personalisation</span>
             <h2 class="section-title">Personalised Support, When You Need It</h2>
             <p class="section-subtitle">
-              Assessments to understand individual needs and personalise recommendations and support.
+              Objective diagnostic panels to personalise recommendations and support.
             </p>
           </div>
 
           <!-- 4 Supporting Assessment Cards -->
-          <div class="assessments-grid-4 reveal-up">
+          <div class="assessments-grid-4 reveal-up cards-scroll-mobile">
             <!-- 1. Blood & Metabolic Health Test -->
             <div class="pricing-card with-media">
               <div class="assessment-card-media">
@@ -590,13 +551,13 @@
                 <div>
                   <div class="assessment-card-header">
                     <div class="assessment-card-icon">🔬</div>
-                    <h3 class="assessment-card-title">Blood & Metabolic Health Test</h3>
+                    <h3 class="assessment-card-title">Blood & Metabolic Health</h3>
                   </div>
-                  <p class="assessment-card-desc">Optional clinical blood biomarkers (ApoB, fasting insulin, hs-CRP) to uncover individual metabolic requirements.</p>
+                  <p class="assessment-card-desc">Optional clinical biomarkers (ApoB, fasting insulin, hs-CRP) to evaluate individual metabolic requirements.</p>
                   <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                    <li>Identifies insulin sensitivity</li>
-                    <li>Cardiometabolic risk evaluation</li>
-                    <li>Doorstep home collection</li>
+                    <li>✓ Insulin sensitivity evaluation</li>
+                    <li>✓ Cardiometabolic risk review</li>
+                    <li>✓ Doorstep sample collection</li>
                   </ul>
                 </div>
                 <a href="#/what-we-assess" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
@@ -618,9 +579,9 @@
                   </div>
                   <p class="assessment-card-desc">Gold-standard body composition imaging measuring visceral fat, bone density, and lean muscle mass.</p>
                   <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                    <li>Visceral fat quantification</li>
-                    <li>Regional lean mass symmetry</li>
-                    <li>Quarterly progress audit</li>
+                    <li>✓ Visceral fat quantification</li>
+                    <li>✓ Regional lean mass symmetry</li>
+                    <li>✓ Objective 90-day progress audits</li>
                   </ul>
                 </div>
                 <a href="#/what-we-assess" class="btn btn-primary btn-sm" style="width: 100%;">Learn About Assessments →</a>
@@ -638,37 +599,37 @@
                 <div>
                   <div class="assessment-card-header">
                     <div class="assessment-card-icon">🥗</div>
-                    <h3 class="assessment-card-title">Gut Health & Microbiome Test</h3>
+                    <h3 class="assessment-card-title">Gut Health & Microbiome</h3>
                   </div>
-                  <p class="assessment-card-desc">Maps bacterial diversity and digestive balance to personalize nutrition plans around your unique biology.</p>
+                  <p class="assessment-card-desc">Maps bacterial diversity and digestive balance to personalize nutrition plans around your biology.</p>
                   <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                    <li>Microbiome diversity score</li>
-                    <li>Digestive efficiency mapping</li>
-                    <li>Tailored whole-food guide</li>
+                    <li>✓ Microbiome diversity score</li>
+                    <li>✓ Digestive balance mapping</li>
+                    <li>✓ Tailored whole-food guide</li>
                   </ul>
                 </div>
                 <a href="#/what-we-assess" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
               </div>
             </div>
 
-            <!-- 4. Genetic Testing -->
+            <!-- 4. Cardiorespiratory VO2 Max -->
             <div class="pricing-card with-media">
               <div class="assessment-card-media">
-                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=700&auto=format&fit=crop&q=80" alt="Genetic Health Diagnostics" class="assessment-card-img" loading="lazy">
+                <img src="assets/vo2-cardio.jpg" alt="Cardiorespiratory VO2 Max Testing" class="assessment-card-img" loading="lazy">
                 <div class="assessment-card-media-scrim"></div>
-                <span class="assessment-card-badge">Assessment 04 • Genetics</span>
+                <span class="assessment-card-badge">Assessment 04 • VO2 Max</span>
               </div>
               <div class="pricing-card-inner">
                 <div>
                   <div class="assessment-card-header">
-                    <div class="assessment-card-icon">🧬</div>
-                    <h3 class="assessment-card-title">Genetic Testing</h3>
+                    <div class="assessment-card-icon">🫀</div>
+                    <h3 class="assessment-card-title">Cardiorespiratory VO2 Max</h3>
                   </div>
-                  <p class="assessment-card-desc">Reveals genetic responses to carbohydrates, fats, and workout recovery to guide precision lifestyle choices.</p>
+                  <p class="assessment-card-desc">Measures aerobic capacity, cardiovascular stamina, and recovery speed for long-term vitality.</p>
                   <ul class="pricing-feature-list" style="font-size: 0.82rem;">
-                    <li>Macronutrient response data</li>
-                    <li>Recovery latency profile</li>
-                    <li>Long-term habit alignment</li>
+                    <li>✓ VO2 max baseline testing</li>
+                    <li>✓ Heart rate training zones</li>
+                    <li>✓ Workout recovery speed profile</li>
                   </ul>
                 </div>
                 <a href="#/what-we-assess" class="btn btn-secondary btn-sm" style="width: 100%;">Learn About Assessments →</a>
@@ -678,18 +639,18 @@
         </div>
       </section>
 
-      <!-- 6. SIMPLE PROCESS EXPLANATION — 5-STEP JOURNEY (ASSESS -> PERSONALISE -> TRAIN & ACT -> REASSESS -> EVOLVE) -->
+      <!-- 8. SIMPLE PROCESS EXPLANATION — 5-STEP JOURNEY -->
       <section class="section journey-section" id="homepage-journey">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">The Member Journey</span>
             <h2 class="section-title">How Your Transformation Works</h2>
             <p class="section-subtitle">
-              A continuous, assessment-led cycle designed to help you build functional strength, track objective progress, and sustain lifelong health.
+              A continuous, 5-step cycle from baseline to sustainable health.
             </p>
           </div>
 
-          <div class="journey-track-grid reveal-up">
+          <div class="journey-track-grid reveal-up cards-scroll-mobile">
             <!-- Step 1 -->
             <div class="journey-step-card" data-tilt>
               <div class="journey-step-header">
@@ -699,7 +660,7 @@
               <h3 class="journey-step-name">Assess</h3>
               <div class="journey-step-sub">Baseline Your Biology</div>
               <p class="journey-step-desc">
-                Complete comprehensive baseline diagnostics: InBody analysis, metabolic biomarkers, and optional DEXA body imaging.
+                Complete baseline InBody body composition analysis and functional movement screening.
               </p>
             </div>
 
@@ -712,7 +673,7 @@
               <h3 class="journey-step-name">Personalise</h3>
               <div class="journey-step-sub">Build Around Your Data</div>
               <p class="journey-step-desc">
-                Your certified coach interprets your baseline data and formulates a tailored training and nutrition plan around what your body actually needs.
+                Your coach formulates a tailored training and nutrition blueprint based on your assessment.
               </p>
             </div>
 
@@ -723,9 +684,9 @@
                 <span class="journey-step-arrow">→</span>
               </div>
               <h3 class="journey-step-name">Train & Act</h3>
-              <div class="journey-step-sub">Execute In Your Community</div>
+              <div class="journey-step-sub">Execute In Community</div>
               <p class="journey-step-desc">
-                Strength coaching, group fitness, and nutrition guidance delivered consistently inside your society clubhouse gym.
+                Coach-guided strength, functional fitness, and nutrition delivered inside your clubhouse gym.
               </p>
             </div>
 
@@ -738,7 +699,7 @@
               <h3 class="journey-step-name">Reassess</h3>
               <div class="journey-step-sub">90-Day Checkpoints</div>
               <p class="journey-step-desc">
-                Repeat key markers and scans to objectively measure visceral fat loss, muscle gains, and mobility improvements — not just how you feel.
+                Repeat scans to objectively measure visceral fat loss, muscle gain, and mobility progress.
               </p>
             </div>
 
@@ -751,7 +712,7 @@
               <h3 class="journey-step-name">Evolve</h3>
               <div class="journey-step-sub">Continuous Adaptation</div>
               <p class="journey-step-desc">
-                Your progressive resistance and nutrition frameworks adjust as your body evolves, ensuring sustained longevity and results.
+                Progressive resistance and nutrition frameworks adjust as your body evolves for sustained health.
               </p>
             </div>
           </div>
@@ -762,7 +723,7 @@
         </div>
       </section>
 
-      <!-- 7. BRING HELEVATE TO YOUR COMMUNITY -->
+      <!-- 9. BRING HELEVATE TO YOUR COMMUNITY -->
       <section class="section" id="homepage-community-cta" style="padding: 48px 0; background: #FFFFFF;">
         <div class="container">
           <div style="background: linear-gradient(135deg, #072238 0%, #0E3A5D 100%); border-radius: var(--radius-2xl); padding: 48px 36px; color: #FFFFFF; text-align: center; box-shadow: 0 16px 44px rgba(7, 26, 46, 0.25);" class="reveal-up">
@@ -771,7 +732,7 @@
               Bring Helevate to Your Community
             </h2>
             <p style="color: #DDF1EF; font-size: 1.05rem; max-width: 680px; margin: 0 auto 28px; line-height: 1.65;">
-              Give your residents access to professional fitness, nutrition and wellness services — right within your community.
+              Give your residents access to professional fitness, nutrition, and wellness services — right within your community.
             </p>
             <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
               <button class="btn btn-teal btn-lg open-partner-trigger">Partner With Helevate</button>
@@ -781,15 +742,14 @@
         </div>
       </section>
 
-
-      <!-- 8. THE MINDS BEHIND HELEVATE -->
+      <!-- 10. THE MINDS BEHIND HELEVATE -->
       <section class="section" id="homepage-team">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">Leadership & Coaching</span>
             <h2 class="section-title">The Minds Behind Helevate</h2>
             <p class="section-subtitle">
-              Meet the multidisciplinary coaches, clinical nutritionists, and wellness specialists delivering professional health inside your community.
+              Multidisciplinary coaches, clinical nutritionists, and wellness specialists delivering professional care inside your community.
             </p>
           </div>
 
@@ -808,7 +768,7 @@
 
                 <div class="founder-quote-box">
                   <blockquote class="founder-quote-text">
-                    “Helevate was built on a simple premise: professional fitness and wellness should be accessible right where you live. By partnering directly with gated communities, we bring certified coaching, structured nutrition, and personalised care straight to your residential clubhouse.”
+                    “Helevate was built on a simple premise: professional fitness and wellness should be accessible right where you live. By partnering directly with gated communities, we bring certified coaching, structured nutrition, and personalised care straight to your clubhouse.”
                   </blockquote>
                 </div>
 
@@ -835,7 +795,7 @@
             </div>
 
             <!-- Right: Clinical & Performance Team Grid -->
-            <div class="clinical-team-grid">
+            <div class="clinical-team-grid cards-scroll-mobile">
               <!-- Member 1: Dr. S. Ananya -->
               <div class="clinical-card reveal-up" data-tilt>
                 <div>
@@ -908,7 +868,7 @@
                     </div>
                   </div>
                   <p class="clinical-bio">
-                    Oversees health safety standards, assessment thresholds, and physician referral protocols for high-risk profiles.
+                    Oversees health safety standards, assessment thresholds, and physician referral protocols.
                   </p>
                 </div>
                 <div class="clinical-specialty-pill">
@@ -920,14 +880,14 @@
         </div>
       </section>
 
-      <!-- 8. TESTIMONIALS & RESIDENT STORIES -->
+      <!-- 11. TESTIMONIALS & RESIDENT STORIES -->
       <section class="section section-light-blue" id="homepage-testimonials">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">Community Stories</span>
             <h2 class="section-title">Transformation Stories from Hyderabad</h2>
             <p class="section-subtitle">
-              Watch real experiences from gated community residents who transformed their fitness and health with Helevate.
+              Real experiences from gated community residents who transformed their fitness and health with Helevate.
             </p>
           </div>
 
@@ -1024,7 +984,7 @@
         </div>
       </section>
 
-      <!-- 9. FINAL CTA -->
+      <!-- 12. FINAL CTA -->
       <section class="section" id="homepage-final-cta">
         <div class="container">
           <div class="final-cinematic-cta-box reveal-up" data-tilt>
@@ -3296,10 +3256,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=8.2"></script>
-  <script src="js/video-engine.js?v=8.2"></script>
-  <script src="js/router.js?v=8.2"></script>
-  <script src="js/scroll-motion.js?v=8.2"></script>
-  <script src="js/app.js?v=8.2"></script>
+  <script src="js/data.js?v=9.5"></script>
+  <script src="js/video-engine.js?v=9.5"></script>
+  <script src="js/router.js?v=9.5"></script>
+  <script src="js/scroll-motion.js?v=9.5"></script>
+  <script src="js/app.js?v=9.5"></script>
 </body>
 </html>
