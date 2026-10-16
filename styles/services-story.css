@@ -1,0 +1,469 @@
+/* ==========================================================================
+   HELEVATE.FIT — OUR SERVICES: IMAGE-LED SCROLL STORYTELLING
+   Scope: #homepage-services only (.svc-story*). No shared selectors changed.
+
+   Sequence per service:
+     1. A large, sticky, full-bleed image fills the viewport (image first).
+     2. As the user scrolls, a content card rises over the lower part of the
+        image (heading → tagline → description → key points).
+     3. The pair scrolls away naturally and the next service image follows.
+   Native scrolling only — no scroll-jacking, no wheel/touch interception.
+   ========================================================================== */
+
+#homepage-services.svc-story {
+  --svc-top: var(--header-height, 72px);           /* JS syncs to real header height */
+  --svc-media-h: calc(100vh - var(--svc-top));
+  --svc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --svc-font-accent: 'Quicksand', var(--font-body, 'Inter'), sans-serif;
+  padding-bottom: 0;
+  overflow: visible;                                /* required for position: sticky */
+}
+
+@supports (height: 100svh) {
+  #homepage-services.svc-story {
+    --svc-media-h: calc(100svh - var(--svc-top));
+  }
+}
+
+#homepage-services .section-header {
+  margin-bottom: 40px;
+}
+
+/* ---------- List / item ---------- */
+.svc-story-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-story-item {
+  position: relative;
+  isolation: isolate;
+  --svc-p: 0;                                       /* 0 → 1 as the card rises (JS) */
+}
+
+/* ---------- Media (image first) ---------- */
+.svc-story-media {
+  position: sticky;
+  top: var(--svc-top);
+  z-index: 0;
+  height: var(--svc-media-h);
+  min-height: 420px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-primary-navy-dark, #072238);
+}
+
+.svc-story-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--svc-pos, 50% 50%);
+  transform: scale(calc(1.08 - (var(--svc-p) * 0.08)));
+  transform-origin: 50% 40%;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.9s var(--svc-ease);
+}
+
+.svc-story-img.is-loaded,
+.no-js .svc-story-img,
+.svc-story:not(.js-ready) .svc-story-img {
+  opacity: 1;
+}
+
+.svc-story-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(7, 34, 56, 0.28) 0%, rgba(7, 34, 56, 0) 26%),
+    linear-gradient(0deg, rgba(4, 16, 29, 0.55) 0%, rgba(4, 16, 29, 0) 42%);
+}
+
+/* Subtle darkening as the explanation slides in, keeping text contrast high */
+.svc-story-scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 16, 29, 0.42);
+  opacity: calc(var(--svc-p) * 1);
+}
+
+.svc-story-label {
+  position: absolute;
+  left: clamp(20px, 5vw, 64px);
+  bottom: clamp(92px, 15vh, 140px);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  color: #FFFFFF;
+  opacity: calc(1 - (var(--svc-p) * 1.4));
+  transform: translateY(calc(var(--svc-p) * -24px));
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.svc-story-item--right .svc-story-label {
+  left: auto;
+  right: clamp(20px, 5vw, 64px);
+  flex-direction: row-reverse;
+}
+
+.svc-story-num {
+  font-family: var(--font-display, var(--font-heading));
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(3.4rem, 9vw, 7rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+.svc-story-kicker {
+  font-family: var(--svc-font-accent);
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---------- Content (explanation follows the image) ---------- */
+.svc-story-content {
+  position: relative;
+  z-index: 1;
+  /* Card starts just below the fold of the sticky image, then rises over it */
+  margin-top: -8vh;
+  padding: 0 clamp(20px, 5vw, 64px) 14vh;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.svc-story-item--right .svc-story-content {
+  justify-content: flex-end;
+}
+
+.svc-story-card {
+  pointer-events: auto;
+  width: min(100%, 540px);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(14, 58, 93, 0.08);
+  border-radius: 24px;
+  padding: clamp(26px, 3vw, 40px);
+  box-shadow:
+    0 30px 60px -20px rgba(4, 16, 29, 0.45),
+    0 8px 22px rgba(4, 16, 29, 0.12);
+  color: var(--color-text-main, #153255);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.svc-story-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  font-size: 1.35rem;
+  background: var(--color-light-blue-soft, #DDF1EF);
+  margin-bottom: 14px;
+}
+
+.svc-story-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.02;
+  color: var(--color-primary-navy, #0E3A5D);
+  margin: 0 0 10px;
+}
+
+.svc-story-tagline {
+  font-family: var(--svc-font-accent);
+  font-weight: 700;
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  line-height: 1.4;
+  color: var(--color-accent-teal-dark, #00A68E);
+  margin: 0 0 12px;
+}
+
+.svc-story-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #2C4A63);
+  margin: 0 0 18px;
+}
+
+.svc-story-points {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.svc-story-points li {
+  position: relative;
+  padding-left: 28px;
+  font-family: var(--svc-font-accent);
+  font-weight: 600;
+  font-size: 0.93rem;
+  line-height: 1.4;
+  color: var(--color-navy-text, #153255);
+}
+
+.svc-story-points li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--color-accent-teal-dark, #00A68E);
+}
+
+.svc-story-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid rgba(14, 58, 93, 0.1);
+}
+
+.svc-story-where {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-dim, #50718A);
+}
+
+.svc-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;                                 /* touch target */
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  background: var(--color-primary-navy, #0E3A5D);
+  transition: background 0.25s ease, transform 0.25s var(--svc-ease);
+}
+
+.svc-story-link span {
+  transition: transform 0.25s var(--svc-ease);
+}
+
+.svc-story-link:hover,
+.svc-story-link:focus-visible {
+  background: var(--color-primary-navy-hover, #12436B);
+}
+
+.svc-story-link:hover span,
+.svc-story-link:focus-visible span {
+  transform: translateX(4px);
+}
+
+.svc-story-link:focus-visible {
+  outline: 3px solid var(--color-accent-teal, #00D2B4);
+  outline-offset: 3px;
+}
+
+.svc-story-cta {
+  text-align: center;
+  padding: 48px 0 64px;
+}
+
+/* ---------- Reveal choreography (only when JS is active) ---------- */
+.svc-story.js-ready .svc-story-card > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--svc-ease),
+    transform 0.8s var(--svc-ease);
+}
+
+.svc-story.js-ready .svc-story-card {
+  opacity: 0;
+  transform: translateY(48px) scale(0.98);
+  transition:
+    opacity 0.8s var(--svc-ease),
+    transform 0.9s var(--svc-ease);
+}
+
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card,
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > * {
+  opacity: 1;
+  transform: none;
+}
+
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > :nth-child(2) { transition-delay: 0.08s; }
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > :nth-child(3) { transition-delay: 0.14s; }
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > :nth-child(4) { transition-delay: 0.20s; }
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > :nth-child(5) { transition-delay: 0.26s; }
+.svc-story.js-ready .svc-story-item.is-in .svc-story-card > :nth-child(6) { transition-delay: 0.32s; }
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .svc-story-card {
+    width: min(100%, 500px);
+  }
+}
+
+/* ==========================================================================
+   MOBILE (mobile-first priorities: subject visibility, readable card, touch)
+   ========================================================================== */
+@media (max-width: 768px) {
+  #homepage-services .section-header {
+    margin-bottom: 28px;
+  }
+
+  /* Tall but not full-height: keeps people/subjects in frame on narrow screens */
+  .svc-story-media {
+    height: min(var(--svc-media-h), 132vw);
+    min-height: 360px;
+  }
+
+  .svc-story-img {
+    object-position: var(--svc-pos-m, var(--svc-pos, 50% 50%));
+  }
+
+  .svc-story-label,
+  .svc-story-item--right .svc-story-label {
+    left: 18px;
+    right: auto;
+    bottom: 64px;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .svc-story-num {
+    font-size: clamp(3rem, 16vw, 4.2rem);
+  }
+
+  .svc-story-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    padding: 6px 11px;
+  }
+
+  .svc-story-content,
+  .svc-story-item--right .svc-story-content {
+    margin-top: -44px;                              /* rounded card tucks under the image */
+    padding: 0 12px 40px;
+    justify-content: center;
+  }
+
+  .svc-story-card {
+    width: 100%;
+    border-radius: 22px;
+    padding: 24px 20px 20px;
+  }
+
+  .svc-story-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+
+  .svc-story-title {
+    font-size: clamp(1.55rem, 7vw, 1.9rem);
+  }
+
+  .svc-story-desc {
+    font-size: 0.94rem;
+    margin-bottom: 16px;
+  }
+
+  .svc-story-points {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .svc-story-points li {
+    font-size: 0.9rem;
+  }
+
+  .svc-story-meta {
+    padding-top: 14px;
+  }
+
+  .svc-story-link {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .svc-story-cta {
+    padding: 12px 0 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .svc-story-card {
+    padding: 22px 16px 18px;
+  }
+
+  .svc-story-content,
+  .svc-story-item--right .svc-story-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* Short landscape phones: keep image + card usable */
+@media (max-height: 520px) and (orientation: landscape) {
+  .svc-story-media {
+    height: calc(100vh - var(--svc-top));
+    min-height: 0;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION — static images, content visible immediately
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .svc-story-img {
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  .svc-story-label {
+    transform: none !important;
+  }
+
+  .svc-story.js-ready .svc-story-card,
+  .svc-story.js-ready .svc-story-card > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .svc-story-link,
+  .svc-story-link span {
+    transition: none !important;
+  }
+}

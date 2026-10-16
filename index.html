@@ -25,6 +25,7 @@
   <!-- Design System Stylesheets -->
   <link rel="stylesheet" href="styles/main.css?v=9.6">
   <link rel="stylesheet" href="styles/components.css?v=9.7">
+  <link rel="stylesheet" href="styles/services-story.css?v=1.0">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
@@ -257,141 +258,164 @@
         </div>
       </section>
 
-      <!-- 4. OUR SERVICES — PRIMARY HOMEPAGE SECTION (4 MAIN SERVICES) -->
-      <section class="section section-light-blue" id="homepage-services">
+      <!-- 4. OUR SERVICES — IMAGE-LED SCROLL STORYTELLING (4 MAIN SERVICES) -->
+      <section class="section section-light-blue svc-story" id="homepage-services" aria-labelledby="svc-story-title">
         <div class="container">
           <div class="section-header text-center reveal-up">
             <span class="badge badge-navy">Our Services</span>
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title" id="svc-story-title">Our Services</h2>
             <p class="section-subtitle">
               Expert-led services designed to support healthier, stronger, and more active communities.
             </p>
           </div>
+        </div>
 
-          <div class="services-grid-4 reveal-up cards-scroll-mobile">
-            <!-- Service 1: Personalised Strength Coaching -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=80" alt="Personalised Strength Coaching with Certified Trainer" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 01 • Strength</span>
+        <div class="svc-story-list">
+          <!-- Service 1: Personal Strength Coaching -->
+          <article class="svc-story-item" id="svc-story-strength" style="--svc-pos: 52% 45%; --svc-pos-m: 52% 50%;">
+            <div class="svc-story-media">
+              <img
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1400&auto=format&fit=crop&q=80"
+                srcset="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=75 800w,
+                        https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1400&auto=format&fit=crop&q=80 1400w,
+                        https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=2000&auto=format&fit=crop&q=80 2000w"
+                sizes="100vw" width="1800" height="1200"
+                alt="Certified coach guiding a resident through a strength exercise"
+                class="svc-story-img" loading="lazy" decoding="async">
+              <div class="svc-story-scrim" aria-hidden="true"></div>
+              <div class="svc-story-label" aria-hidden="true">
+                <span class="svc-story-num">01</span>
+                <span class="svc-story-kicker">Strength</span>
               </div>
-              <div class="service-card-inner">
-                <div class="service-card-body">
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🏋️</div>
-                    <h3>Personal Strength Coaching</h3>
-                  </div>
-                  <div class="service-card-tagline">Build lean muscle and protect joint health.</div>
-                  <p class="service-card-desc">
-                    One-on-one clubhouse sessions focused on safe lifting mechanics and progressive overload tailored to your body.
-                  </p>
-                  <ul class="card-benefits-list">
-                    <li><span class="benefit-check">✓</span> Proper lifting form & injury prevention</li>
-                    <li><span class="benefit-check">✓</span> Structured progressive overload tracking</li>
-                    <li><span class="benefit-check">✓</span> Customised pacing for all experience levels</li>
-                  </ul>
-                </div>
-                <div class="service-card-footer">
-                  <span>📍 Clubhouse Gym</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost">Explore Service →</a>
+            </div>
+            <div class="svc-story-content">
+              <div class="svc-story-card">
+                <span class="svc-story-icon" aria-hidden="true">🏋️</span>
+                <h3 class="svc-story-title">Personal Strength Coaching</h3>
+                <p class="svc-story-tagline">Build lean muscle and protect joint health.</p>
+                <p class="svc-story-desc">One-on-one clubhouse sessions focused on safe lifting mechanics and progressive overload tailored to your body.</p>
+                <ul class="svc-story-points">
+                  <li>Proper lifting form &amp; injury prevention</li>
+                  <li>Structured progressive overload tracking</li>
+                  <li>Customised pacing for all experience levels</li>
+                </ul>
+                <div class="svc-story-meta">
+                  <span class="svc-story-where">📍 Clubhouse Gym</span>
+                  <a href="#/services" class="svc-story-link" id="svc-story-strength-link">Explore Service <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
+          </article>
 
-            <!-- Service 2: Functional Fitness Training -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="assets/functional-fitness.jpg" alt="Functional Fitness Training with Certified Coach in Clubhouse Gym" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 02 • Functional Fitness</span>
+          <!-- Service 2: Functional Fitness Training -->
+          <article class="svc-story-item svc-story-item--right" id="svc-story-functional" style="--svc-pos: 50% 40%; --svc-pos-m: 54% 50%;">
+            <div class="svc-story-media">
+              <img
+                src="assets/functional-fitness.jpg"
+                width="1376" height="768"
+                alt="Coach correcting a resident's kettlebell movement in the clubhouse gym"
+                class="svc-story-img" loading="lazy" decoding="async">
+              <div class="svc-story-scrim" aria-hidden="true"></div>
+              <div class="svc-story-label" aria-hidden="true">
+                <span class="svc-story-num">02</span>
+                <span class="svc-story-kicker">Functional Fitness</span>
               </div>
-              <div class="service-card-inner">
-                <div class="service-card-body">
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🤸</div>
-                    <h3>Functional Fitness Training</h3>
-                  </div>
-                  <div class="service-card-tagline">Move better, feel lighter, and stay agile.</div>
-                  <p class="service-card-desc">
-                    Dynamic bodyweight and free-weight workouts that make everyday physical tasks effortless and pain-free.
-                  </p>
-                  <ul class="card-benefits-list">
-                    <li><span class="benefit-check">✓</span> Core stability & balance enhancement</li>
-                    <li><span class="benefit-check">✓</span> Posture alignment & joint mobility</li>
-                    <li><span class="benefit-check">✓</span> Scaled intensity suitable for all ages</li>
-                  </ul>
-                </div>
-                <div class="service-card-footer">
-                  <span>📍 Clubhouse Gym</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost">Explore Service →</a>
+            </div>
+            <div class="svc-story-content">
+              <div class="svc-story-card">
+                <span class="svc-story-icon" aria-hidden="true">🤸</span>
+                <h3 class="svc-story-title">Functional Fitness Training</h3>
+                <p class="svc-story-tagline">Move better, feel lighter, and stay agile.</p>
+                <p class="svc-story-desc">Dynamic bodyweight and free-weight workouts that make everyday physical tasks effortless and pain-free.</p>
+                <ul class="svc-story-points">
+                  <li>Core stability &amp; balance enhancement</li>
+                  <li>Posture alignment &amp; joint mobility</li>
+                  <li>Scaled intensity suitable for all ages</li>
+                </ul>
+                <div class="svc-story-meta">
+                  <span class="svc-story-where">📍 Clubhouse Gym</span>
+                  <a href="#/services" class="svc-story-link" id="svc-story-functional-link">Explore Service <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
+          </article>
 
-            <!-- Service 3: Group Fitness Classes -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&auto=format&fit=crop&q=80" alt="Group Fitness Classes with Coach" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 03 • Group Fitness</span>
+          <!-- Service 3: Group Fitness Classes -->
+          <article class="svc-story-item" id="svc-story-group" style="--svc-pos: 50% 55%; --svc-pos-m: 45% 55%;">
+            <div class="svc-story-media">
+              <img
+                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1400&auto=format&fit=crop&q=80"
+                srcset="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&auto=format&fit=crop&q=75 800w,
+                        https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1400&auto=format&fit=crop&q=80 1400w,
+                        https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=2000&auto=format&fit=crop&q=80 2000w"
+                sizes="100vw" width="1800" height="1349"
+                alt="Spacious community clubhouse fitness studio used for group classes"
+                class="svc-story-img" loading="lazy" decoding="async">
+              <div class="svc-story-scrim" aria-hidden="true"></div>
+              <div class="svc-story-label" aria-hidden="true">
+                <span class="svc-story-num">03</span>
+                <span class="svc-story-kicker">Group Fitness</span>
               </div>
-              <div class="service-card-inner">
-                <div class="service-card-body">
-                  <div class="service-card-header">
-                    <div class="service-card-icon">👥</div>
-                    <h3>Group Fitness Classes</h3>
-                  </div>
-                  <div class="service-card-tagline">Stay motivated alongside your neighbours.</div>
-                  <p class="service-card-desc">
-                    Energising coach-led sessions that blend cardiovascular conditioning with calorie-burning interval drills.
-                  </p>
-                  <ul class="card-benefits-list">
-                    <li><span class="benefit-check">✓</span> Full-body aerobic & core conditioning</li>
-                    <li><span class="benefit-check">✓</span> Convenient morning and evening batches</li>
-                    <li><span class="benefit-check">✓</span> Supportive, non-intimidating atmosphere</li>
-                  </ul>
-                </div>
-                <div class="service-card-footer">
-                  <span>📍 Morning & Evening</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost">Explore Service →</a>
+            </div>
+            <div class="svc-story-content">
+              <div class="svc-story-card">
+                <span class="svc-story-icon" aria-hidden="true">👥</span>
+                <h3 class="svc-story-title">Group Fitness Classes</h3>
+                <p class="svc-story-tagline">Stay motivated alongside your neighbours.</p>
+                <p class="svc-story-desc">Energising coach-led sessions that blend cardiovascular conditioning with calorie-burning interval drills.</p>
+                <ul class="svc-story-points">
+                  <li>Full-body aerobic &amp; core conditioning</li>
+                  <li>Convenient morning and evening batches</li>
+                  <li>Supportive, non-intimidating atmosphere</li>
+                </ul>
+                <div class="svc-story-meta">
+                  <span class="svc-story-where">📍 Morning &amp; Evening</span>
+                  <a href="#/services" class="svc-story-link" id="svc-story-group-link">Explore Service <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
+          </article>
 
-            <!-- Service 4: Personalised Nutrition -->
-            <div class="service-card-main" data-tilt>
-              <div class="service-card-media">
-                <img src="assets/service-nutrition.jpg" alt="Personalised Nutrition Meal Guides" class="service-card-img" loading="lazy">
-                <div class="service-card-scrim"></div>
-                <span class="service-card-badge">Service 04 • Nutrition</span>
+          <!-- Service 4: Personalised Nutrition -->
+          <article class="svc-story-item svc-story-item--right" id="svc-story-nutrition" style="--svc-pos: 50% 50%; --svc-pos-m: 50% 50%;">
+            <div class="svc-story-media">
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&auto=format&fit=crop&q=80"
+                srcset="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop&q=75 800w,
+                        https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&auto=format&fit=crop&q=80 1400w,
+                        https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=2000&auto=format&fit=crop&q=80 2000w"
+                sizes="100vw" width="1600" height="1067"
+                alt="Balanced, colourful meal bowl representing a personalised nutrition plan"
+                class="svc-story-img" loading="lazy" decoding="async">
+              <div class="svc-story-scrim" aria-hidden="true"></div>
+              <div class="svc-story-label" aria-hidden="true">
+                <span class="svc-story-num">04</span>
+                <span class="svc-story-kicker">Nutrition</span>
               </div>
-              <div class="service-card-inner">
-                <div class="service-card-body">
-                  <div class="service-card-header">
-                    <div class="service-card-icon">🥗</div>
-                    <h3>Personalised Nutrition</h3>
-                  </div>
-                  <div class="service-card-tagline">Healthy eating without restrictive dieting.</div>
-                  <p class="service-card-desc">
-                    Clinical dietitians design practical meal plans aligned with your metabolism, schedule, and food preferences.
-                  </p>
-                  <ul class="card-benefits-list">
-                    <li><span class="benefit-check">✓</span> Calibrated for everyday Indian home meals</li>
-                    <li><span class="benefit-check">✓</span> Weekly habit coaching & progress check-ins</li>
-                    <li><span class="benefit-check">✓</span> Targeted for energy, digestion, and fat loss</li>
-                  </ul>
-                </div>
-                <div class="service-card-footer">
-                  <span>📍 Dietitian Crafted</span>
-                  <a href="#/services" class="btn btn-sm btn-ghost">Explore Service →</a>
+            </div>
+            <div class="svc-story-content">
+              <div class="svc-story-card">
+                <span class="svc-story-icon" aria-hidden="true">🥗</span>
+                <h3 class="svc-story-title">Personalised Nutrition</h3>
+                <p class="svc-story-tagline">Healthy eating without restrictive dieting.</p>
+                <p class="svc-story-desc">Clinical dietitians design practical meal plans aligned with your metabolism, schedule, and food preferences.</p>
+                <ul class="svc-story-points">
+                  <li>Calibrated for everyday Indian home meals</li>
+                  <li>Weekly habit coaching &amp; progress check-ins</li>
+                  <li>Targeted for energy, digestion, and fat loss</li>
+                </ul>
+                <div class="svc-story-meta">
+                  <span class="svc-story-where">📍 Dietitian Crafted</span>
+                  <a href="#/services" class="svc-story-link" id="svc-story-nutrition-link">Explore Service <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
+        </div>
 
-          <div style="text-align: center; margin-top: 36px;">
-            <a href="#/services" class="btn btn-primary btn-md">Explore All Services & Details →</a>
+        <div class="container">
+          <div class="svc-story-cta">
+            <a href="#/services" class="btn btn-primary btn-md" id="svc-story-all-link">Explore All Services &amp; Details →</a>
           </div>
         </div>
       </section>
@@ -3263,6 +3287,7 @@
   <script src="js/video-engine.js?v=9.5"></script>
   <script src="js/router.js?v=9.8"></script>
   <script src="js/scroll-motion.js?v=9.5"></script>
+  <script src="js/services-story.js?v=1.0"></script>
   <script src="js/app.js?v=9.5"></script>
 </body>
 </html>
